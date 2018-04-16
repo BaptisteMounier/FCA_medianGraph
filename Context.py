@@ -1,5 +1,6 @@
 import csv
 from copy import copy
+from Lattice import Lattice
 
 class Context(object):
     '''
@@ -45,6 +46,23 @@ class Context(object):
             if (i[0] in standardContext.J) and (i[1] in standardContext.M):
                 standardContext.I.add((i[0],i[1]))
         return standardContext
+    
+    def tmp(self):
+        print('Not yet totally implemented')
+        firstFilters = self.getPrimaryFilters()
+        for firstFilter in firstFilters:
+            filterContext = Context(self.contextName+'_'+firstFilter)
+            filterContext.J = copy(self.J)
+            for i in self.I:
+                if i[1] in self.getJPrime(firstFilter):
+                    filterContext.I.add(i)
+                    filterContext.M.add(i[1])
+            filterStandardContext = filterContext.generateStandardContext()
+            filterStandardContext.display()
+            filterDistributiveContext = filterStandardContext.generateDistributiveContext()
+            filterDistributiveContext.display()
+            lattice = Lattice(filterDistributiveContext)
+            lattice.generateGraph('data/graph/')
         
     def generateDistributiveContext(self):
         print('Generate the distributive context \''+self.contextName+'_d\' of the context \''+self.contextName+'\'')
@@ -164,6 +182,20 @@ class Context(object):
                 if irreductible:
                     irreductiblesAttributes.add(m)
         return irreductiblesAttributes
+    
+    def getPrimaryFilters(self):
+        firstFilters = set()
+        for j in self.JExtended:
+            sourceCount = 0
+            for i in self.JExtended:
+                if j != i:
+                    if self.getJPrimeExtended(j).issubset(self.getJPrimeExtended(i)):
+                        sourceCount += 1
+                    if sourceCount > 1:
+                        break
+            if sourceCount == 1:
+                firstFilters.add(j)
+        return firstFilters
     
     def display(self):
         print('-'*15)

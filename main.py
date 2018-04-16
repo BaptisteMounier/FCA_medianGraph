@@ -19,6 +19,7 @@ if __name__=="__main__":
         sContext.display()
         slattice = Lattice(sContext)
         slattice.generateGraph(graphDirectory)
+        sContext.tmp()
          
         dContext = sContext.generateDistributiveContext()
         #dContext.display()
