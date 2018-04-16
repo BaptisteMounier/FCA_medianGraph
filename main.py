@@ -3,17 +3,17 @@ import argparse
 import os
 
 from Context import Context
-from Latticev import Lattice
+from Lattice import Lattice
 
 if __name__=="__main__":
     
     def analyse(contextFileName, contextFilePath, graphDirectory):
-        print('-'*15)
-        print('Analysis of \''+contextFileName)
+        print('-'*25)
+        print('Analysis of \''+contextFileName+'\'')
         
         context = Context(contextFileName)
         context.generateContextFomFile(contextFilePath)
-        context.display()
+        #context.display()
         
         sContext = context.generateStandardContext()
         sContext.display()
@@ -21,21 +21,20 @@ if __name__=="__main__":
         slattice.generateGraph(graphDirectory)
          
         dContext = sContext.generateDistributiveContext()
-        dContext.display()
-        dLattice = Lattice(dContext)
-        dLattice.generateGraph(graphDirectory)
+        #dContext.display()
          
         sdContext = dContext.generateStandardContext()
         sdContext.display()
         sdlattice = Lattice(sdContext)
         sdlattice.generateGraph(graphDirectory)
-        print('-'*15)
+        print('-'*25)
 
     # Check option's command
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
     args.file = 'cla'
+    #args.file = 'crown'
     #args.file = 'clav2'
     #args.file = 'divisors'
     #args.file = 'priss2013-table01'

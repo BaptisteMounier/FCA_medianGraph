@@ -1,8 +1,6 @@
 import csv
 from copy import copy
 
-from Lattice import Lattice
-
 class Context(object):
     '''
     classdocs
@@ -56,7 +54,7 @@ class Context(object):
             jFilters = set()
             X = set()
             for i in distributiveContext.J:
-                if self.getJPrime(j).issubset(self.getJPrime(i)):
+                if self.getJPrime(j).issuperset(self.getJPrime(i)):
                     jFilters.add(i)
                 else:
                     X.add(i)
