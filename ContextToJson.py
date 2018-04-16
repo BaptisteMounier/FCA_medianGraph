@@ -13,6 +13,6 @@ class ContextToJson(object):
         self.context = context
         self.data = []
         
-    def tmp(self):
+    def export(self):
         print('Not yet implemented')
         

@@ -38,7 +38,7 @@ class Context(object):
                 l += 1
                 
     def generateStandardContext(self):
-        print('Generate the standard context \''+self.contextName+'_s\' of the context\''+self.contextName+'\'')
+        print('Generate the standard context \''+self.contextName+'_s\' of the context \''+self.contextName+'\'')
         standardContext = Context(self.contextName+'_s')
         standardContext.J = self.getIrreductibleJ()
         standardContext.M = self.getIrreductibleM()
@@ -47,9 +47,13 @@ class Context(object):
                 standardContext.I.add((i[0],i[1]))
         return standardContext
     
-    def tmp(self):
+    def generateDistributiveContextOnFirstFilters(self):
+        
         print('Not yet totally implemented')
+        # Section about cla2018 method
+        
         firstFilters = self.getPrimaryFilters()
+        globalContext = Context(self.contextName+'_df')
         for firstFilter in firstFilters:
             filterContext = Context(self.contextName+'_'+firstFilter)
             filterContext.J = copy(self.J)
@@ -58,11 +62,30 @@ class Context(object):
                     filterContext.I.add(i)
                     filterContext.M.add(i[1])
             filterStandardContext = filterContext.generateStandardContext()
-            filterStandardContext.display()
+#             filterStandardContext.display()
             filterDistributiveContext = filterStandardContext.generateDistributiveContext()
             filterDistributiveContext.display()
+            filterStandardDistributiveContext = filterDistributiveContext.generateStandardContext()
+            for j in globalContext.J:
+                if j == firstFilter:
+                    for m in filterStandardDistributiveContext.M:
+                        globalContext.I.add((j,m))
+            for j in filterStandardDistributiveContext.J:
+                if (j != firstFilter) and (j in firstFilters):
+                    for m in globalContext.M:
+                        globalContext.I.add((j,m))
+            globalContext.J.update(filterStandardDistributiveContext.J)
+            globalContext.M.update(filterStandardDistributiveContext.M)
+            globalContext.I.update(filterStandardDistributiveContext.I)
+            globalContext.display()
             lattice = Lattice(filterDistributiveContext)
             lattice.generateGraph('data/graph/')
+            
+        glattice = Lattice(globalContext)
+        glattice.generateGraph('data/graph/')
+        
+        # Upgrade to merge nodes
+        
         
     def generateDistributiveContext(self):
         print('Generate the distributive context \''+self.contextName+'_d\' of the context \''+self.contextName+'\'')

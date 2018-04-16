@@ -19,15 +19,15 @@ if __name__=="__main__":
         sContext.display()
         slattice = Lattice(sContext)
         slattice.generateGraph(graphDirectory)
-        sContext.tmp()
+        sContext.generateDistributiveContextOnFirstFilters()
          
-        dContext = sContext.generateDistributiveContext()
-        #dContext.display()
+#         dContext = sContext.generateDistributiveContext()
+#         dContext.display()
          
-        sdContext = dContext.generateStandardContext()
-        sdContext.display()
-        sdlattice = Lattice(sdContext)
-        sdlattice.generateGraph(graphDirectory)
+#         sdContext = dContext.generateStandardContext()
+#         sdContext.display()
+#         sdlattice = Lattice(sdContext)
+#         sdlattice.generateGraph(graphDirectory)
         print('-'*25)
 
     # Check option's command
