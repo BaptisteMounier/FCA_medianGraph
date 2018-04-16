@@ -43,8 +43,6 @@ class Context(object):
         standardContext = Context(self.contextName+'_s')
         standardContext.J = self.getIrreductibleJ()
         standardContext.M = self.getIrreductibleM()
-        print('irrJ',standardContext.J)
-        print('irrM',standardContext.M)
         for i in self.I:
             if (i[0] in standardContext.J) and (i[1] in standardContext.M):
                 standardContext.I.add((i[0],i[1]))
@@ -95,14 +93,14 @@ class Context(object):
             self.JExtended.add(jBot)
             for m in self.M:
                 self.IExtended.add((jBot, m))
-        
-    def generateLattice(self):
-        print('Generate the lattice of the context \''+self.contextName+'\'')
-        lattice = Lattice(self.contextName)
-        for i in self.I:
-            lattice.injectTuple(i)
-        lattice.extendTuple()
-        return lattice
+    # Unused
+#     def generateLattice(self):
+#         print('Generate the lattice of the context \''+self.contextName+'\'')
+#         lattice = Lattice(self.contextName)
+#         for i in self.I:
+#             lattice.injectTuple(i)
+#         lattice.extendTuple()
+#         return lattice
                 
     def getJPrime(self, j):
         jPrime = set()

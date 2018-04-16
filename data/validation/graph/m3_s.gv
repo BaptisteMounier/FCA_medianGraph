@@ -1,0 +1,14 @@
+strict digraph m3_s {
+	rankdir=BT
+	o0
+	eo0o1
+	o1
+	o2
+	eBot
+	eBot -> o0
+	o0 -> eo0o1
+	o1 -> eo0o1
+	o2 -> eo0o1
+	eBot -> o1
+	eBot -> o2
+}

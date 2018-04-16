@@ -1,0 +1,137 @@
+strict digraph "priss2013-table01_s" {
+	rankdir=BT
+	o47
+	o15
+	eo47o53
+	o7
+	o49
+	eo51o31
+	eo13o17
+	eo7o1
+	eo13o43
+	eo45o31
+	o37
+	o53
+	o13
+	o29
+	eo47o45
+	o17
+	eo47o51
+	o25
+	eo7o25
+	o55
+	o31
+	eo47o37
+	eo53o1
+	eo49o31
+	eo29o33
+	o51
+	eo51o45
+	eBot
+	eo15o25
+	o39
+	o19
+	eo15o13
+	eo15o19
+	eo25o1
+	o27
+	eo47o15
+	o43
+	o9
+	eo47o31
+	o33
+	o1
+	eo51o37
+	o45
+	eo33o35
+	o35
+	o3
+	eo15o7
+	o49 -> o47
+	o9 -> o15
+	eo53o1 -> eo47o53
+	eo25o1 -> eo47o53
+	eo47o15 -> eo47o53
+	eo51o31 -> eo47o53
+	eo7o25 -> eo47o53
+	eo51o37 -> eo47o53
+	o27 -> o7
+	eBot -> o49
+	eo49o31 -> eo51o31
+	o51 -> eo51o31
+	o17 -> eo13o17
+	o13 -> eo13o17
+	o7 -> eo7o1
+	o3 -> eo7o1
+	eo13o17 -> eo13o43
+	o43 -> eo13o43
+	eo49o31 -> eo45o31
+	o45 -> eo45o31
+	o35 -> o37
+	o55 -> o53
+	eBot -> o13
+	eBot -> o29
+	o47 -> eo47o45
+	o45 -> eo47o45
+	eBot -> o17
+	o47 -> eo47o51
+	o51 -> eo47o51
+	eBot -> o25
+	eo15o25 -> eo7o25
+	eo15o7 -> eo7o25
+	eBot -> o55
+	eBot -> o31
+	o39 -> eo47o37
+	eo47o45 -> eo47o37
+	o43 -> eo47o37
+	o1 -> eo53o1
+	o53 -> eo53o1
+	o31 -> eo49o31
+	o49 -> eo49o31
+	o29 -> eo29o33
+	o33 -> eo29o33
+	o49 -> o51
+	o45 -> eo51o45
+	o51 -> eo51o45
+	eo15o19 -> eo15o25
+	o25 -> eo15o25
+	o35 -> o39
+	eBot -> o19
+	o15 -> eo15o13
+	o13 -> eo15o13
+	o15 -> eo15o19
+	o27 -> eo15o19
+	o19 -> eo15o19
+	o17 -> eo15o19
+	o25 -> eo25o1
+	o3 -> eo25o1
+	o29 -> o27
+	eo13o43 -> eo47o15
+	eo47o37 -> eo47o15
+	eo47o31 -> eo47o15
+	eo45o31 -> eo47o15
+	eo15o7 -> eo47o15
+	eo7o1 -> eo47o15
+	eBot -> o43
+	eBot -> o9
+	o47 -> eo47o31
+	eo49o31 -> eo47o31
+	eBot -> o33
+	eBot -> o1
+	eo47o51 -> eo51o37
+	eo51o45 -> eo51o37
+	eo47o37 -> eo51o37
+	o49 -> o45
+	o33 -> eo33o35
+	o35 -> eo33o35
+	eBot -> o35
+	o1 -> o3
+	o39 -> eo15o7
+	o31 -> eo15o7
+	eo15o13 -> eo15o7
+	eo29o33 -> eo15o7
+	eo15o19 -> eo15o7
+	eo33o35 -> eo15o7
+	o7 -> eo15o7
+	eo13o17 -> eo15o7
+}

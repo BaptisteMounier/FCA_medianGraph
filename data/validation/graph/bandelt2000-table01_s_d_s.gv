@@ -1,0 +1,98 @@
+strict digraph "bandelt2000-table01_s_d_s" {
+	rankdir=BT
+	eo0o2
+	eo5o4
+	eo0o1
+	eo4o2
+	eo6o1
+	eo0o7
+	o7
+	o6
+	eo7o3
+	o2
+	eo3o1
+	eo0o3
+	eBot
+	eo7o1
+	o0
+	eo0o5
+	o5
+	eo3o2
+	eo5o3
+	eo5o6
+	eo5o1
+	eo1o2
+	eo4o6
+	eo0o6
+	eo4o1
+	eo6o3
+	eo5o7
+	eo5o2
+	o1
+	eo7o6
+	eo6o2
+	o4
+	eo4o7
+	eo4o3
+	o3
+	o0 -> eo0o2
+	o2 -> eo0o2
+	eo0o5 -> eo5o4
+	o4 -> eo5o4
+	o0 -> eo0o1
+	o1 -> eo0o1
+	eo0o2 -> eo4o2
+	o4 -> eo4o2
+	o1 -> eo6o1
+	o6 -> eo6o1
+	eo0o2 -> eo0o7
+	o7 -> eo0o7
+	o2 -> o7
+	eBot -> o6
+	o7 -> eo7o3
+	eo3o2 -> eo7o3
+	eBot -> o2
+	o1 -> eo3o1
+	o3 -> eo3o1
+	o0 -> eo0o3
+	o3 -> eo0o3
+	o7 -> eo7o1
+	eo1o2 -> eo7o1
+	eBot -> o0
+	o0 -> eo0o5
+	o5 -> eo0o5
+	eBot -> o5
+	o2 -> eo3o2
+	o3 -> eo3o2
+	o5 -> eo5o3
+	o3 -> eo5o3
+	o6 -> eo5o6
+	o5 -> eo5o6
+	o1 -> eo5o1
+	o5 -> eo5o1
+	o1 -> eo1o2
+	o2 -> eo1o2
+	eo0o6 -> eo4o6
+	o4 -> eo4o6
+	o0 -> eo0o6
+	o6 -> eo0o6
+	o4 -> eo4o1
+	eo0o1 -> eo4o1
+	o6 -> eo6o3
+	o3 -> eo6o3
+	o7 -> eo5o7
+	eo5o2 -> eo5o7
+	o2 -> eo5o2
+	o5 -> eo5o2
+	eBot -> o1
+	o7 -> eo7o6
+	eo6o2 -> eo7o6
+	o6 -> eo6o2
+	o2 -> eo6o2
+	o0 -> o4
+	eo4o2 -> eo4o7
+	eo0o7 -> eo4o7
+	eo0o3 -> eo4o3
+	o4 -> eo4o3
+	eBot -> o3
+}

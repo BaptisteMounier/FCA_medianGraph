@@ -14,29 +14,19 @@ if __name__=="__main__":
         context = Context(contextFileName)
         context.generateContextFomFile(contextFilePath)
         context.display()
-#         lattice = context.generateLattice()
-#         lattice.generateGraph(graphDirectory)
-        lattice = Lattice(context)
-        lattice.generateGraph(graphDirectory)
         
         sContext = context.generateStandardContext()
         sContext.display()
-#         sLattice = sContext.generateLattice()
-#         sLattice.generateGraph(graphDirectory)
         slattice = Lattice(sContext)
         slattice.generateGraph(graphDirectory)
          
         dContext = sContext.generateDistributiveContext()
         dContext.display()
-#         dLattice = dContext.generateLattice()
-#         dLattice.generateGraph(graphDirectory)
-        dlattice = Lattice(dContext)
-        dlattice.generateGraph(graphDirectory)
+        dLattice = Lattice(dContext)
+        dLattice.generateGraph(graphDirectory)
          
         sdContext = dContext.generateStandardContext()
         sdContext.display()
-#         sdLattice = sdContext.generateLattice()
-#         sdLattice.generateGraph(graphDirectory)
         sdlattice = Lattice(sdContext)
         sdlattice.generateGraph(graphDirectory)
         print('-'*15)
@@ -45,8 +35,8 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
-    #args.file = 'cla'
-    args.file = 'clav2'
+    args.file = 'cla'
+    #args.file = 'clav2'
     #args.file = 'divisors'
     #args.file = 'priss2013-table01'
     #args.file = 'n5'

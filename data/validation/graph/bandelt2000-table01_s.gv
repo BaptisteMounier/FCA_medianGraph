@@ -1,0 +1,34 @@
+strict digraph "bandelt2000-table01_s" {
+	rankdir=BT
+	o0
+	eo0o5
+	o5
+	eo4o6
+	o4
+	eo0o7
+	o7
+	o6
+	o3
+	o1
+	o2
+	eo3o1
+	eBot
+	o4 -> o0
+	o5 -> eo0o5
+	eo4o6 -> eo0o5
+	eo0o7 -> eo0o5
+	eo3o1 -> eo0o5
+	eBot -> o5
+	o6 -> eo4o6
+	o4 -> eo4o6
+	eBot -> o4
+	o0 -> eo0o7
+	o2 -> eo0o7
+	eBot -> o7
+	eBot -> o6
+	eBot -> o3
+	eBot -> o1
+	o7 -> o2
+	o1 -> eo3o1
+	o3 -> eo3o1
+}
