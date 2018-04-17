@@ -1,0 +1,11 @@
+strict digraph reduction_s {
+	rankdir=BT
+	eBot
+	eo1o2
+	o2
+	o1
+	o2 -> eo1o2
+	o1 -> eo1o2
+	eBot -> o2
+	eBot -> o1
+}

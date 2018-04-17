@@ -1,0 +1,4 @@
+strict digraph crown_s_df_s {
+	rankdir=BT
+	eBot
+}

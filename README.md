@@ -1,13 +1,16 @@
 # FCA_medianGraph
-
-## Blabla
+Blabla
 
 # Reporting
 ## Done
 * Take a unknow context
 * Convert it into a standard context
-* Use cla2018 algorithm to convert context of first filters into distributive contexts
-* Merge result basically (local result of cla2018)
+* Create distributive context from strandard
+** Use cla2018 algorithm to convert contexts of first filters into distributives contexts
+** Merge result basically (local result of cla2018)
+** Merge result (optimal result of cla2018)
+*** Work on cla2018
+*** Don't work on a crown lattice
 ## To do
-* Take into account global context to do the merge
-## Problem
+* Adjust method to get distributive lattice of a crown from itself
+## Problems

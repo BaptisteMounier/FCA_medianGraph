@@ -13,21 +13,6 @@ class Lattice(object):
         '''
         self.context = context
         self.nodes = set()
-                    
-    def getDirectChildren(self, filters_search):
-        directChildren = set()
-        for j in self.context.JExtended:
-            if (self.context.getJPrimeExtended(j).issuperset(filters_search)) and not (self.context.getJPrimeExtended(j).issubset(filters_search)):
-                directChildren_copy = copy(directChildren)
-                alreadyHaveBetterChild = False
-                for child in directChildren_copy:
-                    if self.context.getJPrimeExtended(j).issubset(self.context.getJPrimeExtended(child)):
-                        directChildren.discard(child)
-                    elif self.context.getJPrimeExtended(j).issuperset(self.context.getJPrimeExtended(child)):
-                        alreadyHaveBetterChild = True
-                if not alreadyHaveBetterChild:
-                    directChildren.add(j)
-        return directChildren
     
     def generateGraph(self, targetDirectory):
  
@@ -42,7 +27,7 @@ class Lattice(object):
             dot.node(str(jExtended))
 #         
         for jExtended in self.context.JExtended:
-            directChildren = self.getDirectChildren(self.context.getJPrimeExtended(jExtended))
+            directChildren = self.context.getDirectChildren(self.context.getJPrimeExtended(jExtended))
             for directChild in directChildren:
                 dot.edge(str(directChild), str(jExtended))
                     

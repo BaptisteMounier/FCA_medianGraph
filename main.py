@@ -19,11 +19,18 @@ if __name__=="__main__":
         sContext.display()
         slattice = Lattice(sContext)
         slattice.generateGraph(graphDirectory)
-        sContext.generateDistributiveContextOnFirstFilters()
-         
+        
+        dfContext = sContext.generateDistributiveContextOnFirstFilters()
+        #dfContext.display()
+        
+        sdfContext = dfContext.generateStandardContext()
+        sdfContext.display()
+        sdfLattice = Lattice(sdfContext)
+        sdfLattice.generateGraph(targetDirectory)
+        
 #         dContext = sContext.generateDistributiveContext()
 #         dContext.display()
-         
+#          
 #         sdContext = dContext.generateStandardContext()
 #         sdContext.display()
 #         sdlattice = Lattice(sdContext)
@@ -34,8 +41,8 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
-    args.file = 'cla'
-    #args.file = 'crown'
+    #args.file = 'cla'
+    args.file = 'crown'
     #args.file = 'clav2'
     #args.file = 'divisors'
     #args.file = 'priss2013-table01'
