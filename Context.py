@@ -67,7 +67,7 @@ class Context(object):
                     
             # Convert the context into a standard one
             filterStandardContext = filterContext.generateStandardContext()
-            filterStandardContext.display() # Display the context in console
+#             filterStandardContext.display() # Display the context in console
             
             # Convert the context into a distributive one
             filterDistributiveContext = filterStandardContext.generateDistributiveContext()
@@ -86,7 +86,8 @@ class Context(object):
             for j in filterStandardDistributiveContext.J:
                 if (j != firstFilter) and (j in firstFilters):
                     for m in globalContext.M:
-                        globalContext.I.add((j,m))
+                        if m not in filterStandardDistributiveContext.M:
+                            globalContext.I.add((j,m))
             globalContext.J.update(filterStandardDistributiveContext.J)
             globalContext.M.update(filterStandardDistributiveContext.M)
             globalContext.I.update(filterStandardDistributiveContext.I)
@@ -142,6 +143,9 @@ class Context(object):
 #                                     if (parentsIntersection in globalContext.M) and (child in globalContext.J):
 #                                         globalContext.I.add((child, parentsIntersection))
                                     globalContext.IExtended.add((child, parentsIntersection))
+                                    
+            globalContext.displayExtended()
+                                    
         extended = Context(globalContext.contextName)
         extended.J = globalContext.JExtended
         extended.M = globalContext.M
@@ -200,6 +204,20 @@ class Context(object):
             self.JExtended.add(jBot)
             for m in self.M:
                 self.IExtended.add((jBot, m))
+                            
+        alreadyExists = False
+        for j in self.JExtended:
+            haveFilter = False
+            for i in self.IExtended:
+                if j == i[0]:
+                    haveFilter = True
+                    break
+            if not haveFilter:
+                alreadyExists = True
+                break
+        if not alreadyExists:
+            jBot = 'eTop'
+            self.JExtended.add(jBot)
         
         extended = Context(self.contextName)
         extended.J = self.JExtended
