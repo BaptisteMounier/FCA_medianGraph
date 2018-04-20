@@ -1,4 +1,3 @@
-from copy import copy
 from graphviz import Graph, Digraph
 
 class Lattice(object):
