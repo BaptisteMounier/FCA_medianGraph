@@ -11,44 +11,37 @@ if __name__=="__main__":
         print('-'*25)
         print('Analysis of \''+contextFileName+'\'')
         
-        context = Context(contextFileName)
+        context = Context(contextFileName, graphDirectory)
         context.generateContextFomFile(contextFilePath)
         context.display()
         
         sContext = context.generateStandardContext()
         sContext.display()
-        sContext.generateExtendedContext()
-        sContext.displayExtended()
         slattice = Lattice(sContext)
         slattice.generateGraph(graphDirectory)
         
         dfContext = sContext.generateDistributiveContextOnFirstFilters()
         dfContext.display()
+        dfGlobalLattice = Lattice(dfContext)
+        dfGlobalLattice.generateGraph(targetDirectory)
         
         dGlobalContext = sContext.generateDistributiveContext()
         dGlobalContext.display()
         dGlobalLattice = Lattice(dGlobalContext)
         dGlobalLattice.generateGraph(targetDirectory)
         
-        sdfContext = dfContext.generateStandardContext()
-        sdfContext.display()
-        sdfLattice = Lattice(sdfContext)
-        sdfLattice.generateGraph(targetDirectory)
+#         sdfContext = dfContext.generateStandardContext()
+#         sdfContext.display()
+#         sdfLattice = Lattice(sdfContext)
+#         sdfLattice.generateGraph(targetDirectory)
         
-#         dContext = sContext.generateDistributiveContext()
-#         dContext.display()
-#          
-#         sdContext = dContext.generateStandardContext()
-#         sdContext.display()
-#         sdlattice = Lattice(sdContext)
-#         sdlattice.generateGraph(graphDirectory)
         print('-'*25)
 
     # Check option's command
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
-    args.file = 'clav2'
+    args.file = 'cla'
     
     if args.file == 'validation':
         for filename in os.listdir('data/'+args.file+'/'):

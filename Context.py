@@ -8,7 +8,7 @@ class Context(object):
     '''
 
 
-    def __init__(self, contextName):
+    def __init__(self, contextName, debugGraphFolder = 'data/debug/'):
         '''
         Constructor
         '''
@@ -16,8 +16,7 @@ class Context(object):
         self.J = set()
         self.M = set()
         self.I = set()
-        self.JExtended = set()
-        self.IExtended = set()
+        self.debugGraphFolder = debugGraphFolder
         
     def generateContextFomFile(self, filePath):
         print('Generate the context \''+self.contextName+'\' from the file \''+filePath+'\'')
@@ -29,19 +28,19 @@ class Context(object):
             l = 0
             for line in lecteur:
                 c = 0
+                objectOfLine = 'o'+str(l)
+                self.J.add(objectOfLine)
                 for colonne in line:
-                    objectOfLine = 'o'+str(l)
-                    self.J.add(objectOfLine)
                     if colonne == '1':
                         self.I.add((objectOfLine, MList[c]))
                     c += 1
                 l += 1
                 
     def generateStandardContext(self):
-        print('Generate the standard context \''+self.contextName+'_s\' of the context \''+self.contextName+'\'')
-        standardContext = Context(self.contextName+'_s')
-        standardContext.J = self.getIrreductibleJ()
-        standardContext.M = self.getIrreductibleM()
+        print('Generate the standard context of \''+self.contextName+'\'')
+        standardContext = Context(self.contextName, self.debugGraphFolder)
+        standardContext.J = copy(self.getIrreductibleJ())
+        standardContext.M = copy(self.getIrreductibleM())
         for i in self.I:
             if (i[0] in standardContext.J) and (i[1] in standardContext.M):
                 standardContext.I.add((i[0],i[1]))
@@ -49,17 +48,18 @@ class Context(object):
         
     def generateDistributiveContextOnFirstFilters(self):
         
-        print('Not yet totally implemented')
+        print('Generate the context with distributive first filters \''+self.contextName+'_df from the context \''+self.contextName+'\'')
         # Section about cla2018 method
         
         firstFilters = self.getPrimaryFilters()
-        globalContext = Context(self.contextName+'_df')
-         
+        globalContext = Context(self.contextName+'_df', self.debugGraphFolder)
+        nameNextVariable = ord('a')
+        
         # For each first filters
         for firstFilter in firstFilters:
               
             # Create a new working context
-            filterContext = Context(self.contextName+'_'+firstFilter)
+            filterContext = Context(self.contextName+'_'+firstFilter, self.debugGraphFolder)
             for m in self.getJPrime(firstFilter):
                 filterContext.M.add(m)
                 for j in self.getMPrime(m):
@@ -67,15 +67,18 @@ class Context(object):
                         filterContext.J.add(j)
                         filterContext.I.add((j,m))
                           
-            filterContext.display() # Display the context in console
+            # Display the context in console
+            filterContext.display()
                       
             # Generate the distributive first filter context
-            distributiveFilterContext = filterContext.generateDistributiveContextv2()
-              
-            # Display to see step
-            distributiveFilterContext.display() # Display the context in console
-#             lattice = Lattice(distributiveFilterContext)
-#             lattice.generateGraph('data/graph/')
+#             standardFilterContext = filterContext.generateStandardContext()
+            distributiveFilterContext, nameNextVariable = filterContext.generateDistributiveContext(nameNextVariable)
+            
+            # Display the context in console
+            distributiveFilterContext.display()
+            # Dsplay the lattice in folder
+            lattice = Lattice(distributiveFilterContext)
+            lattice.generateGraph(self.debugGraphFolder)
               
             # Fusion with previous distributive first filter context (no merge node atm)
             globalContext.J.update(distributiveFilterContext.J)
@@ -85,257 +88,162 @@ class Context(object):
                 globalContext.J.add(firstFilter)
             for m in distributiveFilterContext.M:
                 globalContext.I.add((firstFilter, m))
-                  
-            # Display step
-            globalContext.display() # Display the context in console
+            
+            # Display the context in console
+            globalContext.display()
+            
+#         globalContext.display()
+            
+        stdContext = globalContext.generateStandardContext()
+        
+        stdContext.display()
+        lattice = Lattice(stdContext)
+        lattice.generateGraph(self.debugGraphFolder)
+        
+        intersectionFirstFilters = copy(stdContext.M)
+        unionFirstFilters = copy(stdContext.M)
+        for firstFilter in firstFilters:
+            intersectionFirstFilters &= stdContext.getJPrime(firstFilter)
+        
+        tmp = set()
+        for i in stdContext.I:
+            if i[1] in intersectionFirstFilters:
+                tmp.add(i[0])
+                
+        for t in tmp:
+            for intersection in intersectionFirstFilters:
+                stdContext.I.add((t, intersection))
+                
+        stdContext.display()
+        stdContext2 = stdContext.generateStandardContext()
+        stdContext2.display()
+        
+        return stdContext2
              
+        extContext = globalContext.generateExtendedContext()
+        
         # Merge node if we can
-        globalContext.display()
-        globalContext.generateExtendedContext()
-        globalContext_copy = deepcopy(globalContext)
-           
-        addedElement = globalContext_copy.JExtended.difference(globalContext_copy.J)
+        addedElement = extContext.J.difference(globalContext.J)
         for e in addedElement:
             count = 0
             commonToMultipleFirstFilters = False
-               
+                 
             # Search if e is present in at least two first filters lattice
             for firstFilter in firstFilters:
-#                 print(firstFilter,globalContext_copy.getJPrimeExtended(firstFilter))
-#                 print(e,globalContext_copy.getJPrimeExtended(e))
-                if globalContext_copy.getJPrimeExtended(firstFilter).issuperset(globalContext_copy.getJPrimeExtended(e)):
+#                 print(firstFilter,extContext.getJPrime(firstFilter))
+#                 print(e,extContext.getJPrime(e))
+                if extContext.getJPrime(firstFilter).issuperset(extContext.getJPrime(e)):
                     count += 1
                 if count > 1:
                     commonToMultipleFirstFilters = True
                     break
-                   
+                  
             if commonToMultipleFirstFilters:
-                parents = globalContext.getDirectParents(globalContext.getJPrimeExtended(e))
-                globalContext.displayExtended()
+                parents = extContext.getDirectsSups(extContext.getJPrime(e))
+#                 extContext.display()
                 print('parents',e,parents)
                 if len(parents) > 1:
-                       
+                         
                     # Check if e's parents are mergable
                     parentsMergables = set()
                     for parent in parents:
-                        if parent in globalContext_copy.JExtended.difference(globalContext_copy.J):
+                        if parent in extContext.J.difference(globalContext.J):
                             parentsMergables.add(parent)
-                    
+                      
                     # Then merge its
                     if bool(parentsMergables):
                         
-                        # misc
-                        newName = 'merged_('
-                        
-                        # Get intersections of parents
-                        parentsIntersections = globalContext.M
+                        parentsUnions = set()
                         for parent in parentsMergables:
-                            newName += str(parent)
-                            parentsIntersections = parentsIntersections.intersection(globalContext.getJPrimeExtended(parent))
-                            print('parentIntersections',parentsIntersections)
-                            print('maxiDistributiveContext.getJPrimeExtended(parent)', parent,globalContext.getJPrimeExtended(parent))
+                            parentsUnions = parentsUnions.union(extContext.getJPrime(parent))
                             
-                        newName += ')'
-                        
-                        # Delete olds parents from contexte
-                        IExtended_copy = copy(globalContext.IExtended)
-                        JExtended_copy = copy(globalContext.JExtended)
-                        for i in IExtended_copy:
-                            if i[0] in parents:
-                                globalContext.IExtended.discard(i)
-                        for j in JExtended_copy:
-                            if j in parents:
-                                globalContext.JExtended.discard(j)
+#                         print('DEBUG_1:',e,parentsMergables,parentsUnions)
+#                         extContext.display()
+                        parentsSecond = set()
+                        for parent in parentsMergables:
+                            parentsSecond.update(extContext.getJSecond(parent))
+#                             print('DEBUG_2:',parent,parentsSecond)
+                        for parentSecond in parentsSecond:
+                            for parentsUnion in parentsUnions:
+                                extContext.I.add((parentSecond, parentsUnion))                                
                                 
-                        # Add a new and unique parent
-                        globalContext.JExtended.add(newName)
-                        for intersection in parentsIntersections:
-                            globalContext.IExtended.add((newName, intersection))
-#                             for child in globalContext_copy.getDirectChildren(globalContext_copy.getJPrimeExtended(parent)):
-#                                 for parentsIntersection in parentsIntersections:
-# #                                     if (parentsIntersection in globalContext.M) and (child in globalContext.J):
-# #                                         globalContext.I.add((child, parentsIntersection))
-#                                     globalContext.IExtended.add((e, parentsIntersection))
-
-        globalContext.displayExtended()
-            
+        standard = extContext.generateStandardContext()
+        extContext.display()
+        standard.display()
+        return standard
         
         
+    def generateDistributiveContext(self, nameNextVariable = ord('a')):
+        '''Generate the distributive context of the current contexte
+        This can add relation I(j,m) but can't destroy one
         
-        
-#         for firstFilter in firstFilters:
-#               
-#             # Create a context for each first filter
-#             filterContext = Context(self.contextName+'_'+firstFilter)
-#             filterContext.J = copy(self.J)
-#             for i in self.I:
-#                 if i[1] in self.getJPrime(firstFilter):
-#                     filterContext.I.add(i)
-#                     filterContext.M.add(i[1])
-#                       
-#             # Convert the context into a standard one
-#             filterStandardContext = filterContext.generateStandardContext()
-#             filterStandardContext.display() # Display the context in console
-#               
-#             # Convert the context into a distributive one
-#             filterDistributiveContext = filterStandardContext.generateDistributiveContext()
-#             filterDistributiveContext.display() # Display the context in console
-#               
-#             # Create first filter graph file if needed
-#             lattice = Lattice(filterDistributiveContext)
-#             lattice.generateGraph('data/graph/')
-#               
-#             # Add the current first filter context to previous one
-#             filterStandardDistributiveContext = filterDistributiveContext.generateStandardContext()
-#             for j in globalContext.J:
-#                 if j == firstFilter:
-#                     for m in filterStandardDistributiveContext.M:
-#                         globalContext.I.add((j,m))
-#             for j in filterStandardDistributiveContext.J:
-#                 if (j != firstFilter) and (j in firstFilters):
-#                     for m in globalContext.M:
-#                         if m not in filterStandardDistributiveContext.M:
-#                             globalContext.I.add((j,m))
-#             globalContext.J.update(filterStandardDistributiveContext.J)
-#             globalContext.M.update(filterStandardDistributiveContext.M)
-#             globalContext.I.update(filterStandardDistributiveContext.I)
-#             globalContext.display() # Display the context in console
-#           
-#         # Merge concept if we can
-#           
-#         globalContext.generateExtendedContext()
-#         globalContext_copy = deepcopy(globalContext)
-#           
-#         addedElement = globalContext_copy.JExtended.difference(globalContext_copy.J)
-#         for e in addedElement:
-#             count = 0
-#             commonToTwoFirstFilters = False
-#               
-#             # Search if e is present in at least two first filters lattice
-#             for firstFilter in firstFilters:
-# #                 print(firstFilter,globalContext_copy.getJPrimeExtended(firstFilter))
-# #                 print(e,globalContext_copy.getJPrimeExtended(e))
-#                 if globalContext_copy.getJPrimeExtended(firstFilter).issuperset(globalContext_copy.getJPrimeExtended(e)):
-#                     count += 1
-#                 if count > 1:
-#                     commonToTwoFirstFilters = True
-#                     break
-#                   
-#             if commonToTwoFirstFilters:
-#                 parents = globalContext.getDirectParents(globalContext.getJPrimeExtended(e))
-#                 if len(parents) > 1:
-#                       
-#                     # Check if e's parents are mergable
-#                     parentsMergable = True
-#                     for parent in parents:
-#                         if not parent in globalContext_copy.JExtended.difference(globalContext_copy.J):
-#                             parentsMergable = False
-#                               
-#                       
-#                     if parentsMergable:
-#                         maxiDistributiveContext = self.generateDistributiveContext()
-#                         maxiDistributiveContext.generateExtendedContext()
-#                         parentsIntersections = maxiDistributiveContext.M
-#                         for parent in parents:
-#                             parentsIntersections = parentsIntersections.intersection(maxiDistributiveContext.getJPrimeExtended(parent))
-#                           
-#                         IExtended_copy = copy(globalContext.IExtended)
-#                         for i in IExtended_copy:
-#                             if i[0] in parents:
-#                                 globalContext.IExtended.discard(i)
-#                         for parent in parents:
-#                             for parentsIntersection in parentsIntersections:
-#                                 globalContext.IExtended.add((parent, parentsIntersection))
-#                             for child in globalContext_copy.getDirectChildren(globalContext_copy.getJPrimeExtended(parent)):
-#                                 for parentsIntersection in parentsIntersections:
-# #                                     if (parentsIntersection in globalContext.M) and (child in globalContext.J):
-# #                                         globalContext.I.add((child, parentsIntersection))
-#                                     globalContext.IExtended.add((child, parentsIntersection))
-                                      
-        extended = Context(globalContext.contextName)
-        extended.J = globalContext.JExtended
-        extended.M = globalContext.M
-        extended.I = globalContext.IExtended
-        
-        print('maintenant')
-        extended.display()
-        
-        return extended
-        
-        # Upgrade to merge nodes
-        
-        
-    def generateDistributiveContext(self):
+        '''
+                
         print('Generate the distributive context \''+self.contextName+'_d\' of the context \''+self.contextName+'\'')
-        distributiveContext = Context(self.contextName+'_d')
+        
+        distributiveContext = Context(self.contextName+'_d', self.debugGraphFolder)
         distributiveContext.J = copy(self.J)
         for j in distributiveContext.J:
+            jPrime = self.getJPrime(j)
             jFilters = set()
             X = set()
             for i in distributiveContext.J:
-                if self.getJPrime(j).issuperset(self.getJPrime(i)):
+                iPrime = self.getJPrime(i)
+                if jPrime >= iPrime:
                     jFilters.add(i)
                 else:
                     X.add(i)
-            mj = 'm_'+str(j)
+            mj = chr(nameNextVariable)
+            nameNextVariable += 1
             distributiveContext.M.add(mj)
             for x in X:
                 distributiveContext.I.add((x,mj))
-        return distributiveContext
-    
-    def generateDistributiveContextv2(self):
-        print('Generate the distributive context \''+self.contextName+'_d\' of the context \''+self.contextName+'\'')
-        distributiveContext = Context(self.contextName+'_d')
-        distributiveContext.J = copy(self.J)
-        for j in distributiveContext.J:
-            jFilters = set()
-            X = set()
-            for i in distributiveContext.J:
-                if self.getJPrime(j).issuperset(self.getJPrime(i)):
-                    jFilters.add(i)
-                else:
-                    X.add(i)
-            mj = 'm_'+str(j)
-            distributiveContext.M.add(mj)
-            for x in X:
-                distributiveContext.I.add((x,mj))
-        return distributiveContext
+                
+        return distributiveContext, nameNextVariable
     
     def generateExtendedContext(self):
-        self.JExtended.update(self.J)
-        self.IExtended.update(self.I)
+        
+        print('Generate the extended context of \''+self.contextName+'\'')
+        
+        extended = Context(self.contextName, self.debugGraphFolder)
+        extended.J.update(self.J)
+        extended.M.update(self.M)
+        extended.I.update(self.I)
+        
         for j in self.J:
+            jPrime = self.getJPrime(j)
             for i in self.J:
+                iPrime = self.getJPrime(i)
                 alreadyExists = False
                 if j != i:
-                    intersection_ji = self.getJPrime(j).intersection(self.getJPrime(i))
-                    for k in self.JExtended:
-                            if intersection_ji == self.getJPrimeExtended(k):
+                    intersection_ji = jPrime & iPrime
+                    for k in extended.J:
+                            if intersection_ji == extended.getJPrime(k):
                                 alreadyExists = True
                                 break
                     if not alreadyExists:
                         if j < i:
-                            jExtended = 'e'+str(j)+str(i)
+                            jExtended = 'e('+str(j)+str(i)+')'
                         else:
-                            jExtended = 'e'+str(i)+str(j)
-                        self.JExtended.add(jExtended)
+                            jExtended = 'e('+str(i)+str(j)+')'
+                        extended.J.add(jExtended)
                         for intersection in intersection_ji:
-                            self.IExtended.add((jExtended, intersection))
+                            extended.I.add((jExtended, intersection))
                             
         alreadyExists = False
-        for j in self.JExtended:
-            if self.getJPrimeExtended(j) == self.M:
+        for j in extended.J:
+            if extended.getJPrime(j) == extended.M:
                 alreadyExists = True
         if not alreadyExists:
             jBot = 'eBot'
-            self.JExtended.add(jBot)
-            for m in self.M:
-                self.IExtended.add((jBot, m))
+            extended.J.add(jBot)
+            for m in extended.M:
+                extended.I.add((jBot, m))
                             
         alreadyExists = False
-        for j in self.JExtended:
+        for j in extended.J:
             haveFilter = False
-            for i in self.IExtended:
+            for i in extended.I:
                 if j == i[0]:
                     haveFilter = True
                     break
@@ -344,21 +252,9 @@ class Context(object):
                 break
         if not alreadyExists:
             jBot = 'eTop'
-            self.JExtended.add(jBot)
-        
-        extended = Context(self.contextName)
-        extended.J = self.JExtended
-        extended.M = self.M
-        extended.I = self.IExtended
+            extended.J.add(jBot)
+            
         return extended
-    # Unused
-#     def generateLattice(self):
-#         print('Generate the lattice of the context \''+self.contextName+'\'')
-#         lattice = Lattice(self.contextName)
-#         for i in self.I:
-#             lattice.injectTuple(i)
-#         lattice.extendTuple()
-#         return lattice
                 
     def getJPrime(self, j):
         jPrime = set()
@@ -367,120 +263,102 @@ class Context(object):
                 jPrime.add(i[1])
         return jPrime
                 
-    def getJPrimeExtended(self, j):
-        jPrimeExtended = set()
-        for i in self.IExtended:
-            if i[0] == j:
-                jPrimeExtended.add(i[1])
-        return jPrimeExtended
-                
     def getMPrime(self, m):
         mPrime = set()
         for i in self.I:
             if i[1] == m:
                 mPrime.add(i[0])
         return mPrime
+                
+    def getJSecond(self, j):
+        jSecond = copy(self.J)
+        jPrime = self.getJPrime(j)
+        for m in jPrime:
+            jSecond &= self.getMPrime(m)
+        return jSecond
+                
+    def getMSecond(self, m):
+        mSecond = copy(self.M)
+        mPrime = self.getMPrime(m)
+        for j in mPrime:
+            mSecond &= self.getJPrime(j)
+        return mSecond
     
     def getIrreductibleJ(self):
         irreductiblesObjects = set()
-        allAttributes = set()
-        J_copy = copy(self.J)
-        for j in J_copy:
-            if j in self.J:
-                for i in J_copy:
-                    if (j != i) and self.getJPrime(j).issubset(self.getJPrime(i)) and self.getJPrime(j).issuperset(self.getJPrime(i)):
-                        self.J.discard(i)
         for j in self.J:
-            allAttributes.update(self.getJPrime(j))
-        for j in self.J:
-            if self.getJPrime(j) != allAttributes:
-                irreductible = True
-                for i in self.J:
-                    if j != i:
-                        for k in self.J:
-                            if (j != k) and (i != k):
-                                intersection_ik = self.getJPrime(i).intersection(self.getJPrime(k))
-                                if(self.getJPrime(j) == intersection_ik):
-                                    irreductible = False
-                                    break
-                        if not irreductible:
-                            break
-                if irreductible:
-                    irreductiblesObjects.add(j)
+            intersection = copy(self.M)
+            jPrime = self.getJPrime(j)
+            jSecond = self.getJSecond(j)
+            for k in jSecond:
+                if j != k:
+                    intersection &= self.getJPrime(k)
+            if jPrime != intersection:
+                irreductiblesObjects.add(j)
         return irreductiblesObjects
     
     def getIrreductibleM(self):
         irreductiblesAttributes = set()
-        allObjects = set()
-        M_copy = copy(self.M)
-        for m in M_copy:
-            if m in self.M:
-                for n in M_copy:
-                    if (m != n) and self.getMPrime(m).issubset(self.getMPrime(n)) and self.getMPrime(m).issuperset(self.getMPrime(n)):
-                        self.M.discard(n)
         for m in self.M:
-            allObjects.update(self.getMPrime(m))
-        for m in self.M:
-            if self.getMPrime(m) != allObjects:
-                irreductible = True
-                for n in self.M:
-                    if m != n:
-                        for o in self.M:
-                            if (m != o) and (n != o):
-                                intersection_no = self.getMPrime(n).intersection(self.getMPrime(o))
-                                if(self.getMPrime(m) == intersection_no):
-                                    irreductible = False
-                                    break
-                        if not irreductible:
-                            break
-                if irreductible:
-                    irreductiblesAttributes.add(m)
+            intersection = copy(self.J)
+            mPrime = self.getMPrime(m)
+            mSecond = self.getMSecond(m)
+            for k in mSecond:
+                if m != k:
+                    intersection &= self.getMPrime(k)
+            if mPrime != intersection:
+                irreductiblesAttributes.add(m)
         return irreductiblesAttributes
     
     def getPrimaryFilters(self):
-        self.generateExtendedContext()
         firstFilters = set()
-        for j in self.JExtended:
-            sourceCount = 0
-            for i in self.JExtended:
-                if j != i:
-                    if self.getJPrimeExtended(j).issubset(self.getJPrimeExtended(i)):
-                        sourceCount += 1
-                    if sourceCount > 1:
+        for j in self.J:
+            primary = True
+            jPrime = self.getJPrime(j)
+            for k in self.J:
+                if j != k:
+                    kPrime = self.getJPrime(k)
+                    if jPrime <= kPrime:
+                        primary = False
                         break
-            if sourceCount == 1:
+            if primary:
                 firstFilters.add(j)
         return firstFilters
     
-    def getDirectChildren(self, filters_search):
-        directChildren = set()
-        for j in self.JExtended:
-            if (self.getJPrimeExtended(j).issuperset(filters_search)) and not (self.getJPrimeExtended(j).issubset(filters_search)):
-                directChildren_copy = copy(directChildren)
-                alreadyHaveBetterChild = False
-                for child in directChildren_copy:
-                    if self.getJPrimeExtended(j).issubset(self.getJPrimeExtended(child)):
-                        directChildren.discard(child)
-                    elif self.getJPrimeExtended(j).issuperset(self.getJPrimeExtended(child)):
-                        alreadyHaveBetterChild = True
-                if not alreadyHaveBetterChild:
-                    directChildren.add(j)
-        return directChildren
+    def getDirectsInfs(self, searchedFilters):
+        directInfs = set()
+        for j in self.J:
+            jPrime = self.getJPrime(j)
+            if jPrime > searchedFilters: #(self.getJPrime(j).issuperset(searchedFilters)) and not (self.getJPrime(j).issubset(searchedFilters)):
+                directInfs_copy = copy(directInfs)
+                alreadyHaveBetterInf = False
+                for inf in directInfs_copy:
+                    infPrime = self.getJPrime(inf)
+                    if jPrime < infPrime: #self.getJPrime(j).issubset(self.getJPrime(child)):
+                        directInfs.discard(inf)
+                    elif jPrime > infPrime: #self.getJPrime(j).issuperset(self.getJPrime(child)):
+                        alreadyHaveBetterInf = True
+                        break
+                if not alreadyHaveBetterInf:
+                    directInfs.add(j)
+        return directInfs
     
-    def getDirectParents(self, filters_search):
-        directParents = set()
-        for j in self.JExtended:
-            if (self.getJPrimeExtended(j).issubset(filters_search)) and not (self.getJPrimeExtended(j).issuperset(filters_search)):
-                directParents_copy = copy(directParents)
-                alreadyHaveBetterParent = False
-                for parent in directParents_copy:
-                    if (self.getJPrimeExtended(j).issuperset(self.getJPrimeExtended(parent))) and not (self.getJPrimeExtended(j).issubset(self.getJPrimeExtended(parent))):
-                        directParents.discard(parent)
-                    elif self.getJPrimeExtended(j).issubset(self.getJPrimeExtended(parent)):
-                        alreadyHaveBetterParent = True
-                if not alreadyHaveBetterParent:
-                    directParents.add(j)
-        return directParents
+    def getDirectsSups(self, searchedFilters):
+        directSups = set()
+        for j in self.J:
+            jPrime = self.getJPrime(j)
+            if jPrime < searchedFilters: #(self.getJPrime(j).issubset(searchedFilters)) and not (self.getJPrime(j).issuperset(searchedFilters)):
+                directSups_copy = copy(directSups)
+                alreadyHaveBetterSup = False
+                for sup in directSups_copy:
+                    supPrime = self.getJPrime(sup)
+                    if jPrime > supPrime: #(self.getJPrime(j).issuperset(self.getJPrime(parent))) and not (self.getJPrime(j).issubset(self.getJPrime(parent))):
+                        directSups.discard(sup)
+                    elif jPrime < supPrime: #self.getJPrime(j).issubset(self.getJPrime(parent)):
+                        alreadyHaveBetterSup = True
+                if not alreadyHaveBetterSup:
+                    directSups.add(j)
+        return directSups
     
     def display(self):
         print('-'*15)
@@ -495,24 +373,6 @@ class Context(object):
             for m in sorted(self.M):
                 matrix += '\t'
                 if m in self.getJPrime(j):
-                    matrix += 'x'
-            matrix += '\n'
-        print(matrix)
-        print('-'*15)
-    
-    def displayExtended(self):
-        print('-'*15)
-        print(self.contextName+'ext')
-        print('-'*5)
-        matrix = ''
-        for m in sorted(self.M):
-            matrix += '\t'+str(m)
-        matrix += '\n'
-        for j in sorted(self.JExtended):
-            matrix += str(j)
-            for m in sorted(self.M):
-                matrix += '\t'
-                if m in self.getJPrimeExtended(j):
                     matrix += 'x'
             matrix += '\n'
         print(matrix)
