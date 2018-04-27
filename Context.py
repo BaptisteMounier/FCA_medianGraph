@@ -93,33 +93,7 @@ class Context(object):
             globalContext.display()
             
 #         globalContext.display()
-            
-        stdContext = globalContext.generateStandardContext()
-        
-        stdContext.display()
-        lattice = Lattice(stdContext)
-        lattice.generateGraph(self.debugGraphFolder)
-        
-        intersectionFirstFilters = copy(stdContext.M)
-        unionFirstFilters = copy(stdContext.M)
-        for firstFilter in firstFilters:
-            intersectionFirstFilters &= stdContext.getJPrime(firstFilter)
-        
-        tmp = set()
-        for i in stdContext.I:
-            if i[1] in intersectionFirstFilters:
-                tmp.add(i[0])
-                
-        for t in tmp:
-            for intersection in intersectionFirstFilters:
-                stdContext.I.add((t, intersection))
-                
-        stdContext.display()
-        stdContext2 = stdContext.generateStandardContext()
-        stdContext2.display()
-        
-        return stdContext2
-             
+    
         extContext = globalContext.generateExtendedContext()
         
         # Merge node if we can
@@ -139,33 +113,33 @@ class Context(object):
                     break
                   
             if commonToMultipleFirstFilters:
-                parents = extContext.getDirectsSups(extContext.getJPrime(e))
+                sups = extContext.getDirectsSups(extContext.getJPrime(e))
 #                 extContext.display()
-                print('parents',e,parents)
-                if len(parents) > 1:
+                print('parents',e,sups)
+                if len(sups) > 1:
                          
-                    # Check if e's parents are mergable
-                    parentsMergables = set()
-                    for parent in parents:
-                        if parent in extContext.J.difference(globalContext.J):
-                            parentsMergables.add(parent)
+                    # Check if e's sups are mergable
+                    supsMergables = set()
+                    for sup in sups:
+                        if sup in extContext.J.difference(globalContext.J):
+                            supsMergables.add(sup)
                       
                     # Then merge its
-                    if bool(parentsMergables):
+                    if bool(supsMergables):
                         
-                        parentsUnions = set()
-                        for parent in parentsMergables:
-                            parentsUnions = parentsUnions.union(extContext.getJPrime(parent))
+                        supsUnions = set()
+                        for sup in supsMergables:
+                            supsUnions = supsUnions.union(extContext.getJPrime(sup))
                             
 #                         print('DEBUG_1:',e,parentsMergables,parentsUnions)
 #                         extContext.display()
-                        parentsSecond = set()
-                        for parent in parentsMergables:
-                            parentsSecond.update(extContext.getJSecond(parent))
+                        supsSecond = set()
+                        for sup in supsMergables:
+                            supsSecond.update(extContext.getJSecond(sup))
 #                             print('DEBUG_2:',parent,parentsSecond)
-                        for parentSecond in parentsSecond:
-                            for parentsUnion in parentsUnions:
-                                extContext.I.add((parentSecond, parentsUnion))                                
+                        for supSecond in supsSecond:
+                            for supsUnion in supsUnions:
+                                extContext.I.add((supSecond, supsUnion))                                
                                 
         standard = extContext.generateStandardContext()
         extContext.display()
@@ -288,12 +262,18 @@ class Context(object):
         irreductiblesObjects = set()
         for j in self.J:
             intersection = copy(self.M)
+            alreadyEquivalent = False
             jPrime = self.getJPrime(j)
             jSecond = self.getJSecond(j)
             for k in jSecond:
-                if j != k:
-                    intersection &= self.getJPrime(k)
-            if jPrime != intersection:
+                kPrime = self.getJPrime(k)
+                if jPrime != kPrime:
+                    intersection &= kPrime
+            for object_v in irreductiblesObjects:
+                if jPrime == self.getJPrime(object_v):
+                    alreadyEquivalent =True
+                    break
+            if (jPrime != intersection) and not alreadyEquivalent:
                 irreductiblesObjects.add(j)
         return irreductiblesObjects
     
@@ -301,12 +281,18 @@ class Context(object):
         irreductiblesAttributes = set()
         for m in self.M:
             intersection = copy(self.J)
+            alreadyEquivalent = False
             mPrime = self.getMPrime(m)
             mSecond = self.getMSecond(m)
             for k in mSecond:
-                if m != k:
-                    intersection &= self.getMPrime(k)
-            if mPrime != intersection:
+                kPrime = self.getMPrime(k)
+                if mPrime != kPrime:
+                    intersection &= kPrime
+            for attribute in irreductiblesAttributes:
+                if mPrime == self.getMPrime(attribute):
+                    alreadyEquivalent = True
+                    break
+            if (mPrime != intersection) and not alreadyEquivalent:
                 irreductiblesAttributes.add(m)
         return irreductiblesAttributes
     
