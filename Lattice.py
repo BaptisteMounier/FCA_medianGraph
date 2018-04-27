@@ -1,4 +1,3 @@
-from copy import copy
 from graphviz import Graph, Digraph
 
 class Lattice(object):
@@ -16,19 +15,19 @@ class Lattice(object):
     
     def generateGraph(self, targetDirectory):
  
-        self.context.generateExtendedContext()
-#         self.context.displayExtended()
+        extended = self.context.generateExtendedContext()
+#         extended.display()
          
-        dot = Digraph(name = self.context.contextName, strict = True)
+        dot = Digraph(name = extended.contextName, strict = True)
         dot.attr(rankdir='BT')
         #dot.attr('node', shape="point")
         
-        for jExtended in self.context.JExtended:
-            dot.node(str(jExtended))
+        for j in extended.J:
+            dot.node(str(j))
 #         
-        for jExtended in self.context.JExtended:
-            directChildren = self.context.getDirectChildren(self.context.getJPrimeExtended(jExtended))
-            for directChild in directChildren:
-                dot.edge(str(directChild), str(jExtended))
+        for j in extended.J:
+            directsInfs = extended.getDirectsInfs(extended.getJPrime(j))
+            for directInf in directsInfs:
+                dot.edge(str(directInf), str(j))
                     
-        dot.render(targetDirectory+self.context.contextName+'.gv', view=False)
+        dot.render(targetDirectory+extended.contextName+'.gv', view=False)

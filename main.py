@@ -11,9 +11,9 @@ if __name__=="__main__":
         print('-'*25)
         print('Analysis of \''+contextFileName+'\'')
         
-        context = Context(contextFileName)
+        context = Context(contextFileName, graphDirectory)
         context.generateContextFomFile(contextFilePath)
-        #context.display()
+        context.display()
         
         sContext = context.generateStandardContext()
         sContext.display()
@@ -21,32 +21,27 @@ if __name__=="__main__":
         slattice.generateGraph(graphDirectory)
         
         dfContext = sContext.generateDistributiveContextOnFirstFilters()
-        #dfContext.display()
+        dfContext.display()
+        dfGlobalLattice = Lattice(dfContext)
+        dfGlobalLattice.generateGraph(targetDirectory)
         
-        sdfContext = dfContext.generateStandardContext()
-        sdfContext.display()
-        sdfLattice = Lattice(sdfContext)
-        sdfLattice.generateGraph(targetDirectory)
+#         dGlobalContext = sContext.generateDistributiveContext()
+#         dGlobalContext.display()
+#         dGlobalLattice = Lattice(dGlobalContext)
+#         dGlobalLattice.generateGraph(targetDirectory)
         
-#         dContext = sContext.generateDistributiveContext()
-#         dContext.display()
-#          
-#         sdContext = dContext.generateStandardContext()
-#         sdContext.display()
-#         sdlattice = Lattice(sdContext)
-#         sdlattice.generateGraph(graphDirectory)
+#         sdfContext = dfContext.generateStandardContext()
+#         sdfContext.display()
+#         sdfLattice = Lattice(sdfContext)
+#         sdfLattice.generateGraph(targetDirectory)
+        
         print('-'*25)
 
     # Check option's command
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
-    #args.file = 'cla'
-    args.file = 'crown'
-    #args.file = 'clav2'
-    #args.file = 'divisors'
-    #args.file = 'priss2013-table01'
-    #args.file = 'n5'
+    args.file = 'clav2'
     
     if args.file == 'validation':
         for filename in os.listdir('data/'+args.file+'/'):
