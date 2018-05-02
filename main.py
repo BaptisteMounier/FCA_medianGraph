@@ -7,33 +7,33 @@ from Lattice import Lattice
 
 if __name__=="__main__":
     
-    def analyse(contextFileName, contextFilePath, graphDirectory):
+    def analyse(context_file_name, context_file_path, graph_directory):
         print('-'*25)
-        print('Analysis of \''+contextFileName+'\'')
+        print('Analysis of \''+context_file_name+'\'')
         
-        context = Context(contextFileName, graphDirectory)
-        context.generateContextFomFile(contextFilePath)
+        context = Context(context_file_name, graph_directory)
+        context.generate_context_fom_file(context_file_path)
         context.display()
         
-        sContext = context.generateStandardContext()
-        sContext.display()
-        slattice = Lattice(sContext)
-        slattice.generateGraph(graphDirectory)
+        context_s = context.generate_standard_context()
+        context_s.display()
+        lattice_s = Lattice(context_s)
+        lattice_s.generate_graph(graph_directory)
         
-        dfContext = sContext.generateDistributiveContextOnFirstFilters()
-        dfContext.display()
-        dfGlobalLattice = Lattice(dfContext)
-        dfGlobalLattice.generateGraph(targetDirectory)
+        Context_df = context_s.generate_distributive_context_on_first_filters()
+        Context_df.display()
+        global_lattice_df = Lattice(Context_df)
+        global_lattice_df.generate_graph(target_directory)
         
-        dGlobalContext, uselessHere = sContext.generateDistributiveContext()
-        dGlobalContext.display()
-        dGlobalLattice = Lattice(dGlobalContext)
-        dGlobalLattice.generateGraph(targetDirectory)
+        global_context_d, useless_here = context_s.generate_distributive_context()
+        global_context_d.display()
+        global_lattice_d = Lattice(global_context_d)
+        global_lattice_d.generate_graph(target_directory)
         
-#         sdfContext = dfContext.generateStandardContext()
-#         sdfContext.display()
-#         sdfLattice = Lattice(sdfContext)
-#         sdfLattice.generateGraph(targetDirectory)
+#         context_s_df = Context_df.generate_standard_context()
+#         context_s_df.display()
+#         lattice_s_df = Lattice(context_s_df)
+#         lattice_s_df.generate_graph(target_directory)
         
         print('-'*25)
 
@@ -46,11 +46,11 @@ if __name__=="__main__":
     if args.file == 'validation':
         for filename in os.listdir('data/'+args.file+'/'):
             if filename.endswith(".txt"):
-                targetDirectory = 'data/validation/graph/'
-                contextFilePath = 'data/validation/' + filename
+                target_directory = 'data/validation/graph/'
+                context_file_path = 'data/validation/' + filename
                 (name,ext) = os.path.splitext(filename)
-                analyse(name, contextFilePath, targetDirectory)
+                analyse(name, context_file_path, target_directory)
     else:
-        targetDirectory = 'data/graph/'
-        contextFilePath = 'data/' + args.file + '.txt'
-        analyse(args.file, contextFilePath, targetDirectory)
+        target_directory = 'data/graph/'
+        context_file_path = 'data/' + args.file + '.txt'
+        analyse(args.file, context_file_path, target_directory)

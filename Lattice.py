@@ -13,12 +13,12 @@ class Lattice(object):
         self.context = context
         self.nodes = set()
     
-    def generateGraph(self, targetDirectory):
+    def generate_graph(self, target_directory):
  
-        extended = self.context.generateExtendedContext()
+        extended = self.context.generate_extended_context()
 #         extended.display()
          
-        dot = Digraph(name = extended.contextName, strict = True)
+        dot = Digraph(name = extended.context_name, strict = True)
         dot.attr(rankdir='BT')
         #dot.attr('node', shape="point")
         
@@ -26,8 +26,8 @@ class Lattice(object):
             dot.node(str(j))
 #         
         for j in extended.J:
-            directsInfs = extended.getDirectsInfs(extended.getJPrime(j))
-            for directInf in directsInfs:
-                dot.edge(str(directInf), str(j))
+            directs_infs = extended.get_directs_infs(extended.get_J_prime(j))
+            for direct_inf in directs_infs:
+                dot.edge(str(direct_inf), str(j))
                     
-        dot.render(targetDirectory+extended.contextName+'.gv', view=False)
+        dot.render(target_directory + extended.context_name + '.gv', view=False)

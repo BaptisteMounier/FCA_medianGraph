@@ -1,5 +1,6 @@
 import csv
 from copy import copy, deepcopy
+
 from Lattice import Lattice
 
 class Context(object):
@@ -8,351 +9,358 @@ class Context(object):
     '''
 
 
-    def __init__(self, contextName, debugGraphFolder = 'data/debug/'):
+    def __init__(self, context_name, debug_graph_folder = 'data/debug/'):
         '''
         Constructor
         '''
-        self.contextName = contextName
+        self.context_name = context_name
         self.J = set()
         self.M = set()
         self.I = set()
-        self.debugGraphFolder = debugGraphFolder
+        self.debug_graph_folder = debug_graph_folder
         
-    def generateContextFomFile(self, filePath):
-        print('Generate the context \''+self.contextName+'\' from the file \''+filePath+'\'')
-        with open(filePath, newline='') as csvfile:
-            lecteur = csv.reader(csvfile, delimiter='\t', quotechar='|')
-            MList = next(lecteur)
-            self.M = set(MList)
+    def generate_context_fom_file(self, file_path):
+        """Import context values from a file
+        
+        Read line by line the file to create J, M and I sets
+        Keyword arguments:
+        file_path -- the file path
+        
+        """
+        print('Generate the context \''+self.context_name+'\' from the file \''+file_path+'\'')
+        with open(file_path, newline='') as csv_file:
+            lecteur = csv.reader(csv_file, delimiter='\t', quotechar='|')
+            M_list = next(lecteur)
+            self.M = set(M_list)
             
             l = 1
             for line in lecteur:
                 c = 0
-                objectOfLine = 'o'+str(l)
-                self.J.add(objectOfLine)
+                object_of_line = 'o'+str(l)
+                self.J.add(object_of_line)
                 for colonne in line:
                     if colonne == '1':
-                        self.I.add((objectOfLine, MList[c]))
+                        self.I.add((object_of_line, M_list[c]))
                     c += 1
                 l += 1
                 
-    def generateStandardContext(self):
-        print('Generate the standard context of \''+self.contextName+'\'')
-        standardContext = Context(self.contextName, self.debugGraphFolder)
-        standardContext.J = copy(self.getIrreductibleJ())
-        standardContext.M = copy(self.getIrreductibleM())
+    def generate_standard_context(self):
+        print('Generate the standard context of \''+self.context_name+'\'')
+        standard_context = Context(self.context_name, self.debug_graph_folder)
+        standard_context.J = copy(self.get_irreductible_J())
+        standard_context.M = copy(self.get_irreductible_M())
         for i in self.I:
-            if (i[0] in standardContext.J) and (i[1] in standardContext.M):
-                standardContext.I.add((i[0],i[1]))
-        return standardContext
+            if (i[0] in standard_context.J) and (i[1] in standard_context.M):
+                standard_context.I.add((i[0],i[1]))
+        return standard_context
         
-    def generateDistributiveContextOnFirstFilters(self):
+    def generate_distributive_context_on_first_filters(self):
         
-        print('Generate the context with distributive first filters \''+self.contextName+'_df from the context \''+self.contextName+'\'')
+        print('Generate the context with distributive first filters \''+self.context_name+'_df from the context \''+self.context_name+'\'')
         # Section about cla2018 method
         
-        firstFilters = self.getPrimaryFilters()
-        globalContext = Context(self.contextName+'_df', self.debugGraphFolder)
-        nameNextVariable = ord('a')
+        first_filters = self.get_primary_filters()
+        global_context = Context(self.context_name+'_df', self.debug_graph_folder)
+        name_next_variable = ord('a')
         
         # For each first filters
-        for firstFilter in firstFilters:
+        for first_filter in first_filters:
               
             # Create a new working context
-            filterContext = Context(self.contextName+'_'+firstFilter, self.debugGraphFolder)
-            for m in self.getJPrime(firstFilter):
-                filterContext.M.add(m)
-                for j in self.getMPrime(m):
-                    if j != firstFilter:
-                        filterContext.J.add(j)
-                        filterContext.I.add((j,m))
+            filter_context = Context(self.context_name+'_'+first_filter, self.debug_graph_folder)
+            for m in self.get_J_prime(first_filter):
+                filter_context.M.add(m)
+                for j in self.get_M_prime(m):
+                    if j != first_filter:
+                        filter_context.J.add(j)
+                        filter_context.I.add((j,m))
                           
             # Display the context in console
-            filterContext.display()
+            filter_context.display()
                       
             # Generate the distributive first filter context
-#             standardFilterContext = filterContext.generateStandardContext()
-            distributiveFilterContext, nameNextVariable = filterContext.generateDistributiveContext(nameNextVariable)
+#             standardFilterContext = filter_context.generate_standard_context()
+            distributive_filter_context, name_next_variable = filter_context.generate_distributive_context(name_next_variable)
             
             # Display the context in console
-            distributiveFilterContext.display()
+            distributive_filter_context.display()
             # Dsplay the lattice in folder
-            lattice = Lattice(distributiveFilterContext)
-            lattice.generateGraph(self.debugGraphFolder)
+            lattice = Lattice(distributive_filter_context)
+            lattice.generate_graph(self.debug_graph_folder)
               
             # Fusion with previous distributive first filter context (no merge node atm)
-            globalContext.J.update(distributiveFilterContext.J)
-            globalContext.M.update(distributiveFilterContext.M)
-            globalContext.I.update(distributiveFilterContext.I)
-            if not firstFilter in globalContext.J:
-                globalContext.J.add(firstFilter)
-            for m in distributiveFilterContext.M:
-                globalContext.I.add((firstFilter, m))
+            global_context.J.update(distributive_filter_context.J)
+            global_context.M.update(distributive_filter_context.M)
+            global_context.I.update(distributive_filter_context.I)
+            if not first_filter in global_context.J:
+                global_context.J.add(first_filter)
+            for m in distributive_filter_context.M:
+                global_context.I.add((first_filter, m))
             
             # Display the context in console
-            globalContext.display()
+            global_context.display()
             
-        preMerge = deepcopy(globalContext)
-        preMerge.contextName += '_preMerge'
-        lattice = Lattice(preMerge)
-        lattice.generateGraph(self.debugGraphFolder)
-#         globalContext.display()
+        pre_merge = deepcopy(global_context)
+        pre_merge.context_name += '_preMerge'
+        lattice = Lattice(pre_merge)
+        lattice.generate_graph(self.debug_graph_folder)
+#         global_context.display()
     
-        extContext = globalContext.generateExtendedContext()
+        ext_context = global_context.generate_extended_context()
         
         # Merge node if we can
-        addedElement = extContext.J.difference(globalContext.J)
-        for e in addedElement:
+        added_elements = ext_context.J.difference(global_context.J)
+        for e in added_elements:
             count = 0
-            commonToMultipleFirstFilters = False
+            common_to_multiple_first_filters = False
                  
             # Search if e is present in at least two first filters lattice
-            for firstFilter in firstFilters:
-#                 print(firstFilter,extContext.getJPrime(firstFilter))
-#                 print(e,extContext.getJPrime(e))
-                if extContext.getJPrime(firstFilter).issuperset(extContext.getJPrime(e)):
+            for first_filter in first_filters:
+#                 print(first_filter,ext_context.get_J_prime(first_filter))
+#                 print(e,ext_context.get_J_prime(e))
+                if ext_context.get_J_prime(first_filter).issuperset(ext_context.get_J_prime(e)):
                     count += 1
                 if count > 1:
-                    commonToMultipleFirstFilters = True
+                    common_to_multiple_first_filters = True
                     break
                   
-            if commonToMultipleFirstFilters:
-                sups = extContext.getDirectsSups(extContext.getJPrime(e))
-#                 extContext.display()
+            if common_to_multiple_first_filters:
+                sups = ext_context.get_directs_sups(ext_context.get_J_prime(e))
+#                 ext_context.display()
                 print('parents',e,sups)
                 if len(sups) > 1:
                          
                     # Check if e's sups are mergable
-                    supsMergables = set()
+                    sups_mergables = set()
                     for sup in sups:
-                        if sup in extContext.J.difference(globalContext.J):
-                            supsMergables.add(sup)
+                        if sup in ext_context.J.difference(global_context.J):
+                            sups_mergables.add(sup)
                       
                     # Then merge its
-                    if bool(supsMergables):
+                    if bool(sups_mergables):
                         
-                        supsUnions = set()
-                        for sup in supsMergables:
-                            supsUnions = supsUnions.union(extContext.getJPrime(sup))
+                        sups_unions = set()
+                        for sup in sups_mergables:
+                            sups_unions = sups_unions.union(ext_context.get_J_prime(sup))
                             
 #                         print('DEBUG_1:',e,parentsMergables,parentsUnions)
-#                         extContext.display()
-                        supsSecond = set()
-                        for sup in supsMergables:
-                            supsSecond.update(extContext.getJSecond(sup))
+#                         ext_context.display()
+                        sups_second = set()
+                        for sup in sups_mergables:
+                            sups_second.update(ext_context.get_J_second(sup))
 #                             print('DEBUG_2:',parent,parentsSecond)
-                        for supSecond in supsSecond:
-                            for supsUnion in supsUnions:
-                                extContext.I.add((supSecond, supsUnion))                                
+                        for sup_second in sups_second:
+                            for sups_union in sups_unions:
+                                ext_context.I.add((sup_second, sups_union))                                
                                 
-        standard = extContext.generateStandardContext()
-        extContext.display()
+        standard = ext_context.generate_standard_context()
+        ext_context.display()
         standard.display()
         return standard
         
         
-    def generateDistributiveContext(self, nameNextVariable = ord('a')):
+    def generate_distributive_context(self, name_next_variable = ord('a')):
         '''Generate the distributive context of the current contexte
         This can add relation I(j,m) but can't destroy one
         
         '''
                 
-        print('Generate the distributive context \''+self.contextName+'_d\' of the context \''+self.contextName+'\'')
+        print('Generate the distributive context \''+self.context_name+'_d\' of the context \''+self.context_name+'\'')
         
-        distributiveContext = Context(self.contextName+'_d', self.debugGraphFolder)
-        distributiveContext.J = copy(self.J)
-        for j in distributiveContext.J:
-            jPrime = self.getJPrime(j)
-            jFilters = set()
+        distributive_context = Context(self.context_name+'_d', self.debug_graph_folder)
+        distributive_context.J = copy(self.J)
+        for j in distributive_context.J:
+            j_prime = self.get_J_prime(j)
+            j_filters = set()
             X = set()
-            for i in distributiveContext.J:
-                iPrime = self.getJPrime(i)
-                if jPrime >= iPrime:
-                    jFilters.add(i)
+            for i in distributive_context.J:
+                i_prime = self.get_J_prime(i)
+                if j_prime >= i_prime:
+                    j_filters.add(i)
                 else:
                     X.add(i)
-            mj = chr(nameNextVariable)
-            nameNextVariable += 1
-            distributiveContext.M.add(mj)
+            mj = chr(name_next_variable)
+            name_next_variable += 1
+            distributive_context.M.add(mj)
             for x in X:
-                distributiveContext.I.add((x,mj))
+                distributive_context.I.add((x,mj))
                 
-        return distributiveContext, nameNextVariable
+        return distributive_context, name_next_variable
     
-    def generateExtendedContext(self):
+    def generate_extended_context(self):
         
-        print('Generate the extended context of \''+self.contextName+'\'')
+        print('Generate the extended context of \''+self.context_name+'\'')
         
-        extended = Context(self.contextName, self.debugGraphFolder)
+        extended = Context(self.context_name, self.debug_graph_folder)
         extended.J.update(self.J)
         extended.M.update(self.M)
         extended.I.update(self.I)
         
         for j in self.J:
-            jPrime = self.getJPrime(j)
+            j_prime = self.get_J_prime(j)
             for i in self.J:
-                iPrime = self.getJPrime(i)
-                alreadyExists = False
+                i_prime = self.get_J_prime(i)
+                already_exists = False
                 if j != i:
-                    intersection_ji = jPrime & iPrime
+                    intersection_ji = j_prime & i_prime
                     for k in extended.J:
-                            if intersection_ji == extended.getJPrime(k):
-                                alreadyExists = True
+                            if intersection_ji == extended.get_J_prime(k):
+                                already_exists = True
                                 break
-                    if not alreadyExists:
+                    if not already_exists:
                         if j < i:
-                            jExtended = 'e('+str(j)+str(i)+')'
+                            j_extended = 'e('+str(j)+str(i)+')'
                         else:
-                            jExtended = 'e('+str(i)+str(j)+')'
-                        extended.J.add(jExtended)
+                            j_extended = 'e('+str(i)+str(j)+')'
+                        extended.J.add(j_extended)
                         for intersection in intersection_ji:
-                            extended.I.add((jExtended, intersection))
+                            extended.I.add((j_extended, intersection))
                             
-        alreadyExists = False
+        already_exists = False
         for j in extended.J:
-            if extended.getJPrime(j) == extended.M:
-                alreadyExists = True
-        if not alreadyExists:
-            jBot = 'eBot'
-            extended.J.add(jBot)
+            if extended.get_J_prime(j) == extended.M:
+                already_exists = True
+        if not already_exists:
+            j_bot = 'eBot'
+            extended.J.add(j_bot)
             for m in extended.M:
-                extended.I.add((jBot, m))
+                extended.I.add((j_bot, m))
                             
-        alreadyExists = False
+        already_exists = False
         for j in extended.J:
-            haveFilter = False
+            have_filter = False
             for i in extended.I:
                 if j == i[0]:
-                    haveFilter = True
+                    have_filter = True
                     break
-            if not haveFilter:
-                alreadyExists = True
+            if not have_filter:
+                already_exists = True
                 break
-        if not alreadyExists:
-            jBot = 'eTop'
-            extended.J.add(jBot)
+        if not already_exists:
+            j_bot = 'eTop'
+            extended.J.add(j_bot)
             
         return extended
                 
-    def getJPrime(self, j):
-        jPrime = set()
+    def get_J_prime(self, j):
+        j_prime = set()
         for i in self.I:
             if i[0] == j:
-                jPrime.add(i[1])
-        return jPrime
+                j_prime.add(i[1])
+        return j_prime
                 
-    def getMPrime(self, m):
-        mPrime = set()
+    def get_M_prime(self, m):
+        m_prime = set()
         for i in self.I:
             if i[1] == m:
-                mPrime.add(i[0])
-        return mPrime
+                m_prime.add(i[0])
+        return m_prime
                 
-    def getJSecond(self, j):
-        jSecond = copy(self.J)
-        jPrime = self.getJPrime(j)
-        for m in jPrime:
-            jSecond &= self.getMPrime(m)
-        return jSecond
+    def get_J_second(self, j):
+        j_second = copy(self.J)
+        j_prime = self.get_J_prime(j)
+        for m in j_prime:
+            j_second &= self.get_M_prime(m)
+        return j_second
                 
-    def getMSecond(self, m):
-        mSecond = copy(self.M)
-        mPrime = self.getMPrime(m)
-        for j in mPrime:
-            mSecond &= self.getJPrime(j)
-        return mSecond
+    def get_M_second(self, m):
+        m_second = copy(self.M)
+        m_prime = self.get_M_prime(m)
+        for j in m_prime:
+            m_second &= self.get_J_prime(j)
+        return m_second
     
-    def getIrreductibleJ(self):
-        irreductiblesObjects = set()
+    def get_irreductible_J(self):
+        irreductibles_objects = set()
         for j in self.J:
             intersection = copy(self.M)
-            alreadyEquivalent = False
-            jPrime = self.getJPrime(j)
-            jSecond = self.getJSecond(j)
-            for k in jSecond:
-                kPrime = self.getJPrime(k)
-                if jPrime != kPrime:
-                    intersection &= kPrime
-            for object_v in irreductiblesObjects:
-                if jPrime == self.getJPrime(object_v):
-                    alreadyEquivalent =True
+            already_equivalent = False
+            j_prime = self.get_J_prime(j)
+            j_second = self.get_J_second(j)
+            for k in j_second:
+                k_prime = self.get_J_prime(k)
+                if j_prime != k_prime:
+                    intersection &= k_prime
+            for object_v in irreductibles_objects:
+                if j_prime == self.get_J_prime(object_v):
+                    already_equivalent =True
                     break
-            if (jPrime != intersection) and not alreadyEquivalent:
-                irreductiblesObjects.add(j)
-        return irreductiblesObjects
+            if (j_prime != intersection) and not already_equivalent:
+                irreductibles_objects.add(j)
+        return irreductibles_objects
     
-    def getIrreductibleM(self):
-        irreductiblesAttributes = set()
+    def get_irreductible_M(self):
+        irreductibles_attributes = set()
         for m in self.M:
             intersection = copy(self.J)
-            alreadyEquivalent = False
-            mPrime = self.getMPrime(m)
-            mSecond = self.getMSecond(m)
-            for k in mSecond:
-                kPrime = self.getMPrime(k)
-                if mPrime != kPrime:
+            already_equivalent = False
+            m_prime = self.get_M_prime(m)
+            m_second = self.get_M_second(m)
+            for k in m_second:
+                kPrime = self.get_M_prime(k)
+                if m_prime != kPrime:
                     intersection &= kPrime
-            for attribute in irreductiblesAttributes:
-                if mPrime == self.getMPrime(attribute):
-                    alreadyEquivalent = True
+            for attribute in irreductibles_attributes:
+                if m_prime == self.get_M_prime(attribute):
+                    already_equivalent = True
                     break
-            if (mPrime != intersection) and not alreadyEquivalent:
-                irreductiblesAttributes.add(m)
-        return irreductiblesAttributes
+            if (m_prime != intersection) and not already_equivalent:
+                irreductibles_attributes.add(m)
+        return irreductibles_attributes
     
-    def getPrimaryFilters(self):
-        firstFilters = set()
+    def get_primary_filters(self):
+        first_filters = set()
         for j in self.J:
             primary = True
-            jPrime = self.getJPrime(j)
+            j_prime = self.get_J_prime(j)
             for k in self.J:
                 if j != k:
-                    kPrime = self.getJPrime(k)
-                    if jPrime <= kPrime:
+                    k_prime = self.get_J_prime(k)
+                    if j_prime <= k_prime:
                         primary = False
                         break
             if primary:
-                firstFilters.add(j)
-        return firstFilters
+                first_filters.add(j)
+        return first_filters
     
-    def getDirectsInfs(self, searchedFilters):
-        directInfs = set()
+    def get_directs_infs(self, searched_filters):
+        direct_infs = set()
         for j in self.J:
-            jPrime = self.getJPrime(j)
-            if jPrime > searchedFilters: #(self.getJPrime(j).issuperset(searchedFilters)) and not (self.getJPrime(j).issubset(searchedFilters)):
-                directInfs_copy = copy(directInfs)
-                alreadyHaveBetterInf = False
-                for inf in directInfs_copy:
-                    infPrime = self.getJPrime(inf)
-                    if jPrime < infPrime: #self.getJPrime(j).issubset(self.getJPrime(child)):
-                        directInfs.discard(inf)
-                    elif jPrime > infPrime: #self.getJPrime(j).issuperset(self.getJPrime(child)):
-                        alreadyHaveBetterInf = True
+            j_prime = self.get_J_prime(j)
+            if j_prime > searched_filters: #(self.get_J_prime(j).issuperset(searched_filters)) and not (self.get_J_prime(j).issubset(searched_filters)):
+                direct_infs_copy = copy(direct_infs)
+                already_have_better_inf = False
+                for inf in direct_infs_copy:
+                    inf_prime = self.get_J_prime(inf)
+                    if j_prime < inf_prime: #self.get_J_prime(j).issubset(self.get_J_prime(child)):
+                        direct_infs.discard(inf)
+                    elif j_prime > inf_prime: #self.get_J_prime(j).issuperset(self.get_J_prime(child)):
+                        already_have_better_inf = True
                         break
-                if not alreadyHaveBetterInf:
-                    directInfs.add(j)
-        return directInfs
+                if not already_have_better_inf:
+                    direct_infs.add(j)
+        return direct_infs
     
-    def getDirectsSups(self, searchedFilters):
-        directSups = set()
+    def get_directs_sups(self, searched_filters):
+        direct_sups = set()
         for j in self.J:
-            jPrime = self.getJPrime(j)
-            if jPrime < searchedFilters: #(self.getJPrime(j).issubset(searchedFilters)) and not (self.getJPrime(j).issuperset(searchedFilters)):
-                directSups_copy = copy(directSups)
-                alreadyHaveBetterSup = False
-                for sup in directSups_copy:
-                    supPrime = self.getJPrime(sup)
-                    if jPrime > supPrime: #(self.getJPrime(j).issuperset(self.getJPrime(parent))) and not (self.getJPrime(j).issubset(self.getJPrime(parent))):
-                        directSups.discard(sup)
-                    elif jPrime < supPrime: #self.getJPrime(j).issubset(self.getJPrime(parent)):
-                        alreadyHaveBetterSup = True
-                if not alreadyHaveBetterSup:
-                    directSups.add(j)
-        return directSups
+            j_prime = self.get_J_prime(j)
+            if j_prime < searched_filters: #(self.get_J_prime(j).issubset(searched_filters)) and not (self.get_J_prime(j).issuperset(searched_filters)):
+                direct_sups_copy = copy(direct_sups)
+                already_have_better_sup = False
+                for sup in direct_sups_copy:
+                    sup_prime = self.get_J_prime(sup)
+                    if j_prime > sup_prime: #(self.get_J_prime(j).issuperset(self.get_J_prime(parent))) and not (self.get_J_prime(j).issubset(self.get_J_prime(parent))):
+                        direct_sups.discard(sup)
+                    elif j_prime < sup_prime: #self.get_J_prime(j).issubset(self.get_J_prime(parent)):
+                        already_have_better_sup = True
+                if not already_have_better_sup:
+                    direct_sups.add(j)
+        return direct_sups
     
     def display(self):
         print('-'*15)
-        print(self.contextName)
+        print(self.context_name)
         print('-'*5)
         matrix = ''
         for m in sorted(self.M):
@@ -362,11 +370,11 @@ class Context(object):
             matrix += str(j)
             for m in sorted(self.M):
                 matrix += '\t'
-                if m in self.getJPrime(j):
+                if m in self.get_J_prime(j):
                     matrix += 'x'
             matrix += '\n'
         print(matrix)
         print('-'*15)
         
-    def exportJsonForLatviz(self):
+    def export_json_for_latviz(self):
         print('Not yet implemented')
