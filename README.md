@@ -1,18 +1,23 @@
 # FCA_medianGraph
-Blabla
+## Datas set
+* cla_v1: example in cla
+* cla_v2: example in cla with one additionnal n5 on the commun axe
+* cla_v3: two examples of cal side by side
 
 # Reporting
 ## Done
 * Take a unknow context
+  * Create the graph (with Graphviz)
 * Convert it into a standard context
-* Create distributive first filters context from global strandard
+* Convert it into a distributive context
+  * ?
+* Create distributive first filters context from global strandard one
   * Use cla2018 algorithm to convert contexts of first filters into distributives contexts
   * Merge result basically (local result of cla2018)
-  * Merge result (optimal result of cla2018)
-    * Work on cla2018
-    * Don't work on a lattice with more than two first filters
+  * Merge similar nodes (optimal result of cla2018)
 ## To do
-* Adjust method to get distributive lattice of one with more than two first filters
-* Adjust method to get distributive lattice of a crown from itself
+* Need to verify merge method on lattice with cross-connections (like crown)
+* Enable export for Latviz and others main graphs generators applications
+* Create GUI
 ## Problems
-* Basic method doesn't work on lattice with more than two first filters
+* Can be a problem with lattice with cross-connections (like crown)

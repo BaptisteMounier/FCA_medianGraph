@@ -25,7 +25,7 @@ class Context(object):
             MList = next(lecteur)
             self.M = set(MList)
             
-            l = 0
+            l = 1
             for line in lecteur:
                 c = 0
                 objectOfLine = 'o'+str(l)
@@ -92,6 +92,10 @@ class Context(object):
             # Display the context in console
             globalContext.display()
             
+        preMerge = deepcopy(globalContext)
+        preMerge.contextName += '_preMerge'
+        lattice = Lattice(preMerge)
+        lattice.generateGraph(self.debugGraphFolder)
 #         globalContext.display()
     
         extContext = globalContext.generateExtendedContext()

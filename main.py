@@ -25,10 +25,10 @@ if __name__=="__main__":
         dfGlobalLattice = Lattice(dfContext)
         dfGlobalLattice.generateGraph(targetDirectory)
         
-#         dGlobalContext = sContext.generateDistributiveContext()
-#         dGlobalContext.display()
-#         dGlobalLattice = Lattice(dGlobalContext)
-#         dGlobalLattice.generateGraph(targetDirectory)
+        dGlobalContext, uselessHere = sContext.generateDistributiveContext()
+        dGlobalContext.display()
+        dGlobalLattice = Lattice(dGlobalContext)
+        dGlobalLattice.generateGraph(targetDirectory)
         
 #         sdfContext = dfContext.generateStandardContext()
 #         sdfContext.display()
@@ -41,7 +41,7 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
-    args.file = 'clav2'
+    args.file = 'cla_v2'
     
     if args.file == 'validation':
         for filename in os.listdir('data/'+args.file+'/'):
