@@ -1,8 +1,23 @@
 # FCA_medianGraph
-## Datas set
+## Datas sets
 * cla_v1: example in cla
 * cla_v2: example in cla with one additionnal n5 on the commun axe
-* cla_v3: two examples of cal side by side
+* cla_v3: two examples of cla side by side
+
+## Results
+* Graphs
+  * .pdf and .gv
+  * in '/data/graph/'
+* Context
+  * In the console at each stage
+* Nomenclature
+  * 'dataSetName_ext'
+    * 'dataSetName': it's the name of the model likes 'cla_v1', 'cla_v2', etc
+    * 'ext': it's the operation done on the data set
+      * We can do multiple operation, lastest operation at the end of the name
+      * 'd': distributivity on the whole lattice
+      * 'df': distributivity on each first filter
+      * 'o4': lattice of the first filter 'o4'
 
 # Reporting
 ## Done
