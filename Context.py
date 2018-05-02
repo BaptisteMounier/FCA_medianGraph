@@ -4,15 +4,14 @@ from copy import copy, deepcopy
 from Lattice import Lattice
 
 class Context(object):
-    '''
+    """
     classdocs
-    '''
+    """
 
 
     def __init__(self, context_name, debug_graph_folder = 'data/debug/'):
-        '''
-        Constructor
-        '''
+        """Constructor."""
+        
         self.context_name = context_name
         self.J = set()
         self.M = set()
@@ -20,13 +19,14 @@ class Context(object):
         self.debug_graph_folder = debug_graph_folder
         
     def generate_context_fom_file(self, file_path):
-        """Import context values from a file
+        """Import context values from a file.
         
-        Read line by line the file to create J, M and I sets
+        Read line by line the file to create J, M and I sets.
         Keyword arguments:
         file_path -- the file path
         
         """
+        
         print('Generate the context \''+self.context_name+'\' from the file \''+file_path+'\'')
         with open(file_path, newline='') as csv_file:
             lecteur = csv.reader(csv_file, delimiter='\t', quotechar='|')
@@ -45,6 +45,8 @@ class Context(object):
                 l += 1
                 
     def generate_standard_context(self):
+        """Create standard context from current."""
+        
         print('Generate the standard context of \''+self.context_name+'\'')
         standard_context = Context(self.context_name, self.debug_graph_folder)
         standard_context.J = copy(self.get_irreductible_J())
@@ -55,11 +57,12 @@ class Context(object):
         return standard_context
         
     def generate_distributive_context_on_first_filters(self):
+        """Create first filters distributivity context from current."""
         
         print('Generate the context with distributive first filters \''+self.context_name+'_df from the context \''+self.context_name+'\'')
         # Section about cla2018 method
         
-        first_filters = self.get_primary_filters()
+        first_filters = self.get_first_filters()
         global_context = Context(self.context_name+'_df', self.debug_graph_folder)
         name_next_variable = ord('a')
         
@@ -160,10 +163,13 @@ class Context(object):
         
         
     def generate_distributive_context(self, name_next_variable = ord('a')):
-        '''Generate the distributive context of the current contexte
-        This can add relation I(j,m) but can't destroy one
+        """Generate distributive context from current
         
-        '''
+        Can add relations I(j,m) but can't destroy one
+        Keyword arguments:
+        name_next_variable -- the name letter of the next new node (default 'a')
+        
+        """
                 
         print('Generate the distributive context \''+self.context_name+'_d\' of the context \''+self.context_name+'\'')
         
@@ -188,6 +194,11 @@ class Context(object):
         return distributive_context, name_next_variable
     
     def generate_extended_context(self):
+        """Generate the extended version of current context
+        
+        It'll create one j for each node on the graph
+        
+        """
         
         print('Generate the extended context of \''+self.context_name+'\'')
         
@@ -243,6 +254,7 @@ class Context(object):
         return extended
                 
     def get_J_prime(self, j):
+        """Return j' set for a given j"""
         j_prime = set()
         for i in self.I:
             if i[0] == j:
@@ -250,6 +262,7 @@ class Context(object):
         return j_prime
                 
     def get_M_prime(self, m):
+        """Return m' set for a given m"""
         m_prime = set()
         for i in self.I:
             if i[1] == m:
@@ -257,6 +270,7 @@ class Context(object):
         return m_prime
                 
     def get_J_second(self, j):
+        """Return j'' set for a given j"""
         j_second = copy(self.J)
         j_prime = self.get_J_prime(j)
         for m in j_prime:
@@ -264,6 +278,7 @@ class Context(object):
         return j_second
                 
     def get_M_second(self, m):
+        """Return m'' set for a given m"""
         m_second = copy(self.M)
         m_prime = self.get_M_prime(m)
         for j in m_prime:
@@ -271,6 +286,7 @@ class Context(object):
         return m_second
     
     def get_irreductible_J(self):
+        """Return all irreductible j"""
         irreductibles_objects = set()
         for j in self.J:
             intersection = copy(self.M)
@@ -290,6 +306,7 @@ class Context(object):
         return irreductibles_objects
     
     def get_irreductible_M(self):
+        """Return all irreductible m"""
         irreductibles_attributes = set()
         for m in self.M:
             intersection = copy(self.J)
@@ -308,7 +325,8 @@ class Context(object):
                 irreductibles_attributes.add(m)
         return irreductibles_attributes
     
-    def get_primary_filters(self):
+    def get_first_filters(self):
+        """Return all first filters"""
         first_filters = set()
         for j in self.J:
             primary = True
@@ -324,6 +342,7 @@ class Context(object):
         return first_filters
     
     def get_directs_infs(self, searched_filters):
+        """Return directs infs of given j'"""
         direct_infs = set()
         for j in self.J:
             j_prime = self.get_J_prime(j)
@@ -342,6 +361,7 @@ class Context(object):
         return direct_infs
     
     def get_directs_sups(self, searched_filters):
+        """Return directs sups of given j'"""
         direct_sups = set()
         for j in self.J:
             j_prime = self.get_J_prime(j)
@@ -359,6 +379,7 @@ class Context(object):
         return direct_sups
     
     def display(self):
+        """Display the current context in the console"""
         print('-'*15)
         print(self.context_name)
         print('-'*5)
@@ -377,4 +398,5 @@ class Context(object):
         print('-'*15)
         
     def export_json_for_latviz(self):
+        """Export context in json forma for LatViz using"""
         print('Not yet implemented')
