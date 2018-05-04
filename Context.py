@@ -17,6 +17,7 @@ class Context(object):
         self.M = set()
         self.I = set()
         self.debug_graph_folder = debug_graph_folder
+        self.debug = False
         
     def generate_context_fom_file(self, file_path):
         """Import context values from a file.
@@ -227,6 +228,34 @@ class Context(object):
                         for intersection in intersection_ji:
                             extended.I.add((j_extended, intersection))
                             
+        modification = True
+        while modification:
+            modification = False
+            j_extended = copy(extended.J)                  
+            for j in j_extended:
+                if j not in self.J:
+                    j_prime = extended.get_J_prime(j)
+                    infs = extended.get_directs_infs(j_prime)
+                    if infs:
+                        min = 'z'
+                        max = 'A'
+                        for inf in infs:
+                            if inf < min:
+                                min = inf
+                            if inf > max:
+                                max = inf
+                        new_name = 'e('+str(min)+str(max)+')'
+                        if new_name != j:
+                            modification = True
+                            extended.J.discard(j)
+                            extended.J.add(new_name)
+                            i_extended = copy(extended.I)
+                            for i in i_extended:
+                                if i[0] == j:
+                                    extended.I.discard(i)
+                                    extended.I.add((new_name, i[1]))
+                    
+                            
         already_exists = False
         for j in extended.J:
             if extended.get_J_prime(j) == extended.M:
@@ -383,19 +412,27 @@ class Context(object):
         print('-'*15)
         print(self.context_name)
         print('-'*5)
-        matrix = ''
-        for m in sorted(self.M):
-            matrix += '\t'+str(m)
-        matrix += '\n'
-        for j in sorted(self.J):
-            matrix += str(j)
-            for m in sorted(self.M):
-                matrix += '\t'
-                if m in self.get_J_prime(j):
-                    matrix += 'x'
-            matrix += '\n'
+        matrix = self.to_string()
         print(matrix)
         print('-'*15)
+        
+    def to_string(self):
+        """Return the matrix of the context"""
+        result = ''
+        for m in sorted(self.M):
+            result += '\t'+str(m)
+        result += '\n'
+        for j in sorted(self.J):
+            result += str(j)
+            for m in sorted(self.M):
+                result += '\t'
+                if m in self.get_J_prime(j):
+                    result += 'x'
+            result += '\n'
+        return result
+    
+    def switch_debug(self, debug):
+        self.debug = debug
         
     def export_json_for_latviz(self):
         """Export context in json forma for LatViz using"""

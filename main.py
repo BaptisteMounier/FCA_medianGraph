@@ -19,11 +19,12 @@ if __name__=="__main__":
         context_s.display()
         lattice_s = Lattice(context_s)
         lattice_s.generate_graph(graph_directory)
+        tmp = context_s.generate_extended_context()
         
         Context_df = context_s.generate_distributive_context_on_first_filters()
         Context_df.display()
         global_lattice_df = Lattice(Context_df)
-        global_lattice_df.generate_graph(target_directory)
+        global_lattice_df.generate_graph(target_directory, tmp.J)
         
         global_context_d, useless_here = context_s.generate_distributive_context()
         global_context_d.display()
@@ -41,7 +42,7 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
-    args.file = 'cla_v2'
+    args.file = 'cla_v3'
     
     if args.file == 'validation':
         for filename in os.listdir('data/'+args.file+'/'):
