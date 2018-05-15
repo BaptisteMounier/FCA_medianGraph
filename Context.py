@@ -40,7 +40,7 @@ class Context(object):
                 object_of_line = 'o'+str(l)
                 self.J.add(object_of_line)
                 for colonne in line:
-                    if colonne != '':
+                    if (colonne != '') and (colonne != '0'):
                         self.I.add((object_of_line, M_list[c]))
                     c += 1
                 l += 1
@@ -60,12 +60,12 @@ class Context(object):
     def generate_distributive_context_on_first_filters(self):
         """Create first filters distributivity context from current."""
         
-        print('Generate the context with distributive first filters \''+self.context_name+'_df from the context \''+self.context_name+'\'')
+        print('Generate the context with distributive first filters \''+self.context_name+'_df\' from the context \''+self.context_name+'\'')
         # Section about cla2018 method
         
         first_filters = self.get_first_filters()
         global_context = Context(self.context_name+'_df', self.debug_graph_folder)
-        name_next_variable = ord('a')
+        name_next_variable = 1
         ext = self.generate_extended_context()
         
         # For each first filters
@@ -109,7 +109,6 @@ class Context(object):
         pre_merge.context_name += '_preMerge'
         lattice = Lattice(pre_merge)
         lattice.generate_graph(self.debug_graph_folder)
-#         global_context.display()
     
         ext_context = global_context.generate_extended_context()
         standard = ext_context.generate_standard_context()
@@ -147,7 +146,7 @@ class Context(object):
                             sups_unions = set()
                             sups_second_union = set()
                             sups_second_inter = copy(ext_context_copy.J)
-                            label = 'n_'
+                            label = 'n'
                             
                             for sup in sups_mergables:
                                 sups_unions.update(ext_context_copy.get_J_prime(sup))
@@ -156,7 +155,7 @@ class Context(object):
                                 sups_second_inter.intersection_update(second)
                                 
                             for sups_union in sups_unions:
-                                label += sups_union
+                                label += '_'+sups_union
                             
                             for sup_second in sups_second_union:
                                 for sups_union in sups_unions:
@@ -165,15 +164,12 @@ class Context(object):
                             ext_context.M.add(label)
                             for sup_second in sups_second_inter:
                                 ext_context.I.add((sup_second, label))
-                                    
-                            print('second',sups_second_union)
-                            print('union',sups_unions)
-                            ext_context.display()
                             
                             merge_ended = False
                             
             standard = ext_context.generate_standard_context()
             ext_context = standard.generate_extended_context()
+            ext_context.display()
             if not merge_ended:
                 to_display = copy(ext_context)
                 to_display.context_name += '_step'+str(countLoop)
@@ -254,7 +250,7 @@ class Context(object):
 #         return standard
         
         
-    def generate_distributive_context(self, name_next_variable = ord('a')):
+    def generate_distributive_context(self, name_next_variable = 1):
         """Generate distributive context from current
         
         Can add relations I(j,m) but can't destroy one
@@ -277,7 +273,7 @@ class Context(object):
                     j_filters.add(i)
                 else:
                     X.add(i)
-            mj = chr(name_next_variable)
+            mj = str(name_next_variable)
             name_next_variable += 1
             distributive_context.M.add(mj)
             for x in X:
@@ -513,7 +509,8 @@ class Context(object):
         """Return the matrix of the context"""
         result = ''
         for m in sorted(self.M):
-            result += '\t'+str(m)
+#             result += '\t'+str(m)
+            result += str(m)+'\t'
         result += '\n'
         for j in sorted(self.J):
 #             result += str(j)

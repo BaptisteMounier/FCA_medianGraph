@@ -1,0 +1,116 @@
+strict digraph cla_v3_d {
+	rankdir=BT
+	o4 [shape=circle]
+	"e(e(e(o2o4)o6)o9)" [shape=circle]
+	"e(e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o5)o7))e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o6)o9)))" [shape=circle]
+	"e(e(o1o2)o5)" [shape=circle]
+	"e(e(e(o1o2)o5)e(e(o1o3)o5))" [shape=circle]
+	"e(o2o4)" [shape=circle]
+	"e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o6)o9))" [shape=circle]
+	o3 [shape=circle]
+	"e(e(e(o1o4)o6)o9)" [shape=circle]
+	"e(e(e(o1o4)o5)o7)" [shape=circle]
+	"e(e(o1o3)o5)" [shape=circle]
+	o6 [shape=circle]
+	"e(o1o2)" [shape=circle]
+	"e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o5)o7))" [shape=circle]
+	"e(e(e(e(o1o2)o5)e(e(o1o3)o5))e(e(e(o1o3)o5)o7))" [shape=circle]
+	eBot [shape=circle]
+	"e(e(e(o1o3)o5)o7)" [shape=circle]
+	o7 [shape=circle]
+	"e(e(o2o4)o8)" [shape=circle]
+	o5 [shape=circle]
+	"e(e(o1o4)o5)" [shape=circle]
+	"e(o1o3)" [shape=circle]
+	"e(e(o3o4)o6)" [shape=circle]
+	eTop [shape=circle]
+	"e(e(o1o2)o8)" [shape=circle]
+	"e(e(o2o4)o6)" [shape=circle]
+	o2 [shape=circle]
+	"e(e(e(o3o4)o6)o9)" [shape=circle]
+	o9 [shape=circle]
+	o1 [shape=circle]
+	o8 [shape=circle]
+	"e(e(o1o4)o6)" [shape=circle]
+	"e(o2o3)" [shape=circle]
+	"e(e(e(o2o4)o6)e(e(o3o4)o6))" [shape=circle]
+	"e(o3o4)" [shape=circle]
+	"e(o1o4)" [shape=circle]
+	"e(e(e(e(o2o4)o6)e(e(o3o4)o6))e(e(e(o3o4)o6)o9))" [shape=circle]
+	"e(e(e(o1o4)o5)e(e(o1o4)o6))" [shape=circle]
+	"e(e(e(o1o2)o5)o7)" [shape=circle]
+	eBot -> o4
+	o9 -> "e(e(e(o2o4)o6)o9)"
+	"e(e(o2o4)o6)" -> "e(e(e(o2o4)o6)o9)"
+	"e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o6)o9))" -> "e(e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o5)o7))e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o6)o9)))"
+	"e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o5)o7))" -> "e(e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o5)o7))e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o6)o9)))"
+	o5 -> "e(e(o1o2)o5)"
+	"e(o1o2)" -> "e(e(o1o2)o5)"
+	"e(e(o1o2)o8)" -> "e(e(e(o1o2)o5)e(e(o1o3)o5))"
+	"e(e(o1o3)o5)" -> "e(e(e(o1o2)o5)e(e(o1o3)o5))"
+	"e(e(o1o2)o5)" -> "e(e(e(o1o2)o5)e(e(o1o3)o5))"
+	o4 -> "e(o2o4)"
+	o2 -> "e(o2o4)"
+	"e(e(e(o1o4)o6)o9)" -> "e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o6)o9))"
+	"e(e(e(o1o4)o5)e(e(o1o4)o6))" -> "e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o6)o9))"
+	eBot -> o3
+	o9 -> "e(e(e(o1o4)o6)o9)"
+	"e(e(o1o4)o6)" -> "e(e(e(o1o4)o6)o9)"
+	o7 -> "e(e(e(o1o4)o5)o7)"
+	"e(e(o1o4)o5)" -> "e(e(e(o1o4)o5)o7)"
+	o5 -> "e(e(o1o3)o5)"
+	"e(o1o3)" -> "e(e(o1o3)o5)"
+	o4 -> o6
+	o2 -> "e(o1o2)"
+	o1 -> "e(o1o2)"
+	"e(e(e(o1o4)o5)e(e(o1o4)o6))" -> "e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o5)o7))"
+	"e(e(e(o1o4)o5)o7)" -> "e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o5)o7))"
+	"e(e(e(o1o3)o5)o7)" -> "e(e(e(e(o1o2)o5)e(e(o1o3)o5))e(e(e(o1o3)o5)o7))"
+	"e(e(e(o1o2)o5)e(e(o1o3)o5))" -> "e(e(e(e(o1o2)o5)e(e(o1o3)o5))e(e(e(o1o3)o5)o7))"
+	"e(e(e(o1o2)o5)o7)" -> "e(e(e(e(o1o2)o5)e(e(o1o3)o5))e(e(e(o1o3)o5)o7))"
+	o7 -> "e(e(e(o1o3)o5)o7)"
+	"e(e(o1o3)o5)" -> "e(e(e(o1o3)o5)o7)"
+	o5 -> o7
+	"e(o3o4)" -> "e(e(o2o4)o8)"
+	"e(o2o4)" -> "e(e(o2o4)o8)"
+	o8 -> "e(e(o2o4)o8)"
+	o1 -> o5
+	o5 -> "e(e(o1o4)o5)"
+	"e(o1o4)" -> "e(e(o1o4)o5)"
+	o1 -> "e(o1o3)"
+	o3 -> "e(o1o3)"
+	"e(o3o4)" -> "e(e(o3o4)o6)"
+	o6 -> "e(e(o3o4)o6)"
+	"e(e(e(e(o1o2)o5)e(e(o1o3)o5))e(e(e(o1o3)o5)o7))" -> eTop
+	"e(e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o5)o7))e(e(e(e(o1o4)o5)e(e(o1o4)o6))e(e(e(o1o4)o6)o9)))" -> eTop
+	"e(e(e(e(o2o4)o6)e(e(o3o4)o6))e(e(e(o3o4)o6)o9))" -> eTop
+	o8 -> "e(e(o1o2)o8)"
+	"e(o1o3)" -> "e(e(o1o2)o8)"
+	"e(o1o2)" -> "e(e(o1o2)o8)"
+	"e(o2o4)" -> "e(e(o2o4)o6)"
+	o6 -> "e(e(o2o4)o6)"
+	eBot -> o2
+	o9 -> "e(e(e(o3o4)o6)o9)"
+	"e(e(o3o4)o6)" -> "e(e(e(o3o4)o6)o9)"
+	o6 -> o9
+	eBot -> o1
+	"e(o2o3)" -> o8
+	"e(o1o4)" -> "e(e(o1o4)o6)"
+	o6 -> "e(e(o1o4)o6)"
+	o2 -> "e(o2o3)"
+	o3 -> "e(o2o3)"
+	"e(e(o3o4)o6)" -> "e(e(e(o2o4)o6)e(e(o3o4)o6))"
+	"e(e(o2o4)o6)" -> "e(e(e(o2o4)o6)e(e(o3o4)o6))"
+	"e(e(o2o4)o8)" -> "e(e(e(o2o4)o6)e(e(o3o4)o6))"
+	o4 -> "e(o3o4)"
+	o3 -> "e(o3o4)"
+	o4 -> "e(o1o4)"
+	o1 -> "e(o1o4)"
+	"e(e(e(o2o4)o6)e(e(o3o4)o6))" -> "e(e(e(e(o2o4)o6)e(e(o3o4)o6))e(e(e(o3o4)o6)o9))"
+	"e(e(e(o3o4)o6)o9)" -> "e(e(e(e(o2o4)o6)e(e(o3o4)o6))e(e(e(o3o4)o6)o9))"
+	"e(e(e(o2o4)o6)o9)" -> "e(e(e(e(o2o4)o6)e(e(o3o4)o6))e(e(e(o3o4)o6)o9))"
+	"e(e(o1o4)o5)" -> "e(e(e(o1o4)o5)e(e(o1o4)o6))"
+	"e(e(o1o4)o6)" -> "e(e(e(o1o4)o5)e(e(o1o4)o6))"
+	o7 -> "e(e(e(o1o2)o5)o7)"
+	"e(e(o1o2)o5)" -> "e(e(e(o1o2)o5)o7)"
+}

@@ -1,0 +1,37 @@
+strict digraph cla_v5_o20_d {
+	rankdir=BT
+	"e(o19o22)" [shape=circle]
+	o19 [shape=circle]
+	o2 [shape=circle]
+	"e(o1o24)" [shape=circle]
+	o23 [shape=circle]
+	"e(e(o19o22)o24)" [shape=circle]
+	"e(e(o19o22)o2)" [shape=circle]
+	o1 [shape=circle]
+	eBot [shape=circle]
+	o22 [shape=circle]
+	o24 [shape=circle]
+	o21 [shape=circle]
+	"e(e(e(o19o22)o2)o23)" [shape=circle]
+	o19 -> "e(o19o22)"
+	o22 -> "e(o19o22)"
+	eBot -> o19
+	o22 -> o2
+	o2 -> "e(o1o24)"
+	o24 -> "e(o1o24)"
+	o1 -> "e(o1o24)"
+	"e(e(o19o22)o24)" -> o23
+	o24 -> "e(e(o19o22)o24)"
+	"e(o19o22)" -> "e(e(o19o22)o24)"
+	o2 -> "e(e(o19o22)o2)"
+	o1 -> "e(e(o19o22)o2)"
+	"e(o19o22)" -> "e(e(o19o22)o2)"
+	o22 -> o1
+	eBot -> o22
+	o22 -> o24
+	"e(e(o19o22)o24)" -> o21
+	o21 -> "e(e(e(o19o22)o2)o23)"
+	"e(e(o19o22)o2)" -> "e(e(e(o19o22)o2)o23)"
+	"e(o1o24)" -> "e(e(e(o19o22)o2)o23)"
+	o23 -> "e(e(e(o19o22)o2)o23)"
+}

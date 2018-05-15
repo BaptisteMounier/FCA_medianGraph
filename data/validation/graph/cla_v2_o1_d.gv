@@ -1,0 +1,19 @@
+strict digraph cla_v2_o1_d {
+	rankdir=BT
+	eBot [shape=circle]
+	"e(e(o2o7)o5)" [shape=circle]
+	o7 [shape=circle]
+	o5 [shape=circle]
+	o2 [shape=circle]
+	"e(o2o7)" [shape=circle]
+	o3 [shape=circle]
+	o5 -> "e(e(o2o7)o5)"
+	"e(o2o7)" -> "e(e(o2o7)o5)"
+	eBot -> o7
+	o3 -> o5
+	eBot -> o2
+	o2 -> "e(o2o7)"
+	o7 -> "e(o2o7)"
+	o3 -> "e(o2o7)"
+	eBot -> o3
+}

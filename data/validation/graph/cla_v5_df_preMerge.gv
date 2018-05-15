@@ -1,0 +1,173 @@
+strict digraph cla_v5_df_preMerge {
+	rankdir=BT
+	o4 [shape=circle]
+	"e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))" [shape=circle]
+	o3 [shape=circle]
+	o23 [shape=circle]
+	"e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))" [shape=circle]
+	o6 [shape=circle]
+	"e(o1o2)" [shape=circle]
+	eBot [shape=circle]
+	"e(e(e(o1o2)o4)o6)" [shape=circle]
+	o15 [shape=circle]
+	o5 [shape=circle]
+	"e(e(e(e(o1o2)o22)e(e(o1o2)o3))e(e(e(o1o2)o3)o5))" [shape=circle]
+	"e(e(e(o13o14)o15)o17)" [shape=circle]
+	"e(o12o3)" [shape=circle]
+	"e(e(e(o1o2)o3)e(o12o3))" [shape=circle]
+	"e(e(o13o14)o15)" [shape=circle]
+	o14 [shape=circle]
+	o19 [shape=circle]
+	o10 [shape=circle]
+	o2 [shape=circle]
+	"e(e(e(o1o2)o22)e(e(o1o2)o4))" [shape=circle]
+	"e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))" [shape=circle]
+	"e(e(e(o19o20)o21)o23)" [shape=circle]
+	"e(e(o19o20)o22)" [shape=circle]
+	"e(e(o1o2)o4)" [shape=circle]
+	o1 [shape=circle]
+	o17 [shape=circle]
+	"e(o19o20)" [shape=circle]
+	o8 [shape=circle]
+	"e(e(e(o13o14)o16)o18)" [shape=circle]
+	"e(o7o8)" [shape=circle]
+	"e(e(e(o1o2)o3)o5)" [shape=circle]
+	o24 [shape=circle]
+	"e(e(o7o8)o9)" [shape=circle]
+	"e(e(e(o7o8)o10)o12)" [shape=circle]
+	o16 [shape=circle]
+	"e(o13o14)" [shape=circle]
+	"e(e(e(e(o7o8)o10)o12)e(e(e(o7o8)o9)o11))" [shape=circle]
+	"e(e(o13o14)o16)" [shape=circle]
+	"e(e(o1o2)o3)" [shape=circle]
+	"e(e(e(e(o1o2)o22)e(e(o1o2)o4))e(e(e(o1o2)o4)o6))" [shape=circle]
+	o20 [shape=circle]
+	"e(e(o1o2)o22)" [shape=circle]
+	o11 [shape=circle]
+	o7 [shape=circle]
+	o22 [shape=circle]
+	o12 [shape=circle]
+	"e(e(o7o8)o10)" [shape=circle]
+	"e(e(e(e(o19o20)o21)o23)e(e(e(o19o20)o22)o24))" [shape=circle]
+	"e(e(e(e(o1o2)o22)e(e(o1o2)o3))e(e(e(o1o2)o3)e(o12o3)))" [shape=circle]
+	"e(e(o19o20)o21)" [shape=circle]
+	o13 [shape=circle]
+	"e(e(e(o19o20)o22)e(e(o1o2)o22))" [shape=circle]
+	"e(e(e(o1o2)o22)e(e(o1o2)o3))" [shape=circle]
+	o9 [shape=circle]
+	"e(e(e(e(o7o8)o10)o12)e(o12o3))" [shape=circle]
+	"e(e(e(o19o20)o22)o24)" [shape=circle]
+	"e(e(e(o7o8)o9)o11)" [shape=circle]
+	o21 [shape=circle]
+	"e(e(e(o1o2)o22)o24)" [shape=circle]
+	"e(e(o12o3)o5)" [shape=circle]
+	o18 [shape=circle]
+	o2 -> o4
+	"e(e(o12o3)o5)" -> "e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))"
+	"e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))" -> "e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))"
+	"e(e(e(o1o2)o3)e(o12o3))" -> "e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))"
+	o1 -> o3
+	o21 -> o23
+	"e(e(e(o1o2)o3)o5)" -> "e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))"
+	"e(e(e(o1o2)o4)o6)" -> "e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))"
+	o4 -> o6
+	o2 -> "e(o1o2)"
+	o1 -> "e(o1o2)"
+	"e(e(o1o2)o4)" -> "e(e(e(o1o2)o4)o6)"
+	o6 -> "e(e(e(o1o2)o4)o6)"
+	o13 -> o15
+	o3 -> o5
+	"e(e(e(o1o2)o3)o5)" -> "e(e(e(e(o1o2)o22)e(e(o1o2)o3))e(e(e(o1o2)o3)o5))"
+	"e(e(e(o1o2)o22)e(e(o1o2)o3))" -> "e(e(e(e(o1o2)o22)e(e(o1o2)o3))e(e(e(o1o2)o3)o5))"
+	"e(e(o13o14)o15)" -> "e(e(e(o13o14)o15)o17)"
+	o17 -> "e(e(e(o13o14)o15)o17)"
+	o12 -> "e(o12o3)"
+	o3 -> "e(o12o3)"
+	"e(e(o1o2)o3)" -> "e(e(e(o1o2)o3)e(o12o3))"
+	"e(o12o3)" -> "e(e(e(o1o2)o3)e(o12o3))"
+	"e(o13o14)" -> "e(e(o13o14)o15)"
+	o15 -> "e(e(o13o14)o15)"
+	eBot -> o14
+	eBot -> o19
+	o8 -> o10
+	eBot -> o2
+	"e(e(o1o2)o4)" -> "e(e(e(o1o2)o22)e(e(o1o2)o4))"
+	"e(e(o1o2)o22)" -> "e(e(e(o1o2)o22)e(e(o1o2)o4))"
+	"e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	"e(e(e(e(o7o8)o10)o12)e(o12o3))" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	"e(e(e(o13o14)o16)o18)" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	"e(e(e(e(o19o20)o21)o23)e(e(e(o19o20)o22)o24))" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	"e(e(e(o13o14)o15)o17)" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	"e(e(e(e(o1o2)o22)e(e(o1o2)o3))e(e(e(o1o2)o3)o5))" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	"e(e(e(e(o7o8)o10)o12)e(e(e(o7o8)o9)o11))" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	"e(e(e(o19o20)o22)e(e(o1o2)o22))" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	"e(e(e(o1o2)o22)o24)" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	"e(e(e(e(o1o2)o22)e(e(o1o2)o3))e(e(e(o1o2)o3)e(o12o3)))" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	"e(e(e(e(o1o2)o22)e(e(o1o2)o4))e(e(e(o1o2)o4)o6))" -> "e(e(e(e(e(e(o1o2)o3)o5)e(e(e(o1o2)o4)o6))e(e(o12o3)o5))e(e(e(o1o2)o22)o24))"
+	o23 -> "e(e(e(o19o20)o21)o23)"
+	"e(e(o19o20)o21)" -> "e(e(e(o19o20)o21)o23)"
+	o22 -> "e(e(o19o20)o22)"
+	"e(o19o20)" -> "e(e(o19o20)o22)"
+	o4 -> "e(e(o1o2)o4)"
+	"e(o1o2)" -> "e(e(o1o2)o4)"
+	eBot -> o1
+	o15 -> o17
+	o20 -> "e(o19o20)"
+	o19 -> "e(o19o20)"
+	eBot -> o8
+	"e(e(o13o14)o16)" -> "e(e(e(o13o14)o16)o18)"
+	o18 -> "e(e(e(o13o14)o16)o18)"
+	o8 -> "e(o7o8)"
+	o7 -> "e(o7o8)"
+	o5 -> "e(e(e(o1o2)o3)o5)"
+	"e(e(o1o2)o3)" -> "e(e(e(o1o2)o3)o5)"
+	o22 -> o24
+	o9 -> "e(e(o7o8)o9)"
+	"e(o7o8)" -> "e(e(o7o8)o9)"
+	o12 -> "e(e(e(o7o8)o10)o12)"
+	"e(e(o7o8)o10)" -> "e(e(e(o7o8)o10)o12)"
+	o14 -> o16
+	o13 -> "e(o13o14)"
+	o14 -> "e(o13o14)"
+	"e(e(e(o7o8)o9)o11)" -> "e(e(e(e(o7o8)o10)o12)e(e(e(o7o8)o9)o11))"
+	"e(e(e(o7o8)o10)o12)" -> "e(e(e(e(o7o8)o10)o12)e(e(e(o7o8)o9)o11))"
+	"e(o13o14)" -> "e(e(o13o14)o16)"
+	o16 -> "e(e(o13o14)o16)"
+	"e(o1o2)" -> "e(e(o1o2)o3)"
+	o3 -> "e(e(o1o2)o3)"
+	"e(e(e(o1o2)o22)e(e(o1o2)o4))" -> "e(e(e(e(o1o2)o22)e(e(o1o2)o4))e(e(e(o1o2)o4)o6))"
+	"e(e(e(o1o2)o4)o6)" -> "e(e(e(e(o1o2)o22)e(e(o1o2)o4))e(e(e(o1o2)o4)o6))"
+	eBot -> o20
+	"e(o1o2)" -> "e(e(o1o2)o22)"
+	o22 -> "e(e(o1o2)o22)"
+	o9 -> o11
+	eBot -> o7
+	o20 -> o22
+	o10 -> o12
+	"e(o7o8)" -> "e(e(o7o8)o10)"
+	o10 -> "e(e(o7o8)o10)"
+	"e(e(e(o19o20)o21)o23)" -> "e(e(e(e(o19o20)o21)o23)e(e(e(o19o20)o22)o24))"
+	"e(e(e(o19o20)o22)o24)" -> "e(e(e(e(o19o20)o21)o23)e(e(e(o19o20)o22)o24))"
+	"e(e(e(o1o2)o22)e(e(o1o2)o3))" -> "e(e(e(e(o1o2)o22)e(e(o1o2)o3))e(e(e(o1o2)o3)e(o12o3)))"
+	"e(e(e(o1o2)o3)e(o12o3))" -> "e(e(e(e(o1o2)o22)e(e(o1o2)o3))e(e(e(o1o2)o3)e(o12o3)))"
+	o21 -> "e(e(o19o20)o21)"
+	"e(o19o20)" -> "e(e(o19o20)o21)"
+	eBot -> o13
+	"e(e(o19o20)o22)" -> "e(e(e(o19o20)o22)e(e(o1o2)o22))"
+	"e(e(o1o2)o22)" -> "e(e(e(o19o20)o22)e(e(o1o2)o22))"
+	"e(e(o1o2)o3)" -> "e(e(e(o1o2)o22)e(e(o1o2)o3))"
+	"e(e(o1o2)o22)" -> "e(e(e(o1o2)o22)e(e(o1o2)o3))"
+	o7 -> o9
+	"e(e(e(o7o8)o10)o12)" -> "e(e(e(e(o7o8)o10)o12)e(o12o3))"
+	"e(o12o3)" -> "e(e(e(e(o7o8)o10)o12)e(o12o3))"
+	o24 -> "e(e(e(o19o20)o22)o24)"
+	"e(e(o19o20)o22)" -> "e(e(e(o19o20)o22)o24)"
+	o11 -> "e(e(e(o7o8)o9)o11)"
+	"e(e(o7o8)o9)" -> "e(e(e(o7o8)o9)o11)"
+	o19 -> o21
+	o24 -> "e(e(e(o1o2)o22)o24)"
+	"e(e(o1o2)o22)" -> "e(e(e(o1o2)o22)o24)"
+	o5 -> "e(e(o12o3)o5)"
+	"e(o12o3)" -> "e(e(o12o3)o5)"
+	o16 -> o18
+}

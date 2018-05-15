@@ -1,13 +1,23 @@
 # FCA_medianGraph
 ## Datas sets
-* cla_v1: example in cla
-* cla_v2: example in cla with one additionnal n5 on the commun axe
-* cla_v3: two examples of cla side by side
+* Default sets ('data/validation/')
+  * cla_v1: example in cla
+  * cla_v2: example in cla with one additionnal n5 on the common axe
+  * cla_v3: two examples of cla side by side with one axe and top
+  * cla_v4: two examples of cla side by side since contact
+  * cla_v5: four examples of cla side by side since contact
+  * And many more in 'data/'
+* Format
+  * 1st line for the labels of attributes
+  * Use '' or '0' for blank and anything other for value
 
 ## Results
+* Default
+  * Do a serie of analyse (located in '/data/validation')
+  * Uncomment and edit line 40 in 'main.py' to analyse one by one (source file aren't the same, in case of modification but forget to edit both)
 * Graphs
   * .pdf and .gv
-  * in '/data/graph/'
+  * in '/data/(validation/)graph/'
 * Context
   * In the console at each stage
 * Nomenclature
@@ -17,6 +27,8 @@
       * We can do multiple operation, lastest operation at the end of the name
       * 'd': distributivity on the whole lattice
       * 'df': distributivity on each first filter
+      * 'df_preMerge': lattice before the merge (distributivity already done)
+      * 'df_step1': first iteration of merge after distributivity
       * 'o4': lattice of the first filter 'o4'
 
 # Reporting
@@ -31,8 +43,6 @@
   * Merge result basically (local result of cla2018)
   * Merge similar nodes (optimal result of cla2018)
 ## To do
-* Need to verify merge method on lattice with cross-connections (like crown)
 * Enable export for Latviz and others main graphs generators applications
 * Create GUI
 ## Problems
-* Can be a problem with lattice with cross-connections (like crown)
