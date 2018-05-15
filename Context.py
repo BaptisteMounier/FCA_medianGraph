@@ -40,7 +40,7 @@ class Context(object):
                 object_of_line = 'o'+str(l)
                 self.J.add(object_of_line)
                 for colonne in line:
-                    if colonne == '1':
+                    if colonne != '':
                         self.I.add((object_of_line, M_list[c]))
                     c += 1
                 l += 1
@@ -66,6 +66,7 @@ class Context(object):
         first_filters = self.get_first_filters()
         global_context = Context(self.context_name+'_df', self.debug_graph_folder)
         name_next_variable = ord('a')
+        ext = self.generate_extended_context()
         
         # For each first filters
         for first_filter in first_filters:
@@ -111,56 +112,146 @@ class Context(object):
 #         global_context.display()
     
         ext_context = global_context.generate_extended_context()
-        
-        # Merge node if we can
-        added_elements = ext_context.J.difference(global_context.J)
-        for e in added_elements:
-            count = 0
-            common_to_multiple_first_filters = False
-                 
-            # Search if e is present in at least two first filters lattice
-            for first_filter in first_filters:
-#                 print(first_filter,ext_context.get_J_prime(first_filter))
-#                 print(e,ext_context.get_J_prime(e))
-                if ext_context.get_J_prime(first_filter).issuperset(ext_context.get_J_prime(e)):
-                    count += 1
-                if count > 1:
-                    common_to_multiple_first_filters = True
-                    break
-                  
-            if common_to_multiple_first_filters:
-                sups = ext_context.get_directs_sups(ext_context.get_J_prime(e))
-#                 ext_context.display()
-                print('parents',e,sups)
-                if len(sups) > 1:
-                         
-                    # Check if e's sups are mergable
-                    sups_mergables = set()
-                    for sup in sups:
-                        if sup in ext_context.J.difference(global_context.J):
-                            sups_mergables.add(sup)
-                      
-                    # Then merge its
-                    if bool(sups_mergables):
-                        
-                        sups_unions = set()
-                        for sup in sups_mergables:
-                            sups_unions = sups_unions.union(ext_context.get_J_prime(sup))
-                            
-#                         print('DEBUG_1:',e,parentsMergables,parentsUnions)
-#                         ext_context.display()
-                        sups_second = set()
-                        for sup in sups_mergables:
-                            sups_second.update(ext_context.get_J_second(sup))
-#                             print('DEBUG_2:',parent,parentsSecond)
-                        for sup_second in sups_second:
-                            for sups_union in sups_unions:
-                                ext_context.I.add((sup_second, sups_union))                                
-                                
         standard = ext_context.generate_standard_context()
-        ext_context.display()
-        standard.display()
-        return standard
+        
+        merge_ended = False
+        countLoop = 0
+        while not merge_ended:
+            merge_ended = True
+            countLoop += 1
+            print('CountLoop:',countLoop)
+            ext_context_copy = deepcopy(ext_context)
+            for concept in ext_context_copy.J:
+                
+                count = 0
+                for first_filter in first_filters:
+                    if ext_context_copy.get_J_prime(first_filter).issuperset(ext_context_copy.get_J_prime(concept)):
+                        count += 1
+                    if count > 1:
+                        break
+                
+                if count > 1:
+                    sups = ext_context_copy.get_directs_sups(ext_context_copy.get_J_prime(concept))
+                    sups.difference_update(global_context.J)
+                    
+                    if len(sups) > 1:
+                             
+                        # Check if e's sups are mergable
+                        sups_mergables = set()
+                        for sup in sups:
+                            if sup in ext_context_copy.J.difference(ext.J):
+                                sups_mergables.add(sup)
+                                
+                        if len(sups_mergables) > 1:
+                            
+                            sups_unions = set()
+                            sups_second_union = set()
+                            sups_second_inter = copy(ext_context_copy.J)
+                            label = 'n_'
+                            
+                            for sup in sups_mergables:
+                                sups_unions.update(ext_context_copy.get_J_prime(sup))
+                                second = ext_context_copy.get_J_second(sup)
+                                sups_second_union.update(second)
+                                sups_second_inter.intersection_update(second)
+                                
+                            for sups_union in sups_unions:
+                                label += sups_union
+                            
+                            for sup_second in sups_second_union:
+                                for sups_union in sups_unions:
+                                    ext_context.I.add((sup_second, sups_union))
+                                    
+                            ext_context.M.add(label)
+                            for sup_second in sups_second_inter:
+                                ext_context.I.add((sup_second, label))
+                                    
+                            print('second',sups_second_union)
+                            print('union',sups_unions)
+                            ext_context.display()
+                            
+                            merge_ended = False
+                            
+            standard = ext_context.generate_standard_context()
+            ext_context = standard.generate_extended_context()
+            if not merge_ended:
+                to_display = copy(ext_context)
+                to_display.context_name += '_step'+str(countLoop)
+                lattice = Lattice(to_display)
+                lattice.generate_graph(self.debug_graph_folder)
+            
+        return standard                        
+                        
+        
+        
+        
+        
+#         # Merge node if we can
+#         merge_ended = False
+#         countLoop = 0
+#         while not merge_ended:
+#             countLoop = countLoop + 1
+#             print('Count:',countLoop)
+#             merge_ended = True
+#             added_elements = ext_context.J.difference(global_context.J)
+#     #         print('Added_element', added_elements)
+#     #         print('J_ext',ext_context.J)
+#     #         print('J_g',global_context.J)
+#             for e in added_elements:
+#                 count = 0
+#                 common_to_multiple_first_filters = False
+#                      
+#                 # Search if e is present in at least two first filters lattice
+#                 for first_filter in first_filters:
+#     #                 print(first_filter,ext_context.get_J_prime(first_filter))
+#     #                 print(e,ext_context.get_J_prime(e))
+#                     if ext_context.get_J_prime(first_filter).issuperset(ext_context.get_J_prime(e)):
+#                         count += 1
+#                     if count > 1:
+#                         common_to_multiple_first_filters = True
+#                         break
+#                       
+#                 if common_to_multiple_first_filters:
+#                     sups = ext_context.get_directs_sups(ext_context.get_J_prime(e))
+#                     sups.difference_update(global_context.J)
+#     #                 ext_context.display()
+#                     if len(sups) > 1:
+#                              
+#                         # Check if e's sups are mergable
+#                         sups_mergables = set()
+#                         for sup in sups:
+#                             if sup in ext_context.J.difference(ext.J):
+#                                 sups_mergables.add(sup)
+#                           
+#                         # Then merge its
+#                         if bool(sups_mergables):
+#                             print('Loop not breaked')
+#                             print('parents_mergeable',e,sups_mergables)
+#                             merge_ended = False
+#                             sups_unions = set()
+#                             sups_second_union = set()
+#                             for sup in sups_mergables:
+#                                 sups_unions.update(ext_context.get_J_prime(sup))
+#                                 sups_second_union.update(ext_context.get_J_second(sup))
+#                                 
+#     #                         print('DEBUG_1:',e,parentsMergables,parentsUnions)
+#     #                         ext_context.display()
+#                             for sup_second in sups_second_union:
+#                                 for sups_union in sups_unions:
+# #                                     print('Mouahahahah',sup_second,sups_union)
+#                                     ext_context.I.add((sup_second, sups_union))
+#                                 
+#             ext_context.display()
+#             standard = ext_context.generate_standard_context()
+#             ext_context = standard.generate_extended_context()
+#             tmp = copy(ext_context)
+#             tmp.context_name += '_tmp'+str(countLoop)
+#             lattice = Lattice(tmp)
+#             lattice.generate_graph(self.debug_graph_folder)
+            
+#         ext_context.display()
+#         standard.display()
+#         return standard
         
         
     def generate_distributive_context(self, name_next_variable = ord('a')):
@@ -413,6 +504,8 @@ class Context(object):
         print(self.context_name)
         print('-'*5)
         matrix = self.to_string()
+#         for j in self.J:
+#             print(j, self.get_J_prime(j))
         print(matrix)
         print('-'*15)
         
@@ -423,12 +516,13 @@ class Context(object):
             result += '\t'+str(m)
         result += '\n'
         for j in sorted(self.J):
-            result += str(j)
+#             result += str(j)
             for m in sorted(self.M):
-                result += '\t'
+#                 result += '\t'
                 if m in self.get_J_prime(j):
                     result += 'x'
-            result += '\n'
+                result += '\t'
+            result += str(j)+'\n'
         return result
     
     def switch_debug(self, debug):

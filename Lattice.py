@@ -13,7 +13,7 @@ class Lattice(object):
         self.context = context
         self.nodes = set()
     
-    def generate_graph(self, target_directory):
+    def generate_graph(self, target_directory, differences = None):
  
         extended = self.context.generate_extended_context()
 #         extended.display()
@@ -23,7 +23,14 @@ class Lattice(object):
         #dot.attr('node', shape="point")
         
         for j in extended.J:
-            dot.node(str(j))
+            if not differences:
+                dot.node(str(j), shape='circle')
+            else:
+                if j in differences:
+                    dot.node(str(j), shape='circle')
+                else:
+                    dot.node(str(j), shape='doublecircle')
+            
 #         
         for j in extended.J:
             directs_infs = extended.get_directs_infs(extended.get_J_prime(j))

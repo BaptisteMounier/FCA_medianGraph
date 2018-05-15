@@ -1,0 +1,7 @@
+a	b	c	d
+x	x	x	
+	x	x	x
+x			
+			x
+	x		
+		x	

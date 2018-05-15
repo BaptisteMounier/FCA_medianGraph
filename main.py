@@ -42,7 +42,7 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
-    args.file = 'cla_v3'
+    args.file = 'cla_v4'
     
     if args.file == 'validation':
         for filename in os.listdir('data/'+args.file+'/'):
