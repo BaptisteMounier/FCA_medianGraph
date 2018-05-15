@@ -166,7 +166,9 @@ class Context(object):
                                 ext_context.I.add((sup_second, label))
                             
                             merge_ended = False
+                            break
                             
+            ext_context.display()
             standard = ext_context.generate_standard_context()
             ext_context = standard.generate_extended_context()
             ext_context.display()
