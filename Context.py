@@ -9,7 +9,7 @@ class Context(object):
     """
 
 
-    def __init__(self, context_name, debug_graph_folder = 'data/debug/'):
+    def __init__(self, context_name, debug_graph_folder = 'data/debug/', export_folder = 'data/export/'):
         """Constructor."""
         
         self.context_name = context_name
@@ -17,6 +17,7 @@ class Context(object):
         self.M = set()
         self.I = set()
         self.debug_graph_folder = debug_graph_folder
+        self.export_folder = export_folder
         self.debug = False
         
     def generate_context_fom_file(self, file_path):
@@ -85,7 +86,7 @@ class Context(object):
                       
             # Generate the distributive first filter context
 #             standardFilterContext = filter_context.generate_standard_context()
-            distributive_filter_context, name_next_variable = filter_context.generate_distributive_context(name_next_variable)
+            distributive_filter_context = filter_context.generate_distributive_context()
             
             # Display the context in console
             distributive_filter_context.display()
@@ -95,12 +96,19 @@ class Context(object):
               
             # Fusion with previous distributive first filter context (no merge node atm)
             global_context.J.update(distributive_filter_context.J)
-            global_context.M.update(distributive_filter_context.M)
-            global_context.I.update(distributive_filter_context.I)
             if not first_filter in global_context.J:
                 global_context.J.add(first_filter)
+                
             for m in distributive_filter_context.M:
-                global_context.I.add((first_filter, m))
+                new_name_m = 'a'+str(name_next_variable)
+                global_context.M.add(new_name_m)
+                for i in distributive_filter_context.I:
+                    if i[1] == m:
+                        global_context.I.add((i[0], new_name_m))
+                global_context.I.add((first_filter, new_name_m))
+                name_next_variable += 1
+#             global_context.M.update(distributive_filter_context.M)
+#             global_context.I.update(distributive_filter_context.I)
             
             # Display the context in console
             global_context.display()
@@ -252,7 +260,7 @@ class Context(object):
 #         return standard
         
         
-    def generate_distributive_context(self, name_next_variable = 1):
+    def generate_distributive_context(self):
         """Generate distributive context from current
         
         Can add relations I(j,m) but can't destroy one
@@ -275,13 +283,12 @@ class Context(object):
                     j_filters.add(i)
                 else:
                     X.add(i)
-            mj = str(name_next_variable)
-            name_next_variable += 1
+            mj = 'm_'+j
             distributive_context.M.add(mj)
             for x in X:
                 distributive_context.I.add((x,mj))
                 
-        return distributive_context, name_next_variable
+        return distributive_context
     
     def generate_extended_context(self):
         """Generate the extended version of current context
@@ -530,3 +537,29 @@ class Context(object):
     def export_json_for_latviz(self):
         """Export context in json forma for LatViz using"""
         print('Not yet implemented')
+        
+    def export_txt_for_conex(self):
+        """Export context in txt forma for LatViz using"""
+        file = open(self.export_folder+self.context_name+'_export_conex.txt','w')
+        
+        s = ''
+        first = True
+        for m in sorted(self.M):
+            if not first:
+                s+= '\t'
+            first = False
+            s += m
+        s += '\n\n'
+        for j in sorted(self.J):
+            first = True
+            for m in sorted(self.M):
+                if not first:
+                    s += '\t'
+                if m in self.get_J_prime(j):
+                    s += '1'
+                else:
+                    s += '0'
+                first = False
+            s += '\n'
+        file.write(s)
+        file.close()

@@ -14,6 +14,7 @@ if __name__=="__main__":
         context = Context(context_file_name, graph_directory)
         context.generate_context_fom_file(context_file_path)
         context.display()
+        context.export_txt_for_conex()
         
         context_s = context.generate_standard_context()
         context_s.display()
@@ -37,16 +38,42 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
-    #args.file = 'cla_v3'
+#     args.file = 'cla_v1'
     
     if args.file == 'validation':
-        for filename in os.listdir('data/'+args.file+'/'):
+        for filename in os.listdir('data/'):
             if filename.endswith(".txt"):
-                target_directory = 'data/validation/graph/'
-                context_file_path = 'data/validation/' + filename
+                target_directory = 'data/graph/'
+                context_file_path = 'data/' + filename
                 (name,ext) = os.path.splitext(filename)
                 analyse(name, context_file_path, target_directory)
     else:
         target_directory = 'data/graph/'
         context_file_path = 'data/' + args.file + '.txt'
         analyse(args.file, context_file_path, target_directory)
+        
+#     for x in range(0,3):
+#         test1 = set()
+#         test1.add('a')
+#         test1.add('b')
+#         test1.add('c')
+#         test1.add('d')
+#         test1.add('e')
+#         s = ''
+#         for t in test1:
+#             s += t
+#         print(s)
+#         print(test1)
+#         
+#     
+#     test2 = set()
+#     test2.add('b')
+#     test2.add('d')
+#     test2.add('c')
+#     test2.add('a')
+#     test2.add('e')
+#     s = ''
+#     for t in test2:
+#         s += t
+#     print(s)
+#     print(test2)

@@ -16,7 +16,6 @@ class Lattice(object):
     def generate_graph(self, target_directory, differences = None):
  
         extended = self.context.generate_extended_context()
-#         extended.display()
          
         dot = Digraph(name = extended.context_name, strict = True)
         dot.attr(rankdir='BT')
