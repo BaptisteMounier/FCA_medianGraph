@@ -1,23 +1,23 @@
 # FCA_medianGraph
 ## Datas sets
-* Default sets ('data/validation/')
+* Default sets
   * cla_v1: example in cla
   * cla_v2: example in cla with one additionnal n5 on the common axe
   * cla_v3: two examples of cla side by side with one axe and top
   * cla_v4: two examples of cla side by side since contact
   * cla_v5: four examples of cla side by side since contact
-  * And many more in 'data/'
+  * And many more
 * Format
   * 1st line for the labels of attributes
   * Use '' or '0' for blank and anything other for value
 
 ## Results
 * Default
-  * Do a serie of analyse (located in '/data/validation')
+  * Do a serie of analyse (located in '/data/')
   * Uncomment and edit line 40 in 'main.py' to analyse one by one (source file aren't the same, in case of modification but forget to edit both)
 * Graphs
   * .pdf and .gv
-  * in '/data/(validation/)graph/'
+  * in '/data/graph/'
 * Context
   * In the console at each stage
 * Nomenclature

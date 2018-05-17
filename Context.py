@@ -1,5 +1,6 @@
 import csv
 from copy import copy, deepcopy
+from pathlib import Path
 
 from Lattice import Lattice
 
@@ -9,7 +10,7 @@ class Context(object):
     """
 
 
-    def __init__(self, context_name, debug_graph_folder = 'data/debug/', export_folder = 'data/export/'):
+    def __init__(self, context_name, debug_graph_folder):
         """Constructor."""
         
         self.context_name = context_name
@@ -17,10 +18,9 @@ class Context(object):
         self.M = set()
         self.I = set()
         self.debug_graph_folder = debug_graph_folder
-        self.export_folder = export_folder
         self.debug = False
         
-    def generate_context_fom_file(self, file_path):
+    def generate_context_fom_file(self, file):
         """Import context values from a file.
         
         Read line by line the file to create J, M and I sets.
@@ -29,8 +29,8 @@ class Context(object):
         
         """
         
-        print('Generate the context \''+self.context_name+'\' from the file \''+file_path+'\'')
-        with open(file_path, newline='') as csv_file:
+        print('Generate the context \''+self.context_name+'\' from the file \''+file.stem+'\'')
+        with file.open() as csv_file:
             lecteur = csv.reader(csv_file, delimiter='\t', quotechar='|')
             M_list = next(lecteur)
             self.M = set(M_list)
@@ -85,7 +85,6 @@ class Context(object):
             filter_context.display()
                       
             # Generate the distributive first filter context
-#             standardFilterContext = filter_context.generate_standard_context()
             distributive_filter_context = filter_context.generate_distributive_context()
             
             # Display the context in console
@@ -107,8 +106,6 @@ class Context(object):
                         global_context.I.add((i[0], new_name_m))
                 global_context.I.add((first_filter, new_name_m))
                 name_next_variable += 1
-#             global_context.M.update(distributive_filter_context.M)
-#             global_context.I.update(distributive_filter_context.I)
             
             # Display the context in console
             global_context.display()
@@ -186,78 +183,7 @@ class Context(object):
                 lattice = Lattice(to_display)
                 lattice.generate_graph(self.debug_graph_folder)
             
-        return standard                        
-                        
-        
-        
-        
-        
-#         # Merge node if we can
-#         merge_ended = False
-#         countLoop = 0
-#         while not merge_ended:
-#             countLoop = countLoop + 1
-#             print('Count:',countLoop)
-#             merge_ended = True
-#             added_elements = ext_context.J.difference(global_context.J)
-#     #         print('Added_element', added_elements)
-#     #         print('J_ext',ext_context.J)
-#     #         print('J_g',global_context.J)
-#             for e in added_elements:
-#                 count = 0
-#                 common_to_multiple_first_filters = False
-#                      
-#                 # Search if e is present in at least two first filters lattice
-#                 for first_filter in first_filters:
-#     #                 print(first_filter,ext_context.get_J_prime(first_filter))
-#     #                 print(e,ext_context.get_J_prime(e))
-#                     if ext_context.get_J_prime(first_filter).issuperset(ext_context.get_J_prime(e)):
-#                         count += 1
-#                     if count > 1:
-#                         common_to_multiple_first_filters = True
-#                         break
-#                       
-#                 if common_to_multiple_first_filters:
-#                     sups = ext_context.get_directs_sups(ext_context.get_J_prime(e))
-#                     sups.difference_update(global_context.J)
-#     #                 ext_context.display()
-#                     if len(sups) > 1:
-#                              
-#                         # Check if e's sups are mergable
-#                         sups_mergables = set()
-#                         for sup in sups:
-#                             if sup in ext_context.J.difference(ext.J):
-#                                 sups_mergables.add(sup)
-#                           
-#                         # Then merge its
-#                         if bool(sups_mergables):
-#                             print('Loop not breaked')
-#                             print('parents_mergeable',e,sups_mergables)
-#                             merge_ended = False
-#                             sups_unions = set()
-#                             sups_second_union = set()
-#                             for sup in sups_mergables:
-#                                 sups_unions.update(ext_context.get_J_prime(sup))
-#                                 sups_second_union.update(ext_context.get_J_second(sup))
-#                                 
-#     #                         print('DEBUG_1:',e,parentsMergables,parentsUnions)
-#     #                         ext_context.display()
-#                             for sup_second in sups_second_union:
-#                                 for sups_union in sups_unions:
-# #                                     print('Mouahahahah',sup_second,sups_union)
-#                                     ext_context.I.add((sup_second, sups_union))
-#                                 
-#             ext_context.display()
-#             standard = ext_context.generate_standard_context()
-#             ext_context = standard.generate_extended_context()
-#             tmp = copy(ext_context)
-#             tmp.context_name += '_tmp'+str(countLoop)
-#             lattice = Lattice(tmp)
-#             lattice.generate_graph(self.debug_graph_folder)
-            
-#         ext_context.display()
-#         standard.display()
-#         return standard
+        return standard
         
         
     def generate_distributive_context(self):
@@ -471,14 +397,14 @@ class Context(object):
         direct_infs = set()
         for j in self.J:
             j_prime = self.get_J_prime(j)
-            if j_prime > searched_filters: #(self.get_J_prime(j).issuperset(searched_filters)) and not (self.get_J_prime(j).issubset(searched_filters)):
+            if j_prime > searched_filters:
                 direct_infs_copy = copy(direct_infs)
                 already_have_better_inf = False
                 for inf in direct_infs_copy:
                     inf_prime = self.get_J_prime(inf)
-                    if j_prime < inf_prime: #self.get_J_prime(j).issubset(self.get_J_prime(child)):
+                    if j_prime < inf_prime:
                         direct_infs.discard(inf)
-                    elif j_prime > inf_prime: #self.get_J_prime(j).issuperset(self.get_J_prime(child)):
+                    elif j_prime > inf_prime:
                         already_have_better_inf = True
                         break
                 if not already_have_better_inf:
@@ -490,14 +416,14 @@ class Context(object):
         direct_sups = set()
         for j in self.J:
             j_prime = self.get_J_prime(j)
-            if j_prime < searched_filters: #(self.get_J_prime(j).issubset(searched_filters)) and not (self.get_J_prime(j).issuperset(searched_filters)):
+            if j_prime < searched_filters:
                 direct_sups_copy = copy(direct_sups)
                 already_have_better_sup = False
                 for sup in direct_sups_copy:
                     sup_prime = self.get_J_prime(sup)
-                    if j_prime > sup_prime: #(self.get_J_prime(j).issuperset(self.get_J_prime(parent))) and not (self.get_J_prime(j).issubset(self.get_J_prime(parent))):
+                    if j_prime > sup_prime:
                         direct_sups.discard(sup)
-                    elif j_prime < sup_prime: #self.get_J_prime(j).issubset(self.get_J_prime(parent)):
+                    elif j_prime < sup_prime:
                         already_have_better_sup = True
                 if not already_have_better_sup:
                     direct_sups.add(j)
@@ -509,8 +435,6 @@ class Context(object):
         print(self.context_name)
         print('-'*5)
         matrix = self.to_string()
-#         for j in self.J:
-#             print(j, self.get_J_prime(j))
         print(matrix)
         print('-'*15)
         
@@ -518,13 +442,10 @@ class Context(object):
         """Return the matrix of the context"""
         result = ''
         for m in sorted(self.M):
-#             result += '\t'+str(m)
             result += str(m)+'\t'
         result += '\n'
         for j in sorted(self.J):
-#             result += str(j)
             for m in sorted(self.M):
-#                 result += '\t'
                 if m in self.get_J_prime(j):
                     result += 'x'
                 result += '\t'
@@ -538,28 +459,28 @@ class Context(object):
         """Export context in json forma for LatViz using"""
         print('Not yet implemented')
         
-    def export_txt_for_conex(self):
+    def export_txt_for_conex(self, directory):
         """Export context in txt forma for LatViz using"""
-        file = open(self.export_folder+self.context_name+'_export_conex.txt','w')
+        file = directory / 'conexp' / (self.context_name+'.txt')
+        with file.open('w') as f:
         
-        s = ''
-        first = True
-        for m in sorted(self.M):
-            if not first:
-                s+= '\t'
-            first = False
-            s += m
-        s += '\n\n'
-        for j in sorted(self.J):
+            s = ''
             first = True
             for m in sorted(self.M):
                 if not first:
-                    s += '\t'
-                if m in self.get_J_prime(j):
-                    s += '1'
-                else:
-                    s += '0'
+                    s+= '\t'
                 first = False
-            s += '\n'
-        file.write(s)
-        file.close()
+                s += m
+            s += '\n\n'
+            for j in sorted(self.J):
+                first = True
+                for m in sorted(self.M):
+                    if not first:
+                        s += '\t'
+                    if m in self.get_J_prime(j):
+                        s += '1'
+                    else:
+                        s += '0'
+                    first = False
+                s += '\n'
+            f.write(s)

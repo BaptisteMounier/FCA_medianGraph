@@ -35,5 +35,6 @@ class Lattice(object):
             directs_infs = extended.get_directs_infs(extended.get_J_prime(j))
             for direct_inf in directs_infs:
                 dot.edge(str(direct_inf), str(j))
-                    
-        dot.render(target_directory + extended.context_name + '.gv', view=False)
+        
+        target = target_directory / (extended.context_name + '.gv')
+        dot.render(target, view=False)
