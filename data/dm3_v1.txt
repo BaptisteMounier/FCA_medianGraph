@@ -1,9 +1,8 @@
 a	b	c	e	f	g
-x					
+x					x
 	x				
 		x			
-x	x	x			
+x	x	x			x
 			x		
 				x	
-					x
-			x	x	x
+x			x	x	x

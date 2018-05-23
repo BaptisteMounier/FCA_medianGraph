@@ -39,7 +39,10 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
-#     args.file = 'cla_v1'
+#     args.file = 'priss2013-table01'
+#     args.file = 'bandelt2000-table01'
+#     args.file = 'test'
+#     args.file = 'dm3_v3'
 
     data_dir = Path('data')
     graph_target_directory = Path('data/graph/')

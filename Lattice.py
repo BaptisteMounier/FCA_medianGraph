@@ -1,4 +1,5 @@
 from graphviz import Graph, Digraph
+import graphviz
 
 class Lattice(object):
     '''
@@ -35,6 +36,9 @@ class Lattice(object):
             directs_infs = extended.get_directs_infs(extended.get_J_prime(j))
             for direct_inf in directs_infs:
                 dot.edge(str(direct_inf), str(j))
-        
-        target = target_directory / (extended.context_name + '.gv')
-        dot.render(target, view=False)
+                
+        target = target_directory / (extended.context_name)
+        output_formats = {'pdf', 'svg', 'gv'}
+        for output_format in output_formats:
+            dot.format = output_format
+            dot.render(target)

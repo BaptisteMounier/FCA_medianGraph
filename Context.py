@@ -79,7 +79,7 @@ class Context(object):
                 for j in self.get_M_prime(m):
                     if j != first_filter:
                         filter_context.J.add(j)
-                        filter_context.I.add((j,m))
+                        filter_context.I.add((j,m))          
                           
             # Display the context in console
             filter_context.display()
@@ -87,17 +87,28 @@ class Context(object):
             # Generate the distributive first filter context
             distributive_filter_context = filter_context.generate_distributive_context()
             
+            if not len(distributive_filter_context.I):
+                for j in distributive_filter_context.J:
+                        m_label = 'c'+str(first_filter)
+                        distributive_filter_context.M.add(m_label)
+                        distributive_filter_context.I.add((j, m_label))
+            
             # Display the context in console
             distributive_filter_context.display()
-            # Dsplay the lattice in folder
+            # Display the lattice in folder
             lattice = Lattice(distributive_filter_context)
             lattice.generate_graph(self.debug_graph_folder)
               
             # Fusion with previous distributive first filter context (no merge node atm)
             global_context.J.update(distributive_filter_context.J)
+            new_name_m = 'a'+str(name_next_variable)
             if not first_filter in global_context.J:
                 global_context.J.add(first_filter)
-                
+                if not len(distributive_filter_context.M):
+                    global_context.M.add(new_name_m)
+                    global_context.I.add((first_filter, new_name_m))
+                    name_next_variable += 1
+            
             for m in distributive_filter_context.M:
                 new_name_m = 'a'+str(name_next_variable)
                 global_context.M.add(new_name_m)
@@ -190,8 +201,6 @@ class Context(object):
         """Generate distributive context from current
         
         Can add relations I(j,m) but can't destroy one
-        Keyword arguments:
-        name_next_variable -- the name letter of the next new node (default 'a')
         
         """
                 
@@ -299,8 +308,8 @@ class Context(object):
                 already_exists = True
                 break
         if not already_exists:
-            j_bot = 'eTop'
-            extended.J.add(j_bot)
+            j_top = 'eTop'
+            extended.J.add(j_top)
             
         return extended
                 
@@ -342,17 +351,19 @@ class Context(object):
         for j in self.J:
             intersection = copy(self.M)
             already_equivalent = False
+            bot = True
             j_prime = self.get_J_prime(j)
             j_second = self.get_J_second(j)
             for k in j_second:
                 k_prime = self.get_J_prime(k)
                 if j_prime != k_prime:
                     intersection &= k_prime
+                    bot = False
             for object_v in irreductibles_objects:
                 if j_prime == self.get_J_prime(object_v):
                     already_equivalent =True
                     break
-            if (j_prime != intersection) and not already_equivalent:
+            if ((j_prime != intersection) or bot) and not already_equivalent:
                 irreductibles_objects.add(j)
         return irreductibles_objects
     
@@ -362,17 +373,19 @@ class Context(object):
         for m in self.M:
             intersection = copy(self.J)
             already_equivalent = False
+            top = True
             m_prime = self.get_M_prime(m)
             m_second = self.get_M_second(m)
             for k in m_second:
                 kPrime = self.get_M_prime(k)
                 if m_prime != kPrime:
                     intersection &= kPrime
+                    top = False
             for attribute in irreductibles_attributes:
                 if m_prime == self.get_M_prime(attribute):
                     already_equivalent = True
                     break
-            if (m_prime != intersection) and not already_equivalent:
+            if ((m_prime != intersection) or top) and not already_equivalent:
                 irreductibles_attributes.add(m)
         return irreductibles_attributes
     

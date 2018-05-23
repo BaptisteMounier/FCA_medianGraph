@@ -1,9 +1,6 @@
-a	b	c	e	f	g	h	i
-x			x				
-	x		x				
-		x	x				
-x	x	x	x				
-				x			x
-					x		x
-						x	x
-				x	x	x	x
+a	b	c	d	e
+x		x	x	x
+	x			
+x		x		
+x			x	
+x				x
