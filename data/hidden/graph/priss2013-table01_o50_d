@@ -1,0 +1,88 @@
+strict digraph "priss2013-table01_o50_d" {
+	rankdir=BT
+	eBot [shape=circle]
+	o8 [shape=circle]
+	"e(e(o32o46)o44)" [shape=circle]
+	o40 [shape=circle]
+	"e(o48o52)" [shape=circle]
+	o38 [shape=circle]
+	"e(o46o48)" [shape=circle]
+	o52 [shape=circle]
+	o16 [shape=circle]
+	"e(o32o48)" [shape=circle]
+	o44 [shape=circle]
+	o28 [shape=circle]
+	o46 [shape=circle]
+	o36 [shape=circle]
+	o20 [shape=circle]
+	"e(o46o52)" [shape=circle]
+	o48 [shape=circle]
+	"e(o32o52)" [shape=circle]
+	o10 [shape=circle]
+	o34 [shape=circle]
+	"e(o32o46)" [shape=circle]
+	o18 [shape=circle]
+	"e(e(o46o52)o44)" [shape=circle]
+	o30 [shape=circle]
+	"e(e(e(o46o52)o44)o8)" [shape=circle]
+	o32 [shape=circle]
+	o14 [shape=circle]
+	o4 [shape=circle]
+	o2 [shape=circle]
+	"e(e(o32o46)o44)" -> o8
+	"e(o32o48)" -> "e(e(o32o46)o44)"
+	o44 -> "e(e(o32o46)o44)"
+	o40 -> "e(e(o32o46)o44)"
+	o36 -> "e(e(o32o46)o44)"
+	"e(o32o46)" -> "e(e(o32o46)o44)"
+	o38 -> "e(e(o32o46)o44)"
+	"e(o46o48)" -> o40
+	o52 -> "e(o48o52)"
+	o48 -> "e(o48o52)"
+	"e(o46o48)" -> o38
+	o48 -> "e(o46o48)"
+	o46 -> "e(o46o48)"
+	eBot -> o52
+	"e(e(o32o46)o44)" -> o16
+	o32 -> "e(o32o48)"
+	o48 -> "e(o32o48)"
+	"e(o46o48)" -> o44
+	"e(e(o32o46)o44)" -> o28
+	eBot -> o46
+	"e(o46o48)" -> o36
+	"e(e(o32o46)o44)" -> o20
+	o52 -> "e(o46o52)"
+	o46 -> "e(o46o52)"
+	eBot -> o48
+	o52 -> "e(o32o52)"
+	o32 -> "e(o32o52)"
+	"e(e(o32o46)o44)" -> o10
+	"e(e(o32o46)o44)" -> o34
+	o32 -> "e(o32o46)"
+	o46 -> "e(o32o46)"
+	"e(e(o32o46)o44)" -> o18
+	o44 -> "e(e(o46o52)o44)"
+	o40 -> "e(e(o46o52)o44)"
+	o36 -> "e(e(o46o52)o44)"
+	"e(o46o52)" -> "e(e(o46o52)o44)"
+	"e(o48o52)" -> "e(e(o46o52)o44)"
+	o38 -> "e(e(o46o52)o44)"
+	"e(e(o32o46)o44)" -> o30
+	o8 -> "e(e(e(o46o52)o44)o8)"
+	o28 -> "e(e(e(o46o52)o44)o8)"
+	o20 -> "e(e(e(o46o52)o44)o8)"
+	"e(o32o52)" -> "e(e(e(o46o52)o44)o8)"
+	o10 -> "e(e(e(o46o52)o44)o8)"
+	o34 -> "e(e(e(o46o52)o44)o8)"
+	"e(e(o46o52)o44)" -> "e(e(e(o46o52)o44)o8)"
+	o18 -> "e(e(e(o46o52)o44)o8)"
+	o4 -> "e(e(e(o46o52)o44)o8)"
+	o30 -> "e(e(e(o46o52)o44)o8)"
+	o14 -> "e(e(e(o46o52)o44)o8)"
+	o16 -> "e(e(e(o46o52)o44)o8)"
+	o2 -> "e(e(e(o46o52)o44)o8)"
+	eBot -> o32
+	"e(e(o32o46)o44)" -> o14
+	"e(e(o32o46)o44)" -> o4
+	"e(e(o32o46)o44)" -> o2
+}

@@ -1,0 +1,966 @@
+strict digraph "priss2013-table01_df_step49" {
+	graph [bb="0,0,89991,2.1924e+005",
+		rankdir=BT
+	];
+	node [label="\N"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(\
+o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(\
+e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)o46)))\
+e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))"	 [height=104.06,
+		pos="60532,35134",
+		shape=circle,
+		width=104.06];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(\
+e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)e(\
+e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))"	 [height=255.79,
+		pos="51305,51860",
+		shape=circle,
+		width=255.79];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(\
+o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(\
+e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)o46)))\
+e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))" -> "e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(\
+e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)e(\
+e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))"	 [pos="e,56031,43956 58901,38507 58258,39802 57502,41287 56777,42615 56538,43052 56289,43498 56036,43948"];
+	"e(o10o14)"	 [height=1.336,
+		pos="54926,225.39",
+		shape=circle,
+		width=1.336];
+	"e(e(o10o14)o18)"	 [height=1.9859,
+		pos="54996,380.98",
+		shape=circle,
+		width=1.9859];
+	"e(o10o14)" -> "e(e(o10o14)o18)"	 [pos="e,54966,315.6 54945,269.58 54950,281.07 54956,293.82 54962,306.45"];
+	eBot	 [height=0.77632,
+		pos="55017,27.948",
+		shape=circle,
+		width=0.77632];
+	o50	 [height=0.68605,
+		pos="55290,827.99",
+		shape=circle,
+		width=0.68605];
+	eBot -> o50	 [pos="e,55294,803.44 55044,31.769 55107,38.673 55257,58.343 55294,91.895 55339,133.71 55336,162.61 55336,224.39 55336,224.39 55336,224.39 \
+55336,381.98 55336,536.33 55308,719.21 55295,793.31"];
+	o14	 [height=0.68605,
+		pos="55017,116.59",
+		shape=circle,
+		width=0.68605];
+	eBot -> o14	 [pos="e,55017,91.859 55017,56.363 55017,64.38 55017,73.242 55017,81.615"];
+	o56	 [height=0.68605,
+		pos="54632,225.39",
+		shape=circle,
+		width=0.68605];
+	eBot -> o56	 [pos="e,54633,200.55 54988,30.625 54916,35.495 54725,51.911 54679,91.895 54650,116.5 54639,159.97 54634,190.38"];
+	o40	 [height=0.68605,
+		pos="55193,116.59",
+		shape=circle,
+		width=0.68605];
+	eBot -> o40	 [pos="e,55173,100.86 55043,38.54 55072,49.731 55120,69.571 55160,91.895 55161,92.892 55163,93.96 55165,95.072"];
+	o38	 [height=0.68605,
+		pos="55260,116.59",
+		shape=circle,
+		width=0.68605];
+	eBot -> o38	 [pos="e,55241,100.43 55044,34.163 55085,42.616 55165,61.496 55227,91.895 55228,92.782 55230,93.765 55232,94.812"];
+	o36	 [height=0.68605,
+		pos="55126,116.59",
+		shape=circle,
+		width=0.68605];
+	eBot -> o36	 [pos="e,55107,100.54 55038,46.066 55055,59.899 55080,79.443 55099,94.288"];
+	o20	 [height=0.68605,
+		pos="55110,380.98",
+		shape=circle,
+		width=0.68605];
+	eBot -> o20	 [pos="e,55105,356.63 55031,52.094 55038,63.67 55046,78.12 55051,91.895 55055,103.9 55088,273.24 55103,346.55"];
+	o10	 [height=0.68605,
+		pos="54950,116.59",
+		shape=circle,
+		width=0.68605];
+	eBot -> o10	 [pos="e,54964,96.679 55000,50.812 54991,62.298 54980,76.478 54970,88.639"];
+	o34	 [height=0.68605,
+		pos="54883,116.59",
+		shape=circle,
+		width=0.68605];
+	eBot -> o34	 [pos="e,54902,101.09 54993,43.021 54972,55.506 54942,74.421 54916,91.895 54914,92.984 54912,94.116 54911,95.267"];
+	o26	 [height=0.68605,
+		pos="54780,583.36",
+		shape=circle,
+		width=0.68605];
+	eBot -> o26	 [pos="e,54771,560.03 54989,33.677 54931,45.48 54796,82.41 54755,177.29 54698,305.64 54744,479.51 54768,550.34"];
+	o2	 [height=0.55967,
+		pos="54688,380.98",
+		shape=circle,
+		width=0.55967];
+	eBot -> o2	 [pos="e,54683,361.19 54988,30.873 54922,36.046 54757,52.608 54722,91.895 54655,164.61 54670,294.09 54681,351.37"];
+	"e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4))))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(\
+o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)\
+e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)\
+o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)\
+o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))"	 [height=207.8,
+		pos="38343,35134",
+		shape=circle,
+		width=207.8];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))\
+e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o8)))e(e(o36o40)o32)))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))\
+o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4))))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(\
+o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(\
+o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32)))))"	 [height=576.61,
+		pos="44996,1.0845e+005",
+		shape=circle,
+		width=576.61];
+	"e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4))))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(\
+o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)\
+e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)\
+o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)\
+o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))" -> "e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))\
+e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o8)))e(e(o36o40)o32)))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))\
+o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4))))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(\
+o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(\
+o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32)))))"	 [pos="e,38541,88724 37630,42581 36813,52811 35883,71755 38362,87659 38416,88009 38475,88361 38539,88714"];
+	"e(e(e(o28o4)o8)e(e(o2o54)o4))"	 [height=3.4483,
+		pos="55136,9983.8",
+		shape=circle,
+		width=3.4483];
+	"e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))"	 [height=53.277,
+		pos="55136,12062",
+		shape=circle,
+		width=53.277];
+	"e(e(e(o28o4)o8)e(e(o2o54)o4))" -> "e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))"	 [pos="e,55136,10144 55136,10108 55136,10116 55136,10125 55136,10134"];
+	"e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4)))"	 [height=7.7451,
+		pos="54983,1961.6",
+		shape=circle,
+		width=7.7451];
+	"e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4)))o32)"	 [height=8.3951,
+		pos="55136,2578.6",
+		shape=circle,
+		width=8.3951];
+	"e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4)))" -> "e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4)))o32)"	 [pos="e,55063,2284.9 55050,2232.4 55053,2246.5 55057,2260.8 55060,2275.1"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)\
+o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))\
+e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)\
+o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(\
+o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(\
+e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(\
+o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(o32o50)o46)o52)))"	 [height=151.74,
+		pos="51305,35134",
+		shape=circle,
+		width=151.74];
+	"e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)\
+o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))\
+e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)\
+o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(\
+o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(\
+e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(\
+o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(o32o50)o46)o52)))" -> "e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(\
+e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)e(\
+e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))"	 [pos="e,51305,42651 51305,40597 51305,41257 51305,41945 51305,42641"];
+	"e(o36o40)"	 [height=1.336,
+		pos="55260,225.39",
+		shape=circle,
+		width=1.336];
+	"e(e(e(e(e(o10o14)o18)o20)o8)o50)"	 [height=3.8094,
+		pos="54996,1114.9",
+		shape=circle,
+		width=3.8094];
+	"e(o36o40)" -> "e(e(e(e(e(o10o14)o18)o20)o8)o50)"	 [pos="e,55099,1024 55262,273.5 55267,392.18 55268,710.41 55157,941.73 55144,968.41 55125,993.76 55105,1016.4"];
+	"e(o4o8)"	 [height=1.0832,
+		pos="54825,827.99",
+		shape=circle,
+		width=1.0832];
+	"e(o4o8)" -> "e(e(e(e(e(o10o14)o18)o20)o8)o50)"	 [pos="e,54912,1005.1 54838,864.97 54846,887.59 54859,917.06 54873,941.73 54883,959.9 54894,978.47 54906,996.36"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))e(e(e(e(e(o36o40)o50)e(o34o44))\
+e(e(o34o44)e(o34o44)))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52)))))"	 [height=64.976,
+		pos="55136,16355",
+		shape=circle,
+		width=64.976];
+	"e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))" -> "e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))e(e(e(e(e(o36o40)o50)e(o34o44))\
+e(e(o34o44)e(o34o44)))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52)))))"	 [pos="e,55136,14016 55136,13980 55136,13989 55136,13997 55136,14006"];
+	"e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8)))o32)e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))"	 [height=26.467,
+		pos="55136,3869.7",
+		shape=circle,
+		width=26.467];
+	"e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4)))o32)" -> "e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8)))o32)e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))"	 [pos="e,55136,2916.8 55136,2881.1 55136,2889.5 55136,2898 55136,2906.6"];
+	"e(o34o36)"	 [height=1.336,
+		pos="55146,225.39",
+		shape=circle,
+		width=1.336];
+	"e(o34o36)" -> "e(e(e(e(e(o10o14)o18)o20)o8)o50)"	 [pos="e,55084,1009.9 55153,273.31 55170,390.23 55202,702.36 55119,941.73 55111,962.18 55101,982.34 55089,1001.3"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(\
+e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))\
+e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o8)))e(e(o36o40)o32)))))"	 [height=368.82,
+		pos="51649,74382",
+		shape=circle,
+		width=368.82];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(\
+e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)e(\
+e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))" -> "e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(\
+e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))\
+e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o8)))e(e(o36o40)o32)))))"	 [pos="e,51446,61105 51445,61067 51445,61076 51445,61086 51446,61095"];
+	o50 -> "e(e(e(e(e(o10o14)o18)o20)o8)o50)"	 [pos="e,55115,1047.3 55283,852.12 55275,876.4 55261,914.72 55239,941.73 55207,980.35 55164,1014.4 55124,1041.8"];
+	o32	 [height=0.68605,
+		pos="55290,1467.4",
+		shape=circle,
+		width=0.68605];
+	o50 -> o32	 [pos="e,55290,1442.4 55290,852.82 55290,950.14 55290,1317.8 55290,1432.2"];
+	"e(o26o4)"	 [height=1.2096,
+		pos="54724,827.99",
+		shape=circle,
+		width=1.2096];
+	"e(o26o4)" -> "e(e(e(e(e(o10o14)o18)o20)o8)o50)"	 [pos="e,54881,1039.6 54737,869.38 54746,892.1 54759,920.15 54777,941.73 54804,975.72 54839,1007 54873,1033.4"];
+	o54	 [height=0.68605,
+		pos="54625,380.98",
+		shape=circle,
+		width=0.68605];
+	"e(o2o54)"	 [height=1.2096,
+		pos="54635,583.36",
+		shape=circle,
+		width=1.2096];
+	o54 -> "e(o2o54)"	 [pos="e,54632,539.71 54626,405.75 54627,436.08 54630,489.4 54632,529.55"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))\
+e(e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)\
+o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(\
+o32o50)o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(\
+o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))\
+e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(\
+o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))\
+e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))\
+o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))\
+o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(\
+o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)\
+o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32)))e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))e(o32o50)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(\
+e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(\
+o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(o32o50)o46)e(o46o52)))\
+e(e(o46o48)e(o46o52)))))e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(\
+e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(\
+o32o46)e(o46o48))e(e(o32o50)o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(\
+e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)\
+o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))\
+o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(\
+o36o40)o32))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))\
+e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)\
+o32)e(o32o50)))e(e(o32o50)o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(\
+e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o26))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(\
+e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(\
+e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))))e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))\
+e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))\
+e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(\
+e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))\
+e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)\
+o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(\
+e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))\
+e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)\
+e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))\
+o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(\
+o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32)))))e(e(e(o28o4)o8)e(e(o2o54)o4))))"	 [height=1249.9,
+		pos="44996,1.7424e+005",
+		shape=circle,
+		width=1249.9];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))\
+e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o8)))e(e(o36o40)o32)))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))\
+o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4))))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(\
+o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(\
+o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32)))))" -> "e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))\
+e(e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)\
+o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(\
+o32o50)o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(\
+o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))\
+e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(\
+o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))\
+e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))\
+o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))\
+o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(\
+o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)\
+o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32)))e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))e(o32o50)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(\
+e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(\
+o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(o32o50)o46)e(o46o52)))\
+e(e(o46o48)e(o46o52)))))e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(\
+e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(\
+o32o46)e(o46o48))e(e(o32o50)o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(\
+e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)\
+o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))\
+o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(\
+o36o40)o32))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))\
+e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)\
+o32)e(o32o50)))e(e(o32o50)o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(\
+e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o26))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(\
+e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(\
+e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))))e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))\
+e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))\
+e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(\
+e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))\
+e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)\
+o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(\
+e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))\
+e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)\
+e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))\
+o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(\
+o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32)))))e(e(e(o28o4)o8)e(e(o2o54)o4))))"	 [pos="e,44996,1.2925e+005 44996,1.2921e+005 44996,1.2922e+005 44996,1.2923e+005 44996,1.2924e+005"];
+	"e(e(e(e(e(e(o10o14)o18)o20)o8)o50)e(o2o54))"	 [height=4.9829,
+		pos="54983,1467.4",
+		shape=circle,
+		width=4.9829];
+	"e(e(e(e(e(o10o14)o18)o20)o8)o50)" -> "e(e(e(e(e(e(o10o14)o18)o20)o8)o50)e(o2o54))"	 [pos="e,54989,1287.9 54990,1252.1 54990,1260.6 54990,1269.1 54990,1277.7"];
+	"e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))e(e(e(e(o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4)))))"	 [height=20.094,
+		pos="55136,5581.9",
+		shape=circle,
+		width=20.094];
+	"e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8)))o32)e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))" -> "e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))e(e(e(e(o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4)))))"	 [pos="e,55136,4858.3 55136,4822.7 55136,4831.1 55136,4839.6 55136,4848"];
+	"e(e(e(e(o10o14)o18)o20)o8)"	 [height=3.1594,
+		pos="54996,827.99",
+		shape=circle,
+		width=3.1594];
+	"e(e(e(e(o10o14)o18)o20)o8)" -> "e(e(e(e(e(o10o14)o18)o20)o8)o50)"	 [pos="e,54996,977.44 54996,941.99 54996,950.37 54996,958.88 54996,967.42"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))e(e(e(e(e(o36o40)o50)e(o34o44))\
+e(e(o34o44)e(o34o44)))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52)))))e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(\
+e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)\
+o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(e(o46o48)o32))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)\
+e(o46o52))))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46)))))"	 [height=123.43,
+		pos="57954,23174",
+		shape=circle,
+		width=123.43];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))e(e(e(e(e(o36o40)o50)e(o34o44))\
+e(e(o34o44)e(o34o44)))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52)))))e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(\
+e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)\
+o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(e(o46o48)o32))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)\
+e(o46o52))))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46)))))" -> "e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(\
+o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(\
+e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)o46)))\
+e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))"	 [pos="e,59742,31472 58890,27518 59169,28811 59471,30216 59740,31462"];
+	"e(o2o54)" -> "e(e(e(e(e(e(o10o14)o18)o20)o8)o50)e(o2o54))"	 [pos="e,54874,1324.3 54633,627.07 54632,695.31 54635,832.38 54671,941.73 54714,1077.5 54798,1215.5 54868,1315.9"];
+	"e(e(e(e(e(e(o10o14)o18)o20)o8)o50)e(o2o54))" -> "e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4)))"	 [pos="e,54983,1682.4 54983,1646.8 54983,1655.2 54983,1663.7 54983,1672.3"];
+	o32 -> "e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4)))o32)"	 [pos="e,55255,2300.8 55292,1492.1 55301,1587.4 55330,1950.8 55271,2240.4 55267,2257.1 55263,2274 55258,2290.8"];
+	o14 -> "e(o10o14)"	 [pos="e,54956,188.31 55001,136.19 54990,148.41 54976,164.92 54963,180.36"];
+	o18	 [height=0.68605,
+		pos="55017,225.39",
+		shape=circle,
+		width=0.68605];
+	o14 -> o18	 [pos="e,55017,200.38 55017,141.29 55017,155.71 55017,174.36 55017,190.34"];
+	"e(e(e(o10o14)o18)o20)"	 [height=2.6359,
+		pos="54996,583.36",
+		shape=circle,
+		width=2.6359];
+	"e(e(e(o10o14)o18)o20)" -> "e(e(e(e(o10o14)o18)o20)o8)"	 [pos="e,54996,713.88 54996,678.52 54996,686.76 54996,695.17 54996,703.6"];
+	"e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)\
+o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))\
+e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)\
+o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(\
+e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))"	 [height=113.07,
+		pos="64602,51860",
+		shape=circle,
+		width=113.07];
+	"e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)\
+o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))\
+e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)\
+o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(\
+e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))" -> "e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(\
+e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))\
+e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o8)))e(e(o36o40)o32)))))"	 [pos="e,59156,63430 63098,55643 62382,57335 61474,59334 60522,61068 60095,61844 59637,62634 59162,63422"];
+	"e(e(o10o14)o18)" -> "e(e(e(o10o14)o18)o20)"	 [pos="e,54996,488.13 54996,452.62 54996,460.88 54996,469.44 54996,478.04"];
+	o4	 [height=0.55967,
+		pos="54717,583.36",
+		shape=circle,
+		width=0.55967];
+	o4 -> "e(o4o8)"	 [pos="e,54812,790.82 54720,603.26 54724,622.89 54732,654.07 54746,678.25 54756,696.73 54765,696.33 54777,714.25 54790,735.16 54801,760.22 \
+54809,781.39"];
+	o4 -> "e(o26o4)"	 [pos="e,54722,784.09 54717,603.81 54718,640.36 54720,720.46 54722,774.07"];
+	o56 -> o54	 [pos="e,54626,356.15 54630,250.38 54629,276.08 54627,317.07 54626,346.06"];
+	o8	 [height=0.55967,
+		pos="54843,583.36",
+		shape=circle,
+		width=0.55967];
+	o8 -> "e(o4o8)"	 [pos="e,54827,789.05 54841,603.81 54838,641.44 54832,725.24 54828,778.77"];
+	o8 -> "e(e(e(e(o10o14)o18)o20)o8)"	 [pos="e,54929,735.39 54851,602.04 54860,621.19 54876,652.48 54892,678.25 54901,694.31 54912,710.95 54923,727.04"];
+	o40 -> "e(o36o40)"	 [pos="e,55234,183.96 55205,138.18 55212,148.82 55221,162.3 55229,175.42"];
+	o38 -> "e(o36o40)"	 [pos="e,55260,177.11 55260,141.29 55260,148.97 55260,157.85 55260,166.89"];
+	"e(o30o34)"	 [height=1.336,
+		pos="54812,225.39",
+		shape=circle,
+		width=1.336];
+	"e(o30o34)" -> "e(e(o10o14)o18)"	 [pos="e,54942,332.94 54848,256.93 54855,262.47 54862,268.17 54869,273.48 54889,289.75 54894,292.95 54915,309.48 54921,314.86 54928,320.53 \
+54934,326.24"];
+	"e(e(o30o34)o28)"	 [height=1.9859,
+		pos="54835,380.98",
+		shape=circle,
+		width=1.9859];
+	"e(o30o34)" -> "e(e(o30o34)o28)"	 [pos="e,54824,310.16 54819,273.3 54820,281.85 54821,290.99 54823,300.19"];
+	o36 -> "e(o36o40)"	 [pos="e,55223,193.82 55145,132.39 55161,144.37 55183,161.75 55203,177.29 55207,180.52 55211,183.89 55215,187.29"];
+	o36 -> "e(o34o36)"	 [pos="e,55137,177.77 55130,141.03 55131,149.05 55133,158.4 55135,167.89"];
+	o20 -> "e(e(e(o10o14)o18)o20)"	 [pos="e,55046,502.74 55100,403.86 55093,417.93 55084,436.5 55076,452.47 55068,466 55060,480.1 55052,493.8"];
+	"e(e(o30o34)o28)" -> "e(e(e(o10o14)o18)o20)"	 [pos="e,54936,508.87 54879,437.26 54895,456.97 54913,479.6 54930,501.03"];
+	"e(e(o30o34)o28)" -> o8	 [pos="e,54842,563.02 54837,452.62 54839,487.09 54840,526.67 54841,552.96"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(\
+e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))\
+e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o8)))e(e(o36o40)o32)))))" -> "e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(o26o4)e(o26o4))))e(e(e(e(e(o10o14)o18)o20)o26)\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(o32o46))e(e(o32o46)e(o46o48)))e(e(e(o32o46)e(o46o48))e(e(o32o50)\
+o46)))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46))))e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))\
+e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(\
+e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)\
+o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)\
+o46))e(e(e(o32o50)o46)o52))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))\
+e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(\
+e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o8)))e(e(o36o40)o32)))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))\
+o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))\
+e(o2o54))e(o26o4)))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4))))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(\
+o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(\
+o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(e(e(e(o16o18)o28)\
+e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(\
+o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(\
+e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32)))))"	 [pos="e,48974,88080 49104,87413 49061,87631 49019,87850 48976,88070"];
+	o10 -> "e(o10o14)"	 [pos="e,54936,178 54944,140.77 54942,148.87 54940,158.36 54938,167.98"];
+	o34 -> "e(o34o36)"	 [pos="e,55104,201.43 54901,132.87 54906,135.98 54911,139 54916,141.29 54972,167.84 54992,155.39 55051,177.29 55065,182.83 55081,189.91 \
+55095,196.88"];
+	o34 -> "e(o30o34)"	 [pos="e,54838,184.92 54869,137.68 54862,148.69 54852,162.84 54843,176.51"];
+	o18 -> "e(e(o10o14)o18)"	 [pos="e,55005,310.09 55013,250.05 55011,263.68 55009,281.69 55006,299.95"];
+	o26 -> "e(o26o4)"	 [pos="e,54733,785.26 54774,607.63 54765,645.99 54747,723.42 54735,775.26"];
+	o26 -> "e(e(e(e(o10o14)o18)o20)o8)"	 [pos="e,54914,748.3 54783,607.75 54788,628.19 54797,657.71 54814,678.25 54833,702.04 54848,695.79 54873,714.25 54884,722.74 54895,732.09 \
+54906,741.65"];
+	"e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))\
+e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))e(e(e(e(o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4))))))"	 [height=48.367,
+		pos="55136,8082.5",
+		shape=circle,
+		width=48.367];
+	"e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))\
+e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))e(e(e(e(o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4))))))" -> "e(e(e(o28o4)o8)e(e(o2o54)o4))"	 [pos="e,55136,9859.5 55136,9823.7 55136,9832.6 55136,9841.1 55136,9849.3"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))e(e(e(e(e(o36o40)o50)e(o34o44))\
+e(e(o34o44)e(o34o44)))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52)))))" -> "e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(e(\
+e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(\
+o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4))))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(\
+o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)\
+e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(\
+o16o18)o28)o26)))))e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)\
+o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(\
+e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)\
+o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)\
+e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)\
+o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)\
+o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))"	 [pos="e,42597,28981 53120,17543 52592,17895 52039,18302 51570,18730 48224,21784 45020,25722 42603,28973"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))e(e(e(e(e(o36o40)o50)e(o34o44))\
+e(e(o34o44)e(o34o44)))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52)))))" -> "e(e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)\
+o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))\
+e(e(o32o50)o46))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)\
+o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(\
+o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(\
+e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(\
+o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))e(e(o32o50)o46))e(e(e(o32o50)o46)o52)))"	 [pos="e,51399,29672 53733,18228 53645,18393 53566,18561 53501,18730 52156,22217 51611,26395 51400,29662"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))e(e(e(e(e(o36o40)o50)e(o34o44))\
+e(e(o34o44)e(o34o44)))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52)))))" -> "e(e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))e(e(e(e(e(o36o40)o50)e(o34o44))\
+e(e(o34o44)e(o34o44)))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52)))))e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))\
+e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(\
+e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)\
+o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(e(o46o48)o32))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)\
+e(o46o52))))e(e(e(e(o32o46)e(o46o48))e(e(o32o50)o46))e(e(e(o32o46)e(o46o52))e(e(o32o50)o46)))))"	 [pos="e,56256,19067 56029,18517 56102,18693 56176,18874 56252,19058"];
+	"e(e(e(e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)\
+o28)e(o28o4))o8)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o8))))e(e(e(e(e(o10o14)o18)o20)o26)e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))))e(\
+e(e(e(e(o30o34)o18)o44)o50)e(e(o34o44)e(o34o44))))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52))))e(e(e(e(e(o36o40)o50)e(o34o44))\
+e(e(o34o44)e(o34o44)))e(e(e(e(o36o40)o50)e(o46o48))e(e(o46o48)e(o46o52)))))" -> "e(e(e(e(e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)e(o28o4))o8))e(e(e(e(e(o16o18)o28)e(o14o18))\
+e(e(e(o30o34)o28)e(o28o4)))e(o2o54)))e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4)))e(e(e(e(e(o16o18)\
+o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(o36o40)o32)e(o32o50)))\
+e(e(e(e(e(o14o18)o44)e(o16o18))e(o34o44))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))))e(e(e(e(e(e(e(e(o16o18)o28)e(e(o30o34)\
+o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)\
+o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8)))e(e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)\
+e(o14o18))e(e(e(o16o18)o28)o26)))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o26))e(e(e(e(o16o18)o28)e(o14o18))o8))))e(e(e(e(\
+e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8)))e(e(o36o40)o32))))"	 [pos="e,65715,47944 57424,16841 59293,17282 61732,17979 62407,18730 69693,26849 67405,41072 65717,47934"];
+	"e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))e(e(e(e(o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4)))))" -> "e(e(e(e(e(e(e(e(e(o10o14)o18)o20)o8)e(o4o8))e(o2o54))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)e(o28o4)))e(e(e(e(o30o34)o28)\
+e(o28o4))o8)))e(e(e(e(e(o16o18)o28)e(e(o30o34)o28))e(e(e(o16o18)o28)e(o14o18)))e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)o8))))\
+e(e(e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o30o34)o28)e(o28o4)))e(o2o54))e(o26o4))e(e(e(e(e(o16o18)o28)e(o14o18))e(e(e(o16o18)o28)\
+o26))e(e(e(e(o16o18)o28)e(o28o4))e(e(o26o4)e(o26o4))))))"	 [pos="e,55136,6341.2 55136,6305.6 55136,6314.1 55136,6322.6 55136,6331.1"];
+	o2 -> "e(o2o54)"	 [pos="e,54645,540.86 54683,400.83 54675,430.32 54659,488.4 54648,530.95"];
+	o2 -> o4	 [pos="e,54714,563.21 54690,401.19 54695,436.42 54706,511.57 54712,553.16"];
+}

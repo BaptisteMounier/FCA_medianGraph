@@ -1,0 +1,59 @@
+strict digraph "priss2013-table01_o26_d" {
+	rankdir=BT
+	eBot [shape=circle]
+	"e(o10o4)" [shape=circle]
+	o16 [shape=circle]
+	"e(e(o10o4)o14)" [shape=circle]
+	o30 [shape=circle]
+	o32 [shape=circle]
+	o14 [shape=circle]
+	o4 [shape=circle]
+	o8 [shape=circle]
+	o40 [shape=circle]
+	o38 [shape=circle]
+	o28 [shape=circle]
+	o20 [shape=circle]
+	o36 [shape=circle]
+	o10 [shape=circle]
+	o34 [shape=circle]
+	o18 [shape=circle]
+	"e(e(e(o10o4)o14)o8)" [shape=circle]
+	o2 [shape=circle]
+	o28 -> "e(o10o4)"
+	o20 -> "e(o10o4)"
+	o16 -> "e(o10o4)"
+	o10 -> "e(o10o4)"
+	o18 -> "e(o10o4)"
+	o30 -> "e(o10o4)"
+	o4 -> "e(o10o4)"
+	o2 -> "e(o10o4)"
+	eBot -> o16
+	"e(o10o4)" -> "e(e(o10o4)o14)"
+	o14 -> "e(e(o10o4)o14)"
+	eBot -> o30
+	o14 -> o32
+	o28 -> o14
+	o20 -> o14
+	o10 -> o14
+	o18 -> o14
+	o30 -> o14
+	o16 -> o14
+	eBot -> o4
+	o14 -> o8
+	o14 -> o40
+	o14 -> o38
+	eBot -> o28
+	eBot -> o20
+	o14 -> o36
+	eBot -> o10
+	o14 -> o34
+	eBot -> o18
+	o8 -> "e(e(e(o10o4)o14)o8)"
+	o40 -> "e(e(e(o10o4)o14)o8)"
+	o36 -> "e(e(e(o10o4)o14)o8)"
+	"e(e(o10o4)o14)" -> "e(e(e(o10o4)o14)o8)"
+	o34 -> "e(e(e(o10o4)o14)o8)"
+	o38 -> "e(e(e(o10o4)o14)o8)"
+	o32 -> "e(e(e(o10o4)o14)o8)"
+	eBot -> o2
+}

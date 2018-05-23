@@ -1,0 +1,106 @@
+strict digraph "priss2013-table01_o40_d" {
+	rankdir=BT
+	"e(e(e(o10o8)o52)o4)" [shape=circle]
+	o8 [shape=circle]
+	eBot [shape=circle]
+	eTop [shape=circle]
+	o38 [shape=circle]
+	"e(e(o10o8)o52)" [shape=circle]
+	"e(e(e(o10o8)o26)e(e(o10o8)o52))" [shape=circle]
+	"e(e(o10o8)o26)" [shape=circle]
+	o52 [shape=circle]
+	o16 [shape=circle]
+	o50 [shape=circle]
+	o44 [shape=circle]
+	"e(o10o8)" [shape=circle]
+	o28 [shape=circle]
+	o46 [shape=circle]
+	o36 [shape=circle]
+	o20 [shape=circle]
+	o48 [shape=circle]
+	o10 [shape=circle]
+	o34 [shape=circle]
+	o18 [shape=circle]
+	"e(e(e(o10o8)o26)o4)" [shape=circle]
+	o30 [shape=circle]
+	o26 [shape=circle]
+	o32 [shape=circle]
+	o14 [shape=circle]
+	o4 [shape=circle]
+	o2 [shape=circle]
+	"e(e(o10o8)o52)" -> "e(e(e(o10o8)o52)o4)"
+	o4 -> "e(e(e(o10o8)o52)o4)"
+	o2 -> "e(e(e(o10o8)o52)o4)"
+	o38 -> o8
+	o36 -> o8
+	"e(e(e(o10o8)o52)o4)" -> eTop
+	"e(e(e(o10o8)o26)o4)" -> eTop
+	"e(e(e(o10o8)o26)e(e(o10o8)o52))" -> eTop
+	eBot -> o38
+	o52 -> "e(e(o10o8)o52)"
+	"e(o10o8)" -> "e(e(o10o8)o52)"
+	"e(e(o10o8)o52)" -> "e(e(e(o10o8)o26)e(e(o10o8)o52))"
+	"e(e(o10o8)o26)" -> "e(e(e(o10o8)o26)e(e(o10o8)o52))"
+	o26 -> "e(e(o10o8)o26)"
+	"e(o10o8)" -> "e(e(o10o8)o26)"
+	o50 -> o52
+	o44 -> o52
+	o48 -> o52
+	o46 -> o52
+	o38 -> o16
+	o36 -> o16
+	o38 -> o50
+	o36 -> o50
+	o38 -> o44
+	o36 -> o44
+	o50 -> "e(o10o8)"
+	o44 -> "e(o10o8)"
+	o8 -> "e(o10o8)"
+	o28 -> "e(o10o8)"
+	o46 -> "e(o10o8)"
+	o20 -> "e(o10o8)"
+	o48 -> "e(o10o8)"
+	o10 -> "e(o10o8)"
+	o34 -> "e(o10o8)"
+	o18 -> "e(o10o8)"
+	o30 -> "e(o10o8)"
+	o32 -> "e(o10o8)"
+	o14 -> "e(o10o8)"
+	o16 -> "e(o10o8)"
+	o38 -> o28
+	o36 -> o28
+	o38 -> o46
+	o36 -> o46
+	eBot -> o36
+	o38 -> o20
+	o36 -> o20
+	o38 -> o48
+	o36 -> o48
+	o38 -> o10
+	o36 -> o10
+	o38 -> o34
+	o36 -> o34
+	o38 -> o18
+	o36 -> o18
+	"e(e(o10o8)o26)" -> "e(e(e(o10o8)o26)o4)"
+	o4 -> "e(e(e(o10o8)o26)o4)"
+	o2 -> "e(e(e(o10o8)o26)o4)"
+	o38 -> o30
+	o36 -> o30
+	o8 -> o26
+	o28 -> o26
+	o20 -> o26
+	o10 -> o26
+	o34 -> o26
+	o18 -> o26
+	o30 -> o26
+	o32 -> o26
+	o14 -> o26
+	o16 -> o26
+	o38 -> o32
+	o36 -> o32
+	o38 -> o14
+	o36 -> o14
+	"e(o10o8)" -> o4
+	"e(o10o8)" -> o2
+}

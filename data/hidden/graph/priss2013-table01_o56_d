@@ -1,0 +1,8 @@
+strict digraph "priss2013-table01_o56_d" {
+	rankdir=BT
+	o54 [shape=circle]
+	eBot [shape=circle]
+	o2 [shape=circle]
+	eBot -> o54
+	o54 -> o2
+}

@@ -1,0 +1,104 @@
+strict digraph "priss2013-table01_o36_d" {
+	rankdir=BT
+	eBot [shape=circle]
+	eTop [shape=circle]
+	"e(e(e(o34o40)o50)o52)" [shape=circle]
+	o52 [shape=circle]
+	o16 [shape=circle]
+	o50 [shape=circle]
+	"e(e(e(e(e(o34o40)o50)o8)o26)o4)" [shape=circle]
+	o30 [shape=circle]
+	"e(e(e(e(o34o40)o50)o8)o26)" [shape=circle]
+	o32 [shape=circle]
+	o14 [shape=circle]
+	o4 [shape=circle]
+	"e(e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))o4)" [shape=circle]
+	"e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))" [shape=circle]
+	o8 [shape=circle]
+	o40 [shape=circle]
+	"e(e(o34o40)o50)" [shape=circle]
+	o38 [shape=circle]
+	"e(o34o40)" [shape=circle]
+	o44 [shape=circle]
+	"e(e(e(o34o40)o50)o8)" [shape=circle]
+	o28 [shape=circle]
+	"e(e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))e(e(e(e(o34o40)o50)o8)o26))" [shape=circle]
+	o20 [shape=circle]
+	o48 [shape=circle]
+	o10 [shape=circle]
+	o34 [shape=circle]
+	o18 [shape=circle]
+	o26 [shape=circle]
+	o46 [shape=circle]
+	o2 [shape=circle]
+	"e(e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))o4)" -> eTop
+	"e(e(e(e(e(o34o40)o50)o8)o26)o4)" -> eTop
+	"e(e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))e(e(e(e(o34o40)o50)o8)o26))" -> eTop
+	o52 -> "e(e(e(o34o40)o50)o52)"
+	"e(e(o34o40)o50)" -> "e(e(e(o34o40)o50)o52)"
+	o50 -> o52
+	o44 -> o52
+	o48 -> o52
+	o46 -> o52
+	"e(o34o40)" -> o16
+	o38 -> o50
+	o40 -> o50
+	"e(e(e(e(o34o40)o50)o8)o26)" -> "e(e(e(e(e(o34o40)o50)o8)o26)o4)"
+	o4 -> "e(e(e(e(e(o34o40)o50)o8)o26)o4)"
+	o2 -> "e(e(e(e(e(o34o40)o50)o8)o26)o4)"
+	"e(o34o40)" -> o30
+	"e(e(e(o34o40)o50)o8)" -> "e(e(e(e(o34o40)o50)o8)o26)"
+	o26 -> "e(e(e(e(o34o40)o50)o8)o26)"
+	"e(o34o40)" -> o32
+	"e(o34o40)" -> o14
+	"e(e(e(o34o40)o50)o8)" -> o4
+	"e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))" -> "e(e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))o4)"
+	o4 -> "e(e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))o4)"
+	o2 -> "e(e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))o4)"
+	"e(e(e(o34o40)o50)o8)" -> "e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))"
+	"e(e(e(o34o40)o50)o52)" -> "e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))"
+	"e(o34o40)" -> o8
+	eBot -> o40
+	o50 -> "e(e(o34o40)o50)"
+	o44 -> "e(e(o34o40)o50)"
+	o46 -> "e(e(o34o40)o50)"
+	o48 -> "e(e(o34o40)o50)"
+	"e(o34o40)" -> "e(e(o34o40)o50)"
+	eBot -> o38
+	o38 -> "e(o34o40)"
+	o34 -> "e(o34o40)"
+	o40 -> "e(o34o40)"
+	o38 -> o44
+	o40 -> o44
+	o8 -> "e(e(e(o34o40)o50)o8)"
+	o28 -> "e(e(e(o34o40)o50)o8)"
+	o20 -> "e(e(e(o34o40)o50)o8)"
+	"e(e(o34o40)o50)" -> "e(e(e(o34o40)o50)o8)"
+	o10 -> "e(e(e(o34o40)o50)o8)"
+	o18 -> "e(e(e(o34o40)o50)o8)"
+	o30 -> "e(e(e(o34o40)o50)o8)"
+	o32 -> "e(e(e(o34o40)o50)o8)"
+	o14 -> "e(e(e(o34o40)o50)o8)"
+	o16 -> "e(e(e(o34o40)o50)o8)"
+	"e(o34o40)" -> o28
+	"e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))" -> "e(e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))e(e(e(e(o34o40)o50)o8)o26))"
+	"e(e(e(e(o34o40)o50)o8)o26)" -> "e(e(e(e(e(o34o40)o50)o52)e(e(e(o34o40)o50)o8))e(e(e(e(o34o40)o50)o8)o26))"
+	"e(o34o40)" -> o20
+	o38 -> o48
+	o40 -> o48
+	"e(o34o40)" -> o10
+	eBot -> o34
+	"e(o34o40)" -> o18
+	o8 -> o26
+	o28 -> o26
+	o20 -> o26
+	o10 -> o26
+	o18 -> o26
+	o30 -> o26
+	o32 -> o26
+	o14 -> o26
+	o16 -> o26
+	o38 -> o46
+	o40 -> o46
+	"e(e(e(o34o40)o50)o8)" -> o2
+}
