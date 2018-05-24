@@ -239,30 +239,35 @@ class Context(object):
         extended.M.update(self.M)
         extended.I.update(self.I)
         
-        for j in self.J:
-            j_prime = self.get_J_prime(j)
-            for i in self.J:
-                i_prime = self.get_J_prime(i)
-                already_exists = False
-                if j != i:
-                    intersection_ji = j_prime & i_prime
-                    for k in extended.J:
-                            if intersection_ji == extended.get_J_prime(k):
-                                already_exists = True
-                                break
-                    if not already_exists:
-                        if j < i:
-                            j_extended = 'e('+str(j)+str(i)+')'
-                        else:
-                            j_extended = 'e('+str(i)+str(j)+')'
-                        extended.J.add(j_extended)
-                        for intersection in intersection_ji:
-                            extended.I.add((j_extended, intersection))
+        modification = True
+        while modification:
+            modification = False
+            extended_copy = deepcopy(extended)
+            for j in extended_copy.J:
+                j_prime = extended_copy.get_J_prime(j)
+                for i in extended_copy.J:
+                    i_prime = extended_copy.get_J_prime(i)
+                    already_exists = False
+                    if j != i:
+                        intersection_ji = j_prime & i_prime
+                        for k in extended.J:
+                                if intersection_ji == extended.get_J_prime(k):
+                                    already_exists = True
+                                    break
+                        if not already_exists:
+                            modification = True
+                            if j < i:
+                                j_extended = 'e('+str(j)+str(i)+')'
+                            else:
+                                j_extended = 'e('+str(i)+str(j)+')'
+                            extended.J.add(j_extended)
+                            for intersection in intersection_ji:
+                                extended.I.add((j_extended, intersection))
                             
         modification = True
         while modification:
             modification = False
-            j_extended = copy(extended.J)                  
+            j_extended = copy(extended.J)
             for j in j_extended:
                 if j not in self.J:
                     j_prime = extended.get_J_prime(j)
