@@ -17,21 +17,18 @@ if __name__=="__main__":
         context.export_txt_for_conex(export_directory)
         
         context_s = context.generate_standard_context()
-        context_s.display()
         lattice_s = Lattice(context_s)
         lattice_s.generate_graph(graph_directory)
         tmp = context_s.generate_extended_context()
         
         Context_df = context_s.generate_distributive_context_on_first_filters()
-        Context_df.display()
         global_lattice_df = Lattice(Context_df)
-        global_lattice_df.generate_graph(graph_directory, tmp.J)
+        global_lattice_df.generate_graph(graph_directory, differences = tmp.J)
         Context_df.export_txt_for_conex(export_directory)
         
-#         global_context_d, useless_here = context_s.generate_distributive_context()
-#         global_context_d.display()
+#         global_context_d = context_s.generate_distributive_context()
 #         global_lattice_d = Lattice(global_context_d)
-#         global_lattice_d.generate_graph(target_directory)
+#         global_lattice_d.generate_graph(graph_directory)
         
         print('-'*25)
 
@@ -40,9 +37,9 @@ if __name__=="__main__":
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
 #     args.file = 'priss2013-table01'
-    args.file = 'bandelt2000-table02'
+#     args.file = 'bandelt2000-table02'
+#     args.file = 'cla_v4'
 #     args.file = 'test'
-#     args.file = 'dm4'
 
     data_dir = Path('data')
     graph_target_directory = Path('data/graph/')

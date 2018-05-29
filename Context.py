@@ -18,7 +18,8 @@ class Context(object):
         self.M = set()
         self.I = set()
         self.debug_graph_folder = debug_graph_folder
-        self.debug = False
+        self.debug = True
+        self.name_next_variable = 1
         
     def generate_context_fom_file(self, file):
         """Import context values from a file.
@@ -57,17 +58,10 @@ class Context(object):
             if (i[0] in standard_context.J) and (i[1] in standard_context.M):
                 standard_context.I.add((i[0],i[1]))
         return standard_context
+    
+    def step_distributive_context_on_first_filters(self, first_filters):
         
-    def generate_distributive_context_on_first_filters(self):
-        """Create first filters distributivity context from current."""
-        
-        print('Generate the context with distributive first filters \''+self.context_name+'_df\' from the context \''+self.context_name+'\'')
-        # Section about cla2018 method
-        
-        first_filters = self.get_first_filters()
-        global_context = Context(self.context_name+'_df', self.debug_graph_folder)
-        name_next_variable = 1
-        ext = self.generate_extended_context()
+        global_context = Context(self.context_name, self.debug_graph_folder)
         
         # For each first filters
         for first_filter in first_filters:
@@ -79,124 +73,135 @@ class Context(object):
                 for j in self.get_M_prime(m):
                     if j != first_filter:
                         filter_context.J.add(j)
-                        filter_context.I.add((j,m))          
-                          
-            # Display the context in console
-            filter_context.display()
+                        filter_context.I.add((j,m))
                       
             # Generate the distributive first filter context
             distributive_filter_context = filter_context.generate_distributive_context()
+            distributive_filter_context.display()
             
             if not len(distributive_filter_context.I):
                 for j in distributive_filter_context.J:
                         m_label = 'c'+str(first_filter)
                         distributive_filter_context.M.add(m_label)
                         distributive_filter_context.I.add((j, m_label))
-            
-            # Display the context in console
-            distributive_filter_context.display()
-            # Display the lattice in folder
-            lattice = Lattice(distributive_filter_context)
-            lattice.generate_graph(self.debug_graph_folder)
               
             # Fusion with previous distributive first filter context (no merge node atm)
             global_context.J.update(distributive_filter_context.J)
-            new_name_m = 'a'+str(name_next_variable)
+            # Add first filter if not exist
             if not first_filter in global_context.J:
                 global_context.J.add(first_filter)
+                # If no attribute, create new one
                 if not len(distributive_filter_context.M):
+                    new_name_m = 'a'+str(global_context.name_next_variable)
                     global_context.M.add(new_name_m)
                     global_context.I.add((first_filter, new_name_m))
-                    name_next_variable += 1
-            
+                    global_context.name_next_variable += 1
+            # Add all M with a new name
             for m in distributive_filter_context.M:
-                new_name_m = 'a'+str(name_next_variable)
+                new_name_m = 'a'+str(global_context.name_next_variable)
                 global_context.M.add(new_name_m)
                 for i in distributive_filter_context.I:
                     if i[1] == m:
                         global_context.I.add((i[0], new_name_m))
                 global_context.I.add((first_filter, new_name_m))
-                name_next_variable += 1
-            
-            # Display the context in console
+                global_context.name_next_variable += 1
+                
             global_context.display()
-            
-        pre_merge = deepcopy(global_context)
-        pre_merge.context_name += '_preMerge'
-        lattice = Lattice(pre_merge)
-        lattice.generate_graph(self.debug_graph_folder)
-    
-        ext_context = global_context.generate_extended_context()
-        standard = ext_context.generate_standard_context()
+                
+        return global_context
         
+    def generate_distributive_context_on_first_filters(self):
+        """Create first filters distributivity context from current."""
+        
+        print('Generate the context with distributive first filters \''+self.context_name+'_df\' from the context \''+self.context_name+'\'')
+        # Section about cla2018 method
+        
+        first_filters = self.get_first_filters()
+        ext = self.generate_extended_context()
+        
+        finish = False
+        step = 1
+        previous_global_context = deepcopy(self)
+        while not finish:
+            
+            global_context = previous_global_context.step_distributive_context_on_first_filters(first_filters)
+            
+            ext_previous_global_context = previous_global_context.generate_extended_context()
+            ext_global_context = global_context.generate_extended_context()
+            if len(ext_previous_global_context.J) == len(ext_global_context.J):
+                finish = True
+            lattice = Lattice(global_context)
+            lattice.generate_graph(self.debug_graph_folder, '_distri'+str(step))
+            previous_global_context = deepcopy(global_context)
+            step += 1
+            global_context.display()
+            lattice = Lattice(global_context)
+            lattice.generate_graph(self.debug_graph_folder, '_preMerge')
+        
+        global_context.context_name += '_df'
         merge_ended = False
-        countLoop = 0
+        countLoop = 1
         while not merge_ended:
             merge_ended = True
-            countLoop += 1
-            print('CountLoop:',countLoop)
-            ext_context_copy = deepcopy(ext_context)
+            ext_context_copy = deepcopy(ext_global_context)
             for concept in ext_context_copy.J:
-                
+                 
                 count = 0
                 for first_filter in first_filters:
                     if ext_context_copy.get_J_prime(first_filter).issuperset(ext_context_copy.get_J_prime(concept)):
                         count += 1
                     if count > 1:
                         break
-                
+                 
                 if count > 1:
                     sups = ext_context_copy.get_directs_sups(ext_context_copy.get_J_prime(concept))
                     sups.difference_update(global_context.J)
-                    
+                     
                     if len(sups) > 1:
-                             
+                              
                         # Check if e's sups are mergable
                         sups_mergables = set()
                         for sup in sups:
                             if sup in ext_context_copy.J.difference(ext.J):
                                 sups_mergables.add(sup)
-                                
+                                 
                         if len(sups_mergables) > 1:
-                            
+                             
                             sups_unions = set()
                             sups_second_union = set()
                             sups_second_inter = copy(ext_context_copy.J)
                             label = 'n'
-                            
+                             
                             for sup in sups_mergables:
                                 sups_unions.update(ext_context_copy.get_J_prime(sup))
                                 second = ext_context_copy.get_J_second(sup)
                                 sups_second_union.update(second)
                                 sups_second_inter.intersection_update(second)
-                                
+                                 
                             for sups_union in sups_unions:
                                 label += '_'+sups_union
-                            
+                             
                             for sup_second in sups_second_union:
                                 for sups_union in sups_unions:
-                                    ext_context.I.add((sup_second, sups_union))
-                                    
-                            ext_context.M.add(label)
+                                    ext_global_context.I.add((sup_second, sups_union))
+                                     
+                            ext_global_context.M.add(label)
                             for sup_second in sups_second_inter:
-                                ext_context.I.add((sup_second, label))
-                            
+                                ext_global_context.I.add((sup_second, label))
+                             
                             merge_ended = False
                             break
-                            
-            ext_context.display()
-            standard = ext_context.generate_standard_context()
-            ext_context = standard.generate_extended_context()
-            ext_context.display()
+                             
+            standard = ext_global_context.generate_standard_context()
+            ext_global_context = standard.generate_extended_context()
             if not merge_ended:
-                to_display = copy(ext_context)
-                to_display.context_name += '_step'+str(countLoop)
-                lattice = Lattice(to_display)
-                lattice.generate_graph(self.debug_graph_folder)
+                lattice = Lattice(standard)
+                lattice.generate_graph(self.debug_graph_folder, '_merge' + str(countLoop))
+                countLoop += 1
+            standard.context_name += '_df'
             
         return standard
-        
-        
+    
     def generate_distributive_context(self):
         """Generate distributive context from current
         
@@ -239,59 +244,6 @@ class Context(object):
         extended.M.update(self.M)
         extended.I.update(self.I)
         
-        modification = True
-        while modification:
-            modification = False
-            extended_copy = deepcopy(extended)
-            for j in extended_copy.J:
-                j_prime = extended_copy.get_J_prime(j)
-                for i in extended_copy.J:
-                    i_prime = extended_copy.get_J_prime(i)
-                    already_exists = False
-                    if j != i:
-                        intersection_ji = j_prime & i_prime
-                        for k in extended.J:
-                                if intersection_ji == extended.get_J_prime(k):
-                                    already_exists = True
-                                    break
-                        if not already_exists:
-                            modification = True
-                            if j < i:
-                                j_extended = 'e('+str(j)+str(i)+')'
-                            else:
-                                j_extended = 'e('+str(i)+str(j)+')'
-                            extended.J.add(j_extended)
-                            for intersection in intersection_ji:
-                                extended.I.add((j_extended, intersection))
-                            
-        modification = True
-        while modification:
-            modification = False
-            j_extended = copy(extended.J)
-            for j in j_extended:
-                if j not in self.J:
-                    j_prime = extended.get_J_prime(j)
-                    infs = extended.get_directs_infs(j_prime)
-                    if infs:
-                        min = 'z'
-                        max = 'A'
-                        for inf in infs:
-                            if inf < min:
-                                min = inf
-                            if inf > max:
-                                max = inf
-                        new_name = 'e('+str(min)+str(max)+')'
-                        if new_name != j:
-                            modification = True
-                            extended.J.discard(j)
-                            extended.J.add(new_name)
-                            i_extended = copy(extended.I)
-                            for i in i_extended:
-                                if i[0] == j:
-                                    extended.I.discard(i)
-                                    extended.I.add((new_name, i[1]))
-                    
-                            
         already_exists = False
         for j in extended.J:
             if extended.get_J_prime(j) == extended.M:
@@ -315,6 +267,61 @@ class Context(object):
         if not already_exists:
             j_top = 'eTop'
             extended.J.add(j_top)
+        
+        indice = 1
+        modification = True
+        while modification:
+            modification = False
+            extended_copy = deepcopy(extended)
+            for j in extended_copy.J:
+                j_prime = extended_copy.get_J_prime(j)
+                for i in extended_copy.J:
+                    i_prime = extended_copy.get_J_prime(i)
+                    already_exists = False
+                    if j != i:
+                        intersection_ji = j_prime & i_prime
+                        for k in extended.J:
+                                if intersection_ji == extended.get_J_prime(k):
+                                    already_exists = True
+                                    break
+                        if not already_exists:
+                            modification = True
+#                             if j < i:
+#                                 j_extended = 'e('+str(j)+str(i)+')'
+#                             else:
+#                                 j_extended = 'e('+str(i)+str(j)+')'
+                            j_extended = 'e'+str(indice)
+                            extended.J.add(j_extended)
+                            indice += 1
+                            for intersection in intersection_ji:
+                                extended.I.add((j_extended, intersection))
+                            
+#         modification = True
+#         while modification:
+#             modification = False
+#             j_extended = copy(extended.J)
+#             for j in j_extended:
+#                 if j not in self.J:
+#                     j_prime = extended.get_J_prime(j)
+#                     infs = extended.get_directs_infs(j_prime)
+#                     if infs:
+#                         min = 'z'
+#                         max = 'A'
+#                         for inf in infs:
+#                             if inf < min:
+#                                 min = inf
+#                             if inf > max:
+#                                 max = inf
+#                         new_name = 'e('+str(min)+str(max)+')'
+#                         if new_name != j:
+#                             modification = True
+#                             extended.J.discard(j)
+#                             extended.J.add(new_name)
+#                             i_extended = copy(extended.I)
+#                             for i in i_extended:
+#                                 if i[0] == j:
+#                                     extended.I.discard(i)
+#                                     extended.I.add((new_name, i[1]))
             
         return extended
                 
