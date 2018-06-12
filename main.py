@@ -2,8 +2,8 @@
 import argparse
 from pathlib import Path
 
-from Context import Context
 from Lattice import Lattice
+from Engine import Engine
 
 if __name__=="__main__":
     
@@ -11,24 +11,29 @@ if __name__=="__main__":
         print('-'*25)
         print('Analysis of \''+file.stem+'\'')
         
-        context = Context(file.stem, graph_directory)
-        context.generate_context_fom_file(file)
+        print(file)
+        
+        engine = Engine(graph_directory)
+        context = engine.import_context_from_file(file)
         context.display()
-        context.export_txt_for_conex(export_directory)
-        
-        context_s = context.generate_standard_context()
-        lattice_s = Lattice(context_s)
-        lattice_s.generate_graph(graph_directory)
-        tmp = context_s.generate_extended_context()
-        
-        Context_df = context_s.generate_distributive_context_on_first_filters()
-        global_lattice_df = Lattice(Context_df)
-        global_lattice_df.generate_graph(graph_directory, differences = tmp.J)
-        Context_df.export_txt_for_conex(export_directory)
-        
-#         global_context_d = context_s.generate_distributive_context()
-#         global_lattice_d = Lattice(global_context_d)
-#         global_lattice_d.generate_graph(graph_directory)
+        lat2 = Lattice(engine, context)
+        lat2.generate_graph(graph_directory, extended = True)
+        std = engine.transform_to_standard_context(context)
+        std.context_name += '_std'
+        std.display()
+        lat3 = Lattice(engine, std)
+        lat3.generate_graph(graph_directory)
+        ext = engine.transform_to_extended_context(std)
+        ext.context_name += '_ext'
+        ext.display()
+        lat = Lattice(engine, ext)
+        lat.generate_graph(graph_directory, extended = True)
+#         ext = engine.transform_to_extended_context(context)
+#         lat = Lattice(engine, ext)
+#         lat.generate_graph(graph_directory, extended = True)
+#         median = engine.transform_to_median_context(context)
+#         lat = Lattice(engine, median)
+#         lat.generate_graph(graph_directory)
         
         print('-'*25)
 
@@ -37,9 +42,7 @@ if __name__=="__main__":
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
 #     args.file = 'priss2013-table01'
-#     args.file = 'bandelt2000-table02'
-#     args.file = 'cla_v4'
-#     args.file = 'test'
+    args.file = 'tmp3'
 
     data_dir = Path('data')
     graph_target_directory = Path('data/graph/')
@@ -52,29 +55,3 @@ if __name__=="__main__":
         for file in data_dir.glob('*.txt'):
             if file.stem == args.file:
                 analyse(file, graph_target_directory, export_target_directory)
-        
-#     for x in range(0,3):
-#         test1 = set()
-#         test1.add('a')
-#         test1.add('b')
-#         test1.add('c')
-#         test1.add('d')
-#         test1.add('e')
-#         s = ''
-#         for t in test1:
-#             s += t
-#         print(s)
-#         print(test1)
-#         
-#     
-#     test2 = set()
-#     test2.add('b')
-#     test2.add('d')
-#     test2.add('c')
-#     test2.add('a')
-#     test2.add('e')
-#     s = ''
-#     for t in test2:
-#         s += t
-#     print(s)
-#     print(test2)

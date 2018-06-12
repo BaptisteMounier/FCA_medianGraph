@@ -1,0 +1,23 @@
+MBot	a11	a15	a17	a19	a2	a20	a5	a7	a8	a9	e(a11a8)	e(a15a7)	e(a19a2)	e(a19a5)	e(a20a17)	e(a2a20)	e(a4a5)	e(a7a8)	e(a9a11)	e(a9a15)	V	mTop
+					x																	x
+		x							x	x										x		x
+		x																				x
+		x								x										x		x
+										x												x
+				x																		x
+			x	x	x								x								v	x
+			x	x	v																	x
+x	x	x	x	x	x	x	x	x	x	x	x	x	x	x	x	x	x	x	x	x	v	x
+																						x
+		x						x	x	x		x						x		x		x
+			v	v	x		x										x					x
+				x		x																x
+					x		x															x
+	x	x							x	x	x								x	x		x
+		x						x		x		x								x		x
+	x	x								x									x	x		x
+								x		x												x
+	x	x																				x
+			x	x	x	x							x		x	x					v	x
+			x	x	x		x						x	x			x				v	x
+			x	x	v	x									x							x

@@ -117,91 +117,148 @@ class Context(object):
         # Section about cla2018 method
         
         first_filters = self.get_first_filters()
-        ext = self.generate_extended_context()
         
-        finish = False
-        step = 1
-        previous_global_context = deepcopy(self)
-        previous_global_context.context_name += '_df'
-        while not finish:
+#         finish = False
+        step = 0
+        global_context = deepcopy(self).generate_standard_context()
+        ext = global_context.generate_extended_context()
+        global_context.context_name += '_df'
+        while True:
             
-            global_context = previous_global_context.step_distributive_context_on_first_filters(first_filters)
+            # Test if another stap is necessary      
+#             if global_context.is_median():
+#                 break
             
-            ext_previous_global_context = previous_global_context.generate_extended_context()
-            ext_global_context = global_context.generate_extended_context()
-            if len(ext_previous_global_context.J) == len(ext_global_context.J):
-                finish = True
-            lattice = Lattice(global_context)
-            lattice.generate_graph(self.debug_graph_folder, '_distri'+str(step))
-            previous_global_context = deepcopy(global_context)
             step += 1
-            global_context.display()
-            lattice = Lattice(global_context)
-            lattice.generate_graph(self.debug_graph_folder, '_preMerge')
-        
-        merge_ended = False
-        countLoop = 1
-        while not merge_ended:
-            merge_ended = True
-            ext_context_copy = deepcopy(ext_global_context)
-            for concept in ext_context_copy.J:
-                 
-                count = 0
-                for first_filter in first_filters:
-                    if ext_context_copy.get_J_prime(first_filter).issuperset(ext_context_copy.get_J_prime(concept)):
-                        count += 1
-                    if count > 1:
-                        break
-                 
-                if count > 1:
-                    sups = ext_context_copy.get_directs_j_sups(ext_context_copy.get_J_prime(concept))
-                    sups.difference_update(global_context.J)
-                     
-                    if len(sups) > 1:
-                              
-                        # Check if e's sups are mergable
-                        sups_mergables = set()
-                        for sup in sups:
-                            if sup in ext_context_copy.J.difference(ext.J):
-                                sups_mergables.add(sup)
-                                 
-                        if len(sups_mergables) > 1:
-                             
-                            sups_unions = set()
-                            sups_second_union = set()
-                            sups_second_inter = copy(ext_context_copy.J)
-                            label = 'n'
-                             
-                            for sup in sups_mergables:
-                                sups_unions.update(ext_context_copy.get_J_prime(sup))
-                                second = ext_context_copy.get_J_second(sup)
-                                sups_second_union.update(second)
-                                sups_second_inter.intersection_update(second)
-                                 
-                            for sups_union in sups_unions:
-                                label += '_'+sups_union
-                             
-                            for sup_second in sups_second_union:
-                                for sups_union in sups_unions:
-                                    ext_global_context.I.add((sup_second, sups_union))
-                                     
-                            ext_global_context.M.add(label)
-                            for sup_second in sups_second_inter:
-                                ext_global_context.I.add((sup_second, label))
-                             
-                            merge_ended = False
-                            break
-                        
-                ext_global_context.display()
-                             
-            standard = ext_global_context.generate_standard_context()
-            ext_global_context = standard.generate_extended_context()
-            if not merge_ended:
-                lattice = Lattice(standard)
-                lattice.generate_graph(self.debug_graph_folder, '_merge' + str(countLoop))
-                countLoop += 1
             
-        return standard
+#             finish = True
+            
+            previous_global_context = deepcopy(global_context)
+            previous_global_context.display()
+            global_context = previous_global_context.step_distributive_context_on_first_filters(first_filters)
+            global_context.display()
+            
+#             ext_previous_global_context = previous_global_context.generate_extended_context()
+            ext_global_context = global_context.generate_extended_context()
+            
+#             if len(ext_previous_global_context.J) != len(ext_global_context.J):
+#                 finish = False
+            
+            lattice = Lattice(ext_global_context)
+            lattice.generate_graph(self.debug_graph_folder, '_distri'+str(step), extended = True)
+            
+            ext_global_context.display()
+            
+            merge_ended = False
+            countLoop = 0
+            while not merge_ended:
+                merge_ended = True
+                ext_context_copy = deepcopy(ext_global_context)
+                for concept in ext_context_copy.J:
+                     
+                    count = 0
+                    for first_filter in first_filters:
+                        if ext_context_copy.get_J_prime(first_filter).issuperset(ext_context_copy.get_J_prime(concept)):
+                            count += 1
+                        if count > 1:
+                            break
+                     
+                    if count > 1:
+                        sups = ext_context_copy.get_directs_j_sups(ext_context_copy.get_J_prime(concept))
+                        sups.difference_update(global_context.J)
+                         
+                        if len(sups) > 1:
+                                  
+                            # Check if e's sups are mergable
+                            sups_mergables = set()
+                            for sup in sups:
+                                if sup in ext_context_copy.J.difference(ext.J):
+                                    sups_mergables.add(sup)
+                                     
+                            if len(sups_mergables) > 1:
+                                 
+                                sups_unions = set()
+                                sups_second_union = set()
+                                sups_second_inter = copy(ext_context_copy.J)
+                                label = 'n'
+                                 
+                                for sup in sups_mergables:
+                                    sups_unions.update(ext_context_copy.get_J_prime(sup))
+                                    second = ext_context_copy.get_J_second(sup)
+                                    sups_second_union.update(second)
+                                    sups_second_inter.intersection_update(second)
+                                     
+                                for sups_union in sups_unions:
+                                    label += '_'+sups_union
+                                    
+                                for sup_second in sups_second_union:
+                                    for sups_union in sups_unions:
+                                        ext_global_context.I.add((sup_second, sups_union))
+                                         
+                                ext_global_context.M.add(label)
+                                for sup_second in sups_second_inter:
+                                    ext_global_context.I.add((sup_second, label))
+                                    
+                                merge_ended = False
+#                                 finish = False
+                                break
+                            
+                if not merge_ended:
+                    global_context = ext_global_context.generate_standard_context()
+                    ext_global_context = global_context.generate_extended_context()
+                    ext_global_context.display()
+                    countLoop += 1
+                    lattice = Lattice(global_context)
+                    lattice.generate_graph(self.debug_graph_folder, '_distri' + str(step) + '_merge' + str(countLoop))
+                    
+        return previous_global_context
+    
+    def is_median(self):
+        print('Not yet implemented')
+        self.generate_arrow()
+        ext = self.generate_extended_context()
+        arrow_line = {}
+        arrow_col = {}
+        for j in self.J:
+            infs_j = ext.get_directs_j_infs(ext.get_J_prime(j))
+            for m in self.M:
+                sups_m = ext.get_directs_m_sups(ext.get_M_prime(m))
+                if m not in self.get_J_prime(j) and j not in self.get_M_prime(m):
+                    arrow_down = False
+                    for inf in infs_j:
+                        if m in ext.get_J_prime(inf):
+                            if m in arrow_col or j in arrow_line:
+                                return False
+                            else:
+                                arrow_col[m] = j
+                                arrow_line[j] = m
+                                arrow_down = True
+                                break
+                    arrow_up = False
+                    for sup in sups_m:
+                        if j in ext.get_M_prime(sup):
+                            if m in arrow_col or j in arrow_line:
+                                return False
+                            else:
+                                arrow_up = True
+                                break
+                    if arrow_up and arrow_down:
+                        arrow_col[m] = j
+                        arrow_line[j] = m
+                            
+        for j in self.J:
+            if j not in arrow_line:
+                return False
+                
+        for m in self.M:
+            if m not in arrow_col:
+                return False
+            
+        return True
+        
+    def generate_arrow(self):
+        print('Not yet implemented')
+        
     
     def generate_distributive_context(self):
         """Generate distributive context from current
@@ -477,9 +534,6 @@ class Context(object):
                 result += '\t'
             result += str(j)+'\n'
         return result
-    
-    def switch_debug(self, debug):
-        self.debug = debug
         
     def export_json_for_latviz(self):
         """Export context in json forma for LatViz using"""
