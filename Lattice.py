@@ -22,7 +22,6 @@ class Lattice(object):
             extended = self.context
         else:
             extended = self.engine.transform_to_extended_context(self.context)
-        extended.display()
          
         dot = Digraph(name = extended.context_name, strict = True)
         dot.attr(rankdir='BT')
@@ -43,11 +42,11 @@ class Lattice(object):
                 else:
                     dot.node(str(j), label, shape='doublecircle')
         
-        for j in extended.J:
-            if re.match(r"e([0-9]*)", j):
-                dot.node(str(j), shape='circle')
-            else:
-                dot.node(str(j), shape='doublecircle')
+#         for j in extended.J:
+#             if re.match(r"e([0-9]*)", j):
+#                 dot.node(str(j), shape='circle')
+#             else:
+#                 dot.node(str(j), shape='doublecircle')
             
 #         
         for j in extended.J:

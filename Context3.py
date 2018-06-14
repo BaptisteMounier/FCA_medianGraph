@@ -1,4 +1,5 @@
 from copy import copy, deepcopy
+import re
 
 class Context(object):
     '''
@@ -22,7 +23,9 @@ class Context(object):
         self.J = set()
         self.M = set()
         self.I = set()
-        self.name_next_variable = 1
+        self.name_next_m = 0
+        self.name_next_j = 0
+        self.name_next_variable = 0
         
     def add_j(self, j):
         if j not in self.J:
@@ -47,17 +50,20 @@ class Context(object):
             self.mode = Context.custom
         
     def remove_j(self, j):
-        if j in self.J:
+        J_copy = copy(self.J)
+        if j in J_copy:
             self.mode = Context.custom
             self.J.remove(j)
         
     def remove_m(self, m):
-        if m in self.M:
+        M_copy = copy(self.M)
+        if m in M_copy:
             self.mode = Context.custom
             self.M.remove(m)
         
     def remove_i(self, j, m):
-        for i in self.I:
+        I_copy = deepcopy(self.I)
+        for i in I_copy:
             if i[0] == j:
                 if i[1] == m:
                     self.mode = Context.custom
@@ -113,38 +119,18 @@ class Context(object):
                                 break
                         if not already_exists:
                             modification = True
-                            j_extended = 'e('+str(j)+str(k)+')'
+#                             if str(j) > str(k):
+#                                 j_extended = 'e_' + str(k) + '_' + str(j)
+#                             else:
+#                             j_extended = 'e_' + str(j) + '_' + str(k)
+#                             self.name_next_j += 1
+#                             j_extended = 'e_' + str(self.name_next_j)
+                            j_extended = self.new_j_id('e')
+#                             print(j_extended, self.J)
+                            assert j_extended not in self.J
                             self.add_j(j_extended)
                             for intersection in intersection_jk:
                                 self.add_i(j_extended, intersection)
-                                
-        # Remane extended nodes
-        modification = True
-        while modification:
-            modification = False
-            J_copy = copy(self.J)
-            for j in J_copy:
-                if j not in self.J:
-                    j_prime = self.get_j_prime(j)
-                    infs = self.get_directs_j_infs(j_prime)
-                    if infs:
-                        min_label = 'z'
-                        max_label = 'A'
-                        for inf in infs:
-                            if inf < min_label:
-                                min_label = inf
-                            if inf > max_label:
-                                max_label = inf
-                        new_name = 'e('+str(min_label)+str(max_label)+')'
-                        if new_name != j:
-                            modification = True
-                            self.remove_j(j)
-                            self.add_j(new_name)
-                            I_copy = copy(self.I)
-                            for i in I_copy:
-                                if i[0] == j:
-                                    self.remove_i(i[0], i[1])
-                                    self.add_i(new_name, i[1])
         
     def extend_m(self):
         
@@ -162,7 +148,7 @@ class Context(object):
             for j in self.J:
                 self.add_i(j, top)
                 
-        # Check if the bot node exist in J, create it if not
+        # Check if the bot node exist in M, create it if not
         bot_already_exist = False
         for m in self.M:
             m_second = self.get_m_second(m)
@@ -171,7 +157,7 @@ class Context(object):
             elif m_second == self.M:
                 bot_already_exist = True
         if not bot_already_exist:
-            bot = 'MBot'
+            bot = 'mBot'
             for j in self.J:
                 j_prime = self.get_j_prime(j)
                 if j_prime == self.M:
@@ -191,43 +177,24 @@ class Context(object):
                     if m != k:
                         intersection_mk = m_prime & k_prime
                         for l in self.M:
+#                             print('Duels of titans, prime:',self.get_m_prime(l))
+#                             print('Duels of titans, intersection:', intersection_mk)
                             if intersection_mk == self.get_m_prime(l):
                                 already_exists = True
                                 break
                         if not already_exists:
                             modification = True
-                            m_extended = 'e('+str(m)+str(k)+')'
+#                             self.name_next_m += 1
+#                             m_extended = 'e_' + str(self.name_next_m)
+#                             if str(j) > str(k):
+#                                 m_extended = 'e_' + str(k) + '_' + str(m)
+#                             else:
+#                             m_extended = 'e_' + str(m) + '_' + str(k)
+                            m_extended = self.new_m_id('e')
+                            assert(str(m_extended) not in self.M)
                             self.add_m(m_extended)
                             for intersection in intersection_mk:
                                 self.add_i(intersection, m_extended)
-                                
-        # Remane extended nodes
-        modification = True
-        while modification:
-            modification = False
-            M_copy = copy(self.M)
-            for m in M_copy:
-                if m not in self.M:
-                    m_prime = self.get_m_prime(m)
-                    infs = self.get_directs_m_infs(m_prime)
-                    if infs:
-                        min_label = 'z'
-                        max_label = 'A'
-                        for inf in infs:
-                            if inf < min_label:
-                                min_label = inf
-                            if inf > max_label:
-                                max_label = inf
-                        new_name = 'e('+str(min_label)+str(max_label)+')'
-                        if new_name != m:
-                            modification = True
-                            self.remove_m(m)
-                            self.add_m(new_name)
-                            I_copy = copy(self.I)
-                            for i in I_copy:
-                                if i[1] == m:
-                                    self.remove_i(i[0], i[1])
-                                    self.add_i(i[0], new_name)
             
     def get_j_prime(self, j):
         """Return j' set for a given j"""
@@ -394,6 +361,84 @@ class Context(object):
                 if not already_have_better_sup:
                     direct_sups.add(m)
         return direct_sups
+    
+    def add_name_j(self, old_name, add_name):
+        
+        shards = re.split('_', old_name)
+        new_name = shards[0]
+        shards.remove(shards[0])
+        
+        if re.match(r"e.*", add_name):
+            add_shards = re.split('_', add_name)
+            add_shards.remove(add_shards[0])
+            if add_shards in shards:
+                return
+            shards.extend(add_shards)
+        else:
+            if add_name in shards:
+                return
+            shards.append(add_name)
+        
+        prepared_shards = set(shards)
+        for shard in sorted(prepared_shards):
+            new_name += '_' + shard
+            
+        I_copy = copy(self.I)
+        self.add_j(new_name)
+        for i in I_copy:
+            if i[0] == old_name:
+                self.remove_i(i[0], i[1])
+                self.add_i(new_name, i[1])
+        self.remove_j(old_name)
+    
+    def add_name_m(self, old_name, add_name):
+        
+        shards = re.split('_', old_name)
+        new_name = shards[0]
+        shards.remove(shards[0])
+        
+        if re.match(r"e.*", add_name):
+            add_shards = re.split('_', add_name)
+            add_shards.remove(add_shards[0])
+            if add_shards in shards:
+                return
+            shards.extend(add_shards)
+        else:
+            if add_name in shards:
+                return
+            shards.append(add_name)
+        
+        prepared_shards = set(shards)
+        for shard in sorted(prepared_shards):
+            new_name += '_' + shard
+            
+        I_copy = copy(self.I)
+        self.add_m(new_name)
+        for i in I_copy:
+            if i[1] == old_name:
+                self.remove_i(i[0], i[1])
+                self.add_i(i[0], new_name)
+        self.remove_m(old_name)
+        
+    def new_m_id(self, core):
+        find = False
+        while not find:
+            label = core + '_' + str(self.name_next_m)
+            if label not in self.M:
+                find = True
+            else:
+                self.name_next_m += 1
+        return label
+        
+    def new_j_id(self, core):
+        find = False
+        while not find:
+            label = core + '_' + str(self.name_next_j)
+            if label not in self.J:
+                find = True
+            else:
+                self.name_next_j += 1
+        return label        
     
     def display(self):
         print('-'*15)

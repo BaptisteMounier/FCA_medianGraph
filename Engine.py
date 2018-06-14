@@ -56,16 +56,11 @@ class Engine(object):
             return context
         standard_context = Context(context.context_name)
         standard_context.J = copy(context.get_irreductibles_infs(False))
-        print('DEBUG')
-        print('J_irre', standard_context.J)
         standard_context.M = copy(context.get_irreductibles_sups(False))
-        print('M_irre', standard_context.M)
         for i in context.I:
             if (i[0] in standard_context.J) and (i[1] in standard_context.M):
                 standard_context.add_i(i[0], i[1])
         standard_context.mode = Context.standard
-        standard_context.display()
-        print('DEBUG')
         return standard_context
         
     def transform_to_extended_context(self, context):
@@ -84,8 +79,15 @@ class Engine(object):
         extended_context.M.update(context.M)
         extended_context.I.update(context.I)
         
+#         print('Debug - extended - start')
+#         extended_context.display()
+        
         extended_context.extend_j()
+#         print('Debug - extended - j')
+#         extended_context.display()
         extended_context.extend_m()
+#         print('Debug - extended - m')
+#         extended_context.display()
         extended_context.mode = Context.extended
         
         return extended_context
@@ -171,13 +173,12 @@ class Engine(object):
     
     def transform_to_median_context(self, context):
         print('Generate the context with distributive first filters \'' + context.context_name+'_df\' from the context \'' + context.context_name+'\'')
-        context.display()
         if context.mode == Context.median:
             return context
         
         global_context = self.transform_to_standard_context(context)
         atoms = global_context.get_atoms()
-        global_context_copy = deepcopy(global_context)
+#         global_context_copy = deepcopy(global_context)
         ext_global_context = self.transform_to_extended_context(global_context)
         
         step = 0
@@ -190,6 +191,7 @@ class Engine(object):
             median = True
             atoms_contexts = self.extract_atoms_contexts(ext_global_context, atoms)
             for atom_context in atoms_contexts:
+#                 print('test median')
                 if not self.context_is_distributive(atom_context):
                     median = False
             if not median:
@@ -200,12 +202,13 @@ class Engine(object):
                 ext_global_context = self.transform_to_extended_context(global_context)
                 
                 lattice = Lattice(self, ext_global_context)
-                ext_global_context.display()
                 lattice.generate_graph(self.graph_directory, '_distri' + str(step), extended = True)
         
                 merge_ended = False
                 countLoop = 0
                 while not merge_ended:
+                    countLoop += 1
+#                     print('Debug - median', step, countLoop)
                     
                     merge_ended = True
                     ext_global_context_copy = deepcopy(ext_global_context)
@@ -235,37 +238,45 @@ class Engine(object):
                                     sups_unions = set()
                                     sups_second_union = set()
                                     sups_second_inter = copy(ext_global_context.J)
-                                    label = 'n'
-                                      
+#                                     print('Debug, POWER')
+#                                     ext_global_context.display()
+#                                     print('Debug, sups_mergables', sups_mergables)
+                                    
                                     for sup in sups_mergables:
-                                        sups_unions.update(ext_global_context.get_j_prime(sup))
+                                        sup_prime = ext_global_context.get_j_prime(sup)
+                                        sups_unions.update(sup_prime)
+#                                         print('Union', sup, sup_prime, sups_unions)
                                         second = ext_global_context.get_j_second(sup)
                                         sups_second_union.update(second)
+#                                         print('Second Union', sup, second, sups_second_union)
                                         sups_second_inter.intersection_update(second)
+#                                         print('Second Inter', sup, second, sups_second_inter)
                                          
-                                    for sups_union in sorted(sups_unions):
-                                        label += '_'+sups_union
+#                                     for sups_union in sorted(sups_unions):
+#                                         label += '_'+sups_union
                                         
                                     for sup_second in sups_second_union:
                                         for sups_union in sups_unions:
                                             ext_global_context.add_i(sup_second, sups_union)
+#                                         print('In loop, old', sup_second, sups_unions)
                                              
-                                    assert label not in ext_global_context.M
+                                    label = ext_global_context.new_m_id('n')
                                     ext_global_context.add_m(label)
                                     for sup_second in sups_second_inter:
                                         ext_global_context.add_i(sup_second, label)
-                                        
+#                                     print('In loop, new', sups_second_inter, label)
+#                                     ext_global_context.display()
                                     merge_ended = False
                                     break
                                 
                     global_context = self.transform_to_standard_context(ext_global_context)
+#                     global_context.context_name = 'debug_std'+str(countLoop)
+#                     global_context.display()
                     ext_global_context = self.transform_to_extended_context(global_context)
+#                     ext_global_context.context_name = 'debug_ext'+str(countLoop)
+#                     ext_global_context.display()
                     if not merge_ended:
-                        print('Step: ' + str(step) + '/ countLoop: ' + str(countLoop))
-                        countLoop += 1
                         lattice = Lattice(self, ext_global_context)
-                        print('DEBUG HERE', step, countLoop)
-                        ext_global_context.display()
                         lattice.generate_graph(self.graph_directory, '_distri' + str(step) + '_merge' + str(countLoop))
                
         previous_global_context.context_name += '_median'
@@ -326,7 +337,7 @@ class Engine(object):
                 count += 1
                 if count > 1:
                     return False
-                if not arrow[(j, m)]:
+                if not (j, m) in arrow.keys():
                     arrow[(j, m)] = 'up'
                 elif arrow[(j, m)] == 'down':
                     arrow[(j, m)] = 'double'

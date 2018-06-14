@@ -14,26 +14,22 @@ if __name__=="__main__":
         print(file)
         
         engine = Engine(graph_directory)
+        
         context = engine.import_context_from_file(file)
-        context.display()
-        lat2 = Lattice(engine, context)
-        lat2.generate_graph(graph_directory, extended = True)
-        std = engine.transform_to_standard_context(context)
-        std.context_name += '_std'
-        std.display()
-        lat3 = Lattice(engine, std)
-        lat3.generate_graph(graph_directory)
-        ext = engine.transform_to_extended_context(std)
-        ext.context_name += '_ext'
-        ext.display()
-        lat = Lattice(engine, ext)
-        lat.generate_graph(graph_directory, extended = True)
-#         ext = engine.transform_to_extended_context(context)
-#         lat = Lattice(engine, ext)
-#         lat.generate_graph(graph_directory, extended = True)
-#         median = engine.transform_to_median_context(context)
-#         lat = Lattice(engine, median)
-#         lat.generate_graph(graph_directory)
+#         context_extended = engine.transform_to_extended_context(context)
+        latice_context = Lattice(engine, context)
+        latice_context.generate_graph(graph_directory)
+#         context.display()
+#         context.export_txt_for_conex(export_directory)
+#         latice_context = Lattice(engine, context_extended)
+#         latice_context.generate_graph(graph_directory, add_name = '_ext', extended = True)
+        
+#         context.display()
+#         context.export_txt_for_conex(export_directory)
+        
+        median_context = engine.transform_to_median_context(context)
+        lattice_median_context = Lattice(engine, median_context)
+        lattice_median_context.generate_graph(graph_directory, differences = context.J)
         
         print('-'*25)
 
@@ -42,7 +38,7 @@ if __name__=="__main__":
     parser.add_argument("--file", type=str, default='validation', help="Context file name")
     args = parser.parse_args()
 #     args.file = 'priss2013-table01'
-    args.file = 'tmp3'
+#     args.file = 'cla_v5'
 
     data_dir = Path('data')
     graph_target_directory = Path('data/graph/')
