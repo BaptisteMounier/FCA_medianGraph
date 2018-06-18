@@ -29,11 +29,12 @@ class Lattice(object):
         
         indice = 1
         for j in extended.J:
-            if re.match(r"e.*", str(j)):
-                label = 'e'+str(indice)
-                indice += 1
-            else:
-                label = str(j)
+#             if re.match(r"e.*", str(j)):
+#                 label = 'e'+str(indice)
+#                 indice += 1
+#             else:
+#                 label = str(j)
+            label = str(j)
             if not differences:
                 dot.node(str(j), label, shape='circle')
             else:

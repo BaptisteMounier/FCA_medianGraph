@@ -25,7 +25,7 @@ class Engine(object):
         
         """
         
-        print('Generate the context \'' + file.stem + '\' from \'' + str(file) + '\'')
+#         print('Generate the context \'' + file.stem + '\' from \'' + str(file) + '\'')
         context = Context(file.stem)
         
         with file.open() as csv_file:
@@ -51,7 +51,7 @@ class Engine(object):
     def transform_to_standard_context(self, context):
         """Create standard context from current."""
         
-        print('Generate the standard context of \''+context.context_name+'\'')
+#         print('Generate the standard context of \''+context.context_name+'\'')
         if context.mode == Context.standard:
             return context
         standard_context = Context(context.context_name)
@@ -70,7 +70,7 @@ class Engine(object):
         
         """
         
-        print('Generate the extended context of \''+context.context_name+'\'')
+#         print('Generate the extended context of \''+context.context_name+'\'')
         if context.mode == Context.extended:
             return context
         
@@ -100,7 +100,7 @@ class Engine(object):
         
         """
                 
-        print('Generate the distributive context \''+context.context_name+'_d\' of the context \''+context.context_name+'\'')
+#         print('Generate the distributive context \''+context.context_name+'_d\' of the context \''+context.context_name+'\'')
         if context.mode == Context.distributive:
             return context
         
@@ -172,7 +172,7 @@ class Engine(object):
         return global_context
     
     def transform_to_median_context(self, context):
-        print('Generate the context with distributive first filters \'' + context.context_name+'_df\' from the context \'' + context.context_name+'\'')
+#         print('Generate the context with distributive first filters \'' + context.context_name+'_df\' from the context \'' + context.context_name+'\'')
         if context.mode == Context.median:
             return context
         
@@ -208,6 +208,8 @@ class Engine(object):
                 countLoop = 0
                 while not merge_ended:
                     countLoop += 1
+                    if countLoop == 3:
+                        print()
 #                     print('Debug - median', step, countLoop)
                     
                     merge_ended = True
@@ -222,53 +224,95 @@ class Engine(object):
                                 break
                          
                         if count > 1:
-                            sups = ext_global_context.get_directs_j_sups(ext_global_context.get_j_prime(concept))
+                            concept_prime = ext_global_context.get_j_prime(concept)
+                            sups = ext_global_context.get_directs_j_sups(concept_prime)
 #                             sups.difference_update(global_context_copy.J)
-                             
                             if len(sups) > 1:
                                       
-                                # Check if e's sups are mergable
+                                # Check if e's sups are mergable    
                                 sups_mergables = set()
-                                for sup in sups:
-                                    if sup in ext_global_context.J.difference(global_context.J):
-                                        sups_mergables.add(sup)
+                                concept_second = ext_global_context.get_j_second(concept)
+                                tmp = False
+                                while not tmp: #len(sups) > 0:
+                                    tmp = True
+                                    sups.difference_update(sups_mergables)
+                                    sups_mergables = set()
+                                    atoms_source = set()
+                                    for sup in sups:
+                                        if sup in ext_global_context.J.difference(global_context.J):
+                                            sup_seconds = ext_global_context.get_j_second(sup)
+                                            sup_seconds.discard(sup)
+                                            sup_edits = sup_seconds.difference(concept_second)
+                                            sup_edits_prime = set()
+                                            for sup_edit in sup_edits:
+                                                sup_edits_prime.update(ext_global_context.get_j_prime(sup_edit))
+                                            mergeable = True
+                                            for atom_source in atoms_source:
+                                                atom_prime = ext_global_context.get_j_prime(atom_source)
+                                                for sup_second in sup_edits:
+                                                    if atom_prime.issuperset(ext_global_context.get_j_prime(sup_second)):
+                                                        mergeable = False
+                                                        break
+                                            if mergeable:
+                                                for atom in atoms:
+                                                    atom_prime = ext_global_context.get_j_prime(atom)
+                                                    for sup_second in sup_edits:
+                                                        if atom_prime.issuperset(ext_global_context.get_j_prime(sup_second)):
+                                                            atoms_source.add(atom)
+                                                            break
+                                                sups_mergables.add(sup)
+                                                tmp = True
 #                                          
-                                if len(sups_mergables) > 1:
-                                     
-                                    sups_unions = set()
-                                    sups_second_union = set()
-                                    sups_second_inter = copy(ext_global_context.J)
-#                                     print('Debug, POWER')
-#                                     ext_global_context.display()
-#                                     print('Debug, sups_mergables', sups_mergables)
-                                    
-                                    for sup in sups_mergables:
-                                        sup_prime = ext_global_context.get_j_prime(sup)
-                                        sups_unions.update(sup_prime)
-#                                         print('Union', sup, sup_prime, sups_unions)
-                                        second = ext_global_context.get_j_second(sup)
-                                        sups_second_union.update(second)
-#                                         print('Second Union', sup, second, sups_second_union)
-                                        sups_second_inter.intersection_update(second)
-#                                         print('Second Inter', sup, second, sups_second_inter)
+                                    if len(sups_mergables) > 1:
                                          
-#                                     for sups_union in sorted(sups_unions):
-#                                         label += '_'+sups_union
+                                        sups_unions = set()
+                                        sups_second_union = set()
+                                        sups_second_inter = copy(ext_global_context.J)
+    #                                     print('Debug, POWER')
+    #                                     ext_global_context.display()
+    #                                     print('Debug, sups_mergables', sups_mergables)
                                         
-                                    for sup_second in sups_second_union:
-                                        for sups_union in sups_unions:
-                                            ext_global_context.add_i(sup_second, sups_union)
-#                                         print('In loop, old', sup_second, sups_unions)
+                                        for sup in sups_mergables:
+                                            sup_prime = ext_global_context.get_j_prime(sup)
+                                            sups_unions.update(sup_prime)
+    #                                         print('Union', sup, sup_prime, sups_unions)
+                                            second = ext_global_context.get_j_second(sup)
+                                            sups_second_union.update(second)
+    #                                         print('Second Union', sup, second, sups_second_union)
+                                            sups_second_inter.intersection_update(second)
+    #                                         print('Second Inter', sup, second, sups_second_inter)
                                              
-                                    label = ext_global_context.new_m_id('n')
-                                    ext_global_context.add_m(label)
-                                    for sup_second in sups_second_inter:
-                                        ext_global_context.add_i(sup_second, label)
-#                                     print('In loop, new', sups_second_inter, label)
-#                                     ext_global_context.display()
+    #                                     for sups_union in sorted(sups_unions):
+    #                                         label += '_'+sups_union
+                                            
+                                        for sup_second in sups_second_union:
+                                            for sups_union in sups_unions:
+                                                ext_global_context.add_i(sup_second, sups_union)
+    #                                         print('In loop, old', sup_second, sups_unions)
+                                                 
+                                        label = ext_global_context.new_m_id('n')
+                                        ext_global_context.add_m(label)
+                                        for sup_second in sups_second_inter:
+                                            ext_global_context.add_i(sup_second, label)
+    #                                     print('In loop, new', sups_second_inter, label)
+    #                                     ext_global_context.display()
+                                        merge_ended = False
+                                        break
+                                
+                            elif len(sups) < 2:
+                                infs = ext_global_context.get_directs_j_infs(concept_prime)
+                                if len(infs) == 1:
+                                    counter = 0
+                                    for inf in infs:
+                                        counter += 1
+                                        assert counter < 2
+                                        inf_prime = ext_global_context.get_j_prime(inf)
+                                        for inf_m in inf_prime:
+                                            ext_global_context.add_i(concept, inf_m)
                                     merge_ended = False
                                     break
-                                
+                                    
+                                    
                     global_context = self.transform_to_standard_context(ext_global_context)
 #                     global_context.context_name = 'debug_std'+str(countLoop)
 #                     global_context.display()

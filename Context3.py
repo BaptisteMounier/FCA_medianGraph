@@ -26,6 +26,7 @@ class Context(object):
         self.name_next_m = 0
         self.name_next_j = 0
         self.name_next_variable = 0
+        self.arrow = {}
         
     def add_j(self, j):
         if j not in self.J:
@@ -438,7 +439,10 @@ class Context(object):
                 find = True
             else:
                 self.name_next_j += 1
-        return label        
+        return label
+    
+    def generate_arrow(self):
+        print('')
     
     def display(self):
         print('-'*15)
