@@ -1,7 +1,7 @@
 import csv
 from copy import copy, deepcopy
 
-from Context3 import Context
+from Context import Context
 from Lattice import Lattice
 
 class Engine(object):
@@ -208,8 +208,6 @@ class Engine(object):
                 countLoop = 0
                 while not merge_ended:
                     countLoop += 1
-                    if countLoop == 3:
-                        print()
 #                     print('Debug - median', step, countLoop)
                     
                     merge_ended = True
@@ -232,9 +230,9 @@ class Engine(object):
                                 # Check if e's sups are mergable    
                                 sups_mergables = set()
                                 concept_second = ext_global_context.get_j_second(concept)
-                                tmp = False
-                                while not tmp: #len(sups) > 0:
-                                    tmp = True
+                                modification = True
+                                while modification: #len(sups) > 0:
+                                    modification = False    
                                     sups.difference_update(sups_mergables)
                                     sups_mergables = set()
                                     atoms_source = set()
@@ -261,7 +259,7 @@ class Engine(object):
                                                             atoms_source.add(atom)
                                                             break
                                                 sups_mergables.add(sup)
-                                                tmp = True
+                                                modification = True
 #                                          
                                     if len(sups_mergables) > 1:
                                          
@@ -299,18 +297,18 @@ class Engine(object):
                                         merge_ended = False
                                         break
                                 
-                            elif len(sups) < 2:
-                                infs = ext_global_context.get_directs_j_infs(concept_prime)
-                                if len(infs) == 1:
-                                    counter = 0
-                                    for inf in infs:
-                                        counter += 1
-                                        assert counter < 2
-                                        inf_prime = ext_global_context.get_j_prime(inf)
-                                        for inf_m in inf_prime:
-                                            ext_global_context.add_i(concept, inf_m)
-                                    merge_ended = False
-                                    break
+#                             elif len(sups) < 2:
+#                                 infs = ext_global_context.get_directs_j_infs(concept_prime)
+#                                 if len(infs) == 1:
+#                                     counter = 0
+#                                     for inf in infs:
+#                                         counter += 1
+#                                         assert counter < 2
+#                                         inf_prime = ext_global_context.get_j_prime(inf)
+#                                         for inf_m in inf_prime:
+#                                             ext_global_context.add_i(concept, inf_m)
+#                                     merge_ended = False
+#                                     break
                                     
                                     
                     global_context = self.transform_to_standard_context(ext_global_context)
