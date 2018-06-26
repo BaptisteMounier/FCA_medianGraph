@@ -151,6 +151,7 @@ class Engine(object):
             # Fusion with previous distributive first filter context (no merge node atm)
             global_context.J.update(distributive_filter_context.J)
             # Add first filter if not exist
+            # TODO: utile ?
             if not atom in global_context.J:
                 global_context.add_j(atom)
                 # If no attribute, create new one
@@ -297,18 +298,18 @@ class Engine(object):
                                         merge_ended = False
                                         break
                                 
-#                             elif len(sups) < 2:
-#                                 infs = ext_global_context.get_directs_j_infs(concept_prime)
-#                                 if len(infs) == 1:
-#                                     counter = 0
-#                                     for inf in infs:
-#                                         counter += 1
-#                                         assert counter < 2
-#                                         inf_prime = ext_global_context.get_j_prime(inf)
-#                                         for inf_m in inf_prime:
-#                                             ext_global_context.add_i(concept, inf_m)
-#                                     merge_ended = False
-#                                     break
+                            elif len(sups) < 2:
+                                infs = ext_global_context.get_directs_j_infs(concept_prime)
+                                if len(infs) == 1:
+                                    counter = 0
+                                    for inf in infs:
+                                        counter += 1
+                                        assert counter < 2
+                                        inf_prime = ext_global_context.get_j_prime(inf)
+                                        for inf_m in inf_prime:
+                                            ext_global_context.add_i(concept, inf_m)
+                                    merge_ended = False
+                                    break
                                     
                                     
                     global_context = self.transform_to_standard_context(ext_global_context)
