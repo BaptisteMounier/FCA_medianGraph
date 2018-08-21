@@ -1,0 +1,131 @@
+\documentclass[a4paper]{report}
+
+%====================== PACKAGES ======================
+
+\usepackage[french]{babel}
+\usepackage[utf8x]{inputenc}
+%pour gérer les positionnement d'images
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{url}
+\usepackage{titlesec, blindtext, color}
+\titleformat{\chapter}{\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+%pour les informations sur un document compilé en PDF et les liens externes / internes
+\usepackage{hyperref}
+%pour la mise en page des tableaux
+\usepackage{array}
+\usepackage{tabularx}
+%pour utiliser \floatbarrier
+%\usepackage{placeins}
+%\usepackage{floatrow}
+%espacement entre les lignes
+\usepackage{setspace}
+%modifier la mise en page de l'abstract
+\usepackage{abstract}
+%police et mise en page (marges) du document
+\usepackage[T1]{fontenc}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+%Pour les galerie d'images
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows, positioning}
+\usepackage{todonotes}
+\usepackage[ruled,vlined]{algorithm2e}
+
+\newtheorem{definition}{Définition}
+
+%====================== INFORMATION ET REGLES ======================
+
+%rajouter les numérotation pour les \paragraphe et \subparagraphe
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\hypersetup{							% Information sur le document
+pdfauthor = {Baptiste Mounier},			% Auteurs
+pdftitle = {Production de graphes médians pour la phylogénie},			% Titre du document
+pdfsubject = {Rapport de stage},		% Sujet
+pdfkeywords = {Treillis, Médian,Graphe, Phylogénie},	% Mots-clefs
+pdfstartview={FitH}}					% ajuste la page à la largueur de l'écran
+%pdfcreator = {MikTeX},% Logiciel qui a crée le document
+%pdfproducer = {}} % Société avec produit le logiciel
+
+% tikz rules
+\tikzstyle{bnode} = [circle, fill, draw, inner sep = 2pt]
+\tikzstyle{wnode} = [circle, draw, inner sep = 2pt]
+\tikzstyle{line} = [draw]
+\tikzstyle{block2} = [rectangle, draw, text width = 5em, text centered, minimum height = 3em]
+\tikzstyle{decision} = [diamond, draw, fill = green!20, text width = 5em, text badly centered, inner sep = 0pt]
+\tikzstyle{block} = [rectangle, draw, fill = blue!20, text width = 5em, text centered, rounded corners, minimum height = 3em]
+\tikzstyle{algorithm} = [rectangle, draw, fill = green!20, text width = 5em, text centered, rounded corners, minimum height = 3em]
+\tikzstyle{inout} = [rectangle, draw, fill = red!20, text width = 5em, text centered, minimum height = 3em]
+\tikzstyle{cloud} = [ellipse, draw, fill = red!20, minimum height=2em]
+\tikzstyle{line2} = [draw, -latex']
+\tikzstyle{my below of} = [below=of #1.south]
+\tikzstyle{my right of} = [right=of #1.east]
+\tikzstyle{my left of} = [left=of #1.west]
+\tikzstyle{my above of} = [above=of #1.north]
+
+%======================== DEBUT DU DOCUMENT ========================
+
+\begin{document}
+
+%régler l'espacement entre les lignes
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%page de garde
+\input{./title.tex}
+
+%page blanche
+\newpage
+~
+\thispagestyle{empty}
+
+\input{./abstract.tex}
+
+\input{./remerciements.tex}
+
+\tableofcontents
+\thispagestyle{empty}
+% Ne pas numéroter le sommaire
+
+\newpage
+~
+\thispagestyle{empty}
+\setcounter{page}{0}
+
+% Espacement entre les lignes d'un tableau
+\renewcommand{\arraystretch}{1.5}
+
+%====================== INCLUSION DES PARTIES ======================
+
+\input{./contexte.tex}
+
+\input{./motivations.tex}
+
+\input{./notations.tex}
+
+\input{./contribution.tex}
+
+\input{./bilan.tex}
+
+\input{./annexes.tex}
+
+%\input{./archives.tex}
+
+\newpage
+
+% Récupérer les citation avec "/footnotemark"
+%\nocite{*}
+
+% Choix du style de la biblio
+\bibliographystyle{unsrt}
+% Inclusion de la biblio
+\bibliography{bibliographie}
+% Voir wiki pour plus d'information sur la syntaxe des entrées d'une bibliographie
+
+\listoftodos
+
+\end{document}

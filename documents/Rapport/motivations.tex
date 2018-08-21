@@ -1,0 +1,523 @@
+\chapter{Motivations}
+
+Il est important avant de commencer cette section de préciser le détails des définitions et propriété sera détaillé par la suite.
+
+\section{Phylogénie}
+
+La plylogénie est un domaine de la biologie ayant pour but l'étude des relations de parenté entre les êtres vivants. Nous nous concentrerons sur la partie du domaine qui traite des relations entre les espèces et leurs évolutions. Pour représenter les informations, on utilise des arbres montrant les différentes espèces avec leurs caractèrisques communes comme le montre l'exemple de la figure \ref{arbre_phylogenie} sur laquelle chaque feuille, ici représentée en noir, correspond à une espèce actuelle. Sa lecture est très simple, on part du n\oe ud le plus haut qui correspond à l'intégralité des espèces et on descend progressivement chaque ramification qui vient séléctionner une partie des espèces suivant certaines caractéristiques. On part également du principe que chaque n\oe ud correspond à un ancêtre commun à toutes les espèces des feuilles sur lesquelles ce n\oe ud débouche.
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}
+			\node [bnode, label=below:{chat}] (chat) at (0, 0) {};
+			\node [bnode, label=below:{chien}] (chien) at (2, 0) {};
+			\node [bnode, label=below:{poule}] (poule) at (4, 0) {};
+			\node [bnode, label=below:{mouette}] (mouette) at (6, 0) {};
+			\node [bnode, label=below:{aigle}] (aigle) at (8, 0) {};
+			\node [wnode, label=left:{nyctalope}] (nyctalope) at (0, 2) {};
+			\node [wnode, label=left:{griffes}] (griffes) at (2, 3) {};
+			\node [wnode, label=right:{ailes}] (ailes) at (4, 3) {};
+			\node [wnode, label={vol}] (vol) at (6, 2) {};
+			\node [wnode, label=right:{griffes}] (griffes2) at (8, 1) {};
+			\node [wnode, label={}] (top) at (3, 4) {};
+			
+			\path [line] (chat) -- (nyctalope);
+			\path [line] (nyctalope) -- (griffes);
+			\path [line] (chien) -- (griffes);
+			\path [line] (poule) -- (ailes);
+			\path [line] (mouette) -- (vol);
+			\path [line] (vol) -- (ailes);
+			\path [line] (aigle) -- (griffes2);
+			\path [line] (griffes2) -- (vol);
+			\path [line] (griffes) -- (top);
+			\path [line] (ailes) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Arbre phylogénétique}
+	\label{arbre_phylogenie}
+\end{figure}
+
+Ces arbres sont des représentations des données possédées et peuvent varier suivant sur quoi on cherche à mettre l'accent. Par exemple la figure \ref{arbre_phylogenie} et la figure \ref{arbre_phylogenie_2} représentent les mêmes espèces à partir des mêmes données mais avec un accent différent porté avant tout dans le cas de la figure \ref{arbre_phylogenie_2} sur une catégorisation de la présence de griffes ou non. Ces données sont stockées dans des matrices binaires mettant en lien chaque espèce avec ses caractéristiques comme le montre la figure \ref{matrice_espece_carac}. Le problème est alors de choisir le bon arbre, pour diriger ce choix on utilise la notion de parcimonie qui consiste à minimiser les mutations nécessaires pour atteindre les espèces visées. Les arbres ainsi obtenus sont dit parcimonieux.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [bnode, label=below:{chat}] (chat) at (0, 0) {};
+			\node [bnode, label=below:{chien}] (chien) at (1, 0) {};
+			\node [bnode, label=below:{poule}] (poule) at (2, 0) {};
+			\node [bnode, label=below:{aigle}] (aigle) at (3, 0) {};
+			\node [bnode, label=below:{mouette}] (mouette) at (4, 0) {};
+			\node [wnode, label=left:{nyctalope}] (nyctalope) at (0, 2) {};
+			\node [wnode, label=left:{griffes}] (griffes) at (1, 3) {};
+			\node [wnode, label=left:{ailes}] (ailes) at (2, 2) {};
+			\node [wnode, label=left:{vol}] (vol) at (3, 1) {};
+			\node [wnode, label={}] (top) at (2, 4) {};
+			
+			\path [line] (chat) -- (nyctalope);
+			\path [line] (nyctalope) -- (griffes);
+			\path [line] (chien) -- (griffes);
+			\path [line] (ailes) -- (griffes);
+			\path [line] (poule) -- (ailes);
+			\path [line] (vol) -- (ailes);
+			\path [line] (aigle) -- (vol);
+			\path [line] (griffes) -- (top);
+			\path [line] (mouette) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Arbre phylogénétique, autre accent}
+	\label{arbre_phylogenie_2}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c c }
+			 & griffes & ailes & nyctalope & vol \\
+			\hline
+			chat & x & & x & \\
+			chien & x & & & \\
+			aigle & x & x & & x \\
+			mouette & & x & & x \\
+			poule & x & x & & \\
+		\end{tabular}
+	\end{center}
+	\caption{Matrice espèce/caractéristique}
+	\label{matrice_espece_carac}
+	\end{minipage}
+\end{figure}
+
+\section{Outil : graphes médians}
+
+Le vivant et la multitude de caractéristiques de chaque espèce ne permet pas d'avoir un unique arbre parcimonieux pour représenter tous les accents possibles avec un jeu de données. Pour compenser cela la première solution est de donner tous les arbres possibles, solution qui est pour des raisons évidentes de place et de pertinence, pas viable. La seconde, proposée par Hans-Jürgen Bandelt dans \cite{MedianAlgebras}, consiste à encoder l'ensemble de ces arbres dans un graphe médian\todo{définition succincte des graphes médians}. Cette méthode permet ainsi d'avoir l'intégralité de ces arbres phylogénétiques parcimonieux en une unique représentation au lieu de devoir faire un arbre par information qu'on souhaite mettre en avant. Suivant ce principe nous obtenons la figure \ref{graphe_median_phylogenie} dans laquelle toutes les espèces, toujours sur les n\oe uds noirs, disposent des caractéristiques des n\oe uds qui lui sont au dessus et de celui où elles se trouvent\footnote{à confirmer, graphe médian n'ont pas réellement de sens}. Dans ce jeu de données l'espèce \guillemotleft{} chat \guillemotright{} dispose des caractéristiques \guillemotleft{} nyctalope \guillemotright{} et \guillemotleft{} griffes \guillemotright{}. Ce graphe contient toutes les informations que les arbres précédents des figures \ref{arbre_phylogenie} et \ref{arbre_phylogenie_2} ainsi que les autres arbres qui peuvent être formé à partir de ce jeu de données, peuvent offrir.
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}
+			\node [bnode, label=below:{chat, nyctalope}] (chat) at (0, 0) {};
+			\node [bnode, label=left:{chien, griffes}] (chien) at (0, 2) {};
+			\node [bnode, label=below:{poule}] (poule) at (1, 1) {};
+			\node [bnode, label=below:{aigle}] (aigle) at (2, 0) {};
+			\node [bnode, label=right:{mouette, vol}] (mouette) at (2, 1) {};
+			\node [wnode, label=right:{ailes}] (ailes) at (2, 2) {};
+			\node [wnode, label={}] (top) at (1, 3) {};
+			
+			\path [line] (chat) -- (chien);
+			\path [line] (chien) -- (top);
+			\path [line] (aigle) -- (poule);
+			\path [line] (aigle) -- (mouette);
+			\path [line] (mouette) -- (ailes);
+			\path [line] (poule) -- (chien);
+			\path [line] (poule) -- (ailes);
+			\path [line] (ailes) -- (top);
+			\path [line] (chien) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Graphe médian}
+	\label{graphe_median_phylogenie}
+\end{figure}
+
+\section{Approche : Analyse de Concepts Formels}
+
+Uta Priss quant à elle profite que les arbres proviennent de matrices binaires de données qui sont également à une place centrale au sein de la FCA\footnote{Formal Concept Analysis : Analyse de Concepts Formels} et ainsi créer des treillis qui sont des ensembles ordonnés. À partir de ces derniers nous pouvons représenter le vivant avec son propre système de classification. Elle propose dans \cite{MedianConceptLattices} l'utilisation de treillis de concept à la place ou en complément des graphes médians et fait l'ébauche d'un algorithme pour convertir un treillis de concept en graphe médian. Créant par la même occasion entre ces deux domaines un lien qui a l'avantage d'offrir à la phylogénie les nombreux outils et la communauté relativement importante de la FCA.
+
+\bigbreak
+
+Pour arriver à ce résultat, U. Priss expose une méthode consistant à rendre les treillis formés à partir des filtres des atomes\footnote{Les atomes sont les n\oe uds qui sont en lien direct avec le n\oe ud le plus bas, souvent noté $\bot$ dans ce rapport} distributifs puis à supprimer le n\oe uds le plus bas, souvent noté $\bot$ dans ce rapport. Prenons en exemple un cas de base en figure \ref{priss_treillis_base} avec en n\oe uds noirs le sous treillis posant problème. Nous devons tout d'abord rendre les treillis formés à partir des filtres de ses atomes, distributifs, ce qui donne après opération manuelle le treillis de la figure \ref{priss_treillis_median}. Puis nous supprimons le n\oe uds $\bot$ pour pour obtenir le graphe médian de la figure \ref{priss_graphe_median} qui valide toutes les conditions pour correspondre à un graphe médian.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5 \textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (-1, -1) {};
+			\node [wnode, label=left:{$1$}] (1) at (-2, 0) {};
+			\node [bnode, label=right:{$2$}] (2) at (0, 0) {};
+			\node [bnode, label=left:{$3$}] (3) at (-1, 1) {};
+			\node [bnode, label=right:{$4$}] (4) at (1, 1) {};
+			\node [bnode, label=right:{$5$}] (5) at (1, 2) {};
+			\node [bnode, label=right:{$6$}] (6) at (0, 3) {};
+			\node [wnode, label={$\top$}] (top) at (-1, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (top);
+			\path [line] (2) -- (3);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (6);
+			\path [line] (4) -- (5);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis de base}
+	\label{priss_treillis_base}
+	\end{minipage}
+	\begin{minipage}[c]{0.5 \textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (-1, -1) {};
+			\node [wnode, label=left:{$1$}] (1) at (-2, 0) {};
+			\node [wnode, label=right:{$2$}] (2) at (0, 0) {};
+			\node [wnode, label=left:{$3$}] (3) at (-1, 1) {};
+			\node [wnode, label=right:{$4$}] (4) at (1, 1) {};
+			\node [wnode, label=right:{$5$}] (5) at (1, 2) {};
+			\node [wnode, label=right:{$6$}] (6) at (0, 3) {};
+			\node [wnode, label=left:{$7$}] (7) at (-1, 2) {};
+			\node [wnode, label={$\top$}] (top) at (-1, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (top);
+			\path [line] (2) -- (3);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (7);
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (7);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			\path [line] (7) -- (6);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Avec treillis des atomes distributifs}
+	\label{priss_treillis_median}
+	\end{minipage}
+	\begin{minipage}[c]{0.5 \textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=left:{$1$}] (1) at (-2, 4) {};
+			\node [wnode, label=right:{$2$}] (2) at (0, 0) {};
+			\node [wnode, label=left:{$3$}] (3) at (-1, 1) {};
+			\node [wnode, label=right:{$4$}] (4) at (1, 1) {};
+			\node [wnode, label=right:{$5$}] (5) at (1, 2) {};
+			\node [wnode, label=right:{$6$}] (6) at (0, 3) {};
+			\node [wnode, label=left:{$7$}] (7) at (-1, 2) {};
+			\node [wnode, label={$\top$}] (top) at (-1, 4) {};
+			
+			\path [line] (1) -- (top);
+			\path [line] (2) -- (3);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (7);
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (7);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			\path [line] (7) -- (6);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Graphe médian résultat}
+	\label{priss_graphe_median}
+	\end{minipage}
+\end{figure}
+
+\section{Approche : limites}
+
+L'équipe ORPAILLEUR a poursuivi en ce sens à travers \cite{cla2018} et \cite{egc2018} en proposant une solution systématique pour la proposition de U. Priss avec ses limites. La résolution est en deux parties, tout d'abord il faut savoir transformer un treillis quelconque en treillis distributif. Pour ce faire, l'équipe a mis au point un algorithme qui permet de passer de la figure \ref{orpailleur_n5} à la figure \ref{orpailleur_n5_postcla}.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{1}] (1) at (0,0) {};
+			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
+			\node [wnode, label=right:{3}] (3) at (1, 1) {};
+			\node [wnode, label=left:{4}] (4) at (-1, 2) {};
+			\node [wnode, label={5}] (5) at (0, 3) {};
+			
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (5);
+			\path [line] (4) -- (5);
+		\end{tikzpicture}
+	\end{center}
+	\caption{$N_5$ avant transformation}
+	\label{orpailleur_n5}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{1}] (1) at (0,0) {};
+			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
+			\node [wnode, label=right:{3}] (3) at (1, 1) {};
+			\node [wnode, label=left:{4}] (4) at (-1, 2) {};
+			\node [wnode, label=right:{}] (6) at (1, 2) {};
+			\node [wnode, label={5}] (5) at (0, 3) {};
+			
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (4);
+			\path [line] (2) -- (6);
+			\path [line] (3) -- (6);
+			\path [line] (4) -- (5);
+			\path [line] (6) -- (5);
+		\end{tikzpicture}
+	\end{center}
+	\caption{$N_5$ après transformation}
+	\label{orpailleur_n5_postcla}
+	\end{minipage}
+\end{figure}
+
+Ensuite il faut se servir de cet algorithme dans un système plus large qui doit être capable d'extraire les contextes correspondant aux treillis des atomes pour effectuer le traitement sur chacun d'eux avant d'assembler les contextes résultats en un unique contexte pour avoir un unique treillis résultat. Et une fois ces deux étapes réussies on supprime le n\oe ud $\bot$ pour obtenir notre graphe médian.
+
+\bigbreak
+
+Pour effectuer l'extraction du contexte d'un atome, il suffit d'extraire du contexte global tous les attributs qui sont en correspondance avec l'atome et de prendre tous les objets qui ont une correspondance avec l'un de ces attributs. En prenant en exemple le contexte de la figure \ref{contexte_global} dans lequel vous voulons extraire le contexte de l'atome 1 nous obtenons le contexte de la figure \ref{contexte_extrait}.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c c c c }
+			 & A & B & C & D & E & F \\
+			\hline
+			1 & x & x & x & & & \\
+			2 & x & & x & & & \\
+			3 & & x & & & & \\
+			4 & & & x & & & \\
+			5 & & & & x & x & x \\
+			6 & & & & x & & x \\
+			7 & & & & & x & \\
+			8 & & & & & & x \\
+		\end{tabular}
+	\end{center}
+	\caption{Contexte global}
+	\label{contexte_global}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			C1 & A & B & C \\
+			\hline
+			2 & x & & x \\
+			3 & & x & \\
+			4 & & & x \\
+		\end{tabular}
+	\end{center}
+	\caption{Contexte de l'atome 1 extrait}
+	\label{contexte_extrait}
+	\end{minipage}
+\end{figure}
+
+À l'inverse pour effectuer une remise en commun des contextes, on assemble tout simplement les contextes entre eux sans oublier d'ajouter la correspondance entre l'atome source du contexte extrait avec tous les attributs contenus dans ce contexte comme le montre les figures \ref{contextes_extraits} et \ref{contexte_reassemble}.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.3\textwidth}
+	\begin{center}
+		\begin{minipage}[c]{1\textwidth}
+		\begin{center}
+			\begin{tabular}{ l | c c c }
+				C1 & A & B & C \\
+				\hline
+				2 & & x & x \\
+				3 & & & x \\
+				4/7 & x & x & \\
+			\end{tabular}
+		\end{center}
+		\end{minipage}
+		\begin{minipage}[c]{1\textwidth}
+		\begin{center}
+			\begin{tabular}{ l | c c c }
+				C4 & D & E & F \\
+				\hline
+				5 & & x & x \\
+				6 & & & x \\
+				1/7 & x & x & \\
+			\end{tabular}
+		\end{center}
+		\end{minipage}
+		\begin{minipage}[c]{1\textwidth}
+		\begin{center}
+			\begin{tabular}{ l | c c c }
+				C7 & G & G & I \\
+				\hline
+				8 & & x & x \\
+				9 & & & x \\
+				1/4 & x & x & \\
+			\end{tabular}
+		\end{center}
+		\end{minipage}
+	\end{center}
+	\caption{Contextes extraits pour les atomes 1, 4 et 7}
+	\label{contextes_extraits}
+	\end{minipage}
+	\begin{minipage}[c]{0.7\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c c c c c c c }
+			& A & B & C & D & E & F & G & H & I \\
+			\hline
+			1 & x & x & x & x & x & & x & x & \\
+			2 & & x & x & & & & & & \\
+			3 & & & x & & & & & & \\
+			4 & x & x & & x & x & x & x & x & \\
+			5 & & & & & x & x & & & \\
+			6 & & & & & & x & & & \\
+			7 & x & x & & x & x & & x & x & x \\
+			8 & & & & & & & & x & x \\
+			9 & & & & & & & & & x \\
+		\end{tabular}
+	\end{center}
+	\caption{Contexte réassemblé}
+	\label{contexte_reassemble}
+	\end{minipage}
+\end{figure}
+
+\bigbreak
+
+Une fois la méthode mise en place, on se rend compte qu'elle dispose de problèmes. Sur des cas moins triviaux il se pose la question de l'optimalité du treillis unique obtenu. Prenons en exemple la figure \ref{priss_probleme_base} avec en noir une partie des n\oe uds empêchant les treillis des atomes d'être distributif par la présence d'un sous treillis $N_5$. Si nous appliquons la méthode dessus nous obtenons la figure \ref{priss_probleme_1} avec également en noirs des n\oe uds posant le même problème.
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{4}] (4) at (1, 1) {};
+			\node [bnode, label=left:{2, $A$}] (2) at (-2, 2) {};
+			\node [bnode, label=left:{3, $B$}] (3) at (-2, 3) {};
+			\node [wnode, label=right:{5, $D$}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, $E$}] (6) at (2, 3) {};
+			\node [bnode, label=right:{$C$}] (C) at (0, 2) {};
+			\node [bnode, label={$\top$}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (C);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			
+			\path [line] (C) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Cas posant problème, situation de départ}
+	\label{priss_probleme_base}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{4}] (4) at (1, 1) {};
+			\node [bnode, label=left:{2}] (2) at (-2, 2) {};
+			\node [bnode, label=left:{3, $m4$}] (3) at (-2, 3) {};
+			\node [wnode, label=right:{5}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, $m1$}] (6) at (2, 3) {};
+			\node [wnode, label=right:{m2, $m5$}] (m2) at (0, 2) {};
+			\node [wnode, label=left:{$m3$}] (m3) at (-0.5, 3) {};
+			\node [bnode, label=right:{$m6$}] (m6) at (0.5, 3) {};
+			\node [bnode, label={$\top$}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (m2);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (m2);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			\path [line] (m2) -- (m3);
+			\path [line] (m2) -- (m6);
+			\path [line] (m3) -- (top);
+			\path [line] (m6) -- (top);
+			\path [line] (2) -- (m3);
+			\path [line] (5) -- (m6);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Cas posant problème, situation après l'application de la méthode}
+	\label{priss_probleme_1}
+\end{figure}
+
+La première contre mesure serait de refaire la méthode jusqu'à n'obtenir aucun sous treillis problèmatique. C'est une contre mesure fonctionnelle mais qui vient perturber l'utilité de la méthode. Nous avons besoin d'une représentation global la plus simple et proche du treillis d'origine possible. Cette méthode ne fait perdre aucune liaison et n'en ajoute uniquement pour rendre le treillis distributif, si nous la faisons en boucle, nous obtenons dans le pire des cas le treillis distributif le plus grand qui est en figure \ref{priss_probleme_max} avec en noirs les n\oe uds déjà présent dans le treillis d'origine. Nous pouvons voir par execution manuelle qu'une solution existe en figure \ref{priss_probleme_solution} mais que la méthode ne parvient pas à atteindre. Le stage a consisté en la modification de la méthode afin de trouver cette solution optimale et de rechercher d'autres potentiels cas problématiques pour les prendre en considération.
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}
+			\node [bnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{4}] (4) at (1, 1) {};
+			\node [bnode, label=left:{2}] (2) at (-2, 2) {};
+			\node [bnode, label=left:{3, $U$}] (3) at (-3, 3) {};
+			\node [bnode, label=right:{5}] (5) at (2, 2) {};
+			\node [bnode, label=right:{6, $Z$}] (6) at (3, 3) {};
+			\node [bnode, label=right:{}] (14) at (0, 2) {};
+			\node [bnode, label={$\top$}] (top) at (0, 6) {};
+			
+			\node [wnode, label={}] (7) at (-1, 3) {};
+			\node [wnode, label={}] (8) at (1, 3) {};
+			\node [wnode, label=left:{$V$}] (9) at (-2, 4) {};
+			\node [wnode, label=right:{$Y$}] (10) at (2, 4) {};
+			\node [wnode, label={}] (11) at (0, 4) {};
+			\node [wnode, label=left:{$W$}] (12) at (-1, 5) {};
+			\node [wnode, label=right:{$X$}] (13) at (1, 5) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (C);
+			\path [line] (5) -- (6);
+			
+			\path [line] (2) -- (7);
+			\path [line] (5) -- (8);
+			\path [line] (14) -- (7);
+			\path [line] (14) -- (8);
+			\path [line] (3) -- (9);
+			\path [line] (9) -- (12);
+			\path [line] (12) -- (top);
+			\path [line] (7) -- (11);
+			\path [line] (11) -- (13);
+			\path [line] (8) -- (10);
+			\path [line] (7) -- (9);
+			\path [line] (8) -- (11);
+			\path [line] (11) -- (12);
+			\path [line] (6) -- (10);
+			\path [line] (10) -- (13);
+			\path [line] (13) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Cas posant problème, situation maximale}
+	\label{priss_probleme_max}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}
+			\node [bnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{4}] (4) at (1, 1) {};
+			\node [bnode, label=left:{2}] (2) at (-2, 2) {};
+			\node [bnode, label=left:{3, m4}] (3) at (-2, 3) {};
+			\node [bnode, label=right:{5}] (5) at (2, 2) {};
+			\node [bnode, label=right:{6, m1}] (6) at (2, 3) {};
+			\node [bnode, label=right:{m2, m5}] (m2) at (0, 2) {};
+			\node [wnode, label=right:{m3, m6}] (m3) at (0, 3) {};
+			\node [bnode, label={top}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (m2);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (m2);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			\path [line] (m2) -- (m3);
+			\path [line] (m3) -- (top);
+			\path [line] (2) -- (m3);
+			\path [line] (5) -- (m3);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Cas posant problème, situation souhaitée}
+	\label{priss_probleme_solution}
+\end{figure}
+
+\bigbreak
+
+Nous allons poursuivre ce document par un chapitre de définitions sur les différents éléments qui sont nécessaires à la compréhension de la problèmatique. À la suite duquel nous développeront ma contribution à la résolution de cette problèmatique.

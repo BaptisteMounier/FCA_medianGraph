@@ -1,0 +1,30 @@
+\chapter{Bilan}
+
+à revoir
+
+\section{Contribution}
+
+Nous cherchions à produire des treillis utilisables sous forme de graphes médians afin d'être utilisable dans la phylogénie en encodant l'ensemble des arbres parcimonieux dans un unique graphes. Pour se faire nous nous sommes basés sur les travaux de H.J. Bandelt, U. Priss et de l'équipe, en recherchant à générer des treillis distributifs sur leurs atomes à partir de treillis quelconque.
+
+\smallbreak
+
+Nous avons obtenu un programme permettant de le faire. Il commence par extraire un le contexte initial d'un fichier pour ensuite regarder si tous les treillis des atomes sont distributifs en calculant les relations fléches pour utiliser la propriété que le contexte réduit d'un treillis distributif ne possède uniquement une relation fléche double par ligne et par colonne et aucune autre relations fléches. Si ce n'est pas le cas, nous appliquons une méthode de transformation sur chacun d'eux avant de les remettre en commun dans un unique treillis. À partir de là, nous effectuons la fusion deux à deux de tous les couples de n\oe uds remplissant les conditions suivantes (avec $a$ et $b$ les deux n\oe uds en question) :
+\begin{itemize}
+	\item $a, b \in J \setminus J_{origine}\\
+		a \neq b$
+	\item $\forall x_1, x_2 \in J, c \in J\\
+		\uparrow \! a \not \subset \uparrow \! x_1 \not \subset \uparrow \! c\\
+		\uparrow \! b \not \subset \uparrow \! x_2 \not \subset \uparrow \! c$
+	\item $\forall z_a \in \downarrow \! a \setminus \downarrow \! c \setminus a\\
+		\forall z_b \in \downarrow \! b \setminus \downarrow \! c \setminus b\\
+		z_a \neq z_b$
+\end{itemize}
+Une fois les fusions effectuées nous recommencons à l'étape de vérification de la distributivité des treillis des atomes. Une fois que nous l'atteignons le programme s'arrête et génére le treillis obtenu sous forme pdf et un fichier texte du contexte réduit exploitable par ConExp. Vous pourrez trouver en Annexe 1 le workflow complet du programme et en Annexe 2 tous les cas qui ont été traité et testé pendant le développement. Tandis que l'Annexe 3 présente le formatage du fichier source et du fichier d'exportage pour ConExp.
+
+\section{Stage}
+
+Ce stage a été bénéfique sur le plan technique. Il m'a permit de confirmer et d'approfondir des notions vu en cours tout en leur offrant un cas concret d'utilisation possible. J'ai également d'améliorer mes compétences en Python et Latex.
+
+\smallbreak
+
+Mais également sur le plan personnel, le Loria reste un lieu des plus intéressant pour échanger sur un sujet afin de faire avancer la problèmatique avec des personnes ayant des approches différentes pour s'approcher au mieux d'une solution fiable.

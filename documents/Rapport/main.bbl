@@ -1,0 +1,41 @@
+\begin{thebibliography}{1}
+
+\bibitem{cla2018}
+Alain Gély, Miguel Couceiro, and Amedeo Napoli.
+\newblock Achieving distributivity in formal concept analysis.
+\newblock {\em journal name}, page~12, 2018.
+
+\bibitem{MedianConceptLattices}
+Uta Priss.
+\newblock Representing median networks with concept lattices.
+\newblock {\em journal name}, page~11, 2013.
+
+\bibitem{MedianAlgebras}
+Hans-Jürgen Bandelt and Jarmila Hedlíková.
+\newblock Median algebras.
+\newblock {\em Discrete Mathematics}, page~30, 1980.
+
+\bibitem{egc2018}
+Alain Gély, Miguel Couceiro, Yassine Namir, and Amedeo Napoli.
+\newblock Contribution à l'étude de la distributivité d'un treillis de
+  concepts.
+\newblock {\em journal name}, page~12, 2018.
+
+\bibitem{doc_graphviz}
+John Ellson, Emden Gansner, Yifan Hu, Erwin Janssen, and Stephen North.
+\newblock Documentation graphviz pour python.
+\newblock Disponible sur : \url{https://www.graphviz.org/}.
+\newblock Consulté de avril à août 2018.
+
+\bibitem{doc_python_graphviz}
+Sebastian Bank.
+\newblock Documentation graphviz pour python.
+\newblock Disponible sur : \url{https://pypi.org/project/graphviz/}.
+\newblock Consulté de avril à août 2018.
+
+\bibitem{MedianJoiningNetworks}
+Hans-Jürgen Bandelt, Peter Forster, and Röhl Arne.
+\newblock Median-joining networks for inferring intraspecific phylogenies.
+\newblock {\em Molecular Biology and Evolution}, page~12, 1998.
+
+\end{thebibliography}

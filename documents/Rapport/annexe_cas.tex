@@ -1,0 +1,998 @@
+\chapter{Annexe : Exemples de cas}
+%\addcontentsline{toc}{chapter}{Annexe 2 : exemples de cas}
+
+%recommencer la numérotation des section à "1"
+\setcounter{section}{0}
+
+Cette annexe regroupes tous les cas utilisés pour les divers essais de cas particuliers avec l'état initial et l'état final pour chacun. Ils considèrent tous le programme final du stage.
+
+\section{Dérivé de $N_5$}
+
+Tout d'abord, une série dérivé du cas cla.
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{4}] (4) at (1, 1) {};
+			
+			\node [wnode, label=left:{2, A}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 3) {};
+			
+			\node [wnode, label=right:{5, D}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, E}] (6) at (2, 3) {};
+			
+			\node [wnode, label=right:{C}] (C) at (0, 2) {};
+			
+			\node [wnode, label={top}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (C);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			
+			\path [line] (C) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{4}] (4) at (1, 1) {};
+			
+			\node [wnode, label=left:{2}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 3) {};
+			
+			\node [wnode, label=right:{5}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, E}] (6) at (2, 3) {};
+			
+			\node [wnode, label=right:{C}] (C) at (0, 2) {};
+			\node [bnode, label=right:{F}] (F) at (0, 3) {};
+			
+			\node [wnode, label={top}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (C);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			
+			\path [line] (C) -- (F);
+			\path [line] (F) -- (top);
+			
+			\path [line] (2) -- (F);
+			\path [line] (5) -- (F);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas cla\_v1}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=left:{2, A}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 3) {};
+			\node [wnode, label=right:{4}] (4) at (1, 1) {};
+			\node [wnode, label=right:{5, D}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, E}] (6) at (2, 3) {};
+			\node [wnode, label=right:{7}] (7) at (3, 1) {};
+			\node [wnode, label=right:{8, F}] (8) at (4, 2) {};
+			\node [wnode, label=right:{9, G}] (9) at (4, 3) {};
+			\node [wnode, label=left:{C}] (C) at (0, 2) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			\path [line] (bot) -- (4);
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (C);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			\path [line] (bot) -- (7);
+			\path [line] (7) -- (8);
+			\path [line] (7) -- (C);
+			\path [line] (8) -- (9);
+			\path [line] (9) -- (top);
+			\path [line] (C) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=left:{2, A}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 3) {};
+			\node [wnode, label=right:{4}] (4) at (1, 1) {};
+			\node [wnode, label=right:{5, D}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, E}] (6) at (2, 3) {};
+			\node [wnode, label=right:{7}] (7) at (3, 1) {};
+			\node [wnode, label=right:{8, F}] (8) at (4, 2) {};
+			\node [wnode, label=right:{9, G}] (9) at (4, 3) {};
+			\node [wnode, label=left:{C}] (C) at (0, 2) {};
+			\node [bnode, label=left:{H}] (H) at (0, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			\path [line] (bot) -- (4);
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (C);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			\path [line] (bot) -- (7);
+			\path [line] (7) -- (8);
+			\path [line] (7) -- (C);
+			\path [line] (8) -- (9);
+			\path [line] (9) -- (top);
+			\path [line] (C) -- (H);
+			\path [line] (2) -- (H);
+			\path [line] (5) -- (H);
+			\path [line] (8) -- (H);
+			\path [line] (H) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas cla\_v2}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1.5, 1) {};
+			\node [wnode, label=left:{2, A}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 3) {};
+			\node [wnode, label=right:{C}] (C) at (-1, 2) {};
+			\node [wnode, label=right:{4}] (4) at (-0.5, 1) {};
+			\node [wnode, label=right:{D}] (D) at (0, 2) {};
+			\node [wnode, label=right:{5, E}] (5) at (0, 3) {};
+			\node [wnode, label=right:{6}] (6) at (0.5, 1) {};
+			\node [wnode, label=right:{F}] (F) at (1, 2) {};
+			\node [wnode, label=right:{7}] (7) at (1.5, 1) {};
+			\node [wnode, label=right:{8, G}] (8) at (2, 2) {};
+			\node [wnode, label=right:{9, H}] (9) at (2, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (C) -- (top);
+			\path [line] (3) -- (top);
+			\path [line] (bot) -- (4);
+			\path [line] (4) -- (D);
+			\path [line] (4) -- (C);
+			\path [line] (D) -- (5);
+			\path [line] (bot) -- (6);
+			\path [line] (6) -- (D);
+			\path [line] (6) -- (F);
+			\path [line] (F) -- (top);
+			\path [line] (5) -- (top);
+			\path [line] (bot) -- (7);
+			\path [line] (7) -- (F);
+			\path [line] (7) -- (8);
+			\path [line] (8) -- (9);
+			\path [line] (9) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1.5, 1) {};
+			\node [wnode, label=left:{2}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 3) {};
+			\node [wnode, label=right:{}] (C) at (-1, 2) {};
+			\node [wnode, label=right:{4}] (4) at (-0.5, 1) {};
+			\node [wnode, label=right:{}] (D) at (0, 2) {};
+			\node [wnode, label=left:{5, E}] (5) at (0, 3) {};
+			\node [wnode, label=right:{6}] (6) at (0.5, 1) {};
+			\node [wnode, label=right:{}] (F) at (1, 2) {};
+			\node [wnode, label=right:{7}] (7) at (1.5, 1) {};
+			\node [wnode, label=right:{8}] (8) at (2, 2) {};
+			\node [wnode, label=right:{9, H}] (9) at (2, 3) {};
+			\node [bnode, label=right:{I}] (I) at (1, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			\path [line] (bot) -- (4);
+			\path [line] (4) -- (D);
+			\path [line] (4) -- (C);
+			\path [line] (D) -- (5);
+			\path [line] (bot) -- (6);
+			\path [line] (6) -- (D);
+			\path [line] (6) -- (F);
+			\path [line] (5) -- (top);
+			\path [line] (bot) -- (7);
+			\path [line] (7) -- (F);
+			\path [line] (7) -- (8);
+			\path [line] (8) -- (9);
+			\path [line] (9) -- (top);
+			\path [line] (2) -- (I);
+			\path [line] (C) -- (I);
+			\path [line] (D) -- (I);
+			\path [line] (F) -- (I);
+			\path [line] (8) -- (I);
+			\path [line] (I) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas cla\_v3}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-2.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (-1.5, 1) {};
+			\node [wnode, label=right:{3}] (3) at (1.5, 1) {};
+			\node [wnode, label=right:{4}] (4) at (2.5, 1) {};
+			\node [wnode, label=left:{5, A}] (5) at (-3, 2) {};
+			\node [wnode, label=right:{B}] (B) at (-2, 2) {};
+			\node [wnode, label=right:{6, C}] (6) at (-1, 2) {};
+			\node [wnode, label=right:{7, D}] (7) at (1, 2) {};
+			\node [wnode, label=right:{E}] (E) at (2, 2) {};
+			\node [wnode, label=right:{8, F}] (8) at (3, 2) {};
+			\node [wnode, label=left:{9, G}] (9) at (-3, 3) {};
+			\node [wnode, label=right:{10, H}] (10) at (-1, 3) {};
+			\node [wnode, label=right:{11, I}] (11) at (1, 3) {};
+			\node [wnode, label=right:{12, J}] (12) at (3, 3) {};
+			\node [wnode, label=left:{K}] (K) at (-2, 4) {};
+			\node [wnode, label=right:{L}] (L) at (2, 4) {};
+			\node [wnode, label={top}] (top) at (0, 5) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (bot) -- (3);
+			\path [line] (bot) -- (4);
+			\path [line] (1) -- (5);
+			\path [line] (1) -- (B);
+			\path [line] (2) -- (6);
+			\path [line] (2) -- (B);
+			\path [line] (3) -- (7);
+			\path [line] (3) -- (E);
+			\path [line] (4) -- (8);
+			\path [line] (4) -- (E);
+			\path [line] (5) -- (9);
+			\path [line] (B) -- (K);
+			\path [line] (6) -- (10);
+			\path [line] (7) -- (11);
+			\path [line] (E) -- (L);
+			\path [line] (8) -- (12);
+			\path [line] (9) -- (K);
+			\path [line] (10) -- (K);
+			\path [line] (11) -- (L);
+			\path [line] (12) -- (L);
+			\path [line] (K) -- (top);
+			\path [line] (L) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-2.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (-1.5, 1) {};
+			\node [wnode, label=right:{3}] (3) at (1.5, 1) {};
+			\node [wnode, label=right:{4}] (4) at (2.5, 1) {};
+			\node [wnode, label=left:{5, A}] (5) at (-3, 2) {};
+			\node [wnode, label=right:{B}] (B) at (-2, 2) {};
+			\node [wnode, label=right:{6, C}] (6) at (-1, 2) {};
+			\node [wnode, label=right:{7, D}] (7) at (1, 2) {};
+			\node [wnode, label=right:{E}] (E) at (2, 2) {};
+			\node [wnode, label=right:{8, F}] (8) at (3, 2) {};
+			\node [wnode, label=left:{9, G}] (9) at (-3, 3) {};
+			\node [wnode, label=right:{10, H}] (10) at (-1, 3) {};
+			\node [wnode, label=right:{11, I}] (11) at (1, 3) {};
+			\node [wnode, label=right:{12, J}] (12) at (3, 3) {};
+			\node [wnode, label=left:{K}] (K) at (-2, 4) {};
+			\node [wnode, label=right:{L}] (L) at (2, 4) {};
+			\node [wnode, label={top}] (top) at (0, 5) {};
+			\node [bnode, label=right:{M}] (M) at (-2, 3) {};
+			\node [bnode, label=right:{N}] (N) at (2, 3) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (bot) -- (3);
+			\path [line] (bot) -- (4);
+			\path [line] (1) -- (5);
+			\path [line] (1) -- (B);
+			\path [line] (2) -- (6);
+			\path [line] (2) -- (B);
+			\path [line] (3) -- (7);
+			\path [line] (3) -- (E);
+			\path [line] (4) -- (8);
+			\path [line] (4) -- (E);
+			\path [line] (5) -- (9);
+			\path [line] (B) -- (M);
+			\path [line] (6) -- (10);
+			\path [line] (7) -- (11);
+			\path [line] (E) -- (N);
+			\path [line] (8) -- (12);
+			\path [line] (9) -- (K);
+			\path [line] (10) -- (K);
+			\path [line] (11) -- (L);
+			\path [line] (12) -- (L);
+			\path [line] (K) -- (top);
+			\path [line] (L) -- (top);
+			\path [line] (M) -- (K);
+			\path [line] (N) -- (L);
+			\path [line] (5) -- (M);
+			\path [line] (6) -- (M);
+			\path [line] (7) -- (N);
+			\path [line] (8) -- (N);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas cla\_v4}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
+			\node [wnode, label=left:{3, A}] (3) at (-1, 2) {};
+			\node [wnode, label=right:{B}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4, C}] (4) at (1, 2) {};
+			\node [wnode, label=left:{5}] (5) at (-1, 3) {};
+			\node [wnode, label=right:{6, D}] (6) at (1, 3) {};
+			\node [wnode, label=left:{7, E}] (7) at (-1, 4) {};
+			\node [wnode, label=left:{F}] (F) at (0, 4) {};
+			\node [wnode, label={top}] (top) at (0, 5) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (B);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (B);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (5);
+			\path [line] (B) -- (F);
+			\path [line] (4) -- (6);
+			\path [line] (5) -- (7);
+			\path [line] (5) -- (F);
+			\path [line] (6) -- (top);
+			\path [line] (7) -- (top);
+			\path [line] (F) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
+			\node [wnode, label=left:{3, A}] (3) at (-1, 2) {};
+			\node [wnode, label=right:{B}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4, C}] (4) at (1, 2) {};
+			\node [wnode, label=left:{5}] (5) at (-1, 3) {};
+			\node [wnode, label=right:{6, D}] (6) at (1, 3) {};
+			\node [wnode, label=left:{7, E}] (7) at (-1, 4) {};
+			\node [bnode, label=left:{F}] (F) at (0, 4) {};
+			\node [wnode, label={top}] (top) at (0, 5) {};
+			\node [bnode, label=right:{G}] (G) at (0, 3) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (B);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (B);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (5);
+			\path [line] (B) -- (G);
+			\path [line] (4) -- (6);
+			\path [line] (5) -- (7);
+			\path [line] (5) -- (F);
+			\path [line] (6) -- (F);
+			\path [line] (7) -- (top);
+			\path [line] (F) -- (top);
+			\path [line] (G) -- (F);
+			\path [line] (3) -- (G);
+			\path [line] (4) -- (G);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas cla\_v6}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=right:{1}] (1) at (1, 1) {};
+			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
+			\node [wnode, label=right:{B}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4, C}] (4) at (2, 2) {};
+			\node [wnode, label=left:{5, A}] (5) at (-2, 2) {};
+			\node [wnode, label=right:{6, D}] (6) at (2, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (B);
+			\path [line] (1) -- (4);
+			\path [line] (2) -- (B);
+			\path [line] (2) -- (5);
+			\path [line] (4) -- (6);
+			\path [line] (6) -- (top);
+			\path [line] (B) -- (top);
+			\path [line] (5) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=right:{1}] (1) at (1, 1) {};
+			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
+			\node [wnode, label=right:{}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4}] (4) at (2, 2) {};
+			\node [wnode, label=left:{5, A}] (5) at (-2, 2) {};
+			\node [wnode, label=right:{6, D}] (6) at (2, 3) {};
+			\node [bnode, label=left:{E}] (E) at (0, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (B);
+			\path [line] (1) -- (4);
+			\path [line] (2) -- (B);
+			\path [line] (2) -- (5);
+			\path [line] (4) -- (6);
+			\path [line] (4) -- (E);
+			\path [line] (6) -- (top);
+			\path [line] (B) -- (E);
+			\path [line] (B) -- (F);
+			\path [line] (5) -- (E);
+			\path [line] (E) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas cla\_v7}
+\end{figure}
+
+\section{Dérivé de $M_3$}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (1.5, 1) {};
+			\node [wnode, label=left:{3, A}] (3) at (-2.5, 2) {};
+			\node [wnode, label=right:{4, B}] (4) at (-1.5, 2) {};
+			\node [wnode, label=right:{5, C}] (5) at (-0.5, 2) {};
+			\node [wnode, label=right:{6, D}] (6) at (0.5, 2) {};
+			\node [wnode, label=right:{7, E}] (7) at (1.5, 2) {};
+			\node [wnode, label=right:{8, F}] (8) at (2.5, 2) {};
+			\node [wnode, label={top}] (top) at (0, 3) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (1) -- (5);
+			\path [line] (2) -- (6);
+			\path [line] (2) -- (7);
+			\path [line] (2) -- (8);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (top);
+			\path [line] (5) -- (top);
+			\path [line] (6) -- (top);
+			\path [line] (7) -- (top);
+			\path [line] (8) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (1.5, 1) {};
+			\node [wnode, label=left:{3}] (3) at (-2.5, 2) {};
+			\node [wnode, label=right:{4}] (4) at (-1.5, 2) {};
+			\node [wnode, label=right:{5}] (5) at (-0.5, 2) {};
+			\node [wnode, label=right:{6}] (6) at (0.5, 2) {};
+			\node [wnode, label=right:{7}] (7) at (1.5, 2) {};
+			\node [wnode, label=right:{8}] (8) at (2.5, 2) {};
+			\node [bnode, label=left:{G}] (G) at (-2.5, 3) {};
+			\node [bnode, label=right:{H}] (H) at (-1.5, 3) {};
+			\node [bnode, label=right:{I}] (I) at (-0.5, 3) {};
+			\node [bnode, label=right:{J}] (J) at (0.5, 3) {};
+			\node [bnode, label=right:{K}] (K) at (1.5, 3) {};
+			\node [bnode, label=right:{L}] (L) at (2.5, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (1) -- (5);
+			\path [line] (2) -- (6);
+			\path [line] (2) -- (7);
+			\path [line] (2) -- (8);
+			\path [line] (3) -- (G);
+			\path [line] (3) -- (H);
+			\path [line] (4) -- (G);
+			\path [line] (4) -- (I);
+			\path [line] (5) -- (H);
+			\path [line] (5) -- (I);
+			\path [line] (6) -- (J);
+			\path [line] (6) -- (K);
+			\path [line] (7) -- (J);
+			\path [line] (7) -- (L);
+			\path [line] (8) -- (K);
+			\path [line] (8) -- (L);
+			\path [line] (G) -- (top);
+			\path [line] (H) -- (top);
+			\path [line] (I) -- (top);
+			\path [line] (J) -- (top);
+			\path [line] (K) -- (top);
+			\path [line] (L) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas dm3\_v0}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{2}] (2) at (1, 1) {};
+			\node [wnode, label=left:{3, A}] (3) at (-2, 2) {};
+			\node [wnode, label=right:{4, B}] (4) at (-1, 2) {};
+			\node [wnode, label=right:{C}] (C) at (0, 2) {};
+			\node [wnode, label=right:{5, D}] (5) at (1, 2) {};
+			\node [wnode, label=right:{6, E}] (6) at (2, 2) {};
+			\node [wnode, label={top}] (top) at (0, 3) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (C);
+			\path [line] (2) -- (5);
+			\path [line] (2) -- (6);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (top);
+			\path [line] (C) -- (top);
+			\path [line] (5) -- (top);
+			\path [line] (6) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{2}] (2) at (1, 1) {};
+			\node [wnode, label=left:{3}] (3) at (-2, 2) {};
+			\node [wnode, label=right:{4}] (4) at (-1, 2) {};
+			\node [wnode, label=right:{}] (C) at (0, 2) {};
+			\node [wnode, label=right:{5}] (5) at (1, 2) {};
+			\node [wnode, label=right:{6}] (6) at (2, 2) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+			\node [bnode, label=right:{F}] (F) at (-1.5, 3) {};
+			\node [bnode, label=right:{G}] (G) at (-0.5, 3) {};
+			\node [bnode, label=right:{H}] (H) at (0.5, 3) {};
+			\node [bnode, label=right:{I}] (I) at (1.5, 3) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (C);
+			\path [line] (2) -- (5);
+			\path [line] (2) -- (6);
+			\path [line] (3) -- (F);
+			\path [line] (3) -- (G);
+			\path [line] (4) -- (F);
+			\path [line] (4) -- (H);
+			\path [line] (C) -- (G);
+			\path [line] (C) -- (H);
+			\path [line] (5) -- (G);
+			\path [line] (5) -- (I);
+			\path [line] (6) -- (H);
+			\path [line] (6) -- (I);
+			\path [line] (F) -- (top);
+			\path [line] (G) -- (top);
+			\path [line] (H) -- (top);
+			\path [line] (I) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas dm3\_v1}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{2, A}] (2) at (1, 1) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 2) {};
+			\node [wnode, label=left:{4, C}] (4) at (-1, 2) {};
+			\node [wnode, label=left:{5, D}] (5) at (0, 2) {};
+			\node [wnode, label=left:{E}] (E) at (-1, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (1) -- (5);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (E);
+			\path [line] (4) -- (E);
+			\path [line] (5) -- (E);
+			\path [line] (E) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{2, A}] (2) at (1, 1) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 2) {};
+			\node [wnode, label=left:{4, C}] (4) at (-1, 2) {};
+			\node [wnode, label=left:{5, D}] (5) at (0, 2) {};
+			\node [bnode, label=left:{E}] (E) at (-2, 3) {};
+			\node [bnode, label=left:{F}] (F) at (-1, 3) {};
+			\node [bnode, label=left:{G}] (G) at (0, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (1) -- (5);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (E);
+			\path [line] (3) -- (F);
+			\path [line] (4) -- (E);
+			\path [line] (4) -- (G);
+			\path [line] (5) -- (F);
+			\path [line] (5) -- (G);
+			\path [line] (E) -- (top);
+			\path [line] (F) -- (top);
+			\path [line] (G) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas dm3\_v2}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{2, A}] (2) at (2, 1) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2.5, 2) {};
+			\node [wnode, label=right:{4, C}] (4) at (-1.5, 2) {};
+			\node [wnode, label=right:{5, D}] (5) at (-0.5, 2) {};
+			\node [wnode, label=right:{6, E}] (6) at (0.5, 2) {};
+			\node [wnode, label=right:{F}] (F) at (-1, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (1) -- (5);
+			\path [line] (1) -- (6);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (F);
+			\path [line] (4) -- (F);
+			\path [line] (5) -- (F);
+			\path [line] (6) -- (F);
+			\path [line] (F) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{2}] (2) at (2, 1) {};
+			\node [wnode, label=left:{3}] (3) at (-3.5, 2) {};
+			\node [wnode, label=right:{4}] (4) at (-2.5, 2) {};
+			\node [wnode, label=right:{5}] (5) at (-1.5, 2) {};
+			\node [wnode, label=right:{6}] (6) at (-0.5, 2) {};
+			\node [bnode, label=right:{}] (7) at (-4.5, 3) {};
+			\node [bnode, label=right:{}] (8) at (-3.5, 3) {};
+			\node [bnode, label=right:{}] (9) at (-2.5, 3) {};
+			\node [bnode, label=right:{}] (10) at (-1.5, 3) {};
+			\node [bnode, label=right:{}] (11) at (-0.5, 3) {};
+			\node [bnode, label=right:{}] (12) at (0.5, 3) {};
+			\node [bnode, label=left:{G}] (G) at (-3.5, 4) {};
+			\node [bnode, label=right:{H}] (H) at (-2.5, 4) {};
+			\node [bnode, label=right:{I}] (I) at (-1.5, 4) {};
+			\node [bnode, label=right:{J}] (J) at (-0.5, 4) {};
+			\node [wnode, label={top}] (top) at (0, 5) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (1) -- (5);
+			\path [line] (1) -- (6);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (7);
+			\path [line] (3) -- (8);
+			\path [line] (3) -- (9);
+			\path [line] (4) -- (7);
+			\path [line] (4) -- (10);
+			\path [line] (4) -- (11);
+			\path [line] (5) -- (8);
+			\path [line] (5) -- (10);
+			\path [line] (5) -- (12);
+			\path [line] (6) -- (9);
+			\path [line] (6) -- (11);
+			\path [line] (6) -- (12);
+			
+			\path [line] (7) -- (G);
+			\path [line] (7) -- (H);
+			\path [line] (8) -- (G);
+			\path [line] (8) -- (I);
+			\path [line] (9) -- (H);
+			\path [line] (9) -- (I);
+			\path [line] (10) -- (G);
+			\path [line] (10) -- (J);
+			\path [line] (11) -- (H);
+			\path [line] (11) -- (J);
+			\path [line] (12) -- (I);
+			\path [line] (12) -- (J);
+			\path [line] (G) -- (top);
+			\path [line] (H) -- (top);
+			\path [line] (I) -- (top);
+			\path [line] (J) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas dm3\_v3}
+\end{figure}
+
+\section{Cas de H.J. Bandelt}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1, A}] (1) at (-2.5, 1) {};
+			\node [wnode, label=right:{2, B}] (2) at (-1.5, 1) {};
+			\node [wnode, label=right:{3, C}] (3) at (-0.5, 1) {};
+			\node [wnode, label=right:{4, D}] (4) at (0.5, 1) {};
+			\node [wnode, label=right:{5}] (5) at (1.5, 1) {};
+			\node [wnode, label=right:{6, E}] (6) at (2.5, 1) {};
+			\node [wnode, label=left:{F}] (F) at (-2, 2) {};
+			\node [wnode, label=right:{G}] (G) at (0.5, 2) {};
+			\node [wnode, label=right:{7, H}] (7) at (1.5, 2) {};
+			\node [wnode, label=right:{8, I}] (8) at (2.5, 2) {};
+			\node [wnode, label=right:{J}] (J) at (1.5, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (bot) -- (3);
+			\path [line] (bot) -- (4);
+			\path [line] (bot) -- (5);
+			\path [line] (bot) -- (6);
+			\path [line] (1) -- (F);
+			\path [line] (2) -- (F);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (G);
+			\path [line] (5) -- (G);
+			\path [line] (5) -- (7);
+			\path [line] (6) -- (8);
+			\path [line] (F) -- (top);
+			\path [line] (G) -- (top);
+			\path [line] (7) -- (J);
+			\path [line] (8) -- (J);
+			\path [line] (J) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1, A}] (1) at (-2.5, 1) {};
+			\node [wnode, label=right:{2, B}] (2) at (-1.5, 1) {};
+			\node [wnode, label=right:{3, C}] (3) at (-0.5, 1) {};
+			\node [wnode, label=right:{4, D}] (4) at (0.5, 1) {};
+			\node [wnode, label=right:{5}] (5) at (1.5, 1) {};
+			\node [wnode, label=right:{6, E}] (6) at (2.5, 1) {};
+			\node [wnode, label=left:{F}] (F) at (-2, 2) {};
+			\node [wnode, label=right:{G}] (G) at (0.5, 2) {};
+			\node [wnode, label=right:{7}] (7) at (1.5, 2) {};
+			\node [wnode, label=right:{8, I}] (8) at (2.5, 2) {};
+			\node [wnode, label=right:{J}] (J) at (1.5, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+			\node [bnode, label=right:{K}] (K) at (0.5, 3) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (bot) -- (3);
+			\path [line] (bot) -- (4);
+			\path [line] (bot) -- (5);
+			\path [line] (bot) -- (6);
+			\path [line] (1) -- (F);
+			\path [line] (2) -- (F);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (G);
+			\path [line] (5) -- (G);
+			\path [line] (5) -- (7);
+			\path [line] (6) -- (8);
+			\path [line] (F) -- (top);
+			\path [line] (G) -- (K);
+			\path [line] (7) -- (K);
+			\path [line] (7) -- (J);
+			\path [line] (8) -- (J);
+			\path [line] (K) -- (top);
+			\path [line] (J) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas Bandelt table 1 (\cite{MedianJoiningNetworks})}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1, A}] (1) at (-2.5, 1) {};
+			\node [wnode, label=right:{2, B}] (2) at (-1.5, 1) {};
+			\node [wnode, label=right:{3, C}] (3) at (-0.5, 1) {};
+			\node [wnode, label=right:{4}] (4) at (0.5, 1) {};
+			\node [wnode, label=right:{5}] (5) at (1.5, 1) {};
+			\node [wnode, label=right:{6, D}] (6) at (2.5, 1) {};
+			\node [wnode, label=right:{E}] (E) at (-0.5, 2) {};
+			\node [wnode, label=right:{7, F}] (7) at (0.5, 2) {};
+			\node [wnode, label=right:{G}] (G) at (1.5, 2) {};
+			\node [wnode, label=right:{H}] (H) at (2.5, 2) {};
+			\node [wnode, label={top}] (top) at (0, 3) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (bot) -- (3);
+			\path [line] (bot) -- (4);
+			\path [line] (bot) -- (5);
+			\path [line] (bot) -- (6);
+			\path [line] (1) -- (top);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (E);
+			\path [line] (4) -- (E);
+			\path [line] (4) -- (7);
+			\path [line] (4) -- (G);
+			\path [line] (5) -- (G);
+			\path [line] (5) -- (H);
+			\path [line] (6) -- (H);
+			\path [line] (E) -- (top);
+			\path [line] (7) -- (top);
+			\path [line] (G) -- (top);
+			\path [line] (H) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1, A}] (1) at (-2.5, 1) {};
+			\node [wnode, label=right:{2, B}] (2) at (-1.5, 1) {};
+			\node [wnode, label=right:{3, C}] (3) at (-0.5, 1) {};
+			\node [wnode, label=right:{4}] (4) at (0.5, 1) {};
+			\node [wnode, label=right:{5}] (5) at (1.5, 1) {};
+			\node [wnode, label=right:{6, D}] (6) at (2.5, 1) {};
+			\node [wnode, label=right:{}] (E) at (-0.5, 2) {};
+			\node [wnode, label=right:{7}] (7) at (0.5, 2) {};
+			\node [wnode, label=right:{}] (G) at (1.5, 2) {};
+			\node [wnode, label=right:{H}] (H) at (2.5, 2) {};
+			\node [wnode, label={top}] (top) at (0, 5) {};
+			\node [wnode, label=right:{I}] (I) at (-0.5, 3) {};
+			\node [wnode, label=right:{J}] (J) at (0.5, 3) {};
+			\node [wnode, label=right:{K}] (K) at (1.5, 3) {};
+			\node [wnode, label=right:{L}] (L) at (0.5, 4) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (bot) -- (3);
+			\path [line] (bot) -- (4);
+			\path [line] (bot) -- (5);
+			\path [line] (bot) -- (6);
+			\path [line] (1) -- (top);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (E);
+			\path [line] (4) -- (E);
+			\path [line] (4) -- (7);
+			\path [line] (4) -- (G);
+			\path [line] (5) -- (G);
+			\path [line] (5) -- (H);
+			\path [line] (6) -- (H);
+			\path [line] (E) -- (I);
+			\path [line] (E) -- (J);
+			\path [line] (7) -- (I);
+			\path [line] (7) -- (K);
+			\path [line] (G) -- (J);
+			\path [line] (G) -- (K);
+			\path [line] (H) -- (K);
+			\path [line] (I) -- (L);
+			\path [line] (J) -- (L);
+			\path [line] (K) -- (L);
+			\path [line] (L) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas Bandelt table 2 (\cite{MedianJoiningNetworks})}
+\end{figure}
+
+\section{Cas de U. Priss}
+
+\begin{figure}[H]
+	\includegraphics[scale=0.35]{priss2013-table01.pdf}
+	\caption{Cas Priss (\cite{MedianConceptLattices})}
+\end{figure}

@@ -1,0 +1,169 @@
+\chapter{Annexe : workflows}
+%\addcontentsline{toc}{chapter}{Annexe 1 : workflow}
+
+%changer le format des sections, subsections pour apparaittre sans le num de chapitre
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+%recommencer la numérotation des section à "1"
+\setcounter{section}{0}
+
+Cette annexe présente le workflow du programme final.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}[node distance = 0.5cm, auto]
+			% Place nodes
+			\node [inout] (start) {start};
+			\node [block, below = of start] (import) {import};
+			\node [decision, right = of import] (median) {median?};
+			\node [block, above = of median] (export) {export};
+			\node [inout, above = of export] (end) {end};
+			\node [block, right = of median] (step_transform_atoms_median) {transform atoms contexts to distributives};
+			\node [block, below = of step_transform_atoms_median] (merge_nodes) {merge nodes};
+			% Draw edges
+			\path [line2] (start) -- (import);
+			\path [line2] (export) -- (end);
+			\path [line2] (import) -- (median);
+			\path [line2] (median) -- node [very near start] {yes}(export);
+			\path [line2] (median) -- node [very near start] {no}(step_transform_atoms_median);
+			\path [line2] (step_transform_atoms_median) -- (merge_nodes);
+			\path [line2] (merge_nodes) -| (median);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{description}
+			\item[import] Lecture du fichier et création du contexte et du treillis de base
+			\item[median?] Vérification si le treillis est ``médian'' (treillis des atoms distributif) : détaillé par la suite
+			\item[transform atoms...] Effectue l'algorithme de cla sur chaque contexte des atoms et les assemble : détaillé par la suite
+			\item[merge nodes] Fusionne les concepts : détaillé par la suite
+			\item[export] Création du fichier pdf de représentation du treillis après tout le traitement et génération du fichier d'exportation à destination de ConExp
+		\end{description}
+	\end{center}
+	\end{minipage}
+	\caption{Global}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}[node distance = 1cm, auto]
+			% Place nodes
+			\node [inout] (start) {start};
+			\node [block, right = of start] (extract) {extract atoms contexts};
+			\node [algorithm, below = of extract] (each_context) {for each context};
+			\node [block, right = of each_context] (gen_ext) {generate extended context};
+			\node [block, below = of gen_ext] (gen_arrow) {generate arrow relations};
+			\node [decision, below = of each_context] (decide_distri) {only one double arrow by standard col/row ?};
+			\node [inout, left = of each_context] (end) {end};
+			% Draw edges
+			\path [line2] (start) -- (extract);
+			\path [line2] (extract) -- (each_context);
+			\path [line2] (each_context) -- node {loop}(gen_ext);
+			\path [line2] (each_context) -- node [yshift=30pt] {end loop} node [below] {yes}(end);
+			%above, at start, anchor = south west, yshift=5pt
+			\path [line2] (gen_ext) -- (gen_arrow);
+			\path [line2] (gen_arrow) |- (decide_distri);
+			\path [line2] (decide_distri) --  node [very near start] {yes}(each_context);
+			\path [line2] (decide_distri) -| node [very near start] {no} node [very near end] {no}(end);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{description}
+			\item[extract atoms contexts] Extrait le contexte du sous treillis de l'atome
+			\item[generate extended context] Génère le contexte du treillis
+			\item[generate arrow relations] Génère les relations fléches
+			\item[only one double...] Test s'il y a une seule relation fléche par ligne et colonne du contexte standardisé et qu'elle soit double
+		\end{description}
+	\end{center}
+	\end{minipage}
+	\caption{Block \guillemotleft{} Median? \guillemotright{}}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}[node distance = 1cm, auto]
+			% Place nodes
+			\node [inout] (start) {start};
+			\node [inout, right = of start] (end) {end};
+			\node [algorithm, below = of end] (each_atoms) {for each atoms};
+			\node [block, right = of each_atoms] (extract) {extract atom context};
+			\node [block, below = of extract] (transform_distri) {transform atom context into distributive one, cla algorithm};
+			\node [block, left = of transform_distri] (assemble) {assemble distributive with previous};
+			% Draw edges
+			\path [line2] (start) |- (each_atoms);
+			\path [line2] (each_atoms) -- node {loop}(extract);
+			\path [line2] (each_atoms) -- node {end loop}(end);
+			\path [line2] (extract) -- (transform_distri);
+			\path [line2] (transform_distri) -- (assemble);
+			\path [line2] (assemble) -- (each_atoms);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{description}
+			\item[extract atoms contexts] Extrait le contexte du sous treillis de l'atome (peut être déplacé hors de la boucle pour réduire le temps de traitement, dans la théorie du moins, nécessite des tests)
+			\item[transform atoms...] Effectue l'algorithme de cla avec quelques ajouts : si le contexte obtenu ne dispose pas de relation ou pas d'attribut on crée un nouvel attribut en relation avec tous les objets du contexte (potentielle simplification)
+			\item[assemble distributive...] Ajoute le contexte obtenu avec l'ensemble en créant de nouveau attributs et sans oublier d'ajouter une relation entre chaque nouvel attribut et l'atome
+		\end{description}
+	\end{center}
+	\end{minipage}
+	\caption{Block \guillemotleft{} Transform atoms contexts to median \guillemotright{}}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{1\textwidth}
+	\begin{center}
+		\begin{tikzpicture}[node distance = 1cm, auto]
+			% Place nodes
+			\node [inout] (start) {start};
+			\node [inout, right = of start] (end) {end};
+			\node [algorithm, below = of end] (each_concept) {for each concept};
+			\node [decision, right = of each_concept] (multiple_atoms) {multiple atoms lattice?};
+			\node [decision, right = of multiple_atoms] (multiple_sups) {2+ sups which isn't in base?};
+			\node [decision, above = of multiple_sups] (unique_sup_inf) {max 1 sup and strict 1 inf?};
+			\node [block, left = of unique_sup_inf] (merge_inf) {merge with inf};
+			\node [algorithm, below = of multiple_sups] (each_tuples) {for each tuple in sups};
+			\node [decision, left = of each_tuples] (different_atom) {tuple in different atoms source?};
+			\node [block, left = of different_atom] (merge) {merge tuple};
+			% Draw edges
+			\path [line2] (start) |- (each_concept);
+			\path [line2] (each_concept) -- (end);
+			\path [line2] (each_concept) --  node {loop}(multiple_atoms);
+			\path [line2] (multiple_atoms) --  node [very near start] {yes}(multiple_sups);
+			\path [line2] (multiple_atoms.south) -| node [very near start] {no}(each_concept);
+			\path [line2] (multiple_sups) --  node [near start] {yes}(each_tuples);
+			\path [line2] (multiple_sups) -- node [near start] {no}(unique_sup_inf);
+			\path [line2] (unique_sup_inf) -- node {yes}(merge_inf);
+			\path [line2] (unique_sup_inf) -- node [very near start] {no}(each_concept.40);
+			\path [line2] (merge_inf) -- (each_concept);
+			\path [line2] (each_tuples) -- (each_concept);
+			\path [line2] (each_tuples) -- node {loop}(different_atom);
+			\path [line2] (different_atom) --  node [near start] {yes}(merge);
+			\path [line2] (different_atom.south) -| node [very near start] {no}(each_tuples);
+			\path [line2] (merge.130) --  (each_concept.230);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{1\textwidth}
+	\mbox{}
+	\begin{center}
+		\begin{description}
+			\item[multiple atoms lattice?] Regarde si le concept appartient au treillis de plusieurs atomes
+			\item[2+ sups] Regarde si le concept dispose de 2 sups directs
+			\item[max 1 sup...] Regarde si le concept a maximum 1 sup et strictement 1 inf
+			\item[tuple in different...] Regarde si les deux éléments du tuple appartiennent au treillis d'atome différent sans passer par le concept
+			\item[merge tuple] On fusionne les deux éléments du tuple
+		\end{description}
+	\end{center}
+	\end{minipage}
+	\caption{Block \guillemotleft{} Merge nodes \guillemotright{}}
+\end{figure}

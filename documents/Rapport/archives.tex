@@ -1,0 +1,664 @@
+\part{bloc note}
+
+\section{vrac}
+
+Nous allons prendre en exemple le cas non distributif le plus simple, $N_5$ pour suivre les étapes de l'algorithme \ref{treillis_n5}. Il faut garder à l'esprit de cette méthode vise à obtenir un treillis distributif aussi proche que possible du treillis original.
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [wnode, label=left:{$1$}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{$2$}] (2) at (1, 1) {};
+			\node [wnode, label=left:{$3$}] (3) at (-1, 2) {};
+			\node [wnode, label={$\top$}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis de $N_5$}
+	\label{treillis_n5}
+\end{figure}
+
+\chapter{Motivations}
+
+\section{ORPAILLEUR}
+
+L'équipe ORPAILLEUR a poursuivi en ce sens \cite{cla2018} en proposant une méthode générale pour générer le graphe médian de façon systèmatique. Nous allons prendre en exemple le cas $N_5$ pour suivre les étapes de l'algorithme. Il faut garder à l'esprit de cette méthode vise à obtenir un treillis distributif aussi proche que possible du treillis original, le tout en garder l'ordre des objets. C'est-à-dire que la relation $o1 < o2$ restera vrai même après la transformation.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			 & A & B & C \\
+			\hline
+			1 & x & & x \\
+			2 & & x & \\
+			3 & & & x \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1, A}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{2, B}] (2) at (1, 1) {};
+			\node [bnode, label=left:{3, C}] (3) at (-1, 2) {};
+			\node [wnode, label={top}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas de $N_5$}
+\end{figure}
+
+Nous utilisons le contexte réduit de $N_5$. Nous allons créé un nouveau contexte à partir des $\wedge$-irreductibles. Le principe est de tous les parcourir et de crée un attribut pour chacun qui sera en correspondance avec tous les $\wedge$-irreductibles qui ne sont pas dans le filtre de l'attribut en cours.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c }
+			 & m1\\
+			\hline
+			1 & \\
+			2 & x \\
+			3 & \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{2}] (2) at (1, 1) {};
+			\node [bnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label={top}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (top);
+			
+			\draw [very thick, dotted] plot [smooth, tension=2] coordinates {(-2.5, 3.5) (-1, 0.5) (0.5, 3.5)};
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Étape 1}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c }
+			 & m1 & m2\\
+			\hline
+			1 & & x\\
+			2 & x & \\
+			3 & & x \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{2}] (2) at (1, 1) {};
+			\node [bnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label={top}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (top);
+			
+			\draw [very thick, dotted] plot [smooth, tension=2] coordinates {(-0.5, 3.5) (1, 0.5) (2.5, 3.5)};
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Étape 2}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			 & m1 & m2 & m3 \\
+			\hline
+			1 & & x & x \\
+			2 & x & & x\\
+			3 & & x & \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{2}] (2) at (1, 1) {};
+			\node [bnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label={top}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (top);
+			
+			\draw [very thick, dotted] plot [smooth, tension=2] coordinates {(-2.5, 3.5) (-1, 1.5) (0.5, 3.5)};
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Étape 3}
+\end{figure}
+
+Uns fois ce nouveau contexte optenu, il suffit de tracer le treillis associé.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			 & m1 & m2 & m3 \\
+			\hline
+			1 & & x & x \\
+			2 & x & & x\\
+			3 & & x & \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{2, m1}] (2) at (1, 1) {};
+			\node [wnode, label=left:{3, m2}] (3) at (-1, 2) {};
+			\node [bnode, label=right:{m3}] (4) at (1, 2) {};
+			\node [wnode, label={top}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{$N_5$ après transformation}
+\end{figure}
+
+Nous obtenons ainsi un nouveau contexte pour un nouveau treillis distributif très proche du treillis de base. Mais cela reste que la première étape de la proposition de Utas Priss. Il faut à présent appliquer cette méthode dans le cas complet. Nous prendrons deux exemples, le premier fonctionne correctement et est basé sur l'exemple précédent ($N_5$) et le second va permettre de mettre en évidence le problème qui est à la source de mon travail. Nous appellerons cette méthode globale, la \guillemotleft{} méthode cla \guillemotright{}.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c c c c }
+			 & A & B & C & D & E & F \\
+			\hline
+			1 & x & x & x & & & \\
+			2 & x & & x & & & \\
+			3 & & x & & & & \\
+			4 & & & x & & & \\
+			5 & & & & x & x & x \\
+			6 & & & & x & & x \\
+			7 & & & & & x & \\
+			8 & & & & & & x \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-2, 1) {};
+			\node [bnode, label=right:{5}] (5) at (2, 1) {};
+			
+			\node [bnode, label=left:{2, A}] (2) at (-3, 2) {};
+			\node [bnode, label=right:{3, B}] (3) at (-1, 2) {};
+			\node [bnode, label=left:{4, C}] (4) at (-3, 3) {};
+			
+			\node [bnode, label=right:{6, D}] (6) at (3, 2) {};
+			\node [bnode, label=right:{7, E}] (7) at (1, 2) {};
+			\node [bnode, label=right:{8, F}] (8) at (3, 3) {};
+			
+			\node [wnode, label={top}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (5);
+			
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (top);
+			
+			\path [line] (5) -- (6);
+			\path [line] (5) -- (7);
+			\path [line] (6) -- (8);
+			\path [line] (7) -- (top);
+			\path [line] (8) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas fonctionnel, état de départ}
+\end{figure}
+
+À partir de là, on extrait chaque contexte des atomes pour les traiter suivant l'algorithme vu précédamment.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			C1 & A & B & C \\
+			\hline
+			2 & x & & x \\
+			3 & & x & \\
+			4 & & & x \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			C1 & m2 & m3 & m4 \\
+			\hline
+			2 & & x & x \\
+			3 & x & & x \\
+			4 & & x & \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\caption{Cas fonctionnel, contexte atome 1}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			C2 & D & E & F \\
+			\hline
+			6 & x & & x \\
+			7 & & x & \\
+			8 & & & x \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			C2 & m6 & m7 & m8 \\
+			\hline
+			6 & & x & x \\
+			7 & x & & x \\
+			8 & & x & \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\caption{Cas fonctionnel, contexte atome 2}
+\end{figure}
+
+Puis pour la mise en commun on assemble tout simplement les contextes obtenus sans oublié d'ajouter les atomes et leur correspondance avec les attributs de leur contexte respectif.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c c c c }
+			 & m2 & m3 & m4 & m6 & m7 & m8 \\
+			\hline
+			1 & x & x & x & & & \\
+			2 & & x & x & & & \\
+			3 & x & & x & & & \\
+			4 & & x & & & & \\
+			5 & & & & x & x & x \\
+			6 & & & & & x & x \\
+			7 & & & & x & & x \\
+			8 & & & & & x & \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-2, 1) {};
+			\node [wnode, label=right:{5}] (5) at (2, 1) {};
+			
+			\node [wnode, label=left:{2}] (2) at (-3, 2) {};
+			\node [wnode, label=right:{3, m2}] (3) at (-1, 2) {};
+			\node [wnode, label=left:{4, m3}] (4) at (-3, 3) {};
+			\node [bnode, label=left:{m4}] (m4) at (-1, 3) {};
+			
+			\node [wnode, label=right:{6}] (6) at (3, 2) {};
+			\node [wnode, label=right:{7, m6}] (7) at (1, 2) {};
+			\node [wnode, label=right:{8, m7}] (8) at (3, 3) {};
+			\node [bnode, label=right:{m8}] (m8) at (1, 3) {};
+			
+			\node [wnode, label={top}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (5);
+			
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (4);
+			\path [line] (2) -- (m4);
+			\path [line] (3) -- (m4);
+			\path [line] (4) -- (top);
+			\path [line] (m4) -- (top);
+			
+			\path [line] (5) -- (6);
+			\path [line] (5) -- (7);
+			\path [line] (6) -- (8);
+			\path [line] (6) -- (m8);
+			\path [line] (7) -- (m8);
+			\path [line] (8) -- (top);
+			\path [line] (m8) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas fonctionnel, état final}
+\end{figure}
+
+Comme nous pouvons le voir, tout se déroule comme prévu, tous les treillis des atomes sont devenus distributifs et le treillsi général reste très proche du treillis d'origine. Nous sommes arrivé à l'objectif désiré. Maintenant voyons voir ce qu'il peut se passer lorsqu'un concept est commun à plusieurs atomes. C'est un cas choisi délibérément parce qu'il pose problème, tous les concepts qui sont commun à plusieurs atomes ne posent pas forcement problème mais c'est une condition pour qu'il le soit. Nous appellerons ce cas, le \guillemotleft{} cas cla \guillemotright{}.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c c c }
+			 & A & B & C & D & E \\
+			\hline
+			1 & x & x & x & & \\
+			2 & x & x & & & \\
+			3 & & x & & & \\
+			4 & & & x & x & x \\
+			5 & & & & x & x \\
+			5 & & & & & x \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{4}] (4) at (1, 1) {};
+			
+			\node [wnode, label=left:{2, A}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 3) {};
+			
+			\node [wnode, label=right:{5, D}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, E}] (6) at (2, 3) {};
+			
+			\node [bnode, label=right:{C}] (C) at (0, 2) {};
+			
+			\node [wnode, label={top}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (C);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			
+			\path [line] (C) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas non fonctionnel, état de départ}
+\end{figure}
+
+On refait les mêmes étapes de précédemment, extraction des contextes des atomes et application de l'algorithme puis remise en commun.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c c c c }
+			 & m1 & m2 & m3 & m4 & m5 & m6 \\
+			\hline
+			1 & & x & x & x & x & x \\
+			2 & & & x & x & & \\
+			3 & & & & x & & \\
+			4 & x & x & x & & x & x \\
+			5 & x & & & & & x \\
+			6 & x & & & & & \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{4}] (4) at (1, 1) {};
+			
+			\node [wnode, label=left:{2}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, m4}] (3) at (-2, 3) {};
+			
+			\node [bnode, label=right:{5}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, m1}] (6) at (2, 3) {};
+			
+			\node [bnode, label=right:{m2, m5}] (m2) at (0, 2) {};
+			\node [bnode, label=left:{m3}] (m3) at (-0.5, 3) {};
+			\node [wnode, label=right:{m6}] (m6) at (0.5, 3) {};
+			
+			\node [bnode, label={top}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (m2);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (m2);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			
+			\path [line] (m2) -- (m3);
+			\path [line] (m2) -- (m6);
+			\path [line] (m3) -- (top);
+			\path [line] (m6) -- (top);
+			
+			\path [line] (2) -- (m3);
+			\path [line] (5) -- (m6);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas non fonctionnel, état final}
+\end{figure}
+
+Nous pouvons voir que les n\oe uds m3 et m6 posent problème. m3 qui a été ajouté par l'algorithme appliqué au contexte de l'atome 1 provoque la création d'un nouveau treillis $N_5$ dans le treillis de l'atome 4, le rendant de ce fait non distributif. L'idéal désiré serait un treillis où les n\oe uds m3 et m6 ne font qu'un.
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{4}] (4) at (1, 1) {};
+			
+			\node [wnode, label=left:{2}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, m4}] (3) at (-2, 3) {};
+			
+			\node [wnode, label=right:{5}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, m1}] (6) at (2, 3) {};
+			
+			\node [wnode, label=right:{m2, m5}] (m2) at (0, 2) {};
+			\node [bnode, label=right:{m3, m6}] (m3) at (0, 3) {};
+			
+			\node [wnode, label={top}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (m2);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (m2);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			
+			\path [line] (m2) -- (m3);
+			\path [line] (m3) -- (top);
+			
+			\path [line] (2) -- (m3);
+			\path [line] (5) -- (m3);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Cas non fonctionnel, état final désiré}
+\end{figure}
+
+\chapter{Définitions}
+
+\section*{Généralité}
+
+On dispose d'un ensemble d'objets noté $J$ et d'un ensemble de propriétés noté $M$, le tout représenté dans un contexte $C$ (figure \ref{contexte_fca}) où chaque objet est en concordance avec les attributs qu'il possède, cet ensemble est noté $I$. Un contexte est noté $C(J, M, I)$. On peut également utiliser un treillis (figure \ref{treillis_fca})pour une représentation plus visuelle.
+
+\begin{figure}[H]
+	\begin{minipage}{0.4\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			 & A: poisson & B: oiseau & C: ovipare \\
+			\hline
+			1: poisson rouge & x &  & x \\
+			2: chevalier gambette &  & x & x \\
+			3: guppy & x &  &  \\
+		\end{tabular}
+		\caption{Contexte}
+		\label{contexte_fca}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}{0.8\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [bnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{2, B}] (2) at (1, 1) {};
+			\node [bnode, label=left:{3, A}] (3) at (-1, 2) {};
+			\node [bnode, label=right:{C}] (4) at (1, 2) {};
+			\node [bnode, label={top}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis}
+	\label{treillis_fca}
+	\end{minipage}
+\end{figure}
+
+On dispose également d'un vocabulaire propre au domaine pour faciliter les échanges.\\
+Un concept peut être vu comme un n\oe ud du treillis, il correspond à un ensemble d'objets et d'attributs. Par exemple le n\oe ud avec le label \guillemotleft{} poisson rouge \guillemotright{} correpond à l'ensemble d'objets \{1\} et à l'ensemble d'attributs \{A, C\}. Afin de faciliter la communication il est commun d'utiliser l'objet ou l'attribut lorsqu'ils sont uniques, pour parler d'un concept, on parlera donc du concept 1 ou du concept poisson rouge. Le filtre d'un concept est l'ensemble des concepts qui y sont contenu et est noté : $\uparrow \! 1 = \{1, 3\}$. À l'inverse, l'idéal d'un concept est l'ensemble des concepts qui le contiennent et est noté : $\downarrow \! 3 = \{1, 3\}$. Un opérateur \guillemotleft{} ` \guillemotright{} est aussi utilisé. Il permet de faire la transition entre un objet et ses attributs : $3'' = \{A\}' = \{1, 3\}$ ou entre un attribut et ses objets : $A'' = \{1, 3\}' = \{A\}$. On appelle infimum de plusieurs concepts celui qui est à l'intersetion des attributs de ceux-ci, noté $\wedge$ tel que $A \wedge C = 1$. Si un concept est l'infimum (inf) de tous les autres concepts, alors il est le \guillemotleft{} bot \guillemotright{}. À l'inverse, on appelle supremum (sup) de plusieurs concepts celui qui est à l'intersection des objets de ceux-ci, noté $\vee$ tel que $1 \vee 2 = C$. Si un concept est le supremum de tous les autres concepts, alors il est le \guillemotleft{} top \guillemotright{}. Nous définissons également les infimums irréductibles, $\wedge$-irréductibles, (resp. supremums irréductibles, $\vee$-irréductibles) les concepts ayant au plus un unique inf direct (resp. sup direct). Ce sont les concepts qu'on retrouve dans le contexte réduit. Nous définissons comme atomes les concepts supremum direct du bot, dans la figure 2.2 cela correpondrait aux concepts 1, et 2.
+
+\bigbreak
+
+Il existe plusieurs catégories de contexte.\\
+Tout d'abord nous avons le contexte quelconque (figure \ref{contexte_quelconque}), il ne dispose d'aucunes règles ni propriétés en plus de la base développée dans la section précédente. Puis nous avons le contexte clarifié (figure \ref{contexte_clarifié}), dans celui-ci nous ne voulons aucun doublon de données. Si nous avons deux objets (resp. attributs) ayant exactement les mêmes concordances avec les attributs (resp. objets) alors on en supprime un de la table. Enfin le contexte réduit (figure \ref{contexte_réduit}), il est la version la plus petite sans perte de données. On supprime de la table tous les objets (resp. attribut) qui sont obtenable par l'intersection d'une combinaison des autres objets (resp. attributs). C'est cette version du contexte qui est communément utilisé.
+
+\begin{figure}[H]
+	\begin{minipage}[t]{0.3\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c c }
+			 & A & B & C \\
+			\hline
+			1 & x &  & x \\
+			2 &  & x & x \\
+			3 &  & x & x \\
+			4 & x &  &  \\
+			5 &  &  & x \\
+		\end{tabular}
+		\caption{Contexte quelconque}
+		\label{contexte_quelconque}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c c }
+			 & A & B & C \\
+			\hline
+			1 & x &  & x \\
+			2 &  & x & x \\
+			4 & x &  &  \\
+			5 &  &  & x \\
+		\end{tabular}
+		\caption{Contexte clarifié}
+		\label{contexte_clarifié}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c c }
+			 & A & B & C \\
+			\hline
+			1 & x &  & x \\
+			2 &  & x & x \\
+			4 & x &  &  \\
+		\end{tabular}
+		\caption{Contexte réduit}
+		\label{contexte_réduit}
+	\end{center}
+	\end{minipage}
+\end{figure}
+
+\section{Algorithme de cla}
+
+\begin{figure}[H]
+\begin{algorithm}[H]
+	\DontPrintSemicolon
+	\caption{Construction de contexte de treillis distributif}
+
+	\KwData{Context réduit $C(J, M, \leq_{C})$}
+	\KwResult{Contexte réduit $C_d(J, M_d, I_d)$ de $(\mathcal{O}(J), \subseteq, \cap, \cup)$}
+
+	\Begin{
+		$M_d \leftarrow \emptyset$\;
+		$I_d \leftarrow \emptyset$\;
+		\ForEach{$j \in J$}{
+			$\uparrow j \leftarrow \emptyset$\;
+			\ForEach{$i \in J$}{
+				\If{$j' \subseteq i'$}{
+					$\uparrow j \leftarrow \uparrow j \cup i$\;
+				}
+			}
+			$M_d \leftarrow M_d \cup m_j$\;
+			$X \leftarrow J \setminus \uparrow j$\;
+			\ForEach{$x \in X$}{
+				$I_d \leftarrow I_d \cup (x, m_j)$\;
+			}
+		}
+	}
+\end{algorithm}
+\caption{Construction de contexte de treillis distributif}
+\label{algo_cla}
+\end{figure}

@@ -1,0 +1,65 @@
+\chapter{Annexe : Fichiers d'entré et de sortie}
+%\addcontentsline{toc}{chapter}{Annexe 3 : fichiers d'entré et de sortie}
+
+%changer le format des sections, subsections pour apparaittre sans le num de chapitre
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+%recommencer la numérotation des section à "1"
+\setcounter{section}{0}
+
+Cette annexe présente le fichier texte d'entré contenant le contexte de base et le fichier texte de sortie pour l'utilisation du résultat sous ConExp.
+
+\subsection*{Input}
+
+Le fichier d'entré peut prendre de multiples formes. Il demande néanmoins d'avoir en première ligne les attributs séparé par une tabulation. Chaque ligne suivant correspondra à un nouvel objet sans avoir à indiquer son labe et dont chaque correspondance ou absence de correspondance séparées par un tabulation. Une non correspondace se marque avec un \guillemotleft{} 0 \guillemotright{} ou l'absence de caractère. La correspondance est signalé par tout autre caractère.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ c c c c c }
+			a1 & a2 & a3 & a4 & a5 \\
+			x & x & & x & \\
+			 & x & x & & x\\
+			x & & & x & \\
+			 & & x & & x \\
+			 & & & & x \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ c c c c c }
+			a1 & a2 & a3 & a4 & a5 \\
+			1 & 1 & 0 & 1 & 0 \\
+			0 & 1 & 1 & 0 & 1 \\
+			1 & 0 & 0 & 1 & 0 \\
+			0 & 0 & 1 & 0 & 1 \\
+			0 & 0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 0 & 1 \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\caption{Fichier source de cla\_v1}
+\end{figure}
+
+\subsection*{Output}
+
+Le fichier de sortie quant à lui respecte la mise en forme d'importation de ConExp. Les attributs sur la première ligne séparé par une tabulation suivis d'une ligne vide et enfin des correspondances avec un objet par ligne sans indiquer le label et une notation binaire \guillemotleft{} 0 \guillemotright{} et \guillemotleft{} 1 \guillemotright{} indiquant respectivement la non correspondance et la correspondance.
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tabular}{ c c c c c }
+			a1 & a2 & a3 & a4 & a5 \\
+			\\
+			1 & 1 & 0 & 1 & 0 \\
+			0 & 1 & 1 & 0 & 1 \\
+			1 & 0 & 0 & 1 & 0 \\
+			0 & 0 & 1 & 0 & 1 \\
+			0 & 0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 0 & 1 \\
+		\end{tabular}
+	\end{center}
+	\caption{Exportation de cla\_v1 pour ConExp}
+\end{figure}
