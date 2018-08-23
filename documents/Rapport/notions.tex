@@ -87,7 +87,7 @@ La seconde opération est la plus utilisée et va plus loin dans la réduction d
 \begin{definition}[Contexte réduit]
 Un contexte clarifié est réduit $C(J, M, I)$ si et seulement si :
 \begin{itemize}
-	\item $\forall x \in C, \forall X \subseteq C$, si $x' = X'$ alors $x \in X$
+	\item $\forall x \in J, \forall X \subseteq J$, si $x' = X'$ alors $x \in X$
 	\item $\forall x \in M, \forall X \subseteq M$, si $x' = X'$ alors $x \in X$
 \end{itemize}
 \end{definition}
@@ -273,13 +273,21 @@ Dans la figure \ref{hasse_filtres_ideaux} nous avons $\uparrow \! a = {a, b, c}$
 
 \section{Treillis}
 
-Un treillis est un ensemble ordonné $(T, \leq)$ sur lequel on définit pour chaque tuple un supremum ou borne supérieure noté $\vee$ et un infimum ou borne inférieure noté $\wedge$, on le note $(T, \leq, \vee, \wedge)$.\todo{Comment définir les notions de borne sup et borne inf ?} Pour trois éléments $x, y, z \in P$ tel que $z \leq x$ et $z \leq y$ on peut dire que $x \vee y = z$. Le second est celui d'infimum ou borne inférieure noté $\wedge$. Et de la même façon pour trois éléments $x, y, z \in P$ tel que $x \leq z$ et $y \leq z$ on peut dire que $x \wedge y = z$. Lorsqu'un élément est la borne supérieure (resp. inférieure) de tous les autres éléments on dit qu'il ferme le treillis par les supremums (resp. infimums), on note cet élément $\top$ (resp.$\bot$).
+Un treillis est un ensemble ordonné $(T, \leq)$ sur lequel on définit pour chaque tuple un supremum ou borne supérieure noté $\vee$ et un infimum ou borne inférieure noté $\wedge$, on le note $(T, \leq, \vee, \wedge)$. \todo{Comment définir les notions de borne sup et borne inf ?} Pour trois éléments $x, y, z \in P$ tel que $z \leq x$ et $z \leq y$ on peut dire que $x \vee y = z$. Le second est celui d'infimum ou borne inférieure noté $\wedge$. Et de la même façon pour trois éléments $x, y, z \in P$ tel que $x \leq z$ et $y \leq z$ on peut dire que $x \wedge y = z$. Lorsqu'un élément est la borne supérieure (resp. inférieure) de tous les autres éléments on dit qu'il ferme le treillis par les supremums (resp. infimums), on note cet élément $\top$ (resp.$\bot$).
 
 \begin{definition}[Treillis]
 Soit un treillis $(T, \leq, \vee, \wedge)$ :
 \begin{itemize}
 	\item $\forall x, y \in T$, $\exists z \in T : x \vee y = z$
 	\item $\forall x, y \in T$, $\exists z \in T : x \wedge y = z$
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Sous treillis]
+Soit un treillis $(T, \leq, \vee, \wedge)$ et son sous treillis $(T_S, \leq_S, \vee, \wedge)$ si et seulement si :
+\begin{itemize}
+	\item $T_S \subseteq T$
+	\item $\forall x, y \in T_S$, $x \leq y \Rightarrow x \leq_S y$
 \end{itemize}
 \end{definition}
 
@@ -383,7 +391,7 @@ Il existe une catégorie de treillis appelée treillis distributif dont la parti
 Un treillis $(T, \leq, \vee, \wedge)$ est distributif si et seulement si au moins l'une des trois conditions équivalentes suivantes est vérifiée :
 \begin{itemize}
 	\item $(x \wedge y) \vee (x \wedge z) \vee (y \wedge z) = (x \vee y) \wedge (x \vee z) \wedge (y \vee z)$
-	\item Le treillis ne contient ni $N_5$ ni $M_3$
+	\item Le treillis ne possède ni $N_5$ ni $M_3$ en guise de sous treillis
 	\item Le contexte réduit contient une seule relation flèche double par ligne et par colonne
 \end{itemize}
 \end{definition}
