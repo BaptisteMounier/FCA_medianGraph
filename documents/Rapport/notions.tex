@@ -2,23 +2,23 @@
 
 \section{Analyse de Concepts Formels}
 
-L'Analyse Concepts Formels utilise des matrices binaires mettant en relation des objets avec des attributs, une matrice porte le nom de contexte et est défini par $C(J, M, I)$ où $J$ est l'ensemble des objets, $M$ l'ensemble des attributs et $I$ l'ensemble des relations entre les objets et les attributs.
+L'Analyse Concepts Formels utilise des matrices binaires mettant en relation des objets avec des attributs, une matrice porte le nom de contexte et est défini par $C(O, A, I)$ où $O$ est l'ensemble des objets, $A$ l'ensemble des attributs et $I$ l'ensemble des relations entre les objets et les attributs.
 
 \begin{definition}[Contexte]
-Soit un contexte $C(J, M, I)$ dans lequel $J$ est l'ensemble des objets, $M$ l'ensemble des attributs et $I$ l'ensemble des relations entre les objets et les attributs.
+Soit un contexte $C(O, A, I)$ dans lequel $O$ est l'ensemble des objets, $A$ l'ensemble des attributs et $I$ l'ensemble des relations entre les objets et les attributs.
 \end{definition}
 
 Nous définitions une opération, \guillemotleft{} prime \guillemotright{} pour les objets et attributs, notée \guillemotleft{} ' \guillemotright{}. Elle permet de passer des objets aux attributs et inversement. On lui donne un objet (resp. attribut) ou un ensemble d'objets (resp. attributs) et elle nous renvois l'ensemble des attributs (resp. objets) qui sont en correspondance.
 
 \begin{definition}[Connexion de Gallois]
-Pour $X \subseteq J$ et $Y \subseteq M$, on définie :
+Pour $X \subseteq O$ et $Y \subseteq A$, on définie :
 \begin{itemize}
-	\item $X' = \{y \in M : (x, y) \in I$, $\forall x \in X\}$
-	\item $Y' = \{x \in J : (x, y) \in I$, $\forall y \in Y\}$
+	\item $X' = \{y \in A : (x, y) \in I$, $\forall x \in X\}$
+	\item $Y' = \{x \in O : (x, y) \in I$, $\forall y \in Y\}$
 \end{itemize}
 \end{definition}
 
-Dans la figure \ref{def_contexte}, nous avons $J = \{chat, chien, aigle, mouette, poule\}$, $M = \{griffes, ailes, nyclatope, vol\}$ et $I = \{(chat, griffes), (chat, nyctalope), (chien, griffes), (aigle, griffes), ...\}$. Nous avons entre autres pour les objets $chat' = \{griffes, nyctalope\}$ et $\{chat, aigle\}' = \{griffes\}$ et inversement pour les attributs $griffes' = \{chat, chien, aigle, poule\}$ et $\{griffes, ailes\}' = \{aigle, poule\}$.
+Dans la figure \ref{def_contexte}, nous avons $O = \{chat, chien, aigle, mouette, poule\}$, $A = \{griffes, ailes, nyclatope, vol\}$ et $I = \{(chat, griffes), (chat, nyctalope), (chien, griffes), (aigle, griffes), ...\}$. Nous avons entre autres pour les objets $chat' = \{griffes, nyctalope\}$ et $\{chat, aigle\}' = \{griffes\}$ et inversement pour les attributs $griffes' = \{chat, chien, aigle, poule\}$ et $\{griffes, ailes\}' = \{aigle, poule\}$.
 
 \begin{figure}[H]
 	\begin{center}
@@ -36,13 +36,13 @@ Dans la figure \ref{def_contexte}, nous avons $J = \{chat, chien, aigle, mouette
 	\label{def_contexte}
 \end{figure} 
 
-Nous pouvont effectuer plusieurs opérations sur les contextes sans réelles pertes d'informations. La première est la clarification, cela consiste à ne garder que les lignes et les colonnes qui ne sont pas en doublon.
+Nous pouvont effectuer plusieurs opérations sur les contextes sans réelles pertes d'informations sur la structure. La première est la clarification, cela consiste à ne garder que les lignes et les colonnes qui ne sont pas en doublon.
 
 \begin{definition}[Contexte clarifié]
-Soit un contexte clarifié $C(J, M, I)$ :
+Soit un contexte clarifié $C(O, A, I)$ :
 \begin{itemize}
-	\item $\forall x1, x2 \in J$ si ${x1}' = {x2}'$ alors $x1 = x2$
-	\item $\forall y1, y2 \in M$ si ${y1}' = {y2}'$ alors $y1 = y2$
+	\item $\forall x1, x2 \in O$ si ${x1}' = {x2}'$ alors $x1 = x2$
+	\item $\forall y1, y2 \in A$ si ${y1}' = {y2}'$ alors $y1 = y2$
 \end{itemize}
 \end{definition}
 
@@ -82,10 +82,10 @@ Soit un contexte clarifié $C(J, M, I)$ :
 	\end{minipage}
 \end{figure}
 
-La seconde opération est la plus utilisée et va plus loin dans la réduction de la taille du contexte sans perte de données, les contextes ainsi obtenus sont dit \guillemotleft{} contexte réduit \guillemotright \footnote{\guillemotleft{} standard context \guillemotright pour la documentation anglaise}. Le principe est toujours de supprimer les lignes et les colonnes dont on peut se passer, celles qui sont recalculables à partir de celles qu'on garde. On ne garde que les lignes et les colonnes qui ne sont pas l'intersection d'une ou plusieurs autres.
+La seconde opération est la plus utilisée et va plus loin dans la réduction de la taille du contexte sans perte de données, les contextes ainsi obtenus sont dit \guillemotleft{} contexte réduit \guillemotright \footnote{\guillemotleft{} standard context \guillemotright{} pour la documentation anglaise}. Le principe est toujours de supprimer les lignes et les colonnes dont on peut se passer, celles qui sont recalculables à partir de celles qu'on garde. On ne garde que les lignes et les colonnes qui ne sont pas l'intersection d'une ou plusieurs autres.
 
 \begin{definition}[Contexte réduit]
-Soit un contexte réduit $C(J, M, I)$ :
+Un contexte clarifié est réduit $C(J, M, I)$ si et seulement si :
 \begin{itemize}
 	\item $\forall x \in C, \forall X \subseteq C$, si $x' = X'$ alors $x \in X$
 	\item $\forall x \in M, \forall X \subseteq M$, si $x' = X'$ alors $x \in X$
@@ -126,13 +126,14 @@ Dans la figure \ref{def_contexte_non_reduit} la ligne $2' = \{a\}$ est l'interse
 	\end{minipage}
 \end{figure}
 
-Nous pouvons maintenant définir la notion de concept. Cela correspond aux rectangles maximum qui se trouve dans le contexte, regroupant tous les objets qui font parts du concept et tous les attributs qu'ils ont en commun. Un concept est l'ensemble des objets et attributs tel que tous les objets du concepts partagent les attributs du concepts et qu'il n'existe pas d'autre objet partageant les attributs du concept et pas d'autre attributs qui sont partagés par tous les objets du concept.
+Nous pouvons maintenant définir la notion de concept. Cela correspond aux rectangles maximaux qui se trouvent dans le contexte, regroupant tous les objets qui font partis du concept et tous les attributs qu'ils ont en commun. Un concept est l'ensemble des objets et attributs tel que tous les objets du concepts partagent les attributs du concepts et qu'il n'existe pas d'autre objet partageant les attributs du concept et pas d'autre attributs qui sont partagés par tous les objets du concept.
 
 \begin{definition}[Concept]
-Soit un contexte $C(J, M, I)$, un concept $a$, $X \subseteq a$, $X \subseteq J$, $Y \subseteq a$ et $Y \subseteq M$ :
+Soit un concept $c$, $X \subseteq O$ et $Y \subseteq A$ :
 \begin{itemize}
-	\item $\forall x \in J$, $x \in X \Leftrightarrow x' \subseteq Y$
-	\item $\forall y \in M$, $y \in Y \Leftrightarrow y' \subseteq X$
+	\item $c = \{X, Y\}$
+	\item $\forall x \in O$, $x \in X \Leftrightarrow x' \subseteq Y$
+	\item $\forall y \in A$, $y \in Y \Leftrightarrow y' \subseteq X$
 \end{itemize}
 \end{definition}
 
@@ -140,16 +141,22 @@ Sur le contexte de la figure \ref{def_contexte_reduit} nous avons entre autre le
 
 \bigbreak
 
-\subsection{Treillis de concept}
+Maintenant que nous avons défini la notion de concept, nous pouvons définir les treillis de concepts, également appelés treillis de Galois. Ce treillis se base sur une relation d'ordre entre les concepts exprimée sur un diagramme de Hasse. C'est un diagramme orientés du bas vers le  haut où chaque élément, ici il s'agit du concept, est un n\oe ud et chaque relation d'ordre est un arc.
 
-\subsection{Relations flèches}
+\begin{definition}[Treillis de concepts]
+Soit deux concepts $c_1 = (O_1, A_1)$ et $c_2 = (O_2, A_2)$, on a $c_1 \leq c_2$ si et seulement si $O_1 \subseteq O_2$ ou $A_1 \supseteq A_2$.
+\end{definition}
 
 En plus des propriétés précédentes, un contexte peut contenir ce qu'on appelle des relations fléches qui ne viennent pas ajouter de l'information mais permettre une extraction plus rapide à porté humaine. Il en existe de trois types $\uparrow$, $\downarrow$, et $\updownarrow$.
-\begin{description}
-	\item[$1 \uparrow A$] : ssi A ne possède pas de sup une fois qu'on retire tous les éléments du filtre de 1.
-	\item[$1 \downarrow A$] : ssi 1 ne possède pas d'inf une fois qu'on retire tous les éléments de l'idéal de A.
-	\item[$1 \updownarrow A$] : ssi $1 \uparrow A$ et $1 \downarrow A$.
-\end{description}
+
+\begin{definition}[Relations flèches]
+Soit un contexte $C(O, A, I)$, $o \in O$, $a \in A$ :
+\begin{itemize}
+	\item $o \uparrow a$ ssi $(o, a) \not \in I$ et si $\exists x \in A$, $a' \subset x'$, $(o, x) \in I$ : $\forall y \in A$, $a' \subset y' \Rightarrow y = x$ 
+	\item $o \downarrow a$ ssi $(o, a) \not \in I$ et si $\exists x \in O$, $o' \subset x'$, $(x, a) \in I$ : $\forall y \in O$, $o' \subset y' \Rightarrow y = x$ 
+	\item $o \updownarrow a$ ssi $o \uparrow a$ et $o	 \downarrow a$.
+\end{itemize}
+\end{definition}
 
 \begin{figure}[H]
 	\begin{minipage}{0.4\textwidth}
@@ -170,19 +177,19 @@ En plus des propriétés précédentes, un contexte peut contenir ce qu'on appel
 	\begin{minipage}{0.8\textwidth}
 		\begin{center}
 			\begin{tikzpicture}
-				\node [bnode, label=below:{bot}] (bot) at (0,0) {};
-				\node [bnode, label=left:{1}] (1) at (-1,1) {};
-				\node [bnode, label=right:{2}] (2) at (1,1) {};
-				\node [bnode] (1_2) at (0,2) {};
-				\node [bnode, label=left:{3}] (3) at (-2,2) {};
-				\node [bnode, label=right:{4, E}] (4) at (2,2) {};
-				\node [bnode, label=left:{5}] (5) at (-2,3) {};
-				\node [bnode, label=right:{C}] (C) at (0,3) {};
-				\node [bnode, label=right:{D}] (D) at (2,3) {};
-				\node [bnode, label=left:{6, B}] (6) at (-2,4) {};
-				\node [bnode, label=right:{A}] (A) at (0,4) {};
-				\node [bnode, label={top}] (top) at (0,5) {};
-
+				\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+				\node [wnode, label=left:{1}] (1) at (-1,1) {};
+				\node [wnode, label=right:{2}] (2) at (1,1) {};
+				\node [wnode] (1_2) at (0,2) {};
+				\node [wnode, label=left:{3}] (3) at (-2,2) {};
+				\node [wnode, label=right:{4, E}] (4) at (2,2) {};
+				\node [wnode, label=left:{5}] (5) at (-2,3) {};
+				\node [wnode, label=right:{C}] (C) at (0,3) {};
+				\node [wnode, label=right:{D}] (D) at (2,3) {};
+				\node [wnode, label=left:{6, B}] (6) at (-2,4) {};
+				\node [wnode, label=right:{A}] (A) at (0,4) {};
+				\node [wnode, label={$\top$}] (top) at (0,5) {};
+				
 				\path [line] (bot) -- (1);
 				\path [line] (bot) -- (2);
 				\path [line] (1) -- (3);
@@ -208,7 +215,18 @@ En plus des propriétés précédentes, un contexte peut contenir ce qu'on appel
 
 \section{Ensemble ordonné}
 
-Un ensemble ordonné est un ensemble $P$ d'éléments avec une relation d'ordre $\leq$, qu'on note $(P, \leq)$. Pour le représenter, on utilise des diagrammes orientés du bas vers le  haut où chaque élément de $P$ est un point et chaque relation d'ordre est un arc dans le sens de lecture. Ce sont des diagrammes de Hasse.  Pour un ensemble $X \subseteq P$ on note $\uparrow \! X$ le filtre (resp. $\downarrow \! X$ l'idéal) de $X$. Pour un élément $x \in P$, on note $\uparrow \! x$ le filtre principal (resp. $\downarrow \! x$ l'idéal principal) de $x$ tel que pour $\uparrow \! x = {y}$ (resp. $\downarrow \! x = {y}$) on a $x \leq y$ (resp. $y \leq x$). Dans la figure \ref{hasse_filtres_ideaux} nous avons $\uparrow \! a = {a, b, c}$ et $\downarrow \! b = {a, b}$.
+Un ensemble ordonné est un ensemble $P$ d'éléments avec une relation d'ordre $\leq$, qu'on note $(P, \leq)$. Pour le représenter, on utilise des diagrammes de Hasse. Pour un ensemble $X \subseteq P$ on note $\uparrow \! X$ le filtre (resp. $\downarrow \! X$ l'idéal) de $X$. Pour un élément $x \in P$, on note $\uparrow \! x$ le filtre principal (resp. $\downarrow \! x$ l'idéal principal) de $x$ tel que pour $\uparrow \! x = {y}$ (resp. $\downarrow \! x = {y}$) on a $x \leq y$ (resp. $y \leq x$).
+
+\begin{definition}[Ensemble ordonné]
+Soit un ensemble ordonné $(P, \leq)$, $X \subseteq P$ et $Y \subseteq P$ :
+\begin{itemize}
+	\item $\forall x, y \in P$, on a $x \leq y$ ou $y \leq x$
+	\item $\uparrow \! X = Y \Rightarrow x \leq y$ $\forall x \in X, \forall y \in Y$
+	\item $\downarrow \! X = Y \Rightarrow y \leq x$ $\forall x \in X, \forall y \in Y$
+\end{itemize}
+\end{definition}
+
+Dans la figure \ref{hasse_filtres_ideaux} nous avons $\uparrow \! a = {a, b, c}$ et $\downarrow \! b = {a, b}$.
 
 \begin{figure}[H]
 	\begin{minipage}{0.3\textwidth}
@@ -255,7 +273,17 @@ Un ensemble ordonné est un ensemble $P$ d'éléments avec une relation d'ordre 
 
 \section{Treillis}
 
-Un treillis  est un ensemble ordonné $(T, \leq)$ à lequel on ajoute deux opérateurs, on le note $(T, \leq, \vee, \wedge)$. Le premier est celui de supremum ou borne supérieure noté $\vee$.  Pour trois éléments $x, y, z \in P$ tel que $z \leq x$ et $z \leq y$ on peut dire que $x \vee y = z$. Le second est celui d'infimum ou borne inférieure noté $\wedge$. Et de la même façon pour trois éléments $x, y, z \in P$ tel que $x \leq z$ et $y \leq z$ on peut dire que $x \wedge y = z$. En reprenant l'exemple de la figure \ref{hasse_sup_inf}, nous obtenons $b \vee c = a$ et $b \wedge c = d$. Par abus de langage on utilise souvent les termes de sup et d'inf. Lorsqu'un élément est la borne supérieure (resp. inférieure) de tous les autres éléments on dit qu'il ferme le treillis par les supremums (resp. infimums), on note cet élément $\top$ (resp.$\bot$). Et lorsqu'un treillis est fermé à la fois par les supremums et par les infimums on dit que c'est un treillis fermé défini comme le cas fini. Sur notre exemple en figure \ref{hasse_sup_inf} nous avons $\top = d$ et $\bot = a$.
+Un treillis est un ensemble ordonné $(T, \leq)$ sur lequel on définit pour chaque tuple un supremum ou borne supérieure noté $\vee$ et un infimum ou borne inférieure noté $\wedge$, on le note $(T, \leq, \vee, \wedge)$.\todo{Comment définir les notions de borne sup et borne inf ?} Pour trois éléments $x, y, z \in P$ tel que $z \leq x$ et $z \leq y$ on peut dire que $x \vee y = z$. Le second est celui d'infimum ou borne inférieure noté $\wedge$. Et de la même façon pour trois éléments $x, y, z \in P$ tel que $x \leq z$ et $y \leq z$ on peut dire que $x \wedge y = z$. Lorsqu'un élément est la borne supérieure (resp. inférieure) de tous les autres éléments on dit qu'il ferme le treillis par les supremums (resp. infimums), on note cet élément $\top$ (resp.$\bot$).
+
+\begin{definition}[Treillis]
+Soit un treillis $(T, \leq, \vee, \wedge)$ :
+\begin{itemize}
+	\item $\forall x, y \in T$, $\exists z \in T : x \vee y = z$
+	\item $\forall x, y \in T$, $\exists z \in T : x \wedge y = z$
+\end{itemize}
+\end{definition}
+
+Sur notre exemple en figure \ref{treillis_sup_inf} nous avons $a = b \vee c$, $d = b \wedge c$, $\top = d$ et $\bot = a$.
 
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
@@ -288,11 +316,21 @@ Un treillis  est un ensemble ordonné $(T, \leq)$ à lequel on ajoute deux opér
 		\end{tikzpicture}
 	\end{center}
 	\end{minipage}
-	\caption{Diagrammes de Hasse avec supremum et infimum}
-	\label{hasse_sup_inf}
+	\caption{Treillis avec supremum et infimum}
+	\label{treillis_sup_inf}
 \end{figure}
 
-Un élément qui est pas le supremum (resp. infimum) d'autres éléments est un $\vee$-irréductible (resp. $\wedge$-irréductible) et on note l'ensemble de ces élément $J(T)$ (resp. $M(T)$). Bien que le $\top$ et le $\bot$ soient des irréductibles, il est commun de ne pas toujours les prendre en considération, nous les prendront dans ce rapport, il sera précisé lorsqu'ils ne le seront pas\todo{ou inversement}. Jusqu'à présent nous utilisions des labels sur la totalité des points, par la suite nous en metteront uniquement sur ceux importants dont les irréductibles. Dans cet objectif, nous utiliserons des lettres (resp. chiffres) pour les $\vee$-irréductibles (resp. $\wedge$-irréductible) et le label \guillemotleft{} top \guillemotright{} (resp. \guillemotleft{} bot \guillemotright{}) pour $\top$ (resp. $\bot$). Sur l'exemple de la figure \ref{hasse_irr} les irréductibles sont représentés en noir, d'abord les $\vee$-irréductibles puis les $\wedge$-irréductibles.
+Un élément qui est pas le supremum (resp. infimum) d'autres éléments est un $\vee$-irréductible (resp. $\wedge$-irréductible) et on note l'ensemble de ces élément $J(T)$ (resp. $M(T)$). Bien que le $\top$ et le $\bot$ soient des irréductibles, il est commun de ne pas toujours les prendre en considération, nous ne les prendront pas non plus dans ce rapport, il sera précisé lorsqu'ils le seront.
+
+\begin{definition}[$\vee$-irreductible et $\wedge$-irreductible]
+Soit un treillis $(T, \leq, \vee, \wedge)$, $x, y, z \in T$ :
+\begin{itemize}
+	\item $x$ est $\vee$-irreductible ssi $x \vee y = z \Rightarrow x = z$
+	\item $x$ est $\wedge$-irreductible ssi $x \wedge y = z \Rightarrow x = z$
+\end{itemize}
+\end{definition}
+
+Jusqu'à présent nous utilisions des labels sur la totalité des n\oe uds, par la suite nous en metteront uniquement sur ceux importants dont les irréductibles. Dans cet objectif, nous utiliserons des lettres (resp. chiffres) pour les $\vee$-irréductibles (resp. $\wedge$-irréductible), de même que les labels $\top$ et $\bot$. Sur l'exemple de la figure \ref{hasse_irr} les irréductibles sont représentés en noir, d'abord les $\vee$-irréductibles puis les $\wedge$-irréductibles.
 
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
@@ -339,24 +377,26 @@ Un élément qui est pas le supremum (resp. infimum) d'autres éléments est un 
 	\label{hasse_irr}
 \end{figure}
 
-\subsection{Treillis distributif}
+Il existe une catégorie de treillis appelée treillis distributif dont la particularité d'avoir la distributivité des opérations $\vee$ et $\wedge$. Pour tout $x, y, z \in T$ on a $x \vee (y \wedge z) = (x \wedge y) \vee (x \wedge z)$ et $x \wedge (y \vee z) = (x\vee y) \wedge (x \vee z)$. Cette propriété transparait à travers trois conditions équivalentes qui permettent d'attester ou non de la distributivité du treillis permettant ainsi d'utiliser la plus adaptée dans une situation donnée.
 
-Un treillis est dis distributif s'il vérifie l'une des conditions suivantes :
+\begin{definition}[Treillis distributif]
+Un treillis $(T, \leq, \vee, \wedge)$ est distributif si et seulement si au moins l'une des trois conditions équivalentes suivantes est vérifiée :
 \begin{itemize}
 	\item $(x \wedge y) \vee (x \wedge z) \vee (y \wedge z) = (x \vee y) \wedge (x \vee z) \wedge (y \vee z)$
 	\item Le treillis ne contient ni $N_5$ ni $M_3$
-	\item Le contexte standard contient une seule relation flèche double par ligne et par colonne
+	\item Le contexte réduit contient une seule relation flèche double par ligne et par colonne
 \end{itemize}
+\end{definition}
 
 \begin{figure}[H]
 	\begin{minipage}[t]{0.5\textwidth}
 		\begin{center}
 			\begin{tikzpicture}
-				\node [wnode, label=below:{bot}] (bot) at (0,0) {};
-				\node [bnode, label=left:{1, A}] (1) at (-1, 1) {};
-				\node [bnode, label=right:{2, B}] (2) at (1, 1) {};
-				\node [bnode, label=left:{3, C}] (3) at (-1, 2) {};
-				\node [wnode, label={top}] (top) at (0, 3) {};
+				\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+				\node [bnode, label=left:{1, $A$}] (1) at (-1, 1) {};
+				\node [bnode, label=right:{2, $B$}] (2) at (1, 1) {};
+				\node [bnode, label=left:{3, $C$}] (3) at (-1, 2) {};
+				\node [wnode, label={$\top$}] (top) at (0, 3) {};
 
 				\path [line] (bot) -- (1);
 				\path [line] (bot) -- (2);
@@ -365,16 +405,16 @@ Un treillis est dis distributif s'il vérifie l'une des conditions suivantes :
 				\path [line] (3) -- (top);
 			\end{tikzpicture}
 		\end{center}
-		\caption{$N_5$}
+		\caption{$N_5$ (à déplacer)}
 	\end{minipage}
 	\begin{minipage}[t]{0.5\textwidth}
 		\begin{center}
 			\begin{tikzpicture}
-				\node [wnode, label=below:{bot}] (bot) at (0,0) {};
-				\node [bnode, label=right:{1, A}] (1) at (-1.5, 1.5) {};
-				\node [bnode, label=right:{2, B}] (2) at (0, 1.5) {};
-				\node [bnode, label=right:{3, C}] (3) at (1.5, 1.5) {};
-				\node [wnode, label={top}] (top) at (0, 3) {};
+				\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+				\node [bnode, label=right:{1, $A$}] (1) at (-1.5, 1.5) {};
+				\node [bnode, label=right:{2, $B$}] (2) at (0, 1.5) {};
+				\node [bnode, label=right:{3, $C$}] (3) at (1.5, 1.5) {};
+				\node [wnode, label={$\top$}] (top) at (0, 3) {};
 
 				\path [line] (bot) -- (1);
 				\path [line] (bot) -- (2);
@@ -384,10 +424,10 @@ Un treillis est dis distributif s'il vérifie l'une des conditions suivantes :
 				\path [line] (3) -- (top);
 			\end{tikzpicture}
 		\end{center}
-		\caption{$M_3$}
+		\caption{$M_3$ (à déplacer)}
 	\end{minipage}
 \end{figure}
 
-De plus, un treillis distributif dispose de quelques propriétés supplémentaires. Tous ses sous-treillis sont également distributifs. Il peut être également être considéré comme un graphe médian : pour tout ensemble de trois n\oe uds, il existe un unique n\oe ud d'intersection entre les chemins les plus courts.
-
 \section{Graphe médian}
+
+Un graphe est un diagramme composé de n\oe uds et d'arcs. Pour chaque triplets de n\oe uds, on définie l'ensemble des n\oe uds formant sur les plus courts chemins entre les éléments du triplet. Si pour tous les triplets du graphe cet ensemble ne contient qu'un unique n\oe ud, alors on dit que ce graphe est médian.

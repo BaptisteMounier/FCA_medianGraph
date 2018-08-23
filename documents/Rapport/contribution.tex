@@ -6,7 +6,7 @@ Mon stage s'est déroulé en deux phases. La première consiste à implémenter 
 
 \bigbreak
 
-La toute première question à se poser pour l'implémentation est celle du langage. Le problème n'ayant pas de contraintes particulières je suis partis sur un programme orienté objet en Python. C'est un langage assez répendu et très maléable, ce qui fait de lui un choix basique mais fiable. Choix également renforcé par mon expérience principalement tourné sur du langage objet permettant de m'adaptater plus facilement. Une fois ce choix fait, le plus long a été d'adapter l'algorithme pour sa mise en fonction, cela m'a également permis de le comprendre de mieux en mieux les mécanismes mis en jeu. À ce stade nous obtenons le workflow en figure \ref{workflow_1}. Le programme commence par effectuer l'importation des données d'entrée. Il extrait un contexte pour chaque treillis d'atome et effectue l'algorithme vu précédemment en figure \ref{algo_cla}. Une fois fait, le programme regroupe les contextes en un unique et exporte le résultat sous forme graphique à l'aide de Graphviz\cite{doc_graphviz} à travers sa bibliothèque\cite{doc_python_graphviz}. Nous avons toujours dans cet état le problème sur les cas non triviaux développé plus tôt.
+La toute première question à se poser pour l'implémentation est celle du langage. Le problème n'ayant pas de contraintes particulières je suis partis sur un programme orienté objet en Python. C'est un langage assez répandu et très malléable, ce qui fait de lui un choix basique mais fiable. Choix également renforcé par mon expérience principalement tournée sur du langage objet permettant de m'adapter plus facilement. Une fois ce choix fait, le plus long a été d'adapter l'algorithme pour sa mise en fonction, cela m'a également permis de comprendre de mieux en mieux les mécanismes mis en jeu. À ce stade nous obtenons le workflow en figure \ref{workflow_1}. Le programme commence par effectuer l'importation des données d'entrée. Il extrait un contexte pour chaque treillis formé par les filtres des atomes et effectue l'algorithme vu précédemment en figure \ref{algo_cla}. Une fois fait, le programme regroupe les contextes en un unique et exporte le résultat sous forme graphique à l'aide de Graphviz\cite{doc_graphviz} à travers sa bibliothèque\cite{doc_python_graphviz}. Nous avons toujours dans cet état le problème sur les cas non triviaux développé plus tôt.
 
 \begin{figure}[H]
 	\begin{center}
@@ -32,13 +32,13 @@ La toute première question à se poser pour l'implémentation est celle du lang
 	\label{workflow_1}
 \end{figure}
 
-Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le treillis et des conditions de cette fusion pour en resortir des règles de fusions. Nous allons nous baser sur le cas mis en avant dans \cite{cla2018} avec en figure \ref{cas_cla_base} le treillis de départ. La figure \ref{cas_cla_obtenu} est un rappel du résultat dans l'état actuel et la figure \ref{cas_cla_desiree} est le résultat optimal. On remarque que les points noirs 10 et 12 du résultat obtenu peuvent ne faire qu'un pour obtenir le point 8 du résultat désiré. En regardant également le treillis distributif maximum en figure \ref{cas_cla_max} on a l'intuition qu'il suffit de remplacer les points qu'on souhaite fusionner par leur supremum, cela à été notre point de départ.
+Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le treillis et des conditions de cette fusion pour en ressortir des règles de fusions. Nous allons nous baser sur le cas mis en avant dans \cite{cla2018} avec en figure \ref{cas_cla_base} le treillis de départ. La figure \ref{cas_cla_obtenu} est un rappel du résultat dans l'état actuel et la figure \ref{cas_cla_desiree} est le résultat optimal. On remarque que les points noirs 10 et 12 du résultat obtenu peuvent ne faire qu'un pour obtenir le point 8 du résultat désiré. En regardant également le treillis distributif maximum en figure \ref{cas_cla_max} on a l'intuition qu'il suffit de remplacer les points qu'on souhaite fusionner par leur supremum, cela à été notre point de départ.
 
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
 		\begin{center}
 		\begin{tikzpicture}
-			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 			\node [wnode, label=left:{1}] (1) at (-0.5, 0.5) {};
 			\node [wnode, label=right:{4}] (4) at (0.5, 0.5) {};			
 			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
@@ -46,7 +46,7 @@ Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le t
 			\node [wnode, label=right:{5}] (5) at (1, 1) {};
 			\node [wnode, label=right:{6}] (6) at (1, 1.5) {};			
 			\node [wnode, label=right:{7}] (7) at (0, 1) {};			
-			\node [wnode, label={top}] (top) at (0, 2) {};
+			\node [wnode, label={$\top$}] (top) at (0, 2) {};
 			
 			\path [line] (bot) -- (1);
 			\path [line] (bot) -- (4);			
@@ -67,7 +67,7 @@ Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le t
 	\begin{minipage}{0.5\textwidth}
 		\begin{center}
 		\begin{tikzpicture}
-			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 			\node [wnode, label=left:{1}] (1) at (-0.5, 0.5) {};
 			\node [wnode, label=right:{4}] (4) at (0.5, 0.5) {};			
 			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
@@ -77,7 +77,7 @@ Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le t
 			\node [bnode, label=right:{7}] (7) at (0, 1) {};
 			\node [bnode, label=left:{10}] (10) at (-0.25, 1.5) {};
 			\node [bnode, label=right:{12}] (12) at (0.25, 1.5) {};			
-			\node [wnode, label={top}] (top) at (0, 2) {};
+			\node [wnode, label={$\top$}] (top) at (0, 2) {};
 			
 			\path [line] (bot) -- (1);
 			\path [line] (bot) -- (4);			
@@ -103,7 +103,7 @@ Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le t
 	\begin{minipage}{0.5\textwidth}
 		\begin{center}
 			\begin{tikzpicture}
-				\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+				\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 				\node [wnode, label=left:{1}] (1) at (-0.5, 0.5) {};
 				\node [wnode, label=right:{4}] (4) at (0.5, 0.5) {};
 				\node [wnode, label=left:{2}] (2) at (-1, 1) {};
@@ -112,7 +112,7 @@ Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le t
 				\node [wnode, label=right:{6}] (6) at (1, 1.5) {};
 				\node [bnode, label=right:{7}] (7) at (0, 1) {};
 				\node [bnode, label=right:{8}] (8) at (0, 1.5) {};
-				\node [wnode, label={top}] (top) at (0, 2) {};
+				\node [wnode, label={$\top$}] (top) at (0, 2) {};
 		
 				\path [line] (bot) -- (1);
 				\path [line] (bot) -- (4);
@@ -136,7 +136,7 @@ Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le t
 	\begin{minipage}{0.5\textwidth}
 		\begin{center}
 			\begin{tikzpicture}
-				\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+				\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 				\node [wnode, label=left:{1}] (1) at (-0.5, 0.5) {};
 				\node [wnode, label=left:{2}] (2) at (-1, 1) {};
 				\node [wnode, label=left:{3}] (3) at (-1.5, 1.5) {};
@@ -151,7 +151,7 @@ Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le t
 				\node [wnode, label=right:{}] (13) at (-0.5, 2.5) {};
 				\node [wnode, label=right:{}] (14) at (1, 2) {};
 				\node [wnode, label=right:{}] (15) at (0.5, 2.5) {};
-				\node [wnode, label={top}] (top) at (0, 3) {};
+				\node [wnode, label={$\top$}] (top) at (0, 3) {};
 		
 				\path [line] (bot) -- (1);
 				\path [line] (bot) -- (4);
@@ -190,7 +190,7 @@ Nous avons ensuite travaillé sur cette piste à partir de toute une série de t
 \begin{itemize}
 	\item Les deux n\oe uds à fusionner ne doivent pas faire partis des n\oe uds du treillis de départ.\\
 	Les points 10 et 12 de la figure \ref{cas_cla_obtenu} ne sont pas présent dans la figure \ref{cas_cla_base}.
-	\item Les deux n\oe uds à fusionner doivent être des supremum direct à un n\oe ud présent dans au moins deux filtres d'atomes.\\
+	\item Les deux n\oe uds à fusionner doivent être en couverture d'un n\oe ud présent dans au moins deux filtres d'atomes.\\
 	Les n\oe uds 10 et 12 sont supremum directs du n\oe ud 7 qui est présent dans les filtres de l'atome 1 et de l'atome 4.
 	\item Les deux n\oe uds à fusionner ne doivent pas avoir de n\oe uds en commun dans leurs idéaux une fois que les idéaux du n\oe ud en commun (celui dont il est question dans la condition précédente) leur sont retirés.\\
 	Nous avons $\downarrow \! 10 \setminus \downarrow \! 7 = {2}$ et $\downarrow \! 12 \setminus \downarrow \! 7 = {5}$.
@@ -285,7 +285,7 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 	\caption{Cas cla\_v7 : première itération}
 \end{figure}
 
-À ce stade, plusieurs correctifs ont été envisagé. Le premier est de faire une boucle de traitement où on refait tout le processus tant que tous les treillis d'atome ne sont pas disctributif, c'est la solution utilisé à l'heure actuelle. Le second est de faire une boucle sur tout le c\oe ur du processus et de faire les fusions de n\oe uds à la fin. Cette solution contrairement à la première empêche toute possibilité de cycle dû à la fusion mais donne la plupart du temps le treillis distributif maximal pour chaque atome et la fusion devient par conséquent très compliquée, ce qui donne des treillis bien plus grand que ceux visés. La troisième solution encore théorique consiste à faire les fusions pendant le processus en lui même et de boucler sur l'ensemble tant que des atomes n'ont pas de treillis distributif.
+À ce stade, plusieurs correctifs ont été envisagé. Le premier est de faire une boucle de traitement où on refait tout le processus tant que tous les treillis d'atome ne sont pas disctributif, c'est la solution utilisé à l'heure actuelle. Le second est de faire une boucle sur tout le c\oe ur du processus et de faire les fusions de n\oe uds à la fin. Cette solution contrairement à la première empêche toute possibilité de cycle dû à la fusion mais donne la plupart du temps le treillis distributif maximal pour chaque atome et la fusion devient par conséquent très compliquée, ce qui donne des treillis bien plus grand que ceux visés. La troisième solution encore théorique consiste à faire les fusions pendant le processus en lui même et de boucler sur l'ensemble tant que les sous treillis formés par les filtres des atomes ne sont pas distributif.
 
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
@@ -354,14 +354,14 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 
 \subsection{Système de boucle}
 
-Comme nous l'avons vu précédemment, nous devons boucler sur l'algorithme afin de prendre en considération les cas qui générent un nouvel $N_5$ ou $M_3$ lors de leur première résolution. Cette méthode présenté ici n'est pas utilisé dans le programme mais est une piste intéressante à garder à l'esprit en cas de problèmes futurs. Il s'agit de faire la fusion pas à pas. On execute la méthode cla différemment. On extrait les contextes des treillis des atomes puis on effectue pour chacun d'eux la transformation en contexte de treillis distributif et on l'assemble avec le contexte global et c'est à ce moment où on fait les fusions si besoin avant de passer au contexte du treillis de l'atome suivant. Cette façon de faire peut permettre de gagner du temps sur la phase de la fusion mais en ferra perdre pour l'autre. Je ne peux pas déterminer laquelle est la meilleure à l'heure actuelle, reste à voir si à l'avenir de nouveaux problmes se posent et si cette nouvelle méthode peut apporter des réponses.
+Comme nous l'avons vu précédemment, nous devons boucler sur l'algorithme afin de prendre en considération les cas qui générent un nouvel $N_5$ ou $M_3$ lors de leur première résolution. Cette méthode présentée ici n'est pas utilisé dans le programme mais est une piste intéressante à garder à l'esprit en cas de problèmes futurs. Il s'agit de faire la fusion pas à pas. On execute la méthode cla différemment. On extrait les contextes des treillis des atomes puis on effectue pour chacun d'eux la transformation en contexte de treillis distributif et on l'assemble avec le contexte global et c'est à ce moment où on fait les fusions si besoin avant de passer au contexte du treillis de l'atome suivant. Cette façon de faire peut permettre de gagner du temps sur la phase de la fusion mais en ferra perdre pour l'autre. Je ne peux pas déterminer laquelle est la meilleure à l'heure actuelle, reste à voir si à l'avenir de nouveaux problmes se posent et si cette nouvelle méthode peut apporter des réponses.
 
 \subsection{Le cas des chaines}
 
 Je ne l'ai pas encore détaillé en dehors du workflow mais le programme effectue également une épuration des chaînes qu'il rencontre lorsque le concept courant n'est pas un concept présent dans le treillis d'origine et qu'il ne possède pas plus de un sup et pas plus de un inf. Nous pouvons résumer les conditions de cette façon :
 
 \paragraph*{Condition d'épuration}
-Soit a le n\oe ud qu'on souhaite épurer :
+Soit $a$ le n\oe ud qu'on souhaite épurer :
 \begin{itemize}
 	\item $ a \in J \setminus J_{origine}$
 	\item $\forall x_1, x_2 \in J, b, c \in J\\
@@ -375,7 +375,7 @@ Soit a le n\oe ud qu'on souhaite épurer :
 {\bf TODO: Trouver notation pour il existe un unique b, c}
 \smallbreak
 
-Malheuresement, cette partie n'est pas fiable et résulte principalement d'une intuition basé sur un objectif à atteindre et donnant lieu à un raccourci par rapport à une propriété ou à un traitement non mis à découvert. Ce cas s'est présenté une seule fois jusqu'à présent, sur le cas \guillemotleft{} cla\_v6 \guillemotright{}. L'épuration est effectué au même moment que la fusion. Si on ne l'effectue pas pour ce cas, nous allons boucler et obtenir une solution assez loin de ce qu'on cherche du fait qu'on recommence toute la procedure à cause de la présence d'un $N_5$. C'est sous doute le 1er aspect du programme à garder sous surveillance.
+Malheuresement, cette partie n'est pas fiable et résulte principalement d'une intuition basé sur un objectif à atteindre et donnant lieu à un raccourci par rapport à une propriété ou à un traitement non mis à découvert. Ce cas s'est présenté une seule fois jusqu'à présent, sur le cas \guillemotleft{} cla\_v6 \guillemotright{}. L'épuration est effectué au même moment que la fusion. Si on ne l'effectue pas pour ce cas, nous allons boucler et obtenir une solution assez loin de ce qu'on cherche du fait qu'on recommence toute la procédure à cause de la présence d'un $N_5$. C'est sous doute le 1er aspect du programme à garder sous surveillance.
 
 \begin{figure}[H]
 	\begin{minipage}{0.3\textwidth}

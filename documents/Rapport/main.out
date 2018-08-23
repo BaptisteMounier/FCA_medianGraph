@@ -8,28 +8,25 @@
 \BOOKMARK [1][-]{section.2.4}{Approche : limites}{chapter.2}% 8
 \BOOKMARK [0][-]{chapter.3}{Notions n\351cessaires}{}% 9
 \BOOKMARK [1][-]{section.3.1}{Analyse de Concepts Formels}{chapter.3}% 10
-\BOOKMARK [2][-]{subsection.3.1.1}{Treillis de concept}{section.3.1}% 11
-\BOOKMARK [2][-]{subsection.3.1.2}{Relations fl\350ches}{section.3.1}% 12
-\BOOKMARK [1][-]{section.3.2}{Ensemble ordonn\351}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.3}{Treillis}{chapter.3}% 14
-\BOOKMARK [2][-]{subsection.3.3.1}{Treillis distributif}{section.3.3}% 15
-\BOOKMARK [1][-]{section.3.4}{Graphe m\351dian}{chapter.3}% 16
-\BOOKMARK [0][-]{chapter.4}{Contribution}{}% 17
-\BOOKMARK [1][-]{section.4.1}{Impl\351mentation}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.2}{Probl\350mes et difficult\351s}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.3}{Ouvertures}{chapter.4}% 20
-\BOOKMARK [2][-]{subsection.4.3.1}{Syst\350me de boucle}{section.4.3}% 21
-\BOOKMARK [2][-]{subsection.4.3.2}{Le cas des chaines}{section.4.3}% 22
-\BOOKMARK [2][-]{subsection.4.3.3}{Optimalit\351 du treillis}{section.4.3}% 23
-\BOOKMARK [2][-]{subsection.4.3.4}{Optimisation du programme}{section.4.3}% 24
-\BOOKMARK [0][-]{chapter.5}{Bilan}{}% 25
-\BOOKMARK [1][-]{section.5.1}{Contribution}{chapter.5}% 26
-\BOOKMARK [1][-]{section.5.2}{Stage}{chapter.5}% 27
-\BOOKMARK [-1][-]{part*.29}{Annexes}{}% 28
-\BOOKMARK [0][-]{chapter.6}{Annexe : workflows}{part*.29}% 29
-\BOOKMARK [0][-]{chapter.7}{Annexe : Exemples de cas}{part*.29}% 30
-\BOOKMARK [1][-]{section.7.1}{D\351riv\351 de N5}{chapter.7}% 31
-\BOOKMARK [1][-]{section.7.2}{D\351riv\351 de M3}{chapter.7}% 32
-\BOOKMARK [1][-]{section.7.3}{Cas de H.J. Bandelt}{chapter.7}% 33
-\BOOKMARK [1][-]{section.7.4}{Cas de U. Priss}{chapter.7}% 34
-\BOOKMARK [0][-]{chapter.8}{Annexe : Fichiers d'entr\351 et de sortie}{part*.29}% 35
+\BOOKMARK [1][-]{section.3.2}{Ensemble ordonn\351}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.3}{Treillis}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.4}{Graphe m\351dian}{chapter.3}% 13
+\BOOKMARK [0][-]{chapter.4}{Contribution}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Impl\351mentation}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Probl\350mes et difficult\351s}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.3}{Ouvertures}{chapter.4}% 17
+\BOOKMARK [2][-]{subsection.4.3.1}{Syst\350me de boucle}{section.4.3}% 18
+\BOOKMARK [2][-]{subsection.4.3.2}{Le cas des chaines}{section.4.3}% 19
+\BOOKMARK [2][-]{subsection.4.3.3}{Optimalit\351 du treillis}{section.4.3}% 20
+\BOOKMARK [2][-]{subsection.4.3.4}{Optimisation du programme}{section.4.3}% 21
+\BOOKMARK [0][-]{chapter.5}{Bilan}{}% 22
+\BOOKMARK [1][-]{section.5.1}{Contribution}{chapter.5}% 23
+\BOOKMARK [1][-]{section.5.2}{Stage}{chapter.5}% 24
+\BOOKMARK [-1][-]{part*.29}{Annexes}{}% 25
+\BOOKMARK [0][-]{chapter.6}{Annexe : workflows}{part*.29}% 26
+\BOOKMARK [0][-]{chapter.7}{Annexe : Exemples de cas}{part*.29}% 27
+\BOOKMARK [1][-]{section.7.1}{D\351riv\351 de N5}{chapter.7}% 28
+\BOOKMARK [1][-]{section.7.2}{D\351riv\351 de M3}{chapter.7}% 29
+\BOOKMARK [1][-]{section.7.3}{Cas de H.J. Bandelt}{chapter.7}% 30
+\BOOKMARK [1][-]{section.7.4}{Cas de U. Priss}{chapter.7}% 31
+\BOOKMARK [0][-]{chapter.8}{Annexe : Fichiers d'entr\351 et de sortie}{part*.29}% 32

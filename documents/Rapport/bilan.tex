@@ -8,7 +8,7 @@ Nous cherchions à produire des treillis utilisables sous forme de graphes médi
 
 \smallbreak
 
-Nous avons obtenu un programme permettant de le faire. Il commence par extraire un le contexte initial d'un fichier pour ensuite regarder si tous les treillis des atomes sont distributifs en calculant les relations fléches pour utiliser la propriété que le contexte réduit d'un treillis distributif ne possède uniquement une relation fléche double par ligne et par colonne et aucune autre relations fléches. Si ce n'est pas le cas, nous appliquons une méthode de transformation sur chacun d'eux avant de les remettre en commun dans un unique treillis. À partir de là, nous effectuons la fusion deux à deux de tous les couples de n\oe uds remplissant les conditions suivantes (avec $a$ et $b$ les deux n\oe uds en question) :
+Nous avons obtenu un programme permettant de le faire. Il commence par extraire le contexte initial d'un fichier pour ensuite regarder si tous les treillis des atomes sont distributifs en calculant les relations flèches pour utiliser la propriété que le contexte réduit d'un treillis distributif ne possède uniquement une relation fléche double par ligne et par colonne et aucune autre relations fléches. Si ce n'est pas le cas, nous appliquons une méthode de transformation sur chacun d'eux avant de les remettre en commun dans un unique treillis. À partir de là, nous effectuons la fusion deux à deux de tous les couples de n\oe uds remplissant les conditions suivantes (avec $a$ et $b$ les deux n\oe uds en question) :
 \begin{itemize}
 	\item $a, b \in J \setminus J_{origine}\\
 		a \neq b$
