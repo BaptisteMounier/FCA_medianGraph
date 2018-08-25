@@ -273,7 +273,7 @@ Dans la figure \ref{hasse_filtres_ideaux} nous avons $\uparrow \! a = {a, b, c}$
 
 \section{Treillis}
 
-Un treillis est un ensemble ordonné $(T, \leq)$ sur lequel on définit pour chaque tuple d'éléments un supremum ou borne supérieure noté $\vee$ et un infimum ou borne inférieure noté $\wedge$, on le note $(T, \leq, \vee, \wedge)$. \todo{Comment définir les notions de borne sup et borne inf ?} Pour trois éléments $x, y, z \in P$ tel que $z \leq x$ et $z \leq y$ on peut dire que $x \vee y = z$. Le second est celui d'infimum ou borne inférieure noté $\wedge$. Et de la même façon pour trois éléments $x, y, z \in P$ tel que $x \leq z$ et $y \leq z$ on peut dire que $x \wedge y = z$. Lorsqu'un élément est la borne supérieure (resp. inférieure) de tous les autres éléments on dit qu'il ferme le treillis par les supremums (resp. infimums), on note cet élément $\top$ (resp.$\bot$).
+Un treillis est un ensemble ordonné $(T, \leq)$ sur lequel on définit pour chaque tuple d'éléments un supremum ou borne supérieure noté $\vee$ et un infimum ou borne inférieure noté $\wedge$, on le note $(T, \leq, \vee, \wedge)$. Pour trois éléments $x, y, z \in P$ tel que $z \leq x$ et $z \leq y$ on peut dire que $x \vee y = z$. Le second est celui d'infimum ou borne inférieure noté $\wedge$. Et de la même façon pour trois éléments $x, y, z \in P$ tel que $x \leq z$ et $y \leq z$ on peut dire que $x \wedge y = z$. Lorsqu'un élément est la borne supérieure (resp. inférieure) de tous les autres éléments on dit qu'il ferme le treillis par les supremums (resp. infimums), on note cet élément $\top$ (resp.$\bot$).
 
 \begin{definition}[Treillis]
 Soit un treillis $(T, \leq, \vee, \wedge)$ :
@@ -442,4 +442,50 @@ Un treillis $(T, \leq, \vee, \wedge)$ est distributif si et seulement si au moin
 
 \section{Graphe médian}
 
-Un graphe est un diagramme composé de n\oe uds et d'arcs. Pour chaque triplets de n\oe uds, on définie l'ensemble des n\oe uds formant sur les plus courts chemins entre les éléments du triplet. Si pour tous les triplets du graphe cet ensemble ne contient qu'un unique n\oe ud, alors on dit que ce graphe est médian.
+Un graphe est un diagramme composé de n\oe uds et d'arcs. Pour chaque triplets de n\oe uds, on définie l'ensemble des n\oe uds formant sur les plus courts chemins entre les éléments du triplet. Si pour tous les triplets du graphe cet ensemble ne contient qu'un unique n\oe ud, noté n\oe ud médian, alors on dit que ce graphe est médian. Considérons deux graphes construit à partir de $N_5$ en figure \ref{graphe_n5} et $M_3$ en figure \ref{graphe_m3}.
+
+\smallbreak
+
+Nous pouvons voir que sur le premier qu'il y a pas de n\oe ud médian pour le triplet \{1, 2, 3\}. Le n\oe ud 1 est présent sur une partie des chemins les plus courts, (1 $\rightarrow$ 3) et (1 $\rightarrow$ $\bot$ $\rightarrow$ 2) tandis que le n\oe ud 3 est présent sur les chemins les plus courts (1 $\rightarrow$ 3) et (3 $\rightarrow$ $\top$ $\rightarrow$ 2). Tandis que sur le second, nous avons deux n\oe uds médians pour le triplet {1, 2, 3}. Le n\oe ud $\top$ est présent sur tous les chemins les plus courts (1 $\rightarrow$ $\top$ $\rightarrow$ 2), (1 $\rightarrow$ $\top$ $\rightarrow$ 3) et (2 $\rightarrow$ $\top$ $\rightarrow$ 3). Mais le n\oe ud $\bot$ est lui aussi présent sur tous les chemins les plus courts (1 $\rightarrow$ $\bot$ $\rightarrow$ 2), (1 $\rightarrow$ $\bot$ $\rightarrow$ 3) et (2 $\rightarrow$ $\bot$ $\rightarrow$ 3).
+
+\begin{figure}[H]
+	\begin{minipage}[t]{0.5\textwidth}
+		\begin{center}
+			\begin{tikzpicture}
+				\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+				\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+				\node [wnode, label=right:{2}] (2) at (1, 1) {};
+				\node [bnode, label=left:{3}] (3) at (-1, 2) {};
+				\node [wnode, label={$\top$}] (top) at (0, 3) {};
+
+				\path [line] (bot) -- (1);
+				\path [line] (bot) -- (2);
+				\path [line] (1) -- (3);
+				\path [line] (2) -- (top);
+				\path [line] (3) -- (top);
+			\end{tikzpicture}
+		\end{center}
+		\caption{Graphe construit à partir de $N_5$}
+		\label{graphe_n5}
+	\end{minipage}
+	\begin{minipage}[t]{0.5\textwidth}
+		\begin{center}
+			\begin{tikzpicture}
+				\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+				\node [bnode, label=right:{1}] (1) at (-1.5, 1.5) {};
+				\node [bnode, label=right:{2}] (2) at (0, 1.5) {};
+				\node [bnode, label=right:{3}] (3) at (1.5, 1.5) {};
+				\node [wnode, label={$\top$}] (top) at (0, 3) {};
+
+				\path [line] (bot) -- (1);
+				\path [line] (bot) -- (2);
+				\path [line] (bot) -- (3);
+				\path [line] (1) -- (top);
+				\path [line] (2) -- (top);
+				\path [line] (3) -- (top);
+			\end{tikzpicture}
+		\end{center}
+		\caption{Graphe construit à partir de $M_3$}
+		\label{graphe_m3}
+	\end{minipage}
+\end{figure}

@@ -6,7 +6,7 @@ Le stage s'est déroulé en deux phases. La première consistait à implémenter
 
 \bigbreak
 
-La toute première question à se poser pour l'implémentation est celle du langage. Le problème n'ayant pas de contraintes particulières je suis partis sur un programme orienté objet en Python. C'est un langage assez répandu et très malléable, ce qui fait de lui un choix basique mais fiable. Choix également renforcé par mon expérience principalement tournée sur du langage objet permettant de m'adapter plus facilement. Une fois ce choix fait, le plus long a été d'adapter l'algorithme pour sa mise en fonction, cela m'a également permis de comprendre de mieux en mieux les mécanismes mis en jeu. À ce stade nous obtenons le workflow en figure \ref{workflow_1}. Le programme commence par effectuer l'importation des données d'entrée. Il extrait un contexte pour chaque treillis formé par les filtres des atomes et effectue l'algorithme vu précédemment en figure \ref{algo_cla}. Une fois fait, le programme regroupe les contextes en un unique et exporte le résultat sous forme graphique à l'aide de Graphviz\cite{doc_graphviz} à travers sa bibliothèque\cite{doc_python_graphviz}. Nous avons toujours dans cet état le problème sur les cas non triviaux développé plus tôt.
+La toute première question à se poser pour l'implémentation est celle du langage. Le problème n'ayant pas de contraintes particulières je suis partis sur un programme orienté objet en Python. C'est un langage assez répandu et très malléable, ce qui fait de lui un choix basique mais fiable. Choix également renforcé par mon expérience principalement tournée sur du langage objet permettant de m'adapter plus facilement. Une fois ce choix fait, le plus long a été d'adapter l'algorithme pour sa mise en fonction, cela m'a également permis de comprendre de mieux en mieux les mécanismes mis en jeu. À ce stade nous obtenons le workflow en figure \ref{workflow_1}. Le programme commence par effectuer l'importation des données d'entrée. Il extrait un contexte pour chaque treillis formé par les filtres des atomes et effectue l'algorithme vu précédemment en figure \ref{algo_cla}. Une fois fait, le programme regroupe les contextes en un unique et exporte le résultat sous forme graphique à l'aide de Graphviz\cite{doc_graphviz} à travers sa bibliothèque\cite{doc_python_graphviz}. De plus nous effectuons une exportation sous forme de matrice binaire pour ConExp\cite{conexp}, une application permettant de générer les treillis. Nous avons toujours dans cet état le problème sur les cas non triviaux développé plus tôt.
 
 \begin{figure}[H]
 	\begin{center}
@@ -184,19 +184,25 @@ Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le t
 	\end{minipage}
 \end{figure}
 
-Nous avons ensuite travaillé sur cette piste à partir de toute une série de treillis qui se trouve en annexe 2\footnote{revoir la réf aux annexes} ayant chacun ses spécificités. À chaque résultat déviant du résultat souhaité sur l'un des cas, nous avons effectué un ajustement des conditions de fusion des n\oe uds tout en vérifiant le bon fonctionnement sur les cas déjà traités. Nous sommes arrivés à trois conditions.
+Nous avons ensuite travaillé sur cette piste à partir de toute une série de treillis qui se trouve en annexe \ref{exemplescas} ayant chacun ses spécificités. À chaque résultat déviant du résultat souhaité sur l'un des cas, nous avons effectué un ajustement des conditions de fusion des n\oe uds tout en vérifiant le bon fonctionnement sur les cas déjà traités. Nous sommes arrivés à trois conditions.
 
-\paragraph*{Conditions de fusion}
+\begin{definition}[Conditions de fusion]
+Soit $a$ et $b$ les deux n\oe uds à fusionner, le contexte actuel $C(J, M, I)$, le contexte de départ $C_o(J_o, M_o, I_o)$ et $X$ l'ensemble des atomes de $C$ :
 \begin{itemize}
 	\item Les deux n\oe uds à fusionner ne doivent pas faire partis des n\oe uds du treillis de départ.\\
-	Les points 10 et 12 de la figure \ref{cas_cla_obtenu} ne sont pas présent dans la figure \ref{cas_cla_base}.
+	$a, b \in J \setminus J_o : a \neq b$
 	\item Les deux n\oe uds à fusionner doivent être en couverture d'un n\oe ud présent dans au moins deux filtres d'atomes.\\
-	Les n\oe uds 10 et 12 sont supremum directs du n\oe ud 7 qui est présent dans les filtres de l'atome 1 et de l'atome 4.
+	$Pour (x_1, x_2 \in X$ avec $x_1 \neq x_2)$, $\exists c \in J : a' \subseteq c' \subseteq x_1'$ et $b' \subseteq c' \subseteq x_2'$
 	\item Les deux n\oe uds à fusionner ne doivent pas avoir de n\oe uds en commun dans leurs idéaux une fois que les idéaux du n\oe ud en commun (celui dont il est question dans la condition précédente) leur sont retirés.\\
-	Nous avons $\downarrow \! 10 \setminus \downarrow \! 7 = {2}$ et $\downarrow \! 12 \setminus \downarrow \! 7 = {5}$.
+	$(\downarrow \! a$ $\cap \downarrow \! b) \setminus \downarrow \! c = \emptyset$
 \end{itemize}
+\end{definition}
 
-Avec la mise en place de la fusion des n\oe uds, nous obtenons un nouveau workflow en figure \ref{workflow_2}.
+Nous pouvons l'illustrer sur les figures précédentes. Les n\oe uds 10 et 12 de la figure \ref{cas_cla_obtenu} ne sont pas présent dans la figure \ref{cas_cla_base}, ils ne font donc pas partis du treillis de départ. Ces deux n\oe uds sont également en couverture du n\oe ud 7 qui est présent dans les filtres de l'atome 1 et de l'atome 4. Et pour finir, nous avons $\downarrow \! 10$ $\cap \downarrow \! 12 = {7, 1, 4, \bot}$ et $\downarrow \! 7 = {7, 1, 4, \bot}$ donc $(\downarrow \! 10$ $\cap \downarrow \! 12) \setminus \downarrow \! 7 = \emptyset$.
+
+\bigbreak
+
+Avec la mise en place de cette fusion des n\oe uds, nous obtenons un nouveau workflow détaillé en figures \ref{workflow_2} et \ref{workflow_algo}.
 
 \begin{figure}[H]
 	\begin{center}
@@ -224,22 +230,81 @@ Avec la mise en place de la fusion des n\oe uds, nous obtenons un nouveau workfl
 	\label{workflow_2}
 \end{figure}
 
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}[node distance = 0.5cm, auto]
+			% Place nodes
+			\node [inout] (start) {début};
+			\node [inout, right = of start] (end) {fin};
+			\node [algorithm, below = of end] (eachatom) {pour chaque atome};
+			\node [block, right = of eachatom] (extract) {extraction};
+			\node [block, below = of eachatom] (assemble) {assemblage};
+			\node [block, right = of assemble] (distrib) {distributivité};
+			% Draw edges
+			\path [line2] (start) |- (eachatom);
+			\path [line2] (eachatom) -- (end);
+			\path [line2] (eachatom) -- (extract);
+			\path [line2] (extract) -- (distrib);
+			\path [line2] (assemble) -- (eachatom);
+			\path [line2] (distrib) -- (assemble);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Sous worflow correspondant au bloque \guillemotleft{} algorithme \guillemotright{}}
+	\label{workflow_algo}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}[node distance = 1cm, auto]
+			% Place nodes
+			\node [inout] (start) {début};
+			\node [inout, right = of start] (end) {fin};
+			\node [algorithm, below = of end] (each_concept) {pour chaque concept};
+			\node [decision, right = of each_concept] (multiple_atoms) {$\in$ filtres de plusieurs atomes ?};
+			\node [decision, right = of multiple_atoms] (multiple_sups) {couverture non présente dans la base ?};
+			\node [decision, above = of multiple_sups] (unique_sup_inf) {max 1 sup and strict 1 inf?};
+			\node [block, left = of unique_sup_inf] (merge_inf) {merge with inf};
+			\node [decision, below = of multiple_atoms] (different_atom) {tuple in different atoms source?};
+			\node [algorithm, right = of different_atom] (each_tuples) {for each tuple in sups};
+			\node [block, left = of different_atom] (merge) {merge tuple};
+			% Draw edges
+			\path [line2] (start) |- (each_concept);
+			\path [line2] (each_concept) -- (end);
+			\path [line2] (each_concept) --  node {loop}(multiple_atoms);
+			\path [line2] (multiple_atoms) --  node [very near start] {yes}(multiple_sups);
+			\path [line2] (multiple_atoms.south) -| node [very near start] {no}(each_concept);
+			\path [line2] (multiple_sups) --  node [near start] {yes}(each_tuples);
+			\path [line2] (multiple_sups) -- node [near start] {no}(unique_sup_inf);
+			\path [line2] (unique_sup_inf) -- node {yes}(merge_inf);
+			\path [line2] (unique_sup_inf) -- node [very near start] {no}(each_concept.40);
+			\path [line2] (merge_inf) -- (each_concept);
+			\path [line2] (each_tuples) -- (each_concept);
+			\path [line2] (each_tuples) -- node {loop}(different_atom);
+			\path [line2] (different_atom) --  node [near start] {yes}(merge);
+			\path [line2] (different_atom.south) -| node [very near start] {no}(each_tuples);
+			\path [line2] (merge.130) --  (each_concept.230);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Sous worflow correspondant au bloque \guillemotleft{} fusion \guillemotright{}}
+	\label{workflow_algo}
+\end{figure}
+
 \section{Problèmes et difficultés}
 
-Nous avons rencontré un problème qui porte sur des cas où un passage complet de la méthode avec post traitement de fusion ne suffit pas. La fusion recréant une situation avec des treillis d'atomes non distributif et demandant donc de refaire un passage dans tout le processus.
+Nous avons rencontré un problème qui porte sur des cas où un passage complet de la méthode avec post traitement de fusion ne suffit pas, ce cas est présenté sur la figure \ref{clav7_1}. La fusion recréant une situation avec des treillis d'atomes non distributif et demandant donc de refaire un passage dans tout le processus.
 
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
 	\begin{center}
 		\begin{tikzpicture}
-			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 			\node [bnode, label=right:{1}] (1) at (1, 1) {};
 			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
 			\node [bnode, label=right:{3}] (3) at (0, 2) {};
 			\node [bnode, label=right:{4}] (4) at (2, 2) {};
 			\node [wnode, label=left:{5}] (5) at (-2, 2) {};
 			\node [bnode, label=right:{6}] (6) at (2, 3) {};
-			\node [bnode, label={top}] (top) at (0, 4) {};
+			\node [bnode, label={$\top$}] (top) at (0, 4) {};
 		
 			\path [line] (bot) -- (1);
 			\path [line] (bot) -- (2);
@@ -257,7 +322,7 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 	\begin{minipage}{0.5\textwidth}
 	\begin{center}
 		\begin{tikzpicture}
-			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 			\node [wnode, label=right:{1}] (1) at (1, 1) {};
 			\node [bnode, label=left:{2}] (2) at (-1, 1) {};
 			\node [bnode, label=right:{3}] (3) at (0, 2) {};
@@ -265,7 +330,7 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 			\node [bnode, label=left:{5}] (5) at (-2, 2) {};
 			\node [wnode, label=right:{6}] (6) at (2, 3) {};
 			\node [bnode, label=right:{}] (7) at (0, 3) {};
-			\node [bnode, label={top}] (top) at (0, 4) {};
+			\node [bnode, label={$\top$}] (top) at (0, 4) {};
 		
 			\path [line] (bot) -- (1);
 			\path [line] (bot) -- (2);
@@ -283,15 +348,16 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 	\end{center}
 	\end{minipage}
 	\caption{Cas cla\_v7 : première itération}
+	\label{clav7_1}
 \end{figure}
 
-À ce stade, plusieurs correctifs ont été envisagé. Le premier est de faire une boucle de traitement où on refait tout le processus tant que tous les treillis d'atome ne sont pas disctributif, c'est la solution utilisé à l'heure actuelle. Le second est de faire une boucle sur tout le c\oe ur du processus et de faire les fusions de n\oe uds à la fin. Cette solution contrairement à la première empêche toute possibilité de cycle dû à la fusion mais donne la plupart du temps le treillis distributif maximal pour chaque atome et la fusion devient par conséquent très compliquée, ce qui donne des treillis bien plus grand que ceux visés. La troisième solution encore théorique consiste à faire les fusions pendant le processus en lui même et de boucler sur l'ensemble tant que les sous treillis formés par les filtres des atomes ne sont pas distributif.
+À ce stade, plusieurs correctifs ont été envisagé. Le premier est de faire une boucle de traitement où on refait tout le processus tant que tous les treillis d'atome ne sont pas disctributif, comme le montre la figure \ref{clav7_2} représentant la seconde itération, c'est la solution utilisé à l'heure actuelle. 
 
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
 	\begin{center}
 		\begin{tikzpicture}
-			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 			\node [wnode, label=right:{1}] (1) at (1, 1) {};
 			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
 			\node [wnode, label=right:{3}] (3) at (0, 2) {};
@@ -299,7 +365,7 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 			\node [wnode, label=left:{5}] (5) at (-2, 2) {};
 			\node [wnode, label=right:{6}] (6) at (2, 3) {};
 			\node [bnode, label=right:{}] (7) at (0, 3) {};
-			\node [wnode, label={top}] (top) at (0, 4) {};
+			\node [wnode, label={$\top$}] (top) at (0, 4) {};
 			\node [bnode, label=left:{}] (8) at (-2, 3) {};
 		
 			\path [line] (bot) -- (1);
@@ -322,7 +388,7 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 	\begin{minipage}{0.5\textwidth}
 	\begin{center}
 		\begin{tikzpicture}
-			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 			\node [wnode, label=right:{1}] (1) at (1, 1) {};
 			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
 			\node [wnode, label=right:{3}] (3) at (0, 2) {};
@@ -330,7 +396,7 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 			\node [wnode, label=left:{5}] (5) at (-2, 2) {};
 			\node [wnode, label=right:{6}] (6) at (2, 3) {};
 			\node [bnode, label=right:{}] (7) at (0, 3) {};
-			\node [wnode, label={top}] (top) at (0, 4) {};
+			\node [wnode, label={$\top$}] (top) at (0, 4) {};
 		
 			\path [line] (bot) -- (1);
 			\path [line] (bot) -- (2);
@@ -348,13 +414,75 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 	\end{center}
 	\end{minipage}
 	\caption{Cas cla\_v7 : seconde itération}
+	\label{clav7_2}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}[node distance = 0.5cm, auto]
+			% Place nodes
+			\node [inout] (start) {début};
+			\node [inout, right = of start] (end) {fin};
+			\node [block, below = of start] (import) {importation};
+			\node [block, right = of import] (export) {exportation};
+			\node [decision, below = of import] (median) {médian ?};
+			\node [block, left = of median] (extract) {extraction};
+			\node [block, below = of extract] (algo) {algorithme};
+			\node [block, below = of algo] (commun) {remise en commun};
+			\node [block, right = of commun] (fusion) {fusion};
+			% Draw edges
+			\path [line2] (start) -- (import);
+			\path [line2] (export) -- (end);
+			\path [line2] (import) -- (median);
+			\path [line2] (median) -- (extract);
+			\path [line2] (extract) -- (algo);
+			\path [line2] (fusion) -- (median);
+			\path [line2] (algo) -- (commun);
+			\path [line2] (median) -| (export);
+			\path [line2] (commun) -- (fusion);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Worflow de la version du programme incluant la boucle}
+	\label{workflow_boucle}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}[node distance = 0.5cm, auto]
+			% Place nodes
+			\node [inout] (start) {début};
+			\node [block, below = of start] (extract) {extraction};
+			\node [algorithm, below = of extract] (eachatom) {pour chaque atome};
+			\node [inout, right = of eachatom] (end) {fin};
+			\node [block, left = of eachatom] (arrow) {relations flèches};
+			\node [algorithm, below = of eachatom] (distributif) {distributif ?};
+			% Draw edges
+			\path [line2] (start) -- (extract);
+			\path [line2] (extract) -- (median);
+			\path [line2] (eachatom) -- (arrow);
+			\path [line2] (arrow) |- (distributif);
+			\path [line2] (distributif) -- (eachatom);
+			\path [line2] (eachatom) -- (end);
+			\path [line2] (distributif) -| (end);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Sous worflow correspondant au bloque \guillemotleft{} médian ? \guillemotright{}}
+	\label{workflow_median}
 \end{figure}
 
 \section{Ouvertures}
 
 \subsection{Système de boucle}
 
-Comme nous l'avons vu précédemment, nous devons boucler sur l'algorithme afin de prendre en considération les cas qui générent un nouvel $N_5$ ou $M_3$ lors de leur première résolution. Cette méthode présentée ici n'est pas utilisé dans le programme mais est une piste intéressante à garder à l'esprit en cas de problèmes futurs. Il s'agit de faire la fusion pas à pas. On execute la méthode cla différemment. On extrait les contextes des treillis des atomes puis on effectue pour chacun d'eux la transformation en contexte de treillis distributif et on l'assemble avec le contexte global et c'est à ce moment où on fait les fusions si besoin avant de passer au contexte du treillis de l'atome suivant. Cette façon de faire peut permettre de gagner du temps sur la phase de la fusion mais en ferra perdre pour l'autre. Je ne peux pas déterminer laquelle est la meilleure à l'heure actuelle, reste à voir si à l'avenir de nouveaux problmes se posent et si cette nouvelle méthode peut apporter des réponses.
+Comme nous l'avons vu précédemment, nous devons boucler sur l'algorithme afin de prendre en considération les cas qui générent un nouvel $N_5$ ou $M_3$ lors de leur première résolution. Les méthodes présentées ici ne sont pas utilisées dans le programme mais sont des pistes intéressantes à garder à l'esprit en cas de problèmes futurs.
+
+\smallbreak
+
+Pour la première, il s'agit de faire la fusion pas à pas. On execute la méthode cla différemment. On extrait les contextes des treillis des atomes puis on effectue pour chacun d'eux la transformation en contexte de treillis distributif et on l'assemble avec le contexte global et c'est à ce moment où on fait les fusions si besoin avant de passer au contexte du treillis de l'atome suivant. Cette façon de faire peut permettre de gagner du temps sur la phase de la fusion mais en ferra perdre lors de l'étape de transformation en treillis distributif. Je ne peux pas déterminer laquelle est la meilleure à l'heure actuelle, reste à voir si à l'avenir de nouveaux problèmes se posent et si cette nouvelle méthode peut apporter des réponses.
+
+\smallbreak
+
+La seconde est de faire une boucle sur tout le c\oe ur du processus et de faire les fusions de n\oe uds à la fin. Cette solution contrairement à la première empêche toute possibilité de cycle dû à la fusion mais donne la plupart du temps le treillis distributif maximal pour chaque atome et la fusion devient par conséquent très compliquée, ce qui donne des treillis bien plus grand que ceux visés.
 
 \subsection{Le cas des chaines}
 
@@ -381,7 +509,7 @@ Malheuresement, cette partie n'est pas fiable et résulte principalement d'une i
 	\begin{minipage}{0.3\textwidth}
 	\begin{center}
 		\begin{tikzpicture}
-			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 			\node [bnode, label=left:{1}] (1) at (-0.5, 1) {};
 			\node [bnode, label=right:{2}] (2) at (0.5, 1) {};
 			\node [bnode, label=left:{3}] (3) at (-1, 2) {};
@@ -391,7 +519,7 @@ Malheuresement, cette partie n'est pas fiable et résulte principalement d'une i
 			\node [bnode, label=right:{6}] (6) at (1, 3) {};
 			\node [wnode, label=left:{7}] (7) at (-1, 4) {};
 			\node [bnode, label=left:{}] (F) at (0, 4) {};
-			\node [bnode, label={top}] (top) at (0, 5) {};
+			\node [bnode, label={$\top$}] (top) at (0, 5) {};
 		
 			\path [line] (bot) -- (1);
 			\path [line] (bot) -- (2);
@@ -415,7 +543,7 @@ Malheuresement, cette partie n'est pas fiable et résulte principalement d'une i
 	\begin{minipage}{0.3\textwidth}
 	\begin{center}
 		\begin{tikzpicture}
-			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
 			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
 			\node [wnode, label=left:{3}] (3) at (-1, 2) {};
@@ -425,7 +553,7 @@ Malheuresement, cette partie n'est pas fiable et résulte principalement d'une i
 			\node [wnode, label=right:{6}] (6) at (1, 3) {};
 			\node [bnode, label=left:{7}] (7) at (-1, 4) {};
 			\node [bnode, label=left:{}] (F) at (0, 4) {};
-			\node [bnode, label={top}] (top) at (0, 6) {};
+			\node [bnode, label={$\top$}] (top) at (0, 6) {};
 			\node [wnode, label=right:{}] (G) at (0, 3) {};
 			\node [bnode, label=right:{}] (H) at (0, 5) {};
 		
@@ -455,7 +583,7 @@ Malheuresement, cette partie n'est pas fiable et résulte principalement d'une i
 	\begin{minipage}{0.4\textwidth}
 	\begin{center}
 		\begin{tikzpicture}
-			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
 			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
 			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
 			\node [wnode, label=left:{3}] (3) at (-1, 2) {};
@@ -465,7 +593,7 @@ Malheuresement, cette partie n'est pas fiable et résulte principalement d'une i
 			\node [wnode, label=right:{6}] (6) at (1, 3) {};
 			\node [wnode, label=left:{7}] (7) at (-1, 4) {};
 			\node [wnode, label=left:{}] (F) at (0, 4) {};
-			\node [wnode, label={top}] (top) at (0, 8) {};
+			\node [wnode, label={$\top$}] (top) at (0, 8) {};
 			\node [wnode, label=right:{}] (G) at (0, 3) {};
 			\node [bnode, label=right:{}] (8) at (0, 5) {};
 			\node [bnode, label=right:{}] (9) at (0, 6) {};

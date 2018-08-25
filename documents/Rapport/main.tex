@@ -34,6 +34,7 @@
 \usetikzlibrary{shapes,arrows, positioning}
 \usepackage{todonotes}
 \usepackage[ruled,vlined]{algorithm2e}
+\usepackage{appendix}
 
 \newtheorem{definition}{Définition}
 
@@ -57,10 +58,10 @@ pdfstartview={FitH}}					% ajuste la page à la largueur de l'écran
 \tikzstyle{wnode} = [circle, draw, inner sep = 2pt]
 \tikzstyle{line} = [draw]
 \tikzstyle{block2} = [rectangle, draw, text width = 5em, text centered, minimum height = 3em]
-\tikzstyle{decision} = [diamond, draw, fill = green!20, text width = 5em, text badly centered, inner sep = 0pt]
-\tikzstyle{block} = [rectangle, draw, fill = blue!20, text width = 5em, text centered, rounded corners, minimum height = 3em]
-\tikzstyle{algorithm} = [rectangle, draw, fill = green!20, text width = 5em, text centered, rounded corners, minimum height = 3em]
-\tikzstyle{inout} = [rectangle, draw, fill = red!20, text width = 5em, text centered, minimum height = 3em]
+\tikzstyle{decision} = [diamond, draw, fill = green!20, text width = 6em, text badly centered, inner sep = 0pt]
+\tikzstyle{block} = [rectangle, draw, fill = blue!20, text width = 6em, text centered, rounded corners, minimum height = 3em]
+\tikzstyle{algorithm} = [rectangle, draw, fill = green!20, text width = 6em, text centered, rounded corners, minimum height = 3em]
+\tikzstyle{inout} = [rectangle, draw, fill = red!20, text width = 6em, text centered, minimum height = 3em]
 \tikzstyle{cloud} = [ellipse, draw, fill = red!20, minimum height=2em]
 \tikzstyle{line2} = [draw, -latex']
 \tikzstyle{my below of} = [below=of #1.south]
@@ -115,7 +116,7 @@ pdfstartview={FitH}}					% ajuste la page à la largueur de l'écran
 
 \input{./annexes.tex}
 
-\input{./archives.tex}
+%\input{./archives.tex}
 
 \newpage
 
@@ -128,6 +129,6 @@ pdfstartview={FitH}}					% ajuste la page à la largueur de l'écran
 \bibliography{bibliographie}
 % Voir wiki pour plus d'information sur la syntaxe des entrées d'une bibliographie
 
-\listoftodos
+%\listoftodos
 
 \end{document}
