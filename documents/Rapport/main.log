@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.11.21)  24 AUG 2018 23:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.11.21)  25 AUG 2018 13:09
 entering extended mode
 **./main.tex
 (main.tex
@@ -973,13 +973,13 @@ LaTeX Info: Redefining \nameref on input line 73.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-(title.tex <title/logo_UL.jpg, id=138, 242.9075pt x 84.315pt>
+(title.tex <title/logo_UL.jpg, id=158, 242.9075pt x 84.315pt>
 File: title/logo_UL.jpg Graphic file (type jpg)
 
 <use title/logo_UL.jpg>
 Package pdftex.def Info: title/logo_UL.jpg used on input line 7.
 (pdftex.def)             Requested size: 145.10683pt x 50.3668pt.
- <title/logo_inria.jpg, id=139, 310.761pt x 135.8676pt>
+ <title/logo_inria.jpg, id=159, 310.761pt x 135.8676pt>
 File: title/logo_inria.jpg Graphic file (type jpg)
 
 <use title/logo_inria.jpg>
@@ -1037,11 +1037,9 @@ Overfull \hbox (2.22168pt too wide) in paragraph at lines 43--86
 []$[]$ $[]$ 
  []
 
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 90.
 [2
 
-]) [3] (notions.tex [4]
+] [3]) (notions.tex [4]
 Chapitre 3.
 
 Overfull \hbox (4.74736pt too wide) in paragraph at lines 21--22
@@ -1070,50 +1068,75 @@ Overfull \hbox (98.95956pt too wide) in paragraph at lines 162--214
 []$[]$ $[]$ 
  []
 
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 276.
 [7]
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 297--327
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 299--329
 []$[]$ $[]$ 
  []
 
 
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 344--384
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 346--386
 []$[]$ $[]$ 
  []
 
 
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 400--437
+LaTeX Warning: Reference `n5' on page 8 undefined on input line 390.
+
+
+LaTeX Warning: Reference `m3' on page 8 undefined on input line 390.
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 402--441
 [][] [] 
  []
 
 [8]) (existant.tex [9]
 Chapitre 4.
 
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 10--91
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 6--87
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 98--139
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 92--123
 []$[]$ $[]$ 
  []
 
 [10
 
 ]
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 148--179
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 158--186
 []$[]$ $[]$ 
  []
 
 
-Overfull \hbox (2.22166pt too wide) in paragraph at lines 184--242
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 192--222
 []$[]$ $[]$ 
  []
 
-[11] [12]) (contribution.tex [13]
+[11]
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 226--256
+[]$[]$ $[]$ 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 260--290
+[]$[]$ $[]$ 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 296--327
+[]$[]$ $[]$ 
+ []
+
+
+Overfull \hbox (2.22166pt too wide) in paragraph at lines 333--391
+[]$[]$ $[]$ 
+ []
+
+[12] [13]) (contribution.tex [14]
 Chapitre 5.
-
-LaTeX Warning: Reference `algo_cla' on page 14 undefined on input line 9.
-
 
 Overfull \hbox (1.97174pt too wide) in paragraph at lines 17--17
  [][][][]\T1/cmr/m/n/10 importation 
@@ -1134,7 +1157,7 @@ Overfull \hbox (2.22168pt too wide) in paragraph at lines 38--185
 []$ $[]$ 
  []
 
-[14
+[15
 
 ]
 Overfull \hbox (1.97174pt too wide) in paragraph at lines 207--207
@@ -1146,7 +1169,7 @@ Overfull \hbox (0.58319pt too wide) in paragraph at lines 208--208
  [][][][]\T1/cmr/m/n/10 exportation 
  []
 
-[15]
+[16]
 Overfull \hbox (2.22168pt too wide) in paragraph at lines 232--285
 []$[]$ $[]$ 
  []
@@ -1156,16 +1179,16 @@ Overfull \hbox (2.22168pt too wide) in paragraph at lines 291--350
 []$[]$ $[]$ 
  []
 
-[16]
+[17]
 Overfull \hbox (4.44334pt too wide) in paragraph at lines 381--502
 []$[]$ $[]$ $[]$ 
  []
 
-) (bilan.tex [17]
+) (bilan.tex [18]
 Chapitre 6.
-) (annexes.tex [18
+) (annexes.tex [19
 
-] [19
+] [20
 
 ] (annexe_workflows.tex
 Chapitre 7.
@@ -1194,9 +1217,9 @@ Overfull \hbox (2.22168pt too wide) in paragraph at lines 90--119
 []$[]$ $[]$ 
  []
 
-[20
+[21
 
-]) (annexe_cas.tex [21]
+]) (annexe_cas.tex [22]
 Chapitre 8.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -1230,7 +1253,7 @@ Overfull \hbox (2.22168pt too wide) in paragraph at lines 261--367
 []$[]$ $[]$ 
  []
 
-[22
+[23
 
 ]
 Overfull \hbox (2.22168pt too wide) in paragraph at lines 371--441
@@ -1259,7 +1282,7 @@ Overfull \hbox (2.22168pt too wide) in paragraph at lines 505--585
 []$[]$ $[]$ 
  []
 
-[23]
+[24]
 Overfull \hbox (2.22168pt too wide) in paragraph at lines 589--660
 []$[]$ $[]$ 
  []
@@ -1274,7 +1297,7 @@ Overfull \hbox (2.22168pt too wide) in paragraph at lines 725--814
 []$[]$ $[]$ 
  []
 
-[24]
+[25]
 Overfull \hbox (2.22168pt too wide) in paragraph at lines 820--899
 []$[]$ $[]$ 
  []
@@ -1284,7 +1307,7 @@ Overfull \hbox (2.22168pt too wide) in paragraph at lines 903--990
 []$[]$ $[]$ 
  []
 
-<priss2013-table01.pdf, id=443, 1481.535pt x 779.91376pt>
+<priss2013-table01.pdf, id=470, 1481.535pt x 779.91376pt>
 File: priss2013-table01.pdf Graphic file (type pdf)
 
 <use priss2013-table01.pdf>
@@ -1295,27 +1318,81 @@ Overfull \hbox (34.84814pt too wide) in paragraph at lines 996--997
 [][] 
  []
 
-) [25] (annexe_inputoutput.tex [26 <./priss2013-table01.pdf>]
+) [26] (annexe_inputoutput.tex [27 <./priss2013-table01.pdf>]
 Chapitre 9.
 
 Overfull \hbox (2.22168pt too wide) in paragraph at lines 19--44
 []$[]$ $[]$ 
  []
 
-)) [27
+)) (archives.tex [28
 
-] (main.bbl
+] [29
+
+]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 3.
+
+[30]
+Chapitre 10.
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 38--88
+[]$[]$ $[]$ 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 94--116
+[]$[]$ $[]$ 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 120--142
+[]$[]$ $[]$ 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 148--204
+[]$[]$ $[]$ 
+ []
+
+[31
+
+]
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 210--258
+[]$[]$ $[]$ 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 264--320
+[]$[]$ $[]$ 
+ []
+
+[32] [33]
+Chapitre 11.
+
+Overfull \hbox (91.61642pt too wide) in paragraph at lines 375--382
+ [] 
+ []
+
+
+Overfull \hbox (98.95956pt too wide) in paragraph at lines 373--408
+[]$[]$ $[]$ 
+ []
+
+) [34
+
+] [35] (main.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 27.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-))
-[28
+)) [36
 
 ] (main.tdo)
 \tf@tdo=\write6
 \openout6 = `main.tdo'.
 
- [29
+ [37
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 133.
@@ -1323,9 +1400,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 133.
  (main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 133.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 133.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 74FCD71D8F6B8BD17E05D42A91258564;2101.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 55DF59778848BA6A8633CEEEFDA7B4FF;2369
+(rerunfilecheck)             After:  F45C5AEF827C9446F96F3BB4F1E2CB92;2303.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.49994pt have occurred.
@@ -1333,24 +1416,21 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 133.
  ) 
 Here is how much of TeX's memory you used:
- 24864 strings out of 493323
- 469208 string characters out of 3139056
- 669942 words of memory out of 3000000
- 27782 multiletter control sequences out of 15000+200000
- 22771 words of font info for 49 fonts, out of 3000000 for 9000
+ 24902 strings out of 493323
+ 469631 string characters out of 3139056
+ 666936 words of memory out of 3000000
+ 27796 multiletter control sequences out of 15000+200000
+ 20498 words of font info for 41 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,96p,1583b,867s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
-, replaced by a fixed one
+ 62i,21n,96p,1915b,867s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{figure.caption.64} has been referenced but does n
+ot exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
 , replaced by a fixed one
@@ -1359,6 +1439,12 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 , replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{part*.35} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{section.4.1} has been referenced but does not exist
 , replaced by a fixed one
 
  <C:\Users\Baptiste\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
@@ -1385,11 +1471,10 @@ pe1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
 7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (35 pages, 563840 bytes).
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (43 pages, 587865 bytes).
 PDF statistics:
- 1100 PDF objects out of 1200 (max. 8388607)
- 139 named destinations out of 1000 (max. 500000)
- 292 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1179 PDF objects out of 1200 (max. 8388607)
+ 167 named destinations out of 1000 (max. 500000)
+ 332 words of extra memory for PDF output out of 10000 (max. 10000000)
 

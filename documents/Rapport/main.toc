@@ -12,23 +12,27 @@
 \contentsline {section}{\numberline {3.3}Treillis}{7}{section.3.3}
 \contentsline {section}{\numberline {3.4}Graphe m\IeC {\'e}dian}{9}{section.3.4}
 \contentsline {chapter}{\numberline {4}Existant}{10}{chapter.4}
-\contentsline {section}{\numberline {4.1}Approche : limites}{10}{section.4.1}
-\contentsline {chapter}{\numberline {5}Contribution}{14}{chapter.5}
-\contentsline {section}{\numberline {5.1}Impl\IeC {\'e}mentation}{14}{section.5.1}
-\contentsline {section}{\numberline {5.2}Probl\IeC {\`e}mes et difficult\IeC {\'e}s}{16}{section.5.2}
-\contentsline {section}{\numberline {5.3}Ouvertures}{16}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Syst\IeC {\`e}me de boucle}{16}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Le cas des chaines}{17}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Optimalit\IeC {\'e} du treillis}{17}{subsection.5.3.3}
-\contentsline {subsection}{\numberline {5.3.4}Optimisation du programme}{17}{subsection.5.3.4}
-\contentsline {chapter}{\numberline {6}Bilan}{18}{chapter.6}
-\contentsline {section}{\numberline {6.1}Contribution}{18}{section.6.1}
-\contentsline {section}{\numberline {6.2}Stage}{18}{section.6.2}
-\contentsline {part}{Annexes}{20}{part*.30}
-\contentsline {chapter}{\numberline {7}Annexe : workflows}{20}{chapter.7}
-\contentsline {chapter}{\numberline {8}Annexe : Exemples de cas}{22}{chapter.8}
-\contentsline {section}{\numberline {1}D\IeC {\'e}riv\IeC {\'e} de $N_5$}{22}{section.8.1}
-\contentsline {section}{\numberline {2}D\IeC {\'e}riv\IeC {\'e} de $M_3$}{24}{section.8.2}
-\contentsline {section}{\numberline {3}Cas de H.J. Bandelt}{25}{section.8.3}
-\contentsline {section}{\numberline {4}Cas de U. Priss}{26}{section.8.4}
-\contentsline {chapter}{\numberline {9}Annexe : Fichiers d'entr\IeC {\'e} et de sortie}{27}{chapter.9}
+\contentsline {chapter}{\numberline {5}Contribution}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}Impl\IeC {\'e}mentation}{15}{section.5.1}
+\contentsline {section}{\numberline {5.2}Probl\IeC {\`e}mes et difficult\IeC {\'e}s}{17}{section.5.2}
+\contentsline {section}{\numberline {5.3}Ouvertures}{17}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Syst\IeC {\`e}me de boucle}{17}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Le cas des chaines}{18}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Optimalit\IeC {\'e} du treillis}{18}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Optimisation du programme}{18}{subsection.5.3.4}
+\contentsline {chapter}{\numberline {6}Bilan}{19}{chapter.6}
+\contentsline {section}{\numberline {6.1}Contribution}{19}{section.6.1}
+\contentsline {section}{\numberline {6.2}Stage}{19}{section.6.2}
+\contentsline {part}{Annexes}{21}{part*.34}
+\contentsline {chapter}{\numberline {7}Annexe : workflows}{21}{chapter.7}
+\contentsline {chapter}{\numberline {8}Annexe : Exemples de cas}{23}{chapter.8}
+\contentsline {section}{\numberline {1}D\IeC {\'e}riv\IeC {\'e} de $N_5$}{23}{section.8.1}
+\contentsline {section}{\numberline {2}D\IeC {\'e}riv\IeC {\'e} de $M_3$}{25}{section.8.2}
+\contentsline {section}{\numberline {3}Cas de H.J. Bandelt}{26}{section.8.3}
+\contentsline {section}{\numberline {4}Cas de U. Priss}{27}{section.8.4}
+\contentsline {chapter}{\numberline {9}Annexe : Fichiers d'entr\IeC {\'e} et de sortie}{28}{chapter.9}
+\contentsline {part}{I\hspace {1em}bloc note}{29}{part.1}
+\contentsline {section}{\numberline {1}vrac}{30}{section.9.1}
+\contentsline {chapter}{\numberline {10}Motivations}{31}{chapter.10}
+\contentsline {section}{\numberline {1}ORPAILLEUR}{31}{section.10.1}
+\contentsline {chapter}{\numberline {11}D\IeC {\'e}finitions}{34}{chapter.11}

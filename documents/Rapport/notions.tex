@@ -273,7 +273,7 @@ Dans la figure \ref{hasse_filtres_ideaux} nous avons $\uparrow \! a = {a, b, c}$
 
 \section{Treillis}
 
-Un treillis est un ensemble ordonné $(T, \leq)$ sur lequel on définit pour chaque tuple un supremum ou borne supérieure noté $\vee$ et un infimum ou borne inférieure noté $\wedge$, on le note $(T, \leq, \vee, \wedge)$. \todo{Comment définir les notions de borne sup et borne inf ?} Pour trois éléments $x, y, z \in P$ tel que $z \leq x$ et $z \leq y$ on peut dire que $x \vee y = z$. Le second est celui d'infimum ou borne inférieure noté $\wedge$. Et de la même façon pour trois éléments $x, y, z \in P$ tel que $x \leq z$ et $y \leq z$ on peut dire que $x \wedge y = z$. Lorsqu'un élément est la borne supérieure (resp. inférieure) de tous les autres éléments on dit qu'il ferme le treillis par les supremums (resp. infimums), on note cet élément $\top$ (resp.$\bot$).
+Un treillis est un ensemble ordonné $(T, \leq)$ sur lequel on définit pour chaque tuple d'éléments un supremum ou borne supérieure noté $\vee$ et un infimum ou borne inférieure noté $\wedge$, on le note $(T, \leq, \vee, \wedge)$. \todo{Comment définir les notions de borne sup et borne inf ?} Pour trois éléments $x, y, z \in P$ tel que $z \leq x$ et $z \leq y$ on peut dire que $x \vee y = z$. Le second est celui d'infimum ou borne inférieure noté $\wedge$. Et de la même façon pour trois éléments $x, y, z \in P$ tel que $x \leq z$ et $y \leq z$ on peut dire que $x \wedge y = z$. Lorsqu'un élément est la borne supérieure (resp. inférieure) de tous les autres éléments on dit qu'il ferme le treillis par les supremums (resp. infimums), on note cet élément $\top$ (resp.$\bot$).
 
 \begin{definition}[Treillis]
 Soit un treillis $(T, \leq, \vee, \wedge)$ :
@@ -282,6 +282,8 @@ Soit un treillis $(T, \leq, \vee, \wedge)$ :
 	\item $\forall x, y \in T$, $\exists z \in T : x \wedge y = z$
 \end{itemize}
 \end{definition}
+
+Nous définitions également la notion de sous treillis correspondant à prendre une partie des éléments d'un treillis tout en gardant la même relation d'ordre entre eux.
 
 \begin{definition}[Sous treillis]
 Soit un treillis $(T, \leq, \vee, \wedge)$ et son sous treillis $(T_S, \leq_S, \vee, \wedge)$ si et seulement si :
@@ -385,7 +387,7 @@ Jusqu'à présent nous utilisions des labels sur la totalité des n\oe uds, par 
 	\label{hasse_irr}
 \end{figure}
 
-Il existe une catégorie de treillis appelée treillis distributif dont la particularité d'avoir la distributivité des opérations $\vee$ et $\wedge$. Pour tout $x, y, z \in T$ on a $x \vee (y \wedge z) = (x \wedge y) \vee (x \wedge z)$ et $x \wedge (y \vee z) = (x\vee y) \wedge (x \vee z)$. Cette propriété transparait à travers trois conditions équivalentes qui permettent d'attester ou non de la distributivité du treillis permettant ainsi d'utiliser la plus adaptée dans une situation donnée.
+Il existe une catégorie de treillis appelée treillis distributif dont la particularité d'avoir la distributivité des opérations $\vee$ et $\wedge$. Pour tout $x, y, z \in T$ on a $x \vee (y \wedge z) = (x \wedge y) \vee (x \wedge z)$ et $x \wedge (y \vee z) = (x\vee y) \wedge (x \vee z)$. Cette propriété transparait à travers trois conditions équivalentes qui permettent d'attester ou non de la distributivité du treillis permettant ainsi d'utiliser la plus adaptée dans une situation donnée. L'une des façons les plus rapide pour montrer visuellement la non distributivité et de mettre en évidence une apparition du treillis $N_5$ ou $M_3$ qui sont respectivement en figure \ref{n5} et \ref{m3}.
 
 \begin{definition}[Treillis distributif]
 Un treillis $(T, \leq, \vee, \wedge)$ est distributif si et seulement si au moins l'une des trois conditions équivalentes suivantes est vérifiée :
@@ -413,7 +415,8 @@ Un treillis $(T, \leq, \vee, \wedge)$ est distributif si et seulement si au moin
 				\path [line] (3) -- (top);
 			\end{tikzpicture}
 		\end{center}
-		\caption{$N_5$ (à déplacer)}
+		\caption{$N_5$}
+		\label{N5}
 	\end{minipage}
 	\begin{minipage}[t]{0.5\textwidth}
 		\begin{center}
@@ -432,7 +435,8 @@ Un treillis $(T, \leq, \vee, \wedge)$ est distributif si et seulement si au moin
 				\path [line] (3) -- (top);
 			\end{tikzpicture}
 		\end{center}
-		\caption{$M_3$ (à déplacer)}
+		\caption{$M_3$}
+		\label{M3}
 	\end{minipage}
 \end{figure}
 

@@ -1,10 +1,6 @@
 \chapter{Existant}
 
-Uta Priss quant à elle profite que les arbres proviennent de matrices binaires de données qui sont également à une place centrale au sein de la FCA\footnote{Formal Concept Analysis : Analyse de Concepts Formels} et ainsi créer des treillis qui sont des ensembles ordonnés. À partir de ces derniers nous pouvons représenter le vivant avec son propre système de classification. Elle propose dans \cite{MedianConceptLattices} l'utilisation de treillis de concept à la place ou en complément des graphes médians et fait l'ébauche d'un algorithme pour convertir un treillis de concept en graphe médian. Créant par la même occasion entre ces deux domaines un lien qui a l'avantage d'offrir à la phylogénie les nombreux outils et la communauté relativement importante de la FCA.
-
-\bigbreak
-
-Pour arriver à ce résultat, U. Priss expose une méthode consistant à rendre les treillis formés à partir des filtres des atomes\footnote{Les atomes sont les n\oe uds qui sont en lien direct avec le n\oe ud le plus bas, souvent noté $\bot$ dans ce rapport} distributifs puis à supprimer le n\oe uds le plus bas, souvent noté $\bot$ dans ce rapport. Prenons en exemple un cas de base en figure \ref{priss_treillis_base} avec en n\oe uds noirs le sous treillis posant problème. Nous devons tout d'abord rendre les treillis formés à partir des filtres de ses atomes, distributifs, ce qui donne après opération manuelle le treillis de la figure \ref{priss_treillis_median}. Puis nous supprimons le n\oe uds $\bot$ pour pour obtenir le graphe médian de la figure \ref{priss_graphe_median} qui valide toutes les conditions pour correspondre à un graphe médian.
+Le lien mis en évidence par Uta Priss entre les treillis de concepts et les graphes médians se situe dans le fait qu'un treillis distributif peut être considéré comme un graphe médian. Tout dans un objectif d'objectif une solution minimale  et puisque le graphe médian ne necessite pas de garder le $\bot$, elle propose de ne rendre distributif que les treillis obtenus à partir des filtres des atomes. Pour ce faire il faut agir sur deux aspects. Le premier est la décomposition de ces sous treillis et leur recomposition en un unique. Le second est la transformation en elle-même du sous treillis lambda en treillis distributif. Nous pouvons l'illustrer à travers la figure \ref{priss_treillis_base} est notre point de départ avec en noir le sous treillis $N_5$ bloquant la distributivité, la figure \ref{priss_treillis_median} qui se trouve être le treillis après la remise en commun et pour finir la figure \ref{priss_graphe_median} qui est simplement le graphe médian qui ressort après avoir fini le reste de la méthode et d'avoir supprimer le $\bot$.
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.5 \textwidth}
@@ -90,58 +86,6 @@ Pour arriver à ce résultat, U. Priss expose une méthode consistant à rendre 
 	\end{minipage}
 \end{figure}
 
-\section{Approche : limites}
-
-L'équipe ORPAILLEUR a poursuivi en ce sens à travers \cite{cla2018} et \cite{egc2018} en proposant une solution systématique pour la proposition de U. Priss avec ses limites. La résolution est en deux parties, tout d'abord il faut savoir transformer un treillis quelconque en treillis distributif. Pour ce faire, l'équipe a mis au point un algorithme qui permet de passer de la figure \ref{orpailleur_n5} à la figure \ref{orpailleur_n5_postcla}.
-
-\begin{figure}[H]
-	\begin{minipage}[c]{0.5\textwidth}
-	\begin{center}
-		\begin{tikzpicture}
-			\node [wnode, label=below:{1}] (1) at (0,0) {};
-			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
-			\node [wnode, label=right:{3}] (3) at (1, 1) {};
-			\node [wnode, label=left:{4}] (4) at (-1, 2) {};
-			\node [wnode, label={5}] (5) at (0, 3) {};
-			
-			\path [line] (1) -- (2);
-			\path [line] (1) -- (3);
-			\path [line] (2) -- (4);
-			\path [line] (3) -- (5);
-			\path [line] (4) -- (5);
-		\end{tikzpicture}
-	\end{center}
-	\caption{$N_5$ avant transformation}
-	\label{orpailleur_n5}
-	\end{minipage}
-	\begin{minipage}[c]{0.5\textwidth}
-	\begin{center}
-		\begin{tikzpicture}
-			\node [wnode, label=below:{1}] (1) at (0,0) {};
-			\node [wnode, label=left:{2}] (2) at (-1, 1) {};
-			\node [wnode, label=right:{3}] (3) at (1, 1) {};
-			\node [wnode, label=left:{4}] (4) at (-1, 2) {};
-			\node [wnode, label=right:{}] (6) at (1, 2) {};
-			\node [wnode, label={5}] (5) at (0, 3) {};
-			
-			\path [line] (1) -- (2);
-			\path [line] (1) -- (3);
-			\path [line] (2) -- (4);
-			\path [line] (2) -- (6);
-			\path [line] (3) -- (6);
-			\path [line] (4) -- (5);
-			\path [line] (6) -- (5);
-		\end{tikzpicture}
-	\end{center}
-	\caption{$N_5$ après transformation}
-	\label{orpailleur_n5_postcla}
-	\end{minipage}
-\end{figure}
-
-Ensuite il faut se servir de cet algorithme dans un système plus large qui doit être capable d'extraire les contextes correspondant aux treillis des atomes pour effectuer le traitement sur chacun d'eux avant d'assembler les contextes résultats en un unique contexte pour avoir un unique treillis résultat. Et une fois ces deux étapes réussies on supprime le n\oe ud $\bot$ pour obtenir notre graphe médian.
-
-\bigbreak
-
 Pour effectuer l'extraction du contexte d'un atome, il suffit d'extraire du contexte global tous les attributs qui sont en correspondance avec l'atome et de prendre tous les objets qui ont une correspondance avec l'un de ces attributs. En prenant en exemple le contexte de la figure \ref{contexte_global} dans lequel vous voulons extraire le contexte de l'atome 1 nous obtenons le contexte de la figure \ref{contexte_extrait}.
 
 \begin{figure}[H]
@@ -178,7 +122,212 @@ Pour effectuer l'extraction du contexte d'un atome, il suffit d'extraire du cont
 	\end{minipage}
 \end{figure}
 
-À l'inverse pour effectuer une remise en commun des contextes, on assemble tout simplement les contextes entre eux sans oublier d'ajouter la correspondance entre l'atome source du contexte extrait avec tous les attributs contenus dans ce contexte comme le montre les figures \ref{contextes_extraits} et \ref{contexte_reassemble}.
+Ensuite nous utilisons la méthode de transformation d'un treillis lambda vers un treillis distributif, elle est présentée par Uta Priss et explicitée par l'équipe à travers l'algorithme en figure \ref{algo_cla}. Nous allons l'illustrer avec en exemple le cas $N_5$.
+
+\begin{figure}[H]
+\begin{algorithm}[H]
+	\DontPrintSemicolon
+	\caption{Construction de contexte de treillis distributif}
+
+	\KwData{Context réduit $C(J, M, \leq_{C})$}
+	\KwResult{Contexte réduit $C_d(J, M_d, I_d)$ de $(\mathcal{O}(J), \subseteq, \cap, \cup)$}
+
+	\Begin{
+		$M_d \leftarrow \emptyset$\;
+		$I_d \leftarrow \emptyset$\;
+		\ForEach{$j \in J$}{
+			$\uparrow j \leftarrow \emptyset$\;
+			\ForEach{$i \in J$}{
+				\If{$j' \subseteq i'$}{
+					$\uparrow j \leftarrow \uparrow j \cup i$\;
+				}
+			}
+			$M_d \leftarrow M_d \cup m_j$\;
+			$X \leftarrow J \setminus \uparrow j$\;
+			\ForEach{$x \in X$}{
+				$I_d \leftarrow I_d \cup (x, m_j)$\;
+			}
+		}
+	}
+\end{algorithm}
+\caption{Construction de contexte de treillis distributif}
+\label{algo_cla}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			 & A & B & C \\
+			\hline
+			1 & x & & x \\
+			2 & & x & \\
+			3 & & & x \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1, A}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{2, B}] (2) at (1, 1) {};
+			\node [bnode, label=left:{3, C}] (3) at (-1, 2) {};
+			\node [wnode, label={$\top$}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Cas de $N_5$}
+\end{figure}
+
+Nous utilisons le contexte réduit. Nous allons créé un nouveau contexte à partir des $\wedge$-irreductibles. Le principe est de tous les parcourir et de créer un attribut pour chacun qui sera en correspondance avec tous les $\wedge$-irreductibles qui ne sont pas dans le filtre de l'attribut en cours.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c }
+			 & m1\\
+			\hline
+			1 & \\
+			2 & x \\
+			3 & \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{2}] (2) at (1, 1) {};
+			\node [bnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label={$\top$}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (top);
+			
+			\draw [very thick, dotted] plot [smooth, tension=2] coordinates {(-2.5, 3.5) (-1, 0.5) (0.5, 3.5)};
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Étape 1}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c }
+			 & m1 & m2\\
+			\hline
+			1 & & x\\
+			2 & x & \\
+			3 & & x \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{2}] (2) at (1, 1) {};
+			\node [bnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label={$\top$}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (top);
+			
+			\draw [very thick, dotted] plot [smooth, tension=2] coordinates {(-0.5, 3.5) (1, 0.5) (2.5, 3.5)};
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Étape 2}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			 & m1 & m2 & m3 \\
+			\hline
+			1 & & x & x \\
+			2 & x & & x\\
+			3 & & x & \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [bnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [bnode, label=right:{2}] (2) at (1, 1) {};
+			\node [bnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label={$\top$}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (top);
+			\path [line] (3) -- (top);
+			
+			\draw [very thick, dotted] plot [smooth, tension=2] coordinates {(-2.5, 3.5) (-1, 1.5) (0.5, 3.5)};
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{Étape 3}
+\end{figure}
+
+Uns fois ce nouveau contexte optenu, il suffit de tracer le treillis associé.
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tabular}{ l | c c c }
+			 & m1 & m2 & m3 \\
+			\hline
+			1 & & x & x \\
+			2 & x & & x\\
+			3 & & x & \\
+		\end{tabular}
+	\end{center}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{2, m1}] (2) at (1, 1) {};
+			\node [wnode, label=left:{3, m2}] (3) at (-1, 2) {};
+			\node [bnode, label=right:{m3}] (4) at (1, 2) {};
+			\node [wnode, label={$\top$}] (top) at (0, 3) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (4);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\end{minipage}
+	\caption{$N_5$ après transformation}
+\end{figure}
+
+Nous obtenons ainsi un nouveau contexte pour un nouveau treillis distributif très proche du treillis de base. Il ne reste plus qu'à effectuer la remise en commun des différents contextes ainsi obtenu. À l'inverse de l'extraction, on assemble tout simplement les contextes entre eux sans oublier d'ajouter la correspondance entre l'atome source du contexte extrait avec tous les attributs contenus dans ce contexte comme le montre les figures \ref{contextes_extraits} et \ref{contexte_reassemble}. Il ne reste plus qu'à supprimer le n\oe ud $\bot$ pour obtenir notre graphe médian.
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.3\textwidth}
@@ -241,8 +390,6 @@ Pour effectuer l'extraction du contexte d'un atome, il suffit d'extraire du cont
 	\end{minipage}
 \end{figure}
 
-\bigbreak
-
 Une fois la méthode mise en place, on se rend compte qu'elle dispose de problèmes. Sur des cas moins triviaux il se pose la question de l'optimalité du treillis unique obtenu. Prenons en exemple la figure \ref{priss_probleme_base} avec en noir une partie des n\oe uds empêchant les treillis des atomes d'être distributif par la présence d'un sous treillis $N_5$. Si nous appliquons la méthode dessus nous obtenons la figure \ref{priss_probleme_1} avec également en noirs des n\oe uds posant le même problème.
 
 \begin{figure}[H]
@@ -286,7 +433,7 @@ Une fois la méthode mise en place, on se rend compte qu'elle dispose de problè
 			\node [bnode, label=left:{3, $m4$}] (3) at (-2, 3) {};
 			\node [wnode, label=right:{5}] (5) at (2, 2) {};
 			\node [wnode, label=right:{6, $m1$}] (6) at (2, 3) {};
-			\node [wnode, label=right:{m2, $m5$}] (m2) at (0, 2) {};
+			\node [wnode, label=right:{$m2$, $m5$}] (m2) at (0, 2) {};
 			\node [wnode, label=left:{$m3$}] (m3) at (-0.5, 3) {};
 			\node [bnode, label=right:{$m6$}] (m6) at (0.5, 3) {};
 			\node [bnode, label={$\top$}] (top) at (0, 4) {};
