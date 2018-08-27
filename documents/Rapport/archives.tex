@@ -459,3 +459,89 @@ Tout d'abord nous avons le contexte quelconque (figure \ref{contexte_quelconque}
 	\end{center}
 	\end{minipage}
 \end{figure}
+
+
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}[node distance = 1cm, auto]
+			% Place nodes
+			\node [inout] (start) {début};
+			\node [inout, right = of start] (end) {fin};
+			\node [algorithm, below = of end] (each_concept) {pour chaque concept};
+			\node [block, right = of each_concept] (multiple_atoms) {vérification d'appartenance aux filtres de plusieurs atomes};
+			\node [block, right = of multiple_atoms] (multiple_sups) {vérification de deux n\oe uds non présents dans le treillis d'origine en couverture};
+			\node [decision, above = of multiple_sups] (unique_sup_inf) {max 1 sup and strict 1 inf?};
+			\node [block, left = of unique_sup_inf] (merge_inf) {merge with inf};
+			\node [decision, below = of multiple_atoms] (different_atom) {tuple in different atoms source?};
+			\node [algorithm, right = of different_atom] (each_tuples) {for each tuple in sups};
+			\node [block, left = of different_atom] (merge) {merge tuple};
+			% Draw edges
+			\path [line2] (start) |- (each_concept);
+			\path [line2] (each_concept) -- (end);
+			\path [line2] (each_concept) --  node {loop}(multiple_atoms);
+			\path [line2] (multiple_atoms) --  node [very near start] {yes}(multiple_sups);
+			\path [line2] (multiple_atoms.south) -| node [very near start] {no}(each_concept);
+			\path [line2] (multiple_sups) --  node [near start] {yes}(each_tuples);
+			\path [line2] (multiple_sups) -- node [near start] {no}(unique_sup_inf);
+			\path [line2] (unique_sup_inf) -- node {yes}(merge_inf);
+			\path [line2] (unique_sup_inf) -- node [very near start] {no}(each_concept.40);
+			\path [line2] (merge_inf) -- (each_concept);
+			\path [line2] (each_tuples) -- (each_concept);
+			\path [line2] (each_tuples) -- node {loop}(different_atom);
+			\path [line2] (different_atom) --  node [near start] {yes}(merge);
+			\path [line2] (different_atom.south) -| node [very near start] {no}(each_tuples);
+			\path [line2] (merge.130) --  (each_concept.230);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Sous worflow correspondant au bloc \guillemotleft{} fusion \guillemotright{}}
+	\label{workflow_algo}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}[node distance = 0.5cm, auto]
+			% Place nodes
+			\node [inout] (start) {début};
+			\node [inout, right = of start] (end) {fin};
+			\node [algorithm, below = of end] (eachatom) {pour chaque atome};
+			\node [block, right = of eachatom] (extract) {extraction};
+			\node [block, below = of eachatom] (assemble) {assemblage};
+			\node [block, right = of assemble] (distrib) {distributivité};
+			% Draw edges
+			\path [line2] (start) |- (eachatom);
+			\path [line2] (eachatom) -- (end);
+			\path [line2] (eachatom) -- (extract);
+			\path [line2] (extract) -- (distrib);
+			\path [line2] (assemble) -- (eachatom);
+			\path [line2] (distrib) -- (assemble);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Sous worflow correspondant au bloc \guillemotleft{} algorithme \guillemotright{}}
+	\label{workflow_algo}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}[node distance = 0.5cm, auto]
+			% Place nodes
+			\node [inout] (start) at (0, 0) {début};
+			\node [inout] (end) at (3, 0) {fin};
+			\node [algorithm] (eachconcept) at (0, -1.5) {pour chaque concept};
+			\node [block] (modification) at (6, -1.5) {modification};
+			\node [decision] (multipleatom) at (0, -4.5) {$\in$ à plusieurs filtres d'atomes ?};
+			\node [decision] (nonbase) at (0, -8.5) {2 ou plus atomes ($X$) en couverture $\not \in$ treillis de départ};
+			\node [algorithm] (eachtuple) at (0, -10) {pour chaque tuple de $X$};
+			% Draw edges
+			\path [line2] (start) -- (eachconcept);
+			\path [line2] (modification) -| (end);
+			\path [line2] (eachconcept) -| (end);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Sous worflow correspondant au bloc \guillemotleft{} fusion \guillemotright{}}
+	\label{workflow_median}
+\end{figure}

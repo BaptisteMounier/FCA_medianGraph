@@ -64,6 +64,8 @@ pdfstartview={FitH}}					% ajuste la page à la largueur de l'écran
 \tikzstyle{inout} = [rectangle, draw, fill = red!20, text width = 6em, text centered, minimum height = 3em]
 \tikzstyle{cloud} = [ellipse, draw, fill = red!20, minimum height=2em]
 \tikzstyle{line2} = [draw, -latex']
+\tikzstyle{line3} = [draw, dashed, -latex']
+\tikzstyle{line4} = [draw, dotted, -latex']
 \tikzstyle{my below of} = [below=of #1.south]
 \tikzstyle{my right of} = [right=of #1.east]
 \tikzstyle{my left of} = [left=of #1.west]
@@ -114,10 +116,6 @@ pdfstartview={FitH}}					% ajuste la page à la largueur de l'écran
 
 \input{./bilan.tex}
 
-\input{./annexes.tex}
-
-%\input{./archives.tex}
-
 \newpage
 
 % Récupérer les citation avec "/footnotemark"
@@ -129,6 +127,8 @@ pdfstartview={FitH}}					% ajuste la page à la largueur de l'écran
 \bibliography{bibliographie}
 % Voir wiki pour plus d'information sur la syntaxe des entrées d'une bibliographie
 
-%\listoftodos
+\input{./annexes.tex}
+
+%\input{./archives.tex}
 
 \end{document}

@@ -12,27 +12,31 @@ La toute première question à se poser pour l'implémentation est celle du lang
 	\begin{center}
 		\begin{tikzpicture}[node distance = 0.5cm, auto]
 			% Place nodes
-			\node [inout] (start) {début};
-			\node [inout, right = of start] (end) {fin};
-			\node [block, below = of start] (import) {importation};
-			\node [block, right = of import] (export) {exportation};
-			\node [block, below = of import] (extract) {extraction};
-			\node [block, right = of extract] (commun) {remise en commun};
-			\node [block, below = of extract] (algo) {algorithme};
+			\node [inout] (start) at (0, 0) {début};
+			\node [inout] (end) at (3, 0) {fin};
+			\node [block] (import) at (0, -1.5) {importation};
+			\node [block] (export) at (3, -1.5) {exportation};
+			
+			\node [algorithm] (eachatom) at (0, -3) {pour chaque atome};
+			\node [block] (extract) at (0, -4.5) {extraction du contexte};
+			\node [block] (algo) at (0, -6) {algorithme};
+			\node [block] (commun) at (0, -7.5) {remise en commun};
+			
 			% Draw edges
 			\path [line2] (start) -- (import);
+			\path [line2] (import) -- (eachatom);
 			\path [line2] (export) -- (end);
-			\path [line2] (import) -- (extract);
-			\path [line2] (extract) -- (algo);
-			\path [line2] (commun) -- (export);
-			\path [line2] (algo) -| (commun);
+			\path [line3] (eachatom) -- (extract);
+			\path [line2] (eachatom) -| (export);
+			\path [line3] (extract) -- (algo);
+			\path [line3] (algo) -- (commun);
 		\end{tikzpicture}
 	\end{center}
 	\caption{Worflow de la première version du programme}
 	\label{workflow_1}
 \end{figure}
 
-Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le treillis et des conditions de cette fusion pour en ressortir des règles de fusions. Nous allons nous baser sur le cas mis en avant dans \cite{cla2018} avec en figure \ref{cas_cla_base} le treillis de départ. La figure \ref{cas_cla_obtenu} est un rappel du résultat dans l'état actuel et la figure \ref{cas_cla_desiree} est le résultat optimal. On remarque que les points noirs 10 et 12 du résultat obtenu peuvent ne faire qu'un pour obtenir le point 8 du résultat désiré. En regardant également le treillis distributif maximum en figure \ref{cas_cla_max} on a l'intuition qu'il suffit de remplacer les points qu'on souhaite fusionner par leur supremum, cela à été notre point de départ.
+Il est question à présent de la fusion des n\oe uds dans le but d'obtenir le treillis désiré, pour en ressortir des règles de fusions. Nous allons nous baser sur le cas mis en avant dans \cite{cla2018} avec en figure \ref{cas_cla_base} le treillis de départ. La figure \ref{cas_cla_obtenu} est un rappel du résultat dans l'état actuel et la figure \ref{cas_cla_desiree} est le résultat optimal. On remarque que les points noirs 10 et 12 du résultat obtenu peuvent ne faire qu'un pour obtenir le point 8 du résultat désiré. En regardant également le treillis distributif maximum en figure \ref{cas_cla_max} on a l'intuition qu'il suffit de remplacer les points qu'on souhaite fusionner par leur supremum, cela à été notre point de départ.
 
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
@@ -208,88 +212,34 @@ Avec la mise en place de cette fusion des n\oe uds, nous obtenons un nouveau wor
 	\begin{center}
 		\begin{tikzpicture}[node distance = 0.5cm, auto]
 			% Place nodes
-			\node [inout] (start) {début};
-			\node [inout, right = of start] (end) {fin};
-			\node [block, below = of start] (import) {importation};
-			\node [block, right = of import] (export) {exportation};
-			\node [block, below = of import] (extract) {extraction};
-			\node [block, right = of extract] (fusion) {fusion};
-			\node [block, below = of extract] (algo) {algorithme};
-			\node [block, right = of algo] (commun) {remise en commun};
+			\node [inout] (start) at (0, 0) {début};
+			\node [inout] (end) at (3, 0) {fin};
+			\node [block] (import) at (0, -1.5) {importation};
+			\node [block] (export) at (3, -1.5) {exportation};
+			\node [algorithm] (eachatom) at (0, -3) {pour chaque atome};
+			\node [block] (extract) at (0, -4.5) {extraction du contexte};
+			\node [block] (algo) at (0, -6) {algorithme};
+			\node [block] (commun) at (0, -7.5) {remise en commun};
+			\node [block] (fusion) at (3, -3) {fusion};
+			
 			% Draw edges
 			\path [line2] (start) -- (import);
+			\path [line2] (import) -- (eachatom);
 			\path [line2] (export) -- (end);
-			\path [line2] (import) -- (extract);
-			\path [line2] (extract) -- (algo);
+			\path [line3] (eachatom) -- (extract);
+			\path [line2] (eachatom) -- (fusion);
+			\path [line3] (extract) -- (algo);
+			\path [line3] (algo) -- (commun);
 			\path [line2] (fusion) -- (export);
-			\path [line2] (algo) -- (commun);
-			\path [line2] (commun) -- (fusion);
 		\end{tikzpicture}
 	\end{center}
 	\caption{Worflow de la seconde version du programme, avec la fusion des n\oe uds}
 	\label{workflow_2}
 \end{figure}
 
-\begin{figure}[H]
-	\begin{center}
-		\begin{tikzpicture}[node distance = 0.5cm, auto]
-			% Place nodes
-			\node [inout] (start) {début};
-			\node [inout, right = of start] (end) {fin};
-			\node [algorithm, below = of end] (eachatom) {pour chaque atome};
-			\node [block, right = of eachatom] (extract) {extraction};
-			\node [block, below = of eachatom] (assemble) {assemblage};
-			\node [block, right = of assemble] (distrib) {distributivité};
-			% Draw edges
-			\path [line2] (start) |- (eachatom);
-			\path [line2] (eachatom) -- (end);
-			\path [line2] (eachatom) -- (extract);
-			\path [line2] (extract) -- (distrib);
-			\path [line2] (assemble) -- (eachatom);
-			\path [line2] (distrib) -- (assemble);
-		\end{tikzpicture}
-	\end{center}
-	\caption{Sous worflow correspondant au bloque \guillemotleft{} algorithme \guillemotright{}}
-	\label{workflow_algo}
-\end{figure}
-
-\begin{figure}[H]
-	\begin{center}
-		\begin{tikzpicture}[node distance = 1cm, auto]
-			% Place nodes
-			\node [inout] (start) {début};
-			\node [inout, right = of start] (end) {fin};
-			\node [algorithm, below = of end] (each_concept) {pour chaque concept};
-			\node [decision, right = of each_concept] (multiple_atoms) {$\in$ filtres de plusieurs atomes ?};
-			\node [decision, right = of multiple_atoms] (multiple_sups) {couverture non présente dans la base ?};
-			\node [decision, above = of multiple_sups] (unique_sup_inf) {max 1 sup and strict 1 inf?};
-			\node [block, left = of unique_sup_inf] (merge_inf) {merge with inf};
-			\node [decision, below = of multiple_atoms] (different_atom) {tuple in different atoms source?};
-			\node [algorithm, right = of different_atom] (each_tuples) {for each tuple in sups};
-			\node [block, left = of different_atom] (merge) {merge tuple};
-			% Draw edges
-			\path [line2] (start) |- (each_concept);
-			\path [line2] (each_concept) -- (end);
-			\path [line2] (each_concept) --  node {loop}(multiple_atoms);
-			\path [line2] (multiple_atoms) --  node [very near start] {yes}(multiple_sups);
-			\path [line2] (multiple_atoms.south) -| node [very near start] {no}(each_concept);
-			\path [line2] (multiple_sups) --  node [near start] {yes}(each_tuples);
-			\path [line2] (multiple_sups) -- node [near start] {no}(unique_sup_inf);
-			\path [line2] (unique_sup_inf) -- node {yes}(merge_inf);
-			\path [line2] (unique_sup_inf) -- node [very near start] {no}(each_concept.40);
-			\path [line2] (merge_inf) -- (each_concept);
-			\path [line2] (each_tuples) -- (each_concept);
-			\path [line2] (each_tuples) -- node {loop}(different_atom);
-			\path [line2] (different_atom) --  node [near start] {yes}(merge);
-			\path [line2] (different_atom.south) -| node [very near start] {no}(each_tuples);
-			\path [line2] (merge.130) --  (each_concept.230);
-		\end{tikzpicture}
-	\end{center}
-	\caption{Sous worflow correspondant au bloque \guillemotleft{} fusion \guillemotright{}}
-	\label{workflow_algo}
-\end{figure}
-
 \section{Problèmes et difficultés}
+
+\subsection{Système de boucle}
 
 Nous avons rencontré un problème qui porte sur des cas où un passage complet de la méthode avec post traitement de fusion ne suffit pas, ce cas est présenté sur la figure \ref{clav7_1}. La fusion recréant une situation avec des treillis d'atomes non distributif et demandant donc de refaire un passage dans tout le processus.
 
@@ -351,7 +301,7 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 	\label{clav7_1}
 \end{figure}
 
-À ce stade, plusieurs correctifs ont été envisagé. Le premier est de faire une boucle de traitement où on refait tout le processus tant que tous les treillis d'atome ne sont pas disctributif, comme le montre la figure \ref{clav7_2} représentant la seconde itération, c'est la solution utilisé à l'heure actuelle. 
+À ce stade, plusieurs correctifs ont été envisagé. Le premier est de faire une boucle de traitement où on refait tout le processus tant que tous les treillis d'atome ne sont pas disctributif, comme le montre la figure \ref{clav7_2} représentant la seconde itération, c'est la solution utilisé à l'heure actuelle. La figure \ref{workflow_boucle} représente le nouveau workflow global et la figure \ref{workflow_median} détaille le comportement du bloc \guillemotleft{} médian ? \guillemotright{}.
 
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
@@ -421,25 +371,27 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 	\begin{center}
 		\begin{tikzpicture}[node distance = 0.5cm, auto]
 			% Place nodes
-			\node [inout] (start) {début};
-			\node [inout, right = of start] (end) {fin};
-			\node [block, below = of start] (import) {importation};
-			\node [block, right = of import] (export) {exportation};
-			\node [decision, below = of import] (median) {médian ?};
-			\node [block, left = of median] (extract) {extraction};
-			\node [block, below = of extract] (algo) {algorithme};
-			\node [block, below = of algo] (commun) {remise en commun};
-			\node [block, right = of commun] (fusion) {fusion};
+			\node [inout] (start) at (0, 0) {début};
+			\node [inout] (end) at (3, 0) {fin};
+			\node [block] (import) at (0, -1.5) {importation};
+			\node [block] (export) at (3, -1.5) {exportation};
+			\node [decision] (median) at (0, -4) {médian ?};
+			\node [algorithm] (eachatom) at (-3, -6.5) {pour chaque atome};
+			\node [block] (extract) at (-3, -8) {extraction du contexte};
+			\node [block] (algo) at (-3, -9.5) {algorithme};
+			\node [block] (commun) at (-3, -11) {remise en commun};
+			\node [block] (fusion) at (0, -6.5) {fusion};
 			% Draw edges
 			\path [line2] (start) -- (import);
-			\path [line2] (export) -- (end);
 			\path [line2] (import) -- (median);
-			\path [line2] (median) -- (extract);
-			\path [line2] (extract) -- (algo);
+			\path [line2] (median) -| node [near start] {non} (eachatom);
+			\path [line2] (median) -| node [near start] {oui} (export);
+			\path [line2] (export) -- (end);
+			\path [line3] (eachatom) -- (extract);
+			\path [line2] (eachatom) -- (fusion);
 			\path [line2] (fusion) -- (median);
-			\path [line2] (algo) -- (commun);
-			\path [line2] (median) -| (export);
-			\path [line2] (commun) -- (fusion);
+			\path [line3] (extract) -- (algo);
+			\path [line3] (algo) -- (commun);
 		\end{tikzpicture}
 	\end{center}
 	\caption{Worflow de la version du programme incluant la boucle}
@@ -450,76 +402,44 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 	\begin{center}
 		\begin{tikzpicture}[node distance = 0.5cm, auto]
 			% Place nodes
-			\node [inout] (start) {début};
-			\node [block, below = of start] (extract) {extraction};
-			\node [algorithm, below = of extract] (eachatom) {pour chaque atome};
-			\node [inout, right = of eachatom] (end) {fin};
-			\node [block, left = of eachatom] (arrow) {relations flèches};
-			\node [algorithm, below = of eachatom] (distributif) {distributif ?};
+			\node [inout] (start) at (0, 0) {début};
+			\node [algorithm] (eachatom) at (0, -1.5) {pour chaque atome};
+			\node [block] (extract) at (0, -3) {extraction};
+			\node [inout] (end) at (3, 0) {fin};
+			\node [block] (arrow) at (0, -4.5) {relations flèches};
+			\node [decision] (distributif) at (0, -7) {distributif ?};
 			% Draw edges
-			\path [line2] (start) -- (extract);
-			\path [line2] (extract) -- (median);
-			\path [line2] (eachatom) -- (arrow);
-			\path [line2] (arrow) |- (distributif);
-			\path [line2] (distributif) -- (eachatom);
-			\path [line2] (eachatom) -- (end);
-			\path [line2] (distributif) -| (end);
+			\path [line2] (start) -- (eachatom);
+			\path [line3] (eachatom) -- (extract);
+			\path [line3] (extract) -- (arrow);
+			\path [line3] (arrow) -- (distributif);
+			\path [line2] (eachatom) -| node [near start] {oui} (end);
+			\path [line2] (distributif) -|  node [near start] {non} (end);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Sous worflow correspondant au bloque \guillemotleft{} médian ? \guillemotright{}}
+	\caption{Sous worflow correspondant au bloc \guillemotleft{} médian ? \guillemotright{}}
 	\label{workflow_median}
 \end{figure}
 
-\section{Ouvertures}
+\subsection{Apparition de chaines}
 
-\subsection{Système de boucle}
+Le second problème qui est apparu ne se pose que sur un seul cas actuellement. Ce n'est pas que la méthode ne fonctionne plus, mais elle donne en résultat un treillis bien plus gros que celui espéré. Il provoque à un moment donné la création d'un chaine suite à la fusion de n\oe uds qui va par la suite dégénéré en un sous treillis non désiré. Alors qu'avec une analyse du cas particulier, nous pouvons couper court à ce probème. Voici en figure \ref{pbl_v6_base} le treillis de départ et en figure \ref{pbl_v6_souhait} le treillis souhaité et obtenu manuellement.
 
-Comme nous l'avons vu précédemment, nous devons boucler sur l'algorithme afin de prendre en considération les cas qui générent un nouvel $N_5$ ou $M_3$ lors de leur première résolution. Les méthodes présentées ici ne sont pas utilisées dans le programme mais sont des pistes intéressantes à garder à l'esprit en cas de problèmes futurs.
-
-\smallbreak
-
-Pour la première, il s'agit de faire la fusion pas à pas. On execute la méthode cla différemment. On extrait les contextes des treillis des atomes puis on effectue pour chacun d'eux la transformation en contexte de treillis distributif et on l'assemble avec le contexte global et c'est à ce moment où on fait les fusions si besoin avant de passer au contexte du treillis de l'atome suivant. Cette façon de faire peut permettre de gagner du temps sur la phase de la fusion mais en ferra perdre lors de l'étape de transformation en treillis distributif. Je ne peux pas déterminer laquelle est la meilleure à l'heure actuelle, reste à voir si à l'avenir de nouveaux problèmes se posent et si cette nouvelle méthode peut apporter des réponses.
-
-\smallbreak
-
-La seconde est de faire une boucle sur tout le c\oe ur du processus et de faire les fusions de n\oe uds à la fin. Cette solution contrairement à la première empêche toute possibilité de cycle dû à la fusion mais donne la plupart du temps le treillis distributif maximal pour chaque atome et la fusion devient par conséquent très compliquée, ce qui donne des treillis bien plus grand que ceux visés.
-
-\subsection{Le cas des chaines}
-
-Je ne l'ai pas encore détaillé en dehors du workflow mais le programme effectue également une épuration des chaînes qu'il rencontre lorsque le concept courant n'est pas un concept présent dans le treillis d'origine et qu'il ne possède pas plus de un sup et pas plus de un inf. Nous pouvons résumer les conditions de cette façon :
-
-\paragraph*{Condition d'épuration}
-Soit $a$ le n\oe ud qu'on souhaite épurer :
-\begin{itemize}
-	\item $ a \in J \setminus J_{origine}$
-	\item $\forall x_1, x_2 \in J, b, c \in J\\
-		\uparrow \! b \not \subset \uparrow \! x_1 \not \subset \uparrow \! a\\
-		\uparrow \! a \not \subset \uparrow \! x_2 \not \subset \uparrow \! c$
-	\item $\forall y_1, y_2 \in J, b, c \in J\\
-		b \neq y_1, c \neq y_2\\
-		\uparrow \! b \not \subset \uparrow \! x_1 \not \subset \uparrow \! a\\
-		\uparrow \! a \not \subset \uparrow \! x_2 \not \subset \uparrow \! c$
-\end{itemize}
-{\bf TODO: Trouver notation pour il existe un unique b, c}
-\smallbreak
-
-Malheuresement, cette partie n'est pas fiable et résulte principalement d'une intuition basé sur un objectif à atteindre et donnant lieu à un raccourci par rapport à une propriété ou à un traitement non mis à découvert. Ce cas s'est présenté une seule fois jusqu'à présent, sur le cas \guillemotleft{} cla\_v6 \guillemotright{}. L'épuration est effectué au même moment que la fusion. Si on ne l'effectue pas pour ce cas, nous allons boucler et obtenir une solution assez loin de ce qu'on cherche du fait qu'on recommence toute la procédure à cause de la présence d'un $N_5$. C'est sous doute le 1er aspect du programme à garder sous surveillance.
 
 \begin{figure}[H]
-	\begin{minipage}{0.3\textwidth}
 	\begin{center}
 		\begin{tikzpicture}
 			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
-			\node [bnode, label=left:{1}] (1) at (-0.5, 1) {};
-			\node [bnode, label=right:{2}] (2) at (0.5, 1) {};
-			\node [bnode, label=left:{3}] (3) at (-1, 2) {};
-			\node [bnode, label=right:{}] (B) at (0, 2) {};
-			\node [bnode, label=right:{4}] (4) at (1, 2) {};
-			\node [bnode, label=left:{5}] (5) at (-1, 3) {};
-			\node [bnode, label=right:{6}] (6) at (1, 3) {};
+			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
+			\node [wnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label=right:{}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4}] (4) at (1, 2) {};
+			\node [wnode, label=left:{5}] (5) at (-1, 3) {};
+			\node [wnode, label=right:{6}] (6) at (1, 3) {};
 			\node [wnode, label=left:{7}] (7) at (-1, 4) {};
-			\node [bnode, label=left:{}] (F) at (0, 4) {};
-			\node [bnode, label={$\top$}] (top) at (0, 5) {};
+			\node [wnode, label=left:{}] (F) at (0, 4) {};
+			\node [wnode, label={$\top$}] (top) at (0, 5) {};
 		
 			\path [line] (bot) -- (1);
 			\path [line] (bot) -- (2);
@@ -538,49 +458,11 @@ Malheuresement, cette partie n'est pas fiable et résulte principalement d'une i
 			\path [line] (F) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Cas cla\_v6}
-	\end{minipage}
-	\begin{minipage}{0.3\textwidth}
-	\begin{center}
-		\begin{tikzpicture}
-			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
-			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
-			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
-			\node [wnode, label=left:{3}] (3) at (-1, 2) {};
-			\node [wnode, label=right:{}] (B) at (0, 2) {};
-			\node [wnode, label=right:{4}] (4) at (1, 2) {};
-			\node [bnode, label=left:{5}] (5) at (-1, 3) {};
-			\node [wnode, label=right:{6}] (6) at (1, 3) {};
-			\node [bnode, label=left:{7}] (7) at (-1, 4) {};
-			\node [bnode, label=left:{}] (F) at (0, 4) {};
-			\node [bnode, label={$\top$}] (top) at (0, 6) {};
-			\node [wnode, label=right:{}] (G) at (0, 3) {};
-			\node [bnode, label=right:{}] (H) at (0, 5) {};
-		
-			\path [line] (bot) -- (1);
-			\path [line] (bot) -- (2);
-			\path [line] (1) -- (3);
-			\path [line] (1) -- (B);
-			\path [line] (1) -- (3);
-			\path [line] (2) -- (B);
-			\path [line] (2) -- (4);
-			\path [line] (3) -- (5);
-			\path [line] (B) -- (G);
-			\path [line] (4) -- (6);
-			\path [line] (5) -- (7);
-			\path [line] (5) -- (F);
-			\path [line] (6) -- (F);
-			\path [line] (7) -- (top);
-			\path [line] (F) -- (H);
-			\path [line] (H) -- (top);
-			\path [line] (G) -- (F);
-			\path [line] (3) -- (G);
-			\path [line] (4) -- (G);
-		\end{tikzpicture}
-	\end{center}
-	\caption{Cas cla\_v6, avant épuration}
-	\end{minipage}
-	\begin{minipage}{0.4\textwidth}
+	\caption{Treillis du problème de chaine, départ}
+	\label{pbl_v6_base}
+\end{figure}
+	
+\begin{figure}[H]
 	\begin{center}
 		\begin{tikzpicture}
 			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
@@ -593,12 +475,8 @@ Malheuresement, cette partie n'est pas fiable et résulte principalement d'une i
 			\node [wnode, label=right:{6}] (6) at (1, 3) {};
 			\node [wnode, label=left:{7}] (7) at (-1, 4) {};
 			\node [wnode, label=left:{}] (F) at (0, 4) {};
-			\node [wnode, label={$\top$}] (top) at (0, 8) {};
-			\node [wnode, label=right:{}] (G) at (0, 3) {};
-			\node [bnode, label=right:{}] (8) at (0, 5) {};
-			\node [bnode, label=right:{}] (9) at (0, 6) {};
-			\node [bnode, label=right:{}] (10) at (-0.5, 7) {};
-			\node [bnode, label=right:{}] (11) at (0.5, 7) {};
+			\node [wnode, label=left:{}] (G) at (0, 3) {};
+			\node [wnode, label={$\top$}] (top) at (0, 5) {};
 		
 			\path [line] (bot) -- (1);
 			\path [line] (bot) -- (2);
@@ -608,28 +486,485 @@ Malheuresement, cette partie n'est pas fiable et résulte principalement d'une i
 			\path [line] (2) -- (B);
 			\path [line] (2) -- (4);
 			\path [line] (3) -- (5);
+			\path [line] (3) -- (G);
 			\path [line] (B) -- (G);
+			\path [line] (G) -- (F);
 			\path [line] (4) -- (6);
+			\path [line] (4) -- (G);
 			\path [line] (5) -- (7);
 			\path [line] (5) -- (F);
 			\path [line] (6) -- (F);
-			\path [line] (7) -- (8);
-			\path [line] (F) -- (8);
-			\path [line] (G) -- (F);
-			\path [line] (3) -- (G);
-			\path [line] (4) -- (G);
-			\path [line] (8) -- (9);
-			\path [line] (9) -- (10);
-			\path [line] (9) -- (11);
-			\path [line] (10) -- (top);
-			\path [line] (11) -- (top);
+			\path [line] (7) -- (top);
+			\path [line] (F) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Cas cla\_v6, sans épuration}
+	\caption{Treillis du problème de chaine, souhaité}
+	\label{pbl_v6_souhait}
+\end{figure}
+
+Les figures \ref{pbl_v6_dist1} à \ref{pbl_v6_dist3_fusion} représentent les treillis successifs au fil du passage dans le programme du cas problèmatique.
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
+			\node [wnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label=right:{}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4}] (4) at (1, 2) {};
+			\node [wnode, label=left:{5}] (5) at (-1.5, 3) {};
+			\node [wnode, label={}] (x1) at (-0.5, 3) {};
+			\node [wnode, label={}] (x2) at (0.5, 3) {};
+			\node [wnode, label=right:{6}] (6) at (1.5, 3) {};
+			\node [wnode, label={}] (x3) at (-0.5, 4) {};
+			\node [wnode, label={}] (x4) at (1, 4) {};
+			\node [wnode, label=left:{7}] (7) at (-1, 5) {};
+			\node [wnode, label=left:{}] (F) at (0, 5) {};
+			\node [wnode, label={$\top$}] (top) at (0, 6) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (B);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (B);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (5);
+			\path [line] (3) -- (x1);
+			\path [line] (B) -- (x1);
+			\path [line] (B) -- (x2);
+			\path [line] (4) -- (6);
+			\path [line] (4) -- (x2);
+			\path [line] (5) -- (7);
+			\path [line] (5) -- (x3);
+			\path [line] (x1) -- (x3);
+			\path [line] (x2) -- (x4);
+			\path [line] (x2) -- (F);
+			\path [line] (6) -- (x4);
+			\path [line] (x3) -- (F);
+			\path [line] (x4) -- (top);
+			\path [line] (7) -- (top);
+			\path [line] (F) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis du problème de chaine, 1ère distributivité}
+	\label{pbl_v6_dist1}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
+			\node [wnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label=right:{}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4}] (4) at (1, 2) {};
+			\node [wnode, label=left:{5}] (5) at (-1, 3) {};
+			\node [wnode, label={}] (x1) at (0, 3) {};
+			\node [wnode, label=right:{6}] (6) at (1, 3) {};
+			\node [wnode, label={}] (x3) at (0, 4) {};
+			\node [wnode, label=left:{7}] (7) at (-1, 5) {};
+			\node [wnode, label=left:{}] (F) at (0, 5) {};
+			\node [wnode, label={$\top$}] (top) at (0, 6) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (B);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (B);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (5);
+			\path [line] (3) -- (x1);
+			\path [line] (B) -- (x1);
+			\path [line] (4) -- (6);
+			\path [line] (4) -- (x1);
+			\path [line] (5) -- (7);
+			\path [line] (5) -- (x3);
+			\path [line] (x1) -- (x3);
+			\path [line] (6) -- (x3);
+			\path [line] (x3) -- (F);
+			\path [line] (7) -- (top);
+			\path [line] (F) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis du problème de chaine, 1ère distributivité avec fusion}
+	\label{pbl_v6_dist1_fusion}
+	\end{minipage}
+\end{figure}
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
+			\node [wnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label=right:{}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4}] (4) at (1, 2) {};
+			\node [wnode, label=left:{5}] (5) at (-1.5, 3) {};
+			\node [wnode, label={}] (x1) at (-0.5, 3) {};
+			\node [wnode, label={}] (x2) at (0.5, 3) {};
+			\node [wnode, label=right:{6}] (6) at (1.5, 3) {};
+			\node [wnode, label={}] (x3) at (-0.5, 4) {};
+			\node [wnode, label={}] (x5) at (0.5, 4) {};
+			\node [wnode, label={}] (x4) at (1.5, 4) {};
+			\node [wnode, label=left:{7}] (7) at (-1.5, 4) {};
+			\node [wnode, label={}] (x6) at (-1, 5) {};
+			\node [wnode, label=left:{}] (F) at (0, 5) {};
+			\node [wnode, label={}] (x7) at (1, 5) {};
+			\node [wnode, label={}] (x8) at (-0.5, 6) {};
+			\node [wnode, label={}] (x9) at (0.5, 6) {};
+			\node [wnode, label={}] (x10) at (-0.5, 7) {};
+			\node [wnode, label={}] (x11) at (0.5, 7) {};
+			\node [wnode, label={$\top$}] (top) at (0, 8) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (B);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (B);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (5);
+			\path [line] (3) -- (x1);
+			\path [line] (B) -- (x1);
+			\path [line] (B) -- (x2);
+			\path [line] (4) -- (6);
+			\path [line] (4) -- (x2);
+			\path [line] (5) -- (7);
+			\path [line] (5) -- (x3);
+			\path [line] (x1) -- (x3);
+			\path [line] (x1) -- (x5);
+			\path [line] (x2) -- (x4);
+			\path [line] (x2) -- (x5);
+			\path [line] (6) -- (x4);
+			\path [line] (x3) -- (F);
+			\path [line] (7) -- (x6);
+			\path [line] (x3) -- (x6);
+			\path [line] (x3) -- (F);
+			\path [line] (x5) -- (F);
+			\path [line] (x5) -- (x7);
+			\path [line] (x4) -- (x7);
+			\path [line] (x6) -- (x8);
+			\path [line] (F) -- (x8);
+			\path [line] (F) -- (x9);
+			\path [line] (x7) -- (x9);
+			\path [line] (x8) -- (x10);
+			\path [line] (x9) -- (x10);
+			\path [line] (x9) -- (x11);
+			\path [line] (x10) -- (top);
+			\path [line] (x11) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis du problème de chaine, 2nde distributivité}
+	\label{pbl_v6_dist2}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
+			\node [wnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label=right:{}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4}] (4) at (1, 2) {};
+			\node [wnode, label=left:{5}] (5) at (-1, 3) {};
+			\node [wnode, label={}] (x1) at (0, 3) {};
+			\node [wnode, label=right:{6}] (6) at (1, 3) {};
+			\node [wnode, label={}] (x3) at (0, 4) {};
+			\node [wnode, label=left:{7}] (7) at (-1, 4) {};
+			\node [wnode, label={}] (x6) at (-1, 5) {};
+			\node [wnode, label=left:{}] (F) at (0, 5) {};
+			\node [wnode, label={}] (x7) at (1, 5) {};
+			\node [wnode, label={}] (x8) at (-0.5, 6) {};
+			\node [wnode, label={}] (x9) at (0.5, 6) {};
+			\node [wnode, label={}] (x10) at (-0.5, 7) {};
+			\node [wnode, label={}] (x11) at (0.5, 7) {};
+			\node [wnode, label={$\top$}] (top) at (0, 8) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (B);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (B);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (5);
+			\path [line] (3) -- (x1);
+			\path [line] (B) -- (x1);
+			\path [line] (4) -- (6);
+			\path [line] (4) -- (x1);
+			\path [line] (5) -- (7);
+			\path [line] (5) -- (x3);
+			\path [line] (x1) -- (x3);
+			\path [line] (6) -- (x3);
+			\path [line] (x3) -- (F);
+			\path [line] (7) -- (x6);
+			\path [line] (x3) -- (x6);
+			\path [line] (x3) -- (F);
+			\path [line] (x3) -- (x7);
+			\path [line] (x6) -- (x8);
+			\path [line] (F) -- (x8);
+			\path [line] (F) -- (x9);
+			\path [line] (x7) -- (x9);
+			\path [line] (x8) -- (x10);
+			\path [line] (x9) -- (x10);
+			\path [line] (x9) -- (x11);
+			\path [line] (x10) -- (top);
+			\path [line] (x11) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis du problème de chaine, 2nde distributivité avec fusion}
+	\label{pbl_v6_dist2_fusion}
+	\end{minipage}
+\end{figure}
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
+			\node [wnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label=right:{}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4}] (4) at (1, 2) {};
+			\node [wnode, label=left:{5}] (5) at (-1.5, 3) {};
+			\node [wnode, label={}] (x1) at (-0.5, 3) {};
+			\node [wnode, label={}] (x2) at (0.5, 3) {};
+			\node [wnode, label=right:{6}] (6) at (1.5, 3) {};
+			\node [wnode, label={}] (x3) at (-0.5, 4) {};
+			\node [wnode, label={}] (x5) at (0.5, 4) {};
+			\node [wnode, label={}] (x4) at (1.5, 4) {};
+			\node [wnode, label=left:{7}] (7) at (-1.5, 4) {};
+			\node [wnode, label={}] (x6) at (-1, 5) {};
+			\node [wnode, label=left:{}] (F) at (0, 5) {};
+			\node [wnode, label={}] (x7) at (1, 5) {};
+			\node [wnode, label={}] (x8) at (-0.5, 6) {};
+			\node [wnode, label={}] (x9) at (0.5, 6) {};
+			\node [wnode, label={}] (x10) at (-0.5, 7) {};
+			\node [wnode, label={}] (x11) at (0.5, 7) {};
+			\node [wnode, label={}] (x12) at (1.5, 7) {};
+			\node [wnode, label={}] (x13) at (-0.5, 8) {};
+			\node [wnode, label={}] (x14) at (0.5, 8) {};
+			\node [wnode, label={}] (x15) at (1.5, 8) {};
+			\node [wnode, label={}] (x16) at (0.5, 9) {};
+			\node [wnode, label={}] (x17) at (1.5, 9) {};
+			\node [wnode, label={$\top$}] (top) at (1, 10) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (B);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (B);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (5);
+			\path [line] (3) -- (x1);
+			\path [line] (B) -- (x1);
+			\path [line] (B) -- (x2);
+			\path [line] (4) -- (6);
+			\path [line] (4) -- (x2);
+			\path [line] (5) -- (7);
+			\path [line] (5) -- (x3);
+			\path [line] (x1) -- (x3);
+			\path [line] (x1) -- (x5);
+			\path [line] (x2) -- (x4);
+			\path [line] (x2) -- (x5);
+			\path [line] (6) -- (x4);
+			\path [line] (x3) -- (F);
+			\path [line] (7) -- (x6);
+			\path [line] (x3) -- (x6);
+			\path [line] (x3) -- (F);
+			\path [line] (x5) -- (F);
+			\path [line] (x5) -- (x7);
+			\path [line] (x4) -- (x7);
+			\path [line] (x6) -- (x8);
+			\path [line] (F) -- (x8);
+			\path [line] (F) -- (x9);
+			\path [line] (x7) -- (x9);
+			\path [line] (x8) -- (x10);
+			\path [line] (x9) -- (x10);
+			\path [line] (x9) -- (x11);
+			\path [line] (x9) -- (x12);
+			\path [line] (x10) -- (x13);
+			\path [line] (x10) -- (x14);
+			\path [line] (x11) -- (x13);
+			\path [line] (x11) -- (x15);
+			\path [line] (x12) -- (x14);
+			\path [line] (x12) -- (x15);
+			\path [line] (x13) -- (x16);
+			\path [line] (x14) -- (x16);
+			\path [line] (x15) -- (x16);
+			\path [line] (x15) -- (x17);
+			\path [line] (x16) -- (top);
+			\path [line] (x17) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis du problème de chaine, 3ème distributivité}
+	\label{pbl_v6_dist3}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{$\bot$}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-0.5, 1) {};
+			\node [wnode, label=right:{2}] (2) at (0.5, 1) {};
+			\node [wnode, label=left:{3}] (3) at (-1, 2) {};
+			\node [wnode, label=right:{}] (B) at (0, 2) {};
+			\node [wnode, label=right:{4}] (4) at (1, 2) {};
+			\node [wnode, label=left:{5}] (5) at (-1, 3) {};
+			\node [wnode, label={}] (x1) at (0, 3) {};
+			\node [wnode, label=right:{6}] (6) at (1, 3) {};
+			\node [wnode, label={}] (x3) at (0, 4) {};
+			\node [wnode, label=left:{7}] (7) at (-1, 4) {};
+			\node [wnode, label=left:{}] (F) at (-0.5, 5) {};
+			\node [wnode, label={}] (x8) at (-0.5, 6) {};
+			\node [wnode, label={}] (x10) at (0.5, 7) {};
+			\node [wnode, label={}] (x11) at (-0.5, 7) {};
+			\node [wnode, label={}] (x12) at (-1.5, 7) {};
+			\node [wnode, label={}] (x13) at (0.5, 8) {};
+			\node [wnode, label={}] (x14) at (-0.5, 8) {};
+			\node [wnode, label={}] (x15) at (-1.5, 8) {};
+			\node [wnode, label={}] (x16) at (0.5, 9) {};
+			\node [wnode, label={}] (x17) at (-0.5, 9) {};
+			\node [wnode, label={$\top$}] (top) at (0, 10) {};
+		
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (2);
+			\path [line] (1) -- (3);
+			\path [line] (1) -- (B);
+			\path [line] (1) -- (3);
+			\path [line] (2) -- (B);
+			\path [line] (2) -- (4);
+			\path [line] (3) -- (5);
+			\path [line] (3) -- (x1);
+			\path [line] (B) -- (x1);
+			\path [line] (4) -- (6);
+			\path [line] (4) -- (x1);
+			\path [line] (5) -- (7);
+			\path [line] (5) -- (x3);
+			\path [line] (x1) -- (x3);
+			\path [line] (6) -- (x3);
+			\path [line] (x3) -- (F);
+			\path [line] (7) -- (F);
+			\path [line] (x3) -- (F);
+			\path [line] (F) -- (x8);
+			\path [line] (x8) -- (x10);
+			\path [line] (x8) -- (x11);
+			\path [line] (x8) -- (x12);
+			\path [line] (x10) -- (x13);
+			\path [line] (x10) -- (x14);
+			\path [line] (x11) -- (x13);
+			\path [line] (x11) -- (x15);
+			\path [line] (x12) -- (x14);
+			\path [line] (x12) -- (x15);
+			\path [line] (x13) -- (x16);
+			\path [line] (x13) -- (x17);
+			\path [line] (x14) -- (x17);
+			\path [line] (x15) -- (x17);
+			\path [line] (x16) -- (top);
+			\path [line] (x17) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis du problème de chaine, 3ème distributivité avec fusion}
+	\label{pbl_v6_dist3_fusion}
 	\end{minipage}
 \end{figure}
 
+Comme nous pouvons le voir, cela donne un treillis plutôt éloigné de ce qui est souhaité. L'idéal est de trouver réellement le moment exacte et la raison exacte du soucis. Faute d'une meilleure solution à ce moment, pour contourner ce problème j'ai ajouté une condition visant à épurer les situations de chaines inutiles, en fusionnant vers le bas les n\oe uds n'ayant qu'un unique n\oe ud en ouverture et n'étant la couverture que d'un unique n\oe ud et sans être l'un des n\oe uds du treillis de base. Cette 'épuration est effectué juste après la fusion. 
+
+\section{Ouvertures}
+
+\subsection{Système de boucle}
+
+Comme nous l'avons vu précédemment, nous devons boucler sur l'algorithme afin de prendre en considération les cas qui générent un nouvel $N_5$ ou $M_3$ lors de leur première résolution. Les méthodes présentées ici ne sont pas utilisées dans le programme mais sont des pistes intéressantes à garder à l'esprit en cas de problèmes futurs.
+
+\smallbreak
+
+Pour la première, il s'agit de faire la fusion pas à pas. On execute la méthode cla différemment. On extrait les contextes des treillis des atomes puis on effectue pour chacun d'eux la transformation en contexte de treillis distributif et on l'assemble avec le contexte global et c'est à ce moment où on fait les fusions si besoin avant de passer au contexte du treillis de l'atome suivant. Cette façon de faire peut permettre de gagner du temps sur la phase de la fusion mais en ferra perdre lors de l'étape de transformation en treillis distributif. Je ne peux pas déterminer laquelle est la meilleure à l'heure actuelle, reste à voir si à l'avenir de nouveaux problèmes se posent et si cette nouvelle méthode peut apporter des réponses.
+
+\smallbreak
+
+La seconde est de faire une boucle sur tout le c\oe ur du processus et de faire les fusions de n\oe uds à la fin. Cette solution contrairement à la première empêche toute possibilité de cycle dû à la fusion mais donne la plupart du temps le treillis distributif maximal pour chaque atome et la fusion devient par conséquent très compliquée, ce qui donne des treillis bien plus grand que ceux visés.
+
+\subsection{Le cas des chaines}
+
+Malheureusement, cette partie n'est pas fiable et résulte principalement d'une intuition basé sur un objectif à atteindre et donnant lieu à un raccourci par rapport à une propriété ou à un traitement non mis à découvert. C'est sous doute la principale du programme à garder sous surveillance et à chercher à améliorer.
+
 \subsection{Optimalité du treillis}
 
+La base même du besoin de ces travaux qui est d'obtenir un graphe médian pour la phylogénie à partir d'une matrice binaire, demande d'avoir en sortie un treillis le plus petit et le plus proche possible du treillis du contexte d'origine. Il est donc évident que l'une des prochaines étapes les plus importantes consiste à quantifier et mesurer cette différence entre deux treillis. On est dans une situation d'ajout d'éléments, la solution la plus simple est donc de compter tout simplement les éléments ajouter sous forme de tuple comprenant un compteur pour les arcs et un compteurs pour les n\oe uds. Par rapport au treillis de la figure \ref{clav1_before}, le treillis de la figure \ref{clav1_after} est à une distance de $(1, 2)$ pour avoir un n\oe ud et deux arcs de plus. Cela reste un ébauche de méthode, il faut évidemment une reflexion bien plus approfondie et travaillée sur de nombreux cas pour commencer à arriver sur une méthode viable.
+
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{4}] (4) at (1, 1) {};
+			\node [wnode, label=left:{2, A}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 3) {};
+			\node [wnode, label=right:{5, D}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, E}] (6) at (2, 3) {};
+			\node [wnode, label=right:{C}] (C) at (0, 2) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (C);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			\path [line] (C) -- (top);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis avant traitement}
+	\label{clav1_before}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}
+			\node [wnode, label=below:{bot}] (bot) at (0,0) {};
+			\node [wnode, label=left:{1}] (1) at (-1, 1) {};
+			\node [wnode, label=right:{4}] (4) at (1, 1) {};
+			\node [wnode, label=left:{2}] (2) at (-2, 2) {};
+			\node [wnode, label=left:{3, B}] (3) at (-2, 3) {};
+			\node [wnode, label=right:{5}] (5) at (2, 2) {};
+			\node [wnode, label=right:{6, E}] (6) at (2, 3) {};
+			\node [wnode, label=right:{C}] (C) at (0, 2) {};
+			\node [bnode, label=right:{F}] (F) at (0, 3) {};
+			\node [wnode, label={top}] (top) at (0, 4) {};
+			
+			\path [line] (bot) -- (1);
+			\path [line] (bot) -- (4);
+			\path [line] (1) -- (2);
+			\path [line] (1) -- (C);
+			\path [line] (2) -- (3);
+			\path [line] (3) -- (top);
+			\path [line] (4) -- (5);
+			\path [line] (4) -- (C);
+			\path [line] (5) -- (6);
+			\path [line] (6) -- (top);
+			\path [line] (C) -- (F);
+			\path [line] (F) -- (top);
+			\path [line] (2) -- (F);
+			\path [line] (5) -- (F);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Treillis après traitement}
+	\label{clav1_after}
+	\end{minipage}
+\end{figure}
+
+De plus, mes travaux dans ce rapport nécessite également un travail plus approfondi pour juger de son efficacité sur ce plan d'optimisation. De regarder sur des cas beaucoup plus complexe et plus proche de données réelles si nous obtenons des graphes médians utilisables à partir des treillis obtenus.
 
 \subsection{Optimisation du programme}
+
+Le dernier point important à traiter venant à la suite de ce travail est l'optimisation du programme en lui-même afin de lui faire gagner en vitesse de traitement et lui faire perdre en possibilité de bogues via une optimisation de son code. Il reste un logiciel développé dans un cadre de recherche et qui a subit des ajouts itératifs qui n'ont pas été systématiquement gardés.
