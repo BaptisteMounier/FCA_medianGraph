@@ -1,6 +1,6 @@
 \chapter{Existant}
 
-Le lien mis en évidence par Uta Priss entre les treillis de concepts et les graphes médians se situe dans le fait qu'un treillis distributif peut être considéré comme un graphe médian. Tout dans un objectif d'objectif une solution minimale  et puisque le graphe médian ne necessite pas de garder le $\bot$, elle propose de ne rendre distributif que les treillis obtenus à partir des filtres des atomes. Pour ce faire il faut agir sur deux aspects. Le premier est la décomposition de ces sous treillis et leur recomposition en un unique. Le second est la transformation en elle-même du sous treillis lambda en treillis distributif. Nous pouvons l'illustrer à travers la figure \ref{priss_treillis_base} est notre point de départ avec en noir le sous treillis $N_5$ bloquant la distributivité, la figure \ref{priss_treillis_median} qui se trouve être le treillis après la remise en commun et pour finir la figure \ref{priss_graphe_median} qui est simplement le graphe médian qui ressort après avoir fini le reste de la méthode et d'avoir supprimer le $\bot$.
+Le lien mis en évidence par Uta Priss entre les treillis de concepts et les graphes médians se situe dans le fait qu'un treillis distributif peut être considéré comme un graphe médian. Le tout dans un objectif d'une solution minimale et puisque le graphe médian ne necessite pas de garder le $\bot$, elle propose de ne rendre distributif que les treillis obtenus à partir des filtres des atomes. Pour ce faire il faut agir sur deux aspects. Le premier est la décomposition de ces sous treillis et leur recomposition en un unique. Le second est la transformation en elle-même du sous treillis lambda en treillis distributif. Nous pouvons l'illustrer à travers la figure \ref{priss_treillis_base} est notre point de départ avec en noir le sous treillis $N_5$ bloquant la distributivité, la figure \ref{priss_treillis_median} qui se trouve être le treillis après la remise en commun et pour finir la figure \ref{priss_graphe_median} qui est simplement le graphe médian qui ressort après avoir fini le reste de la méthode et d'avoir supprimer le $\bot$.
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.5 \textwidth}
@@ -122,7 +122,7 @@ Pour effectuer l'extraction du contexte d'un atome, il suffit d'extraire du cont
 	\end{minipage}
 \end{figure}
 
-Ensuite nous utilisons la méthode de transformation d'un treillis lambda vers un treillis distributif, elle est présentée par Uta Priss et explicitée par l'équipe à travers l'algorithme en figure \ref{algo_cla}. Nous allons l'illustrer avec en exemple le cas $N_5$.
+Ensuite nous utilisons la méthode de transformation d'un treillis quelconque vers un treillis distributif, elle est présentée par Uta Priss et explicitée par l'équipe à travers l'algorithme en figure \ref{algo_cla}. Nous allons l'illustrer avec en exemple le cas $N_5$.
 
 \begin{figure}[H]
 \begin{algorithm}[H]
@@ -186,7 +186,7 @@ Ensuite nous utilisons la méthode de transformation d'un treillis lambda vers u
 	\caption{Cas de $N_5$}
 \end{figure}
 
-Nous utilisons le contexte réduit. Nous allons créé un nouveau contexte à partir des $\wedge$-irreductibles. Le principe est de tous les parcourir et de créer un attribut pour chacun qui sera en correspondance avec tous les $\wedge$-irreductibles qui ne sont pas dans le filtre de l'attribut en cours.
+Nous utilisons le contexte réduit. Nous allons créer un nouveau contexte à partir des $\wedge$-irreductibles. Le principe est de tous les parcourir et de créer un attribut pour chacun qui sera en correspondance avec tous les $\wedge$-irreductibles qui ne sont pas dans le filtre de l'attribut en cours.
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.5\textwidth}
@@ -290,7 +290,7 @@ Nous utilisons le contexte réduit. Nous allons créé un nouveau contexte à pa
 	\caption{Étape 3}
 \end{figure}
 
-Uns fois ce nouveau contexte optenu, il suffit de tracer le treillis associé.
+Une fois ce nouveau contexte optenu, il suffit de tracer le treillis associé.
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.5\textwidth}
@@ -390,7 +390,7 @@ Nous obtenons ainsi un nouveau contexte pour un nouveau treillis distributif tr�
 	\end{minipage}
 \end{figure}
 
-Une fois la méthode mise en place, on se rend compte qu'elle dispose de problèmes. Sur des cas moins triviaux il se pose la question de l'optimalité du treillis unique obtenu. Prenons en exemple la figure \ref{priss_probleme_base} avec en noir une partie des n\oe uds empêchant les treillis des atomes d'être distributif par la présence d'un sous treillis $N_5$. Si nous appliquons la méthode dessus nous obtenons la figure \ref{priss_probleme_1} avec également en noirs des n\oe uds posant le même problème.
+Une fois la méthode mise en place, on constate des problèmes. Sur des cas moins triviaux il se pose la question de l'optimalité du treillis unique obtenu. Prenons en exemple la figure \ref{priss_probleme_base} avec en noir une partie des n\oe uds empêchant les treillis des atomes d'être distributif par la présence d'un sous treillis $N_5$. Si nous appliquons la méthode dessus nous obtenons la figure \ref{priss_probleme_1} avec également en noirs des n\oe uds posant le même problème.
 
 \begin{figure}[H]
 	\begin{center}
@@ -419,7 +419,7 @@ Une fois la méthode mise en place, on se rend compte qu'elle dispose de problè
 			\path [line] (C) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Cas posant problème, situation de départ}
+	\caption{Cas posant problème : situation de départ}
 	\label{priss_probleme_base}
 \end{figure}
 
@@ -456,11 +456,11 @@ Une fois la méthode mise en place, on se rend compte qu'elle dispose de problè
 			\path [line] (5) -- (m6);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Cas posant problème, situation après l'application de la méthode}
+	\caption{Cas posant problème : situation après l'application de la méthode}
 	\label{priss_probleme_1}
 \end{figure}
 
-La première contre mesure serait de refaire la méthode jusqu'à n'obtenir aucun sous treillis problèmatique. C'est une contre mesure fonctionnelle mais qui vient perturber l'utilité de la méthode. Nous avons besoin d'une représentation global la plus simple et proche du treillis d'origine possible. Cette méthode ne fait perdre aucune liaison et n'en ajoute uniquement pour rendre le treillis distributif, si nous la faisons en boucle, nous obtenons dans le pire des cas le treillis distributif le plus grand qui est en figure \ref{priss_probleme_max} avec en noirs les n\oe uds déjà présent dans le treillis d'origine. Nous pouvons voir par execution manuelle qu'une solution existe en figure \ref{priss_probleme_solution} mais que la méthode ne parvient pas à atteindre. Le stage a consisté en la modification de la méthode afin de trouver cette solution optimale et de rechercher d'autres potentiels cas problématiques pour les prendre en considération.
+Une première solution serait de refaire la méthode jusqu'à n'obtenir aucun sous treillis problèmatique. C'est une solution fonctionnelle mais qui vient perturber l'utilité de la méthode. Nous avons besoin d'une représentation globale la plus simple et proche du treillis d'origine possible. Cette méthode ne fait perdre aucune liaison et n'en ajoute uniquement pour rendre le treillis distributif, si nous la faisons en boucle, nous obtenons dans le pire des cas le treillis distributif le plus grand qui est en figure \ref{priss_probleme_max} avec en noirs les n\oe uds déjà présent dans le treillis d'origine. Or une solution existe en figure \ref{priss_probleme_solution} mais que la méthode ne parvient pas à atteindre. Le stage a consisté en la modification de la méthode afin de trouver cette solution optimale et de rechercher d'autres potentiels cas problématiques pour les prendre en considération.
 
 \begin{figure}[H]
 	\begin{center}
@@ -510,7 +510,7 @@ La première contre mesure serait de refaire la méthode jusqu'à n'obtenir aucu
 			\path [line] (13) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Cas posant problème, situation maximale}
+	\caption{Cas posant problème : situation maximale}
 	\label{priss_probleme_max}
 \end{figure}
 
@@ -544,6 +544,6 @@ La première contre mesure serait de refaire la méthode jusqu'à n'obtenir aucu
 			\path [line] (5) -- (m3);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Cas posant problème, situation souhaitée}
+	\caption{Cas posant problème : situation souhaitée}
 	\label{priss_probleme_solution}
 \end{figure}

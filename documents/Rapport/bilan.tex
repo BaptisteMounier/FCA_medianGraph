@@ -6,7 +6,7 @@ Nous cherchions à produire des treillis utilisables sous forme de graphes médi
 
 \bigbreak
 
-Nous avons obtenu un programme permettant de le faire. Il commence par extraire le contexte initial d'un fichier pour ensuite regarder si tous les treillis générés à partir des filtres des atomes sont distributifs en calculant les relations flèches pour utiliser la propriété que le contexte réduit d'un treillis distributif ne possède uniquement une relation fléche double par ligne et par colonne et aucune autre relations fléches. Si ce n'est pas le cas, nous appliquons une méthode de transformation sur chacun d'eux avant de les remettre en commun dans un unique treillis. À partir de là, nous effectuons la fusion deux à deux de tous les couples de n\oe uds remplissant les conditions suivantes :
+Nous avons obtenu un programme permettant de le faire. Il commence par extraire le contexte initial d'un fichier pour ensuite regarder si tous les treillis générés à partir des filtres des atomes sont distributifs en calculant les relations flèches pour utiliser la propriété que le contexte réduit d'un treillis distributif possède uniquement une relation fléche double par ligne et par colonne et aucune autre relations fléches. Si ce n'est pas le cas, nous appliquons une méthode de transformation sur chacun d'eux avant de les remettre en commun dans un unique treillis. À partir de là, nous effectuons la fusion deux à deux de tous les couples de n\oe uds remplissant les conditions suivantes :
 \begin{itemize}
 	\item Les deux n\oe uds à fusionner ne doivent pas faire partis des n\oe uds du treillis de départ.
 	\item Les deux n\oe uds à fusionner doivent être en couverture d'un n\oe ud présent dans au moins deux filtres d'atomes.

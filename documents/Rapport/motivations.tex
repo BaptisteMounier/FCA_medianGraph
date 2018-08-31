@@ -1,10 +1,10 @@
 \chapter{Motivations}
 
-Il est important avant de commencer cette section de préciser le détails des définitions et propriété sera détaillé par la suite.
+Il est important avant de commencer cette section, de préciser que le détail des définitions et propriétés sera détaillé par la suite.
 
 \section{Phylogénie}
 
-La phylogénie est un domaine de la biologie ayant pour but l'étude des relations de parenté entre les êtres vivants. Nous nous concentrerons sur la partie du domaine qui traite des relations entre les espèces et leurs évolutions. Pour représenter les informations, on utilise des arbres montrant les différentes espèces avec leurs caractérisques communes comme en figure \ref{arbre_phylogenie} sur laquelle chaque feuille, ici représentée en noir, correspond à une espèce actuelle. Sa lecture est très simple, on part du n\oe ud le plus haut qui correspond à l'intégralité des espèces et on descend progressivement chaque ramification qui vient sélectionner une partie des espèces suivant certaines caractéristiques noté sur les n\oe uds traversés. On part également du principe que chaque n\oe ud correspond à un ancêtre commun à toutes les espèces des feuilles sur lesquelles ce n\oe ud débouche.
+La phylogénie est un domaine de la biologie ayant pour but l'étude des relations de parenté entre les êtres vivants. Nous nous concentrerons sur la partie du domaine qui traite des relations entre les espèces et leurs évolutions. Pour représenter les informations, on utilise des arbres montrant les différentes espèces avec leurs caractérisques communes comme en figure \ref{arbre_phylogenie} sur laquelle chaque feuille, ici représentée en noir, correspond à une espèce actuelle. Sa lecture est très simple, on part du n\oe ud le plus haut qui correspond à l'intégralité des espèces et on descend progressivement chaque branche qui vient sélectionner une partie des espèces suivant certaines caractéristiques notées sur les n\oe uds traversés. On part également du principe que chaque n\oe ud correspond à un ancêtre commun à toutes les espèces des feuilles sur lesquelles ce n\oe ud débouche.
 
 \begin{figure}[H]
 	\begin{center}
@@ -17,6 +17,7 @@ La phylogénie est un domaine de la biologie ayant pour but l'étude des relatio
 			\node [wnode, label=left:{nyctalope}] (nyctalope) at (0, 2) {};
 			\node [wnode, label=left:{griffes}] (griffes) at (2, 3) {};
 			\node [wnode, label=right:{ailes}] (ailes) at (4, 3) {};
+			\node [wnode, label=right:{griffes}] (griffes3) at (4, 2) {};
 			\node [wnode, label={vol}] (vol) at (6, 2) {};
 			\node [wnode, label=right:{griffes}] (griffes2) at (8, 1) {};
 			\node [wnode, label={}] (top) at (3, 4) {};
@@ -24,7 +25,8 @@ La phylogénie est un domaine de la biologie ayant pour but l'étude des relatio
 			\path [line] (chat) -- (nyctalope);
 			\path [line] (nyctalope) -- (griffes);
 			\path [line] (chien) -- (griffes);
-			\path [line] (poule) -- (ailes);
+			\path [line] (poule) -- (griffes3);
+			\path [line] (griffes3) -- (ailes);
 			\path [line] (mouette) -- (vol);
 			\path [line] (vol) -- (ailes);
 			\path [line] (aigle) -- (griffes2);
@@ -52,6 +54,8 @@ Ces arbres sont des représentations des données de la matrice et peuvent varie
 			\node [wnode, label=left:{griffes}] (griffes) at (1, 3) {};
 			\node [wnode, label=left:{ailes}] (ailes) at (2, 2) {};
 			\node [wnode, label=left:{vol}] (vol) at (3, 1) {};
+			\node [wnode, label=right:{ailes}] (ailes2) at (4, 3) {};
+			\node [wnode, label=right:{vol}] (vol2) at (4, 2) {};
 			\node [wnode, label={}] (top) at (2, 4) {};
 			
 			\path [line] (chat) -- (nyctalope);
@@ -62,7 +66,9 @@ Ces arbres sont des représentations des données de la matrice et peuvent varie
 			\path [line] (vol) -- (ailes);
 			\path [line] (aigle) -- (vol);
 			\path [line] (griffes) -- (top);
-			\path [line] (mouette) -- (top);
+			\path [line] (mouette) -- (vol2);
+			\path [line] (vol2) -- (ailes2);
+			\path [line] (ailes2) -- (top);
 		\end{tikzpicture}
 	\end{center}
 	\caption{Arbre phylogénétique, autre accent}
@@ -87,7 +93,7 @@ Ces arbres sont des représentations des données de la matrice et peuvent varie
 
 \section{Outil : graphes médians}
 
-Le vivant et la multitude de caractéristiques de chaque espèce ne permet pas d'avoir un unique arbre parcimonieux pour représenter tous les accents possibles avec un jeu de données. Pour compenser cela la première solution est de donner tous les arbres possibles, solution qui est pour des raisons évidentes de place et de pertinence, pas viable. La seconde, proposée par Hans-Jürgen Bandelt dans \cite{MedianAlgebras}, consiste à encoder l'ensemble de ces arbres dans un graphe médian. Ce sont des graphes dans lesquels pour chaque triplet il n'y qu'un unique n\oe ud communs aux chemins les plus courts les reliant. Cette méthode permet ainsi d'avoir l'intégralité de ces arbres phylogénétiques parcimonieux en une unique représentation au lieu de devoir faire un arbre par information qu'on souhaite mettre en avant. Suivant ce principe nous obtenons la figure \ref{graphe_median_phylogenie} dans laquelle toutes les espèces, toujours sur les n\oe uds noirs, disposent des caractéristiques des n\oe uds qui lui sont au dessus et de celui où elles se trouvent. Dans ce jeu de données l'espèce \guillemotleft{} chat \guillemotright{} dispose des caractéristiques \guillemotleft{} nyctalope \guillemotright{} et \guillemotleft{} griffes \guillemotright{}. Ce graphe contient toutes les informations que les arbres précédents des figures \ref{arbre_phylogenie} et \ref{arbre_phylogenie_2} ainsi que les autres arbres qui peuvent être formé à partir de ce jeu de données, peuvent offrir.
+Le vivant et la multitude de caractéristiques de chaque espèce ne permet pas d'avoir un unique arbre parcimonieux pour représenter tous les accents possibles avec un jeu de données. Pour compenser cela la première solution est de donner tous les arbres possibles, solution n'est pas viable qui pour des raisons évidentes de place et de pertinence. La seconde, proposée par Hans-Jürgen Bandelt dans \cite{MedianAlgebras}, consiste à encoder l'ensemble de ces arbres dans un graphe médian. Ce sont des graphes dans lesquels pour chaque triplet il n'y qu'un unique n\oe ud communs aux chemins les plus courts les reliant. Cette méthode permet ainsi d'avoir l'intégralité de ces arbres phylogénétiques parcimonieux en une unique représentation au lieu de devoir faire un arbre par information qu'on souhaite mettre en avant. Suivant ce principe nous obtenons la figure \ref{graphe_median_phylogenie} dans laquelle toutes les espèces, toujours sur les n\oe uds noirs, disposent des caractéristiques des n\oe uds qui lui sont au dessus et de celui où elles se trouvent. Dans ce jeu de données l'espèce \guillemotleft{} chat \guillemotright{} dispose des caractéristiques \guillemotleft{} nyctalope \guillemotright{} et \guillemotleft{} griffes \guillemotright{}. Ce graphe enraciné contient toutes les informations que les arbres précédents des figures \ref{arbre_phylogenie} et \ref{arbre_phylogenie_2} ainsi que les autres arbres qui peuvent être formés à partir de ce jeu de données, peuvent offrir.
 
 \begin{figure}[H]
 	\begin{center}
@@ -148,8 +154,8 @@ Nous avons précédemment parlé de représenter grace à des arbres, des donné
 	\label{treillis_exemple}
 \end{figure}
 
-Nous pouvons voir que le treillis de la figure \ref{treillis_exemple} n'est ni un arbre, ni un graphe médian. En revanche des treillis disposant de certaines caractéristiques disposent de liens avec ces deux autres représentations. Uta Priss s'appuit sur ces ressemblance pour proposer un pont afin d'offrir à la phylogénie les nombreux outils et la communauté relativement importante de la FCA de même qu'une méthode afin d'obtenir un graphe médian à partir d'un treillis de concepts dont elle n'a pas donné le détails.
+Nous pouvons voir que le treillis de la figure \ref{treillis_exemple} n'est ni un arbre, ni un graphe médian. En revanche des treillis disposant de certaines caractéristiques disposent de liens avec ces deux autres représentations. Uta Priss s'appuit sur ces ressemblances pour proposer un pont afin d'offrir à la phylogénie les nombreux outils et la communauté relativement importante de la FCA de même qu'une méthode afin d'obtenir un graphe médian à partir d'un treillis de concepts dont elle n'a pas donné le détails.
 
 \bigbreak
 
-L'équipe, à travers notamment de Yacine Namir, a effectué une première exploration \cite{egc2018} visant à implémenter une solution. Par la même occasion, des problèmes sur la méthode sont apparus et seront détaillés dans la suite de ce document. Mais avant cela, nous allons le poursuivre par un chapitre de définitions sur les différents éléments qui sont nécessaires à la compréhension de la problèmatique. À la suite duquel nous reviendront sur la situation initiale puis nous développerons la contribution de ce stage à la résolution de cette problèmatique qui est je le rappel, d'obtenir un graphe médian à partir d'une matrice binaire espèce/caractéritique pour une utilisation en phylogénie.
+L'équipe, notamment au travers de Yacine Namir, a effectué une première exploration \cite{egc2018} visant à implémenter une solution. Par la même occasion, des problèmes sur la méthode sont apparus et seront détaillés dans la suite de ce document. Mais avant cela, nous allons poursuivre par un chapitre de définitions sur les différents éléments qui sont nécessaires à la compréhension de la problèmatique. Puis nous reviendront sur la situation initiale et nous développerons la contribution de ce stage à la résolution de cette problèmatique d'obtenir un graphe médian à partir d'une matrice binaire espèce/caractéristique pour une utilisation en phylogénie.

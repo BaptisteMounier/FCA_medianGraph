@@ -2,13 +2,13 @@
 
 \section{Analyse de Concepts Formels}
 
-L'Analyse Concepts Formels utilise des matrices binaires mettant en relation des objets avec des attributs, une matrice porte le nom de contexte et est défini par $C(O, A, I)$ où $O$ est l'ensemble des objets, $A$ l'ensemble des attributs et $I$ l'ensemble des relations entre les objets et les attributs.
+L'Analyse de Concepts Formels utilise des matrices binaires mettant en relation des objets avec des attributs, une matrice porte le nom de contexte et est définie par $C(O, A, I)$ où $O$ est l'ensemble des objets, $A$ l'ensemble des attributs et $I$ l'ensemble des relations entre les objets et les attributs.
 
 \begin{definition}[Contexte]
 Soit un contexte $C(O, A, I)$ dans lequel $O$ est l'ensemble des objets, $A$ l'ensemble des attributs et $I$ l'ensemble des relations entre les objets et les attributs.
 \end{definition}
 
-Nous définitions une opération, \guillemotleft{} prime \guillemotright{} pour les objets et attributs, notée \guillemotleft{} ' \guillemotright{}. Elle permet de passer des objets aux attributs et inversement. On lui donne un objet (resp. attribut) ou un ensemble d'objets (resp. attributs) et elle nous renvois l'ensemble des attributs (resp. objets) qui sont en correspondance.
+Nous définissons une opération, \guillemotleft{} prime \guillemotright{} pour les objets et attributs, notée \guillemotleft{} ' \guillemotright{}. Elle permet de passer des objets aux attributs et inversement. On lui donne un objet (resp. attribut) ou un ensemble d'objets (resp. attributs) et elle retourne l'ensemble des attributs (resp. objets) qui sont en correspondance, c'est-à-dire les attributs possédés par l'object (resp. les objects qui possèdent l'attribut).
 
 \begin{definition}[Connexion de Gallois]
 Pour $X \subseteq O$ et $Y \subseteq A$, on définie :
@@ -39,14 +39,14 @@ Dans la figure \ref{def_contexte}, nous avons $O = \{chat, chien, aigle, mouette
 Nous pouvont effectuer plusieurs opérations sur les contextes sans réelles pertes d'informations sur la structure. La première est la clarification, cela consiste à ne garder que les lignes et les colonnes qui ne sont pas en doublon.
 
 \begin{definition}[Contexte clarifié]
-Soit un contexte clarifié $C(O, A, I)$ :
+Un contexte $C(O, A, I)$ est clarifié si et seulement si:
 \begin{itemize}
 	\item $\forall x1, x2 \in O$ si ${x1}' = {x2}'$ alors $x1 = x2$
 	\item $\forall y1, y2 \in A$ si ${y1}' = {y2}'$ alors $y1 = y2$
 \end{itemize}
 \end{definition}
 
-À partir du contexte non clarifié de la figure \ref{def_contexte_non_clarifie} nous obtenu le contexte clarifié de la figure \ref{def_contexte_clarifie} avec la suppression de la ligne $5$ qui est le doublon de la ligne $2$ et la colonne $e$ qui est le doublon de la $b$. Nous pouvons le voir à travers les opérations de prime, deux objets (resp. attributs) sont en doublon losqu'ils obtiennent le même résultat. Nous obtenons $2' = \{a\}$ et $5' = \{a\}$. Il est important de bien comprendre que malgré la suppression de lignes ou de colonnes dans cette opération, nous ne perdons aucune données.
+À partir du contexte non clarifié de la figure \ref{def_contexte_non_clarifie} nous obtenons le contexte clarifié de la figure \ref{def_contexte_clarifie} avec la suppression de la ligne $5$ qui est le doublon de la ligne $2$ et la colonne $e$ qui est le doublon de la $b$. Nous pouvons le voir à travers les opérations de prime, deux objets (resp. attributs) sont en doublon losqu'ils obtiennent le même résultat. Nous obtenons $2' = \{a\}$ et $5' = \{a\}$. Il est important de bien comprendre que malgré la suppression de lignes ou de colonnes dans cette opération, nous ne perdons aucune données sur la structure.
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.5\textwidth}
@@ -85,14 +85,14 @@ Soit un contexte clarifié $C(O, A, I)$ :
 La seconde opération est la plus utilisée et va plus loin dans la réduction de la taille du contexte sans perte de données, les contextes ainsi obtenus sont dit \guillemotleft{} contexte réduit \guillemotright \footnote{\guillemotleft{} standard context \guillemotright{} pour la documentation anglaise}. Le principe est toujours de supprimer les lignes et les colonnes dont on peut se passer, celles qui sont recalculables à partir de celles qu'on garde. On ne garde que les lignes et les colonnes qui ne sont pas l'intersection d'une ou plusieurs autres.
 
 \begin{definition}[Contexte réduit]
-Un contexte clarifié est réduit $C(J, M, I)$ si et seulement si :
+Un contexte $C(O, A, I)$ clarifié est réduit si et seulement si :
 \begin{itemize}
-	\item $\forall x \in J, \forall X \subseteq J$, si $x' = X'$ alors $x \in X$
-	\item $\forall x \in M, \forall X \subseteq M$, si $x' = X'$ alors $x \in X$
+	\item $\forall x \in O, \forall X \subseteq O$, si $x' = X'$ alors $x \in X$
+	\item $\forall y \in A, \forall Y \subseteq A$, si $y' = Y'$ alors $y \in Y$
 \end{itemize}
 \end{definition}
 
-Dans la figure \ref{def_contexte_non_reduit} la ligne $2' = \{a\}$ est l'intersection des lignes $1' = \{a, d\}$ et $3' = \{a, b, c\}$ ou $1' = \{a, d\}$ et $6' = \{a, c\}$, on peut donc la supprimer. En revanche, nous n'avons aucune colonne dans ce cas ici. Lorsqu'on effectue la réduction d'un contexte, il est systématiquement sous entendu que l'opération de clarification est également effectuée.
+Dans la figure \ref{def_contexte_non_reduit} la ligne $2' = \{a\}$ est l'intersection des lignes $1' = \{a, d\}$ et $3' = \{a, b, c\}$ ou $1' = \{a, d\}$ et $6' = \{a, c\}$, on peut donc la supprimer. En revanche, nous n'avons aucune colonne dans ce cas ici.
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.5\textwidth}
@@ -141,7 +141,7 @@ Sur le contexte de la figure \ref{def_contexte_reduit} nous avons entre autre le
 
 \bigbreak
 
-Maintenant que nous avons défini la notion de concept, nous pouvons définir les treillis de concepts, également appelés treillis de Galois. Ce treillis se base sur une relation d'ordre entre les concepts exprimée sur un diagramme de Hasse. C'est un diagramme orientés du bas vers le  haut où chaque élément, ici il s'agit du concept, est un n\oe ud et chaque relation d'ordre est un arc.
+Maintenant que nous avons défini la notion de concept, nous pouvons définir les treillis de concepts, également appelés treillis de Galois. Ce treillis se base sur une relation d'ordre entre les concepts exprimée sur un diagramme de Hasse. C'est un diagramme orientés du bas vers le  haut où chaque élément, ici il s'agit du concept, est un n\oe ud et chaque relation d'ordre est une arête.
 
 \begin{definition}[Treillis de concepts]
 Soit deux concepts $c_1 = (O_1, A_1)$ et $c_2 = (O_2, A_2)$, on a $c_1 \leq c_2$ si et seulement si $O_1 \subseteq O_2$ ou $A_1 \supseteq A_2$.
@@ -273,7 +273,7 @@ Dans la figure \ref{hasse_filtres_ideaux} nous avons $\uparrow \! a = {a, b, c}$
 
 \section{Treillis}
 
-Un treillis est un ensemble ordonné $(T, \leq)$ sur lequel on définit pour chaque tuple d'éléments un supremum ou borne supérieure noté $\vee$ et un infimum ou borne inférieure noté $\wedge$, on le note $(T, \leq, \vee, \wedge)$. Pour trois éléments $x, y, z \in P$ tel que $z \leq x$ et $z \leq y$ on peut dire que $x \vee y = z$. Le second est celui d'infimum ou borne inférieure noté $\wedge$. Et de la même façon pour trois éléments $x, y, z \in P$ tel que $x \leq z$ et $y \leq z$ on peut dire que $x \wedge y = z$. Lorsqu'un élément est la borne supérieure (resp. inférieure) de tous les autres éléments on dit qu'il ferme le treillis par les supremums (resp. infimums), on note cet élément $\top$ (resp.$\bot$).
+Un treillis est un ensemble ordonné $(T, \leq)$ sur lequel on définit pour chaque tuple d'éléments un supremum ou borne supérieure noté $\vee$ et un infimum ou borne inférieure noté $\wedge$, on le note $(T, \leq, \vee, \wedge)$. Pour trois éléments $x, y, z \in T$ tel que $z \leq x$ et $z \leq y$ on peut dire que $x \vee y = z$. Le second est celui d'infimum ou borne inférieure noté $\wedge$. Et de la même façon pour trois éléments $x, y, z \in P$ tel que $x \leq z$ et $y \leq z$ on peut dire que $x \wedge y = z$. Lorsqu'un élément est la borne supérieure (resp. inférieure) de tous les autres éléments on dit qu'il ferme le treillis par les supremums (resp. infimums), on note cet élément $\top$ (resp.$\bot$).
 
 \begin{definition}[Treillis]
 Soit un treillis $(T, \leq, \vee, \wedge)$ :
@@ -283,13 +283,14 @@ Soit un treillis $(T, \leq, \vee, \wedge)$ :
 \end{itemize}
 \end{definition}
 
-Nous définitions également la notion de sous treillis correspondant à prendre une partie des éléments d'un treillis tout en gardant la même relation d'ordre entre eux. On parle de plongement d'un treillis dans un autre lorsque le premier peut être retrouvé comme sous treillis du second.
+Nous définissons également la notion de sous treillis correspondant à un sous ensemble des éléments d'un treillis, et qui vérifient les mêmes conditions définies précédemment.
 
 \begin{definition}[Sous treillis]
-Soit un treillis $(T, \leq, \vee, \wedge)$ et son sous treillis $(T_S, \leq_S, \vee, \wedge)$ si et seulement si :
+Soit un treillis $(T, \leq, \vee, \wedge)$, $(T_S, \leq_S, \vee_S, \wedge_S)$ est son sous-treillis si et seulement si :
 \begin{itemize}
 	\item $T_S \subseteq T$
-	\item $\forall x, y \in T_S$, $x \leq y \Rightarrow x \leq_S y$
+	\item $\forall x, y \in T_S$, $\exists z \in T_S : x \vee_S y = z$
+	\item $\forall x, y \in T_S$, $\exists z \in T_S : x \wedge_S y = z$
 \end{itemize}
 \end{definition}
 
@@ -330,7 +331,7 @@ Sur notre exemple en figure \ref{treillis_sup_inf} nous avons $a = b \vee c$, $d
 	\label{treillis_sup_inf}
 \end{figure}
 
-Un élément qui est pas le supremum (resp. infimum) d'autres éléments est un $\vee$-irréductible (resp. $\wedge$-irréductible) et on note l'ensemble de ces élément $J(T)$ (resp. $M(T)$). Bien que le $\top$ et le $\bot$ soient des irréductibles, il est commun de ne pas toujours les prendre en considération, nous ne les prendront pas non plus dans ce rapport, il sera précisé lorsqu'ils le seront.
+Un élément qui est pas le supremum (resp. infimum) d'autres éléments est un $\vee$-irréductible (resp. $\wedge$-irréductible) et on note l'ensemble de ces élément $J(T)$ (resp. $M(T)$). Bien que le $\top$ et le $\bot$ soient des irréductibles, il est commun de les considérer comme particuliers, par exemple les contextes réduits ne font apparaitre que les irréductibles dans les objets et les attributs à l'exeption du $\bot$ et du $\top$..
 
 \begin{definition}[$\vee$-irreductible et $\wedge$-irreductible]
 Soit un treillis $(T, \leq, \vee, \wedge)$, $x, y, z \in T$ :
@@ -340,7 +341,7 @@ Soit un treillis $(T, \leq, \vee, \wedge)$, $x, y, z \in T$ :
 \end{itemize}
 \end{definition}
 
-Jusqu'à présent nous utilisions des labels sur la totalité des n\oe uds, par la suite nous en metteront uniquement sur ceux importants dont les irréductibles. Dans cet objectif, nous utiliserons des lettres (resp. chiffres) pour les $\vee$-irréductibles (resp. $\wedge$-irréductible), de même que les labels $\top$ et $\bot$. Sur l'exemple de la figure \ref{hasse_irr} les irréductibles sont représentés en noir, d'abord les $\vee$-irréductibles puis les $\wedge$-irréductibles.
+Jusqu'à présent nous utilisions des labels sur la totalité des n\oe uds, par la suite nous en mettront uniquement sur ceux importants pour la situation illustrée, dont les irréductibles. Dans cet objectif, nous utiliserons des lettres (resp. chiffres) pour les $\vee$-irréductibles (resp. $\wedge$-irréductible), de même que les labels $\top$ et $\bot$. Sur l'exemple de la figure \ref{hasse_irr} les irréductibles sont représentés en noir, d'abord les $\vee$-irréductibles puis les $\wedge$-irréductibles.
 
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
@@ -387,7 +388,7 @@ Jusqu'à présent nous utilisions des labels sur la totalité des n\oe uds, par 
 	\label{hasse_irr}
 \end{figure}
 
-Il existe une catégorie de treillis appelée treillis distributif dont la particularité d'avoir la distributivité des opérations $\vee$ et $\wedge$. Pour tout $x, y, z \in T$ on a $x \vee (y \wedge z) = (x \wedge y) \vee (x \wedge z)$ et $x \wedge (y \vee z) = (x\vee y) \wedge (x \vee z)$. Cette propriété transparait à travers trois conditions équivalentes qui permettent d'attester ou non de la distributivité du treillis permettant ainsi d'utiliser la plus adaptée dans une situation donnée. L'une des façons les plus rapide pour montrer visuellement la non distributivité et de mettre en évidence une apparition du treillis $N_5$ ou $M_3$ qui sont respectivement en figure \ref{n5} et \ref{m3}.
+Il existe une catégorie de treillis appelée treillis distributif dont la particularité est d'avoir la distributivité des opérations $\vee$ et $\wedge$. Pour tout $x, y, z \in T$ on a $x \vee (y \wedge z) = (x \wedge y) \vee (x \wedge z)$ et $x \wedge (y \vee z) = (x\vee y) \wedge (x \vee z)$. Cette propriété transparait à travers trois conditions équivalentes qui permettent d'attester ou non de la distributivité du treillis permettant ainsi d'utiliser la plus adaptée dans une situation donnée. L'une des façons les plus rapide pour montrer visuellement la non distributivité et de mettre en évidence une apparition du treillis $N_5$ ou $M_3$ qui sont respectivement en figure \ref{N5} et \ref{M3}.
 
 \begin{definition}[Treillis distributif]
 Un treillis $(T, \leq, \vee, \wedge)$ est distributif si et seulement si au moins l'une des trois conditions équivalentes suivantes est vérifiée :
@@ -442,7 +443,7 @@ Un treillis $(T, \leq, \vee, \wedge)$ est distributif si et seulement si au moin
 
 \section{Graphe médian}
 
-Un graphe est un diagramme composé de n\oe uds et d'arcs. Pour chaque triplets de n\oe uds, on définie l'ensemble des n\oe uds formant sur les plus courts chemins entre les éléments du triplet. Si pour tous les triplets du graphe cet ensemble ne contient qu'un unique n\oe ud, noté n\oe ud médian, alors on dit que ce graphe est médian. Considérons deux graphes construit à partir de $N_5$ en figure \ref{graphe_n5} et $M_3$ en figure \ref{graphe_m3}.
+Un graphe est un diagramme composé de n\oe uds et d'arêtes. Pour chaque triplets de n\oe uds, on définie l'ensemble des n\oe uds formant les plus courts chemins entre les éléments du triplet. Si pour tous les triplets du graphe cet ensemble ne contient qu'un unique n\oe ud, noté n\oe ud médian, alors on dit que ce graphe est médian. Considérons deux graphes construit à partir de $N_5$ en figure \ref{graphe_n5} et $M_3$ en figure \ref{graphe_m3}.
 
 \smallbreak
 

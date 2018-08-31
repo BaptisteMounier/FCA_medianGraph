@@ -2,7 +2,7 @@
 
 \section{Implémentation}
 
-Le stage s'est déroulé en deux phases. La première consistait à implémenter la méthode détaillé dans la section précédente afin de la tester sur des cas de façon automatique. La seconde partie du stage avait pour but d'améliorer la méthode afin de prendre en compte le problème de fusion des n\oe uds. Avec en parallèle un renforcement de la compréhension du domaine à travers des articles sur l'existant et des discussions avec l'équipe.
+Le stage s'est déroulé en deux phases. La première consistait à implémenter la méthode détaillée dans la section précédente afin de la tester sur des cas de façon automatique. La seconde partie du stage avait pour but d'améliorer la méthode afin de prendre en compte le problème de fusion des n\oe uds. Avec en parallèle un renforcement de la compréhension du domaine à travers des articles sur l'existant et des discussions avec l'équipe.
 
 \bigbreak
 
@@ -206,7 +206,7 @@ Nous pouvons l'illustrer sur les figures précédentes. Les n\oe uds 10 et 12 de
 
 \bigbreak
 
-Avec la mise en place de cette fusion des n\oe uds, nous obtenons un nouveau workflow détaillé en figures \ref{workflow_2} et \ref{workflow_algo}.
+Avec la mise en place de cette fusion des n\oe uds, nous obtenons un nouveau workflow détaillé en figure \ref{workflow_2}.
 
 \begin{figure}[H]
 	\begin{center}
@@ -301,7 +301,7 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 	\label{clav7_1}
 \end{figure}
 
-À ce stade, plusieurs correctifs ont été envisagé. Le premier est de faire une boucle de traitement où on refait tout le processus tant que tous les treillis d'atome ne sont pas disctributif, comme le montre la figure \ref{clav7_2} représentant la seconde itération, c'est la solution utilisé à l'heure actuelle. La figure \ref{workflow_boucle} représente le nouveau workflow global et la figure \ref{workflow_median} détaille le comportement du bloc \guillemotleft{} médian ? \guillemotright{}.
+À ce stade, plusieurs correctifs ont été envisagé. Le premier est de faire une boucle de traitement où on refait tout le processus tant que tous les treillis d'atome ne sont pas disctributif, comme le montre la figure \ref{clav7_2} représentant la seconde itération, c'est la solution utilisée à l'heure actuelle. La figure \ref{workflow_boucle} représente le nouveau workflow global et la figure \ref{workflow_median} détaille le comportement du bloc \guillemotleft{} médian ? \guillemotright{}.
 
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
@@ -423,7 +423,7 @@ Nous avons rencontré un problème qui porte sur des cas où un passage complet 
 
 \subsection{Apparition de chaines}
 
-Le second problème qui est apparu ne se pose que sur un seul cas actuellement. Ce n'est pas que la méthode ne fonctionne plus, mais elle donne en résultat un treillis bien plus gros que celui espéré. Il provoque à un moment donné la création d'un chaine suite à la fusion de n\oe uds qui va par la suite dégénéré en un sous treillis non désiré. Alors qu'avec une analyse du cas particulier, nous pouvons couper court à ce probème. Voici en figure \ref{pbl_v6_base} le treillis de départ et en figure \ref{pbl_v6_souhait} le treillis souhaité et obtenu manuellement.
+Le second problème qui est apparu ne se pose que sur un seul cas actuellement. Ce n'est pas que la méthode ne fonctionne plus, mais elle donne en résultat un treillis bien plus gros que celui espéré. Il provoque à un moment donné la création d'une chaine suite à la fusion de n\oe uds qui va par la suite dégénérer en un sous treillis non désiré. Alors qu'avec une analyse du cas particulier, nous pouvons couper court à ce probème. Voici en figure \ref{pbl_v6_base} le treillis de départ et en figure \ref{pbl_v6_souhait} le treillis souhaité et obtenu manuellement.
 
 
 \begin{figure}[H]
@@ -458,7 +458,7 @@ Le second problème qui est apparu ne se pose que sur un seul cas actuellement. 
 			\path [line] (F) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Treillis du problème de chaine, départ}
+	\caption{Treillis du problème de chaine : départ}
 	\label{pbl_v6_base}
 \end{figure}
 	
@@ -498,7 +498,7 @@ Le second problème qui est apparu ne se pose que sur un seul cas actuellement. 
 			\path [line] (F) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Treillis du problème de chaine, souhaité}
+	\caption{Treillis du problème de chaine : souhaité}
 	\label{pbl_v6_souhait}
 \end{figure}
 
@@ -549,7 +549,7 @@ Les figures \ref{pbl_v6_dist1} à \ref{pbl_v6_dist3_fusion} représentent les tr
 			\path [line] (F) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Treillis du problème de chaine, 1ère distributivité}
+	\caption{Treillis du problème de chaine : 1ère distributivité}
 	\label{pbl_v6_dist1}
 	\end{minipage}
 	\begin{minipage}{0.5\textwidth}
@@ -590,7 +590,7 @@ Les figures \ref{pbl_v6_dist1} à \ref{pbl_v6_dist3_fusion} représentent les tr
 			\path [line] (F) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Treillis du problème de chaine, 1ère distributivité avec fusion}
+	\caption{Treillis du problème de chaine : 1ère distributivité avec fusion}
 	\label{pbl_v6_dist1_fusion}
 	\end{minipage}
 \end{figure}
@@ -659,7 +659,7 @@ Les figures \ref{pbl_v6_dist1} à \ref{pbl_v6_dist3_fusion} représentent les tr
 			\path [line] (x11) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Treillis du problème de chaine, 2nde distributivité}
+	\caption{Treillis du problème de chaine : 2nde distributivité}
 	\label{pbl_v6_dist2}
 	\end{minipage}
 	\begin{minipage}{0.5\textwidth}
@@ -717,7 +717,7 @@ Les figures \ref{pbl_v6_dist1} à \ref{pbl_v6_dist3_fusion} représentent les tr
 			\path [line] (x11) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Treillis du problème de chaine, 2nde distributivité avec fusion}
+	\caption{Treillis du problème de chaine : 2nde distributivité avec fusion}
 	\label{pbl_v6_dist2_fusion}
 	\end{minipage}
 \end{figure}
@@ -803,7 +803,7 @@ Les figures \ref{pbl_v6_dist1} à \ref{pbl_v6_dist3_fusion} représentent les tr
 			\path [line] (x17) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Treillis du problème de chaine, 3ème distributivité}
+	\caption{Treillis du problème de chaine : 3ème distributivité}
 	\label{pbl_v6_dist3}
 	\end{minipage}
 	\begin{minipage}{0.5\textwidth}
@@ -869,12 +869,12 @@ Les figures \ref{pbl_v6_dist1} à \ref{pbl_v6_dist3_fusion} représentent les tr
 			\path [line] (x17) -- (top);
 		\end{tikzpicture}
 	\end{center}
-	\caption{Treillis du problème de chaine, 3ème distributivité avec fusion}
+	\caption{Treillis du problème de chaine : 3ème distributivité avec fusion}
 	\label{pbl_v6_dist3_fusion}
 	\end{minipage}
 \end{figure}
 
-Comme nous pouvons le voir, cela donne un treillis plutôt éloigné de ce qui est souhaité. L'idéal est de trouver réellement le moment exacte et la raison exacte du soucis. Faute d'une meilleure solution à ce moment, pour contourner ce problème j'ai ajouté une condition visant à épurer les situations de chaines inutiles, en fusionnant vers le bas les n\oe uds n'ayant qu'un unique n\oe ud en ouverture et n'étant la couverture que d'un unique n\oe ud et sans être l'un des n\oe uds du treillis de base. Cette 'épuration est effectué juste après la fusion. 
+Comme nous pouvons le voir, cela donne un treillis plutôt éloigné de ce qui est souhaité. L'idéal est de trouver réellement le moment exacte et la raison exacte du soucis. Faute d'une meilleure solution à ce moment, pour contourner ce problème j'ai ajouté une condition visant à épurer les situations de chaines inutiles, en fusionnant vers le bas les n\oe uds n'ayant qu'un unique n\oe ud en ouverture et n'étant la couverture que d'un unique n\oe ud et sans être l'un des n\oe uds du treillis de base. Cette épuration est effectuée juste après la fusion. 
 
 \section{Ouvertures}
 
@@ -884,7 +884,7 @@ Comme nous l'avons vu précédemment, nous devons boucler sur l'algorithme afin 
 
 \smallbreak
 
-Pour la première, il s'agit de faire la fusion pas à pas. On execute la méthode cla différemment. On extrait les contextes des treillis des atomes puis on effectue pour chacun d'eux la transformation en contexte de treillis distributif et on l'assemble avec le contexte global et c'est à ce moment où on fait les fusions si besoin avant de passer au contexte du treillis de l'atome suivant. Cette façon de faire peut permettre de gagner du temps sur la phase de la fusion mais en ferra perdre lors de l'étape de transformation en treillis distributif. Je ne peux pas déterminer laquelle est la meilleure à l'heure actuelle, reste à voir si à l'avenir de nouveaux problèmes se posent et si cette nouvelle méthode peut apporter des réponses.
+Pour la première, il s'agit de faire la fusion pas à pas. On execute la méthode différemment. On extrait les contextes des treillis des atomes puis on effectue pour chacun d'eux la transformation en contexte de treillis distributif et on l'assemble avec le contexte global et c'est à ce moment où on fait les fusions si besoin avant de passer au contexte du treillis de l'atome suivant. Cette façon de faire peut permettre de gagner du temps sur la phase de la fusion mais en ferra perdre lors de l'étape de transformation en treillis distributif. Je ne peux pas déterminer laquelle est la meilleure à l'heure actuelle, reste à voir si à l'avenir de nouveaux problèmes se posent et si cette nouvelle méthode peut apporter des réponses.
 
 \smallbreak
 
@@ -892,7 +892,7 @@ La seconde est de faire une boucle sur tout le c\oe ur du processus et de faire 
 
 \subsection{Le cas des chaines}
 
-Malheureusement, cette partie n'est pas fiable et résulte principalement d'une intuition basé sur un objectif à atteindre et donnant lieu à un raccourci par rapport à une propriété ou à un traitement non mis à découvert. C'est sous doute la principale du programme à garder sous surveillance et à chercher à améliorer.
+Malheureusement, cette partie n'est pas fiable et résulte principalement d'une intuition basée sur un objectif à atteindre et donnant lieu à un raccourci par rapport à une propriété ou à un traitement non mis à découvert. C'est sous doute la principale du programme à garder sous surveillance et à chercher à améliorer.
 
 \subsection{Optimalité du treillis}
 
